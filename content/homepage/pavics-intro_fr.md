@@ -4,7 +4,7 @@ d'observations, de projections climatiques et de réanalyse. Il offre aussi
 un environnement de programmation Python permettant d'analyser ces données 
 sans avoir à les télécharger. Cet environnement de travail est constamment 
 mis à jour avec les librairies les plus performantes pour l'analyse de 
-données climatiques, en plus d'assurer un contrôle de qualité sur les 
+données climatiques. De plus, Ouranos assure un contrôle de qualité sur les 
 données offertes et leur métadonnées.
 
 ---
