@@ -11,6 +11,10 @@
     background-image: url(assets/images/background_climate_analysis.jpg)
   }
 
+  #hydrology {
+    background-image: url(assets/images/background_hydrology.jpg)
+  }
+
   .band {
     color: white;
     background-repeat: no-repeat;
@@ -22,6 +26,11 @@
     padding-bottom: 60px;
     font-size: 19px;
     text-align: center;
+  }
+
+  .band a {
+    color: white;
+    text-decoration: underline;
   }
 </style>
 
@@ -77,6 +86,25 @@
       <li>Climate indicator calculations</li>
       <li>Ensemble statistics & metrics</li>
       <li>Data visualization</li>
+    </ul>
+  </div>
+</div>
+
+<div class="band" id="hydrology">
+  <div class="container">
+    <h1>Hydrology</h1>
+    <p>
+      PAVICS offers a suite of tools to streamline the analysis of climate change's impacts on hydrology. 
+      It relies on <a href="http://raven.uwaterloo.ca/">Raven</a>, a hydrological modeling framework that lets hydrologists define
+      custom hydrologiacl models or emulate existing ones. These models are minimally driven by daily time
+       series of temperature and precipitation, and return series of flow and state variables such as snow pack and soil water.     
+    </p>
+    <ul style="list-style-position: inside;">
+      <li>simulate stream flow using one of four global models: HMETS, GR4J-CemaNeige, HBV-EC and MOHYSE;</li>
+      <li>run frequency analyses on flow series;</li>
+      <li>extract physiographic properties of watersheds; </li>
+      <li>estimate model parameters in ungauged basins;</li>
+      <li>make hydrological predictions from numerical weather forecasts. </li>
     </ul>
   </div>
 </div>
