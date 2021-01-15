@@ -1,0 +1,81 @@
+
+<style>
+  /* Make the nav-link icons large, on their own line and centered */
+  .nav-link i {
+    display: block;
+    font-size: 20pt;
+    margin-bottom: 10px;
+    color: #AAA;
+  }
+  .nav-link.active i {
+    color: black;
+  }
+  .nav-link { 
+    text-align: center;
+  }
+  a.nav-link {
+    color: #AAA;
+  }
+  </style>
+
+<div class="container">
+
+  <h1>CLIMATE ANALYSIS</h1>
+
+  <ul class="nav nav-tabs" id="myTab">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#a">
+        <i class="fas fa-search"></i>
+        1. Access Data
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#b">
+        <i class="fas fa-cut"></i>
+        2. Subsetting
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#c">
+        <i class="fas fa-cogs"></i>
+        3. Climate indices
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#d">
+        <i class="fas fa-chart-line"></i>
+        4. Ensemble statistics
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#e">
+        <i class="fas fa-map"></i>
+        5. Visualization
+      </a>
+    </li>
+  </ul>
+
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane show active" id="a">
+      Access Data
+    </div>
+
+    <div class="tab-pane" id="b">
+      Subsetting
+    </div>
+
+    <div class="tab-pane" id="c">
+      Climate indices
+    </div>
+
+    <div class="tab-pane" id="d">
+      Ensemble statistics
+    </div>
+
+    <div class="tab-pane" id="e">
+      Visualization
+    </div>
+  </div>
+
+</div>

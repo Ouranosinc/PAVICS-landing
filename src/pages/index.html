@@ -1,0 +1,109 @@
+<style>
+  #pavics {
+    background-image: url(assets/images/background_pavics.jpg)
+  }
+
+  #datasets {
+    background-image: url(assets/images/background_datasets.jpg)
+  }
+
+  #climate_analysis {
+    background-image: url(assets/images/background_climate_analysis.jpg)
+  }
+
+  #hydrology {
+    background-image: url(assets/images/background_hydrology.jpg)
+  }
+
+  .band {
+    color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: bottom;    
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    font-size: 19px;
+    text-align: center;
+  }
+
+  .band a {
+    color: white;
+    text-decoration: underline;
+  }
+</style>
+
+<div class="band" id="pavics">
+  <div class="container">
+    <img src="assets/images/pavics_v.svg" style="margin-bottom: 40px;">
+    <p>
+    PAVICS is a virtual laboratory facilitating the analysis of climate data. 
+    It provides access to several data collections ranging from observations, 
+    climate projections and reanalyses.  It also provides a Python programming 
+    environment to analyze this data without the need to download it.
+    This working environment is constantly updated with the most efficient 
+    libraries for climate data analysis, in addition to ensuring quality 
+    control on the provided data and associated metadata.
+    </p>
+
+    <ul style="list-style-position: inside;">
+      <li>Data and files in netCDF format</li>
+      <li>Metadata following  CF-conventions</li>
+      <li>Parallel computing environment (xarray + dask)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="band" id="datasets">
+  <div class="container">
+    <h1>Datasets</h1>
+    <p>
+      PAVICS provides data access via a dedicated THREDDS server
+      providing access to a growing variety of climate and weather related datasets including:
+    </p>
+
+    <ul style="list-style-position: inside;">
+      <li>Future climate change projections </li>
+      <li>Observational data (station & gridded)</li>
+      <li>Reanalysis data</li>
+      <li>Weather forecast data</li>
+    </ul>
+  </div>
+</div>
+
+<div class="band" id="climate_analysis">
+  <div class="container">
+    <h1>Climate Analysis</h1>
+    <p>
+      PAVICS provides methods for finding and analysing climate data, offering tools that span
+      the range of common data analysis steps including:
+    </p>
+    <ul style="list-style-position: inside;">
+      <li>Finding and accessing datasets</li>
+      <li>Spatio-temporal subsetting</li>
+      <li>Climate indicator calculations</li>
+      <li>Ensemble statistics & metrics</li>
+      <li>Data visualization</li>
+    </ul>
+  </div>
+</div>
+
+<div class="band" id="hydrology">
+  <div class="container">
+    <h1>Hydrology</h1>
+    <p>
+      PAVICS offers a suite of tools to streamline the analysis of climate change's impacts on hydrology. 
+      It relies on <a href="http://raven.uwaterloo.ca/">Raven</a>, a hydrological modeling framework that lets hydrologists define
+      custom hydrologiacl models or emulate existing ones. These models are minimally driven by daily time
+       series of temperature and precipitation, and return series of flow and state variables such as snow pack and soil water.     
+    </p>
+    <ul style="list-style-position: inside;">
+      <li>simulate stream flow using one of four global models: HMETS, GR4J-CemaNeige, HBV-EC and MOHYSE;</li>
+      <li>run frequency analyses on flow series;</li>
+      <li>extract physiographic properties of watersheds; </li>
+      <li>estimate model parameters in ungauged basins;</li>
+      <li>make hydrological predictions from numerical weather forecasts. </li>
+    </ul>
+  </div>
+</div>
