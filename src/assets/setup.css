@@ -1,0 +1,50 @@
+/* Initially hide content */
+#content { display: none; }
+
+/* Pad main to go below navbar */
+#main { padding-top: 56px; }
+
+/* Backgrounds for sections */
+#pavics {
+  background-image: url(images/background_pavics.jpg);
+  background-position-y: top;
+}
+
+#datasets {
+  background-image: url(images/background_datasets.jpg);
+  background-position-y: top;
+}
+
+#climate_analysis {
+  background-image: url(images/background_climate_analysis.jpg);
+  background-position-y: top;    
+}
+
+#hydrology {
+  background-image: url(images/background_hydrology.jpg);
+}
+
+/* Band on main page */
+.band {
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: bottom;    
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  font-size: 19px;
+  text-align: center;
+}
+
+.band a {
+  color: white;
+}
+
+/* Smaller band (must include .band as well) */
+.band-sm {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+}

@@ -1,4 +1,3 @@
-
 <style>
   /* Make the nav-link icons large, on their own line and centered */
   .nav-link i {
@@ -16,12 +15,28 @@
   a.nav-link {
     color: #AAA;
   }
-  </style>
+
+  /* Remove tab borders */
+  .nav-tabs {
+    border: none;
+    justify-content: center;
+  }
+  .nav-tabs .nav-link {
+    border: none;
+  }
+</style>
+
+<div class="band band-sm" id="climate_analysis">
+  <div class="container">
+    <h1>Climate Analysis</h1>
+    <p>
+      PAVICS provides methods for finding and analysing climate data, offering tools that span
+      the range of common data analysis steps
+    </p>
+  </div>
+</div>
 
 <div class="container">
-
-  <h1>CLIMATE ANALYSIS</h1>
-
   <ul class="nav nav-tabs" id="myTab">
     <li class="nav-item">
       <a class="nav-link active" data-toggle="tab" href="#a">
@@ -55,10 +70,9 @@
     </li>
   </ul>
 
-
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane show active" id="a">
-      Access Data
+      <iframe src="assets/notebooks/PAVICStutorial_ClimateDataAnalysis-1DataAccess.html" frameBorder="0" style="width: 100%; height: 90vh"></iframe>
     </div>
 
     <div class="tab-pane" id="b">
@@ -77,5 +91,4 @@
       Visualization
     </div>
   </div>
-
 </div>

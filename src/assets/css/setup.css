@@ -1,5 +1,0 @@
-/* Initially hide content */
-#content { display: none; }
-
-/* Pad main to go below navbar */
-#main { padding-top: 56px; }
