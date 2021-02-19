@@ -1,5 +1,11 @@
 /* Set up the template including the navbar */
 
+
+/* Autosizes an iframe */
+function autosizeIframe(iframe) {
+  iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+}
+
 $(function() {
   // Load template
   $("body").load("assets/template.html", function() {
@@ -18,3 +24,4 @@ $(function() {
     $("#main").load("pages/" + page)
   })
 })
+

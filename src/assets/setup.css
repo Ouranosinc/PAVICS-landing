@@ -4,6 +4,12 @@
 /* Pad main to go below navbar */
 #main { padding-top: 56px; }
 
+
+/* Always show scrollbar */
+body { 
+  overflow-y: scroll;
+}
+
 /* Backgrounds for sections */
 #pavics {
   background-image: url(images/background_pavics.jpg);
