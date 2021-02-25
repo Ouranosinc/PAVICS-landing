@@ -2,8 +2,24 @@
 
 
 /* Autosizes an iframe */
-function autosizeIframe(iframe) {
-  iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+function autosizeIframes() {
+  // Delay to ensure fully loaded
+  setTimeout(function() {
+    $("iframe").each(function() {
+      // Can't resize if invisible
+      if (!$(this).is(":visible")) {
+        return
+      }
+      if (this.contentWindow.document.body) {
+        this.style.height = (this.contentWindow.document.body.scrollHeight + 20) + 'px';
+      }
+      else {
+        this.onload = () => {
+          this.style.height = (this.contentWindow.document.body.scrollHeight + 20) + 'px';
+        } 
+      }
+    })
+  }, 100)
 }
 
 $(function() {
@@ -21,7 +37,13 @@ $(function() {
     })
 
     // Add content
-    $("#main").load("pages/" + page)
+    $("#main").load("pages/" + page, function() {
+      // Autosize iframes and redo whenever tab is clicked (as invisible ones can't be sized)
+      autosizeIframes()
+      $("a.nav-link").on("click", function() {
+        autosizeIframes()
+      })
+    })
   })
 })
 
