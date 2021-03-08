@@ -5,7 +5,7 @@ import git
 repo = git.Repo('.', search_parent_directories=True)
 repo = Path(repo.git_dir).parent
 run_flag = False
-for nb in [p  for p in Path('.').rglob('*.ipynb') if 'checkpoints' not in p.as_posix()]:
+for nb in [p  for p in Path('.').rglob('*ClimateDataAnalysis*.ipynb') if 'checkpoints' not in p.as_posix()]:
     if run_flag:
         cmd = f"jupyter nbconvert --ExecutePreprocessor.timeout=6000 --to html --execute {nb.as_posix()}"
     else:
