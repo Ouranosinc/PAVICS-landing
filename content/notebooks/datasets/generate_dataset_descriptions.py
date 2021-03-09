@@ -18,10 +18,10 @@ repo = git.Repo('.', search_parent_directories=True)
 repo = Path(repo.git_dir).parent
 
 warnings.simplefilter('ignore')
-pn.extension()
+
 
 intake_path = Path('intake_cats')
-cats = [l for l in list(intake_path.glob('*.json')) if l.name != 'cmip5.json']
+cats = sorted([l for l in list(intake_path.glob('*.json')) if l.name != 'cmip5.json'])
 cat = intake_esm.intake.open_esm_datastore(cats[-1])
 cats
 
@@ -29,12 +29,13 @@ cats
 # bias adjusted
 world = gpd.read_file(
     'https://pavics.ouranos.ca/geoserver/public/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=public:global_admin_boundaries&maxFeatures=50000&outputFormat=application%2Fjson')
-
-c = cats[3]
-cat = intake_esm.intake.open_esm_datastore(c)
-options = list(cat.df['title'].unique())
-options_dict = {"Datasets_1-Climate_Simulations":[o for o in options if 'Ouranos' in o]}
-options_dict['Datasets_1-Climate_Simulations'].extend([o for o in options if 'Ouranos' not in o])
+options_dict = {}
+options_dict['Datasets_1-Climate_Simulations'] = []
+for c in [c for c in cats if 'biasadjusted.json' in c.name]:
+    cat = intake_esm.intake.open_esm_datastore(c)
+    options = list(cat.df['title'].unique())
+    options_dict['Datasets_1-Climate_Simulations'].extend([o for o in options if 'Ouranos' in o])
+    options_dict['Datasets_1-Climate_Simulations'].extend([o for o in options if 'Ouranos' not in o])
 
 options_dict['Datasets_2-Observations'] = []
 for c in [c for c in cats if 'obs.json' in c.name]:
@@ -137,7 +138,7 @@ for o in options_dict.keys():
 
         if set(['lat', 'lon']).issubset(set(list(ds.dims.keys()))):
             v = list(ds.data_vars.keys())
-            map1 = ds[v[0]].isel(time=0).hvplot.image(xlim=xlim, ylim=ylim, datashade=True, cmap='RdBu_r', hover=False,
+            map1 = ds[v[0]].isel(time=0).hvplot(xlim=xlim, ylim=ylim, cmap='RdBu_r', hover=False,
                                                       frame_height=300, frame_width=700) * world.hvplot(c='')
         else:
             vars = list(ds.data_vars)
