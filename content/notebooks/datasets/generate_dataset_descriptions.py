@@ -1,0 +1,171 @@
+from siphon.catalog import TDSCatalog
+import intake_esm
+import xarray as xr
+from pathlib import Path
+from IPython.display import HTML, Markdown
+import panel as pn
+import numpy as np
+import hvplot
+import hvplot.pandas
+import hvplot.xarray
+from bokeh.models.tools import HoverTool
+import pandas as pd
+import geopandas as gpd
+import warnings
+import shutil
+import git
+repo = git.Repo('.', search_parent_directories=True)
+repo = Path(repo.git_dir).parent
+
+warnings.simplefilter('ignore')
+pn.extension()
+
+intake_path = Path('intake_cats')
+cats = [l for l in list(intake_path.glob('*.json')) if l.name != 'cmip5.json']
+cat = intake_esm.intake.open_esm_datastore(cats[-1])
+cats
+
+## Climate simulations - bias adjusted
+# bias adjusted
+world = gpd.read_file(
+    'https://pavics.ouranos.ca/geoserver/public/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=public:global_admin_boundaries&maxFeatures=50000&outputFormat=application%2Fjson')
+
+c = cats[3]
+cat = intake_esm.intake.open_esm_datastore(c)
+options = list(cat.df['title'].unique())
+options_dict = {"Datasets_1-Climate_Simulations":[o for o in options if 'Ouranos' in o]}
+options_dict['Datasets_1-Climate_Simulations'].extend([o for o in options if 'Ouranos' not in o])
+
+options_dict['Datasets_2-Observations'] = []
+for c in [c for c in cats if 'obs.json' in c.name]:
+    cat = intake_esm.intake.open_esm_datastore(c)
+    options_dict['Datasets_2-Observations'].extend(list(cat.df['title'].unique()))
+options_dict
+
+for o in options_dict.keys():
+    print(o)
+    options1 = options_dict[o]
+    title_w = pn.widgets.Select(options=options1, width=600)
+
+
+    # title_w
+    @pn.depends(title_w.param.value)
+    def create_data_summary(dataset=title_w.param.value):
+        df = None
+        for c in cats:
+            cat = intake_esm.intake.open_esm_datastore(c)
+            if len(cat.search(title=dataset).df) > 0:
+                df = cat.search(title=dataset).df
+                break
+        ds = xr.open_dataset(df['path'][0], chunks=dict(time=1))
+        if np.all(ds.lon.values >= 0):
+            lons = ds.lon.values
+            lons[lons >= 180] = lons[lons >= 180] - 360
+            ds = ds.assign_coords(lon=lons)
+        ds = ds.sortby(['lat', 'lon'])
+        xlim = (float(ds.lon.min().values), float(ds.lon.max().values) + .5)
+
+        ylim = (float(ds.lat.min().values), float(ds.lat.max().values))
+
+        lic = ds.attrs['license']
+
+        # bias corr specific info
+        if 'driving_experiment' in df.columns:
+
+            exp1 = [d.split(',') for d in df['driving_experiment'].unique()]
+            exp1 = sorted(list({x for l in exp1 for x in l}))
+        else:
+            exp1 = None
+        if 'project_id' in df.columns and 'processing' in df.columns:
+            prj1 = f"{df['project_id'].unique()[0]} ({df['processing'].unique()[0]})"
+        else:
+            prj1 = None
+
+        w = 175
+
+        ## summary info
+
+        thrds_access = f"https://{'/'.join([p for p in df['path'][0].split('//')[-1].split('/')[0:-1]])}/catalog.html".replace(
+            'dodsC', 'catalog')
+        thrds_xml = thrds_access.replace('.html', '.xml')
+
+        summary = pn.Column(pn.Row(pn.pane.HTML("dataset :", width=w),
+                                   pn.pane.HTML(f'<a href="{thrds_access}" target="_blank">{dataset}<a />', width=600)))
+        summary.append(pn.Row(pn.pane.HTML("thredds catalog :", width=w),
+                              pn.pane.HTML(f'<a href="{thrds_xml}" target="_blank">{thrds_xml}<a />', width=600)))
+        summary.append(pn.Row(pn.pane.HTML("access tutorial :", width=w), pn.pane.HTML(
+            f'<a href="/climate_analysis.html" target="_blank">PAVICS data tutorial<a />')))
+        inst_field = 'institution' if 'institution' in df.columns else 'institute'
+
+        summary.append(pn.Row(pn.pane.HTML(f"{inst_field} :"), pn.pane.HTML(df[inst_field].unique()[0])))
+        if prj1:
+            summary.append(pn.Row(pn.pane.HTML("project (processing level) :", width=w), pn.pane.HTML(prj1)))
+        summary.append(pn.Row(pn.pane.HTML("frequency :", width=w), pn.pane.HTML(df['frequency'].unique()[0])))
+        summary.append(pn.Row(pn.pane.HTML("temporal coverage:", width=w), pn.pane.HTML(
+            f"{ds.time.min().dt.strftime('%Y/%m/%d').values}-{ds.time.max().dt.strftime('%Y/%m/%d').values}")))
+        summary.append(
+            pn.Row(pn.pane.HTML("variables :", width=w), pn.pane.HTML(', '.join(sorted([v for v in ds.data_vars])))))
+        if exp1:
+            summary.append(pn.Row(pn.pane.HTML("driving experiment(s) :", width=w), pn.pane.HTML(', '.join(exp1))))
+
+        out = pn.Tabs(('Summary', summary))
+
+        ## details
+
+        details = pn.Column(pn.Row(pn.pane.HTML('abstract : ', width=w), pn.pane.HTML(ds.attrs['abstract'], width=600)))
+        for check in ['bias_adjust', 'target_data', 'target_ref']:
+            for attr in [attr for attr in ds.attrs if check in attr]:
+                details.append(pn.Row(pn.pane.HTML(f"{attr.replace('_', ' ')}: ", width=w),
+                                      pn.pane.HTML(ds.attrs[attr], width=600)))
+        details.append(
+            pn.Row(pn.pane.HTML('more info : ', width=w), pn.pane.HTML(ds.attrs['dataset_description'], width=600)))
+        out.append(('Details', details))
+
+        ## legal
+        legal = pn.Column(
+            pn.Row(pn.pane.HTML("license type :", width=w), pn.pane.HTML(ds.attrs['license_type'], width=600)))
+        legal.append(pn.Row(pn.pane.HTML("license :", width=w), pn.pane.HTML(ds.attrs['license'], width=600)))
+
+        for check in ['attribution', 'citation', 'terms']:
+            for attr in [attr for attr in ds.attrs if check in attr]:
+                legal.append(pn.Row(pn.pane.HTML(f"{attr.replace('_', ' ')}: ", width=w),
+                                    pn.pane.HTML(ds.attrs[attr], width=600)))
+
+        out.append(('License / Terms of use', legal))
+
+        ## map
+
+        if set(['lat', 'lon']).issubset(set(list(ds.dims.keys()))):
+            v = list(ds.data_vars.keys())
+            map1 = ds[v[0]].isel(time=0).hvplot.image(xlim=xlim, ylim=ylim, datashade=True, cmap='RdBu_r', hover=False,
+                                                      frame_height=300, frame_width=700) * world.hvplot(c='')
+        else:
+            vars = list(ds.data_vars)
+            vars.remove('lat')
+            vars.remove('lon')
+            df1 = ds.drop_vars(vars).isel(time=0).to_dataframe()
+
+            map1 = world.hvplot(c='') * df1.hvplot.points('lon', 'lat', xlim=xlim, ylim=ylim,
+                                                          hover_cols=['station', 'station_name'], frame_height=300,
+                                                          frame_width=700)
+
+        out1 = pn.Column(map1, out)
+        return out1
+
+
+    MAX_WIDTH = 850
+
+    pn.config.sizing_mode = "stretch_width"
+
+    spacer = pn.Spacer(height=0, margin=0)
+    main_content = pn.Column(title_w, create_data_summary, sizing_mode="stretch_width",
+                             max_width=MAX_WIDTH, align="center")
+
+    main_area = pn.Column(
+        spacer,  # TRICK: WONT WORK WITHOUT. YOU CAN SET HEIGHT TO 0 TO NOT TAKE UP HEIGHT
+        main_content,
+        sizing_mode="stretch_both",
+    )
+    main_area.save(f'{o}.html', embed=True)
+    outdir =  repo.joinpath('src/assets/notebooks')
+    shutil.copy(f'{o}.html', outdir.as_posix())
