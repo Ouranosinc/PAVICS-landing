@@ -105,48 +105,48 @@ for o in options_dict.keys():
             'dodsC', 'catalog')
         thrds_xml = thrds_access.replace('.html', '.xml')
 
-        summary = pn.Column(pn.Row(pn.pane.HTML("dataset :", width=w),
-                                   pn.pane.HTML(f'<a href="{thrds_access}" target="_blank">{dataset}<a />', width=600)))
-        summary.append(pn.Row(pn.pane.HTML("thredds catalog :", width=w),
-                              pn.pane.HTML(f'<a href="{thrds_xml}" target="_blank">{thrds_xml}<a />', width=600)))
-        summary.append(pn.Row(pn.pane.HTML("access tutorial :", width=w), pn.pane.HTML(
+        summary = pn.Column(pn.Row(pn.pane.HTML("dataset :",),
+                                   pn.pane.HTML(f'<a href="{thrds_access}" target="_blank">{dataset}<a />',)))
+        summary.append(pn.Row(pn.pane.HTML("thredds catalog :", ),
+                              pn.pane.HTML(f'<a href="{thrds_xml}" target="_blank">{thrds_xml}<a />',)))
+        summary.append(pn.Row(pn.pane.HTML("access tutorial :", ), pn.pane.HTML(
             f'<a href="/climate_analysis.html" target="_blank">PAVICS data tutorial<a />')))
         inst_field = 'institution' if 'institution' in df.columns else 'institute'
 
         summary.append(pn.Row(pn.pane.HTML(f"{inst_field} :"), pn.pane.HTML(df[inst_field].unique()[0])))
         if prj1:
-            summary.append(pn.Row(pn.pane.HTML("project (processing level) :", width=w), pn.pane.HTML(prj1)))
+            summary.append(pn.Row(pn.pane.HTML("project (processing level) :", ), pn.pane.HTML(prj1)))
         if 'frequency' in df.columns:
-            summary.append(pn.Row(pn.pane.HTML("frequency :", width=w), pn.pane.HTML(df['frequency'].unique()[0])))
-        summary.append(pn.Row(pn.pane.HTML("temporal coverage:", width=w), pn.pane.HTML(
+            summary.append(pn.Row(pn.pane.HTML("frequency :", ), pn.pane.HTML(df['frequency'].unique()[0])))
+        summary.append(pn.Row(pn.pane.HTML("temporal coverage:", ), pn.pane.HTML(
             f"{ds.time.min().dt.strftime('%Y/%m/%d').values} - {ds.time.max().dt.strftime('%Y/%m/%d').values}")))
         summary.append(
-            pn.Row(pn.pane.HTML("variables :", width=w), pn.pane.HTML(', '.join(sorted([v for v in ds.data_vars])))))
+            pn.Row(pn.pane.HTML("variables :", ), pn.pane.HTML(', '.join(sorted([v for v in ds.data_vars])))))
         if exp1:
-            summary.append(pn.Row(pn.pane.HTML("driving experiment(s) :", width=w), pn.pane.HTML(', '.join(exp1))))
+            summary.append(pn.Row(pn.pane.HTML("driving experiment(s) :",), pn.pane.HTML(', '.join(exp1))))
 
         out = pn.Tabs(('Summary', summary))
 
         ## details
 
-        details = pn.Column(pn.Row(pn.pane.HTML('abstract : ', width=w), pn.pane.HTML(ds.attrs['abstract'], width=600)))
+        details = pn.Column(pn.Row(pn.pane.HTML('abstract : ', width=w), pn.pane.HTML(ds.attrs['abstract'],)))
         for check in ['bias_adjust', 'target_data', 'target_ref']:
             for attr in [attr for attr in ds.attrs if check in attr]:
-                details.append(pn.Row(pn.pane.HTML(f"{attr.replace('_', ' ')}: ", width=w),
-                                      pn.pane.HTML(ds.attrs[attr], width=600)))
+                details.append(pn.Row(pn.pane.HTML(f"{attr.replace('_', ' ')}: ", ),
+                                      pn.pane.HTML(ds.attrs[attr], )))
         details.append(
-            pn.Row(pn.pane.HTML('more info : ', width=w), pn.pane.HTML(ds.attrs['dataset_description'], width=600)))
+            pn.Row(pn.pane.HTML('more info : ', width=w), pn.pane.HTML(ds.attrs['dataset_description'],)))
         out.append(('Details', details))
 
         ## legal
         legal = pn.Column(
-            pn.Row(pn.pane.HTML("license type :", width=w), pn.pane.HTML(ds.attrs['license_type'], width=600)))
-        legal.append(pn.Row(pn.pane.HTML("license :", width=w), pn.pane.HTML(ds.attrs['license'], width=600)))
+            pn.Row(pn.pane.HTML("license type :", ), pn.pane.HTML(ds.attrs['license_type'], )))
+        legal.append(pn.Row(pn.pane.HTML("license :",), pn.pane.HTML(ds.attrs['license'], )))
 
         for check in ['attribution', 'citation', 'terms']:
             for attr in [attr for attr in ds.attrs if check in attr]:
-                legal.append(pn.Row(pn.pane.HTML(f"{attr.replace('_', ' ')}: ", width=w),
-                                    pn.pane.HTML(ds.attrs[attr], width=600)))
+                legal.append(pn.Row(pn.pane.HTML(f"{attr.replace('_', ' ')}: ", ),
+                                    pn.pane.HTML(ds.attrs[attr], )))
 
         out.append(('License / Terms of use', legal))
 
@@ -155,7 +155,7 @@ for o in options_dict.keys():
         if set(['lat', 'lon']).issubset(set(list(ds.dims.keys()))):
             v = sorted(list(ds.data_vars.keys()), reverse=True)
             map1 = ds[v[0]].isel(time=0).hvplot.image(x='lon',y='lat',xlim=xlim, ylim=ylim, datashade=True, cmap='RdBu_r', hover=False,
-                                                      xlabel='longitude',ylabel='latitude',frame_height=300, frame_width=700) * world.hvplot(c='')
+                                                      xlabel='longitude',ylabel='latitude',frame_height=300, frame_width=750) * world.hvplot(c='')
         else:
             vars = list(ds.data_vars)
             vars.remove('lat')
@@ -164,7 +164,7 @@ for o in options_dict.keys():
 
             map1 = world.hvplot(c='') * df1.hvplot.points('lon', 'lat', xlim=xlim, ylim=ylim,
                                                           hover_cols=['station', 'station_name'], frame_height=300,
-                                                          frame_width=700)
+                                                          frame_width=750)
 
         out1 = pn.Column(map1, out)
         return out1
