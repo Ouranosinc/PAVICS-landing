@@ -41,12 +41,21 @@ options_dict['Datasets_2-Observations'] = []
 for c in [c for c in cats if 'obs.json' in c.name]:
     cat = intake_esm.intake.open_esm_datastore(c)
     options_dict['Datasets_2-Observations'].extend(list(cat.df['title'].unique()))
-options_dict
+
+options_dict['Datasets_3-Reanalysis'] = []
+for c in [c for c in cats if 'reanalysis.json' in c.name]:
+    cat = intake_esm.intake.open_esm_datastore(c)
+    options_dict['Datasets_3-Reanalysis'].extend(list(cat.df['title'].unique()))
+
+options_dict['Datasets_4-forecasts'] = []
+for c in [c for c in cats if 'forecast.json' in c.name]:
+    cat = intake_esm.intake.open_esm_datastore(c)
+    options_dict['Datasets_4-forecasts'].extend(list(cat.df['title'].unique()))
 
 for o in options_dict.keys():
     print(o)
     options1 = options_dict[o]
-    title_w = pn.widgets.Select(options=options1, width=600)
+    title_w = pn.widgets.Select(options=options1)
 
 
     # title_w
@@ -59,6 +68,12 @@ for o in options_dict.keys():
                 df = cat.search(title=dataset).df
                 break
         ds = xr.open_dataset(df['path'][0], chunks=dict(time=1))
+        if 'longitude' in ds.dims:
+            ds = ds.rename({'longitude':'lon'})
+        if 'latitude' in ds.dims:
+            ds = ds.rename({'latitude': 'lat'})
+        if 'member' in ds.dims:
+            ds = ds.isel(member=0)
         if np.all(ds.lon.values >= 0):
             lons = ds.lon.values
             lons[lons >= 180] = lons[lons >= 180] - 360
@@ -101,9 +116,10 @@ for o in options_dict.keys():
         summary.append(pn.Row(pn.pane.HTML(f"{inst_field} :"), pn.pane.HTML(df[inst_field].unique()[0])))
         if prj1:
             summary.append(pn.Row(pn.pane.HTML("project (processing level) :", width=w), pn.pane.HTML(prj1)))
-        summary.append(pn.Row(pn.pane.HTML("frequency :", width=w), pn.pane.HTML(df['frequency'].unique()[0])))
+        if 'frequency' in df.columns:
+            summary.append(pn.Row(pn.pane.HTML("frequency :", width=w), pn.pane.HTML(df['frequency'].unique()[0])))
         summary.append(pn.Row(pn.pane.HTML("temporal coverage:", width=w), pn.pane.HTML(
-            f"{ds.time.min().dt.strftime('%Y/%m/%d').values}-{ds.time.max().dt.strftime('%Y/%m/%d').values}")))
+            f"{ds.time.min().dt.strftime('%Y/%m/%d').values} - {ds.time.max().dt.strftime('%Y/%m/%d').values}")))
         summary.append(
             pn.Row(pn.pane.HTML("variables :", width=w), pn.pane.HTML(', '.join(sorted([v for v in ds.data_vars])))))
         if exp1:
@@ -137,9 +153,9 @@ for o in options_dict.keys():
         ## map
 
         if set(['lat', 'lon']).issubset(set(list(ds.dims.keys()))):
-            v = list(ds.data_vars.keys())
-            map1 = ds[v[0]].isel(time=0).hvplot(xlim=xlim, ylim=ylim, cmap='RdBu_r', hover=False,
-                                                      frame_height=300, frame_width=700) * world.hvplot(c='')
+            v = sorted(list(ds.data_vars.keys()), reverse=True)
+            map1 = ds[v[0]].isel(time=0).hvplot.image(x='lon',y='lat',xlim=xlim, ylim=ylim, datashade=True, cmap='RdBu_r', hover=False,
+                                                      xlabel='longitude',ylabel='latitude',frame_height=300, frame_width=700) * world.hvplot(c='')
         else:
             vars = list(ds.data_vars)
             vars.remove('lat')
