@@ -60,7 +60,8 @@ for o in options_dict.keys():
 
     # title_w
     @pn.depends(title_w.param.value)
-    def create_data_summary(dataset=title_w.param.value):
+    def create_data_summary(dataset=title_w.param.value, type=o):
+        o
         df = None
         for c in cats:
             cat = intake_esm.intake.open_esm_datastore(c)
@@ -118,7 +119,11 @@ for o in options_dict.keys():
             summary.append(pn.Row(pn.pane.HTML("project (processing level) :", ), pn.pane.HTML(prj1)))
         if 'frequency' in df.columns:
             summary.append(pn.Row(pn.pane.HTML("frequency :", ), pn.pane.HTML(df['frequency'].unique()[0])))
-        summary.append(pn.Row(pn.pane.HTML("temporal coverage:", ), pn.pane.HTML(
+        if o == 'Datasets_4-forecasts':
+            summary.append(pn.Row(pn.pane.HTML("temporal coverage:", ), pn.pane.HTML(
+                f"current forecast")))
+        else:
+            summary.append(pn.Row(pn.pane.HTML("temporal coverage:", ), pn.pane.HTML(
             f"{ds.time.min().dt.strftime('%Y/%m/%d').values} - {ds.time.max().dt.strftime('%Y/%m/%d').values}")))
         summary.append(
             pn.Row(pn.pane.HTML("variables :", ), pn.pane.HTML(', '.join(sorted([v for v in ds.data_vars])))))
