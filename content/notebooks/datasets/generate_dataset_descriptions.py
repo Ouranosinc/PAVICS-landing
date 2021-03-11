@@ -10,10 +10,12 @@ import hvplot.pandas
 import hvplot.xarray
 from bokeh.models.tools import HoverTool
 import pandas as pd
+import holoviews as hv
 import geopandas as gpd
 import warnings
 import shutil
 import git
+from shapely.geometry import Polygon
 repo = git.Repo('.', search_parent_directories=True)
 repo = Path(repo.git_dir).parent
 
@@ -29,6 +31,8 @@ cats
 # bias adjusted
 world = gpd.read_file(
     'https://pavics.ouranos.ca/geoserver/public/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=public:global_admin_boundaries&maxFeatures=50000&outputFormat=application%2Fjson')
+world = gpd.GeoDataFrame(geometry=world.simplify(0.05))
+
 options_dict = {}
 options_dict['Datasets_1-Climate_Simulations'] = []
 for c in [c for c in cats if 'biasadjusted.json' in c.name]:
@@ -80,10 +84,16 @@ for o in options_dict.keys():
             lons[lons >= 180] = lons[lons >= 180] - 360
             ds = ds.assign_coords(lon=lons)
         ds = ds.sortby(['lat', 'lon'])
-        xlim = (float(ds.lon.min().values), float(ds.lon.max().values) + .5)
+        xlim = (float(ds.lon.min().values), float(ds.lon.max().values))
 
         ylim = (float(ds.lat.min().values), float(ds.lat.max().values))
 
+        polygon = Polygon([(xlim[0], ylim[0]), (xlim[0], ylim[1]), (xlim[1], ylim[1]), (xlim[1], ylim[0]), (xlim[0], ylim[0])])
+        poly_gdf = gpd.GeoDataFrame([1], geometry=[polygon], crs=world.crs)
+        try:
+            world1 = gpd.clip(world, poly_gdf)
+        except:
+            world1 = world.copy()
         lic = ds.attrs['license']
 
         # bias corr specific info
@@ -158,16 +168,17 @@ for o in options_dict.keys():
         ## map
 
         if set(['lat', 'lon']).issubset(set(list(ds.dims.keys()))):
+
             v = sorted(list(ds.data_vars.keys()), reverse=True)
             map1 = ds[v[0]].isel(time=0).hvplot.image(x='lon',y='lat',xlim=xlim, ylim=ylim, datashade=True, cmap='RdBu_r', hover=False,
-                                                      xlabel='longitude',ylabel='latitude',frame_height=300, frame_width=750) * world.hvplot(c='')
+                                                      xlabel='longitude',ylabel='latitude',frame_height=300, frame_width=750) * world1.hvplot(c='')
         else:
             vars = list(ds.data_vars)
             vars.remove('lat')
             vars.remove('lon')
             df1 = ds.drop_vars(vars).isel(time=0).to_dataframe()
 
-            map1 = world.hvplot(c='') * df1.hvplot.points('lon', 'lat', xlim=xlim, ylim=ylim,
+            map1 = world1.hvplot(c='') * df1.hvplot.points('lon', 'lat', xlim=xlim, ylim=ylim,
                                                           hover_cols=['station', 'station_name'], frame_height=300,
                                                           frame_width=750)
 
