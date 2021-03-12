@@ -30,6 +30,10 @@ body {
   background-image: url(images/background_hydrology.jpg);
 }
 
+#partners {
+  background-image: url(images/background_partners.jpg);
+}
+
 /* Band on main page */
 .band {
   color: white;
@@ -53,4 +57,16 @@ body {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 20px;
+}
+
+#footer {
+  background-color: #222;
+  min-height: 100px;
+  color: #AAA;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#footer a {
+  color: white;
 }
