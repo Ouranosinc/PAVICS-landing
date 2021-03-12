@@ -199,6 +199,7 @@ for o in options_dict.keys():
         main_content,
         sizing_mode="stretch_both",
     )
-    main_area.save(f'{o}.html', embed=True)
+    from bokeh.resources import CDN
+    main_area.save(f'{o}.html', embed=True,resources=CDN)
     outdir =  repo.joinpath('src/assets/notebooks')
     shutil.copy(f'{o}.html', outdir.as_posix())

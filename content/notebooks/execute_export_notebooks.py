@@ -20,7 +20,7 @@ for nb in raven_nbs:
         f.write(r.content)
         f.close()
 
-folders = dict(climate_indicators=False, hydrology=True)
+folders = dict(climate_indicators=False, hydrology=False)
 #run_flag = False #execute notebooks before conversion?
 for folder, run_flag in folders.items():
     for nb in [p  for p in repo.joinpath(f'content/notebooks/{folder}').glob('*.ipynb') if 'checkpoints' not in p.as_posix()]:
