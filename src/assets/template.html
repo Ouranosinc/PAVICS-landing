@@ -8,9 +8,12 @@
   .navbar li.active > a {
     border-bottom: solid 2px red;
   }
+  .nav-link {
+    white-space: nowrap;
+  }
 </style>
 
-<nav class="navbar fixed-top navbar-expand-sm navbar-dark">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark">
   <div class="container">
     <a class="navbar-brand" href="index.html"><img src="assets/images/pavics_no_text.svg" style="height: 45px; top: 7px; position: absolute">
       <span style="padding-left: 49px;">PAVICS</span>
@@ -37,6 +40,21 @@
           <a class="nav-link" href="news.html">News</a>
         </li>
       </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="locale" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            En
+          </a>
+          <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="locale">
+            <a class="dropdown-item" href="TODO">Fr</a>
+          </div>
+        </li>      
+        <li>
+          <a href="https://www.ouranos.ca/" target="_blank">
+            <img src="assets/images/logo-ouranos.png" alt="Logo" style="height: 30px; margin-top: 5px;">
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
@@ -45,6 +63,10 @@
   <!-- Content will be placed here -->
 </div>
 
+<!-- All footer content should go here -->
 <div id="footer">
-  <!-- All footer content should go here -->
+  <div class="container">
+    <div>Contact: <a href="mailto:pavics@ouranos.ca">pavics@ouranos.ca</a></dov>
+    <div>Twitter: <a href="https://twitter.com/PAVICSOuranos" target="_blank">@PAVICSOuranos</a>
+  </div>
 </div>
