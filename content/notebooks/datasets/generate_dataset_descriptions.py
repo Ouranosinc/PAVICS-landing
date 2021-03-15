@@ -170,7 +170,7 @@ for o in options_dict.keys():
         if set(['lat', 'lon']).issubset(set(list(ds.dims.keys()))):
 
             v = sorted(list(ds.data_vars.keys()), reverse=True)
-            map1 = ds[v[0]].isel(time=0).hvplot.image(x='lon',y='lat',xlim=xlim, ylim=ylim, datashade=True, cmap='RdBu_r', hover=False,
+            map1 = ds[v[0]].isel(time=0).hvplot.image(x='lon',y='lat',xlim=xlim, ylim=ylim, rasterize=True, cmap='RdBu_r', hover=False,
                                                       xlabel='longitude',ylabel='latitude',frame_height=300, frame_width=750) * world1.hvplot(c='')
         else:
             vars = list(ds.data_vars)
@@ -200,6 +200,6 @@ for o in options_dict.keys():
         sizing_mode="stretch_both",
     )
     from bokeh.resources import CDN
-    main_area.save(f'{o}.html', embed=True,resources=CDN)
+    main_area.save(f'{o}.html', embed=True, resources=CDN)
     outdir =  repo.joinpath('src/assets/notebooks')
     shutil.copy(f'{o}.html', outdir.as_posix())
