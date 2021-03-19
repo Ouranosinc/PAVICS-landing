@@ -14279,7 +14279,7 @@ a.anchor-link {
 </ul>
 <p>We re-use part of the data-access and subset tutorials to select a dataset from cb-oura-1.0 datasets from the PAVICS THREDDS server.</p>
 <hr>
-<p><em>NOTE : To run this series of tutorials in the PAVICS jupyterhub, notebooks should be copied into your 'writable-workspace' directory</em></p>
+<p><em>NOTE : To run this series of tutorials in the PAVICS JupyterLab, notebooks and tutorial data should be copied into your 'writable-workspace' directory.</em></p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15871,7 +15871,7 @@ Attributes:
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Advanced-Topics">Advanced Topics<a class="anchor-link" href="#Advanced-Topics">&#182;</a></h3><p><a id='multiproc'></a></p>
-<h4 id="Parallel-processing-of-the-entire-ensemble">Parallel processing of the entire ensemble<a class="anchor-link" href="#Parallel-processing-of-the-entire-ensemble">&#182;</a></h4><p>xclim uses <code>xarray</code> and its built-in support of <code>Dask</code> parallelization for most of its operations allowing for simple configuration of climate indicator calculation employing <a href="http://xarray.pydata.org/en/stable/dask.html" target="_blank">parallel computing</a>. Here we show a simple workflow to calculate climate indicator(s) for all simulations (n=22) in the <code>cb-oura-1.0</code> ensemble.  The calculations are computed in parralel via a <code>dask.distributed</code> client of worker processes.</p>
+<h4 id="Parallel-processing-of-the-entire-ensemble">Parallel processing of the entire ensemble<a class="anchor-link" href="#Parallel-processing-of-the-entire-ensemble">&#182;</a></h4><p>xclim uses <code>xarray</code> and its built-in support of <code>Dask</code> parallelization for most of its operations allowing for simple configuration of climate indicator calculation employing <a href="http://xarray.pydata.org/en/stable/dask.html" target="_blank">parallel computing</a>. Here we show a simple workflow to calculate climate indicators for all simulations (n=22) in the <code>cb-oura-1.0</code> ensemble.   From a user standpoint simply specifying the <code>chunks</code> argument when opening the data via <code>xarray.open_dataset</code> will autmomatically result in dask being employed.  In this case, the calculations are additionally computed in parrallel via a <code>dask.distributed</code> client of worker processes instead of the default scheduler.</p>
 <p><em><a href="#top">return to top of page</a></em></p>
 
 </div>
@@ -15912,19 +15912,23 @@ Attributes:
     <span class="k">return</span> <span class="n">dsout</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">compute</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
                
 <span class="c1"># Set up a dictionary of xclim.atmos calculations to perform.</span>
-<span class="c1"># In the example we will calculate two seasonal frequency (freq=&#39;QS-DEC&#39;) indicators</span>
+<span class="c1"># In the example we will calculate two indicators with seasonal and yearly frequency (freq=&#39;QS-DEC&#39; and &#39;YS&#39;)</span>
 <span class="n">calcs</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># calculation 1 : seasonal number of days with tmax above 27 degC</span>
 <span class="n">calcs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">atmos</span><span class="o">.</span><span class="n">tx_days_above</span><span class="p">,</span> 
                   <span class="n">args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">thresh</span><span class="o">=</span><span class="s1">&#39;27 degC&#39;</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;QS-DEC&#39;</span><span class="p">))</span>
             <span class="p">)</span>
-
+<span class="n">calcs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">atmos</span><span class="o">.</span><span class="n">tx_days_above</span><span class="p">,</span> 
+                  <span class="n">args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">thresh</span><span class="o">=</span><span class="s1">&#39;27 degC&#39;</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;YS&#39;</span><span class="p">))</span>
+            <span class="p">)</span>
 <span class="c1"># calculation 2: seasonal average maximum daily temperature</span>
 <span class="n">calcs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">atmos</span><span class="o">.</span><span class="n">tx_mean</span><span class="p">,</span> 
                   <span class="n">args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;QS-DEC&#39;</span><span class="p">))</span>
             <span class="p">)</span>
-
+<span class="n">calcs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">atmos</span><span class="o">.</span><span class="n">tx_mean</span><span class="p">,</span> 
+                  <span class="n">args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;YS&#39;</span><span class="p">))</span>
+            <span class="p">)</span>
 
 <span class="c1"># Parallel computing part...</span>
 <span class="k">with</span> <span class="n">Client</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
