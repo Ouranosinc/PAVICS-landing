@@ -15919,12 +15919,16 @@ Attributes:
 <span class="n">calcs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">atmos</span><span class="o">.</span><span class="n">tx_days_above</span><span class="p">,</span> 
                   <span class="n">args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">thresh</span><span class="o">=</span><span class="s1">&#39;27 degC&#39;</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;QS-DEC&#39;</span><span class="p">))</span>
             <span class="p">)</span>
-
+<span class="n">calcs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">atmos</span><span class="o">.</span><span class="n">tx_days_above</span><span class="p">,</span> 
+                  <span class="n">args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">thresh</span><span class="o">=</span><span class="s1">&#39;27 degC&#39;</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;YS&#39;</span><span class="p">))</span>
+            <span class="p">)</span>
 <span class="c1"># calculation 2: seasonal average maximum daily temperature</span>
 <span class="n">calcs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">atmos</span><span class="o">.</span><span class="n">tx_mean</span><span class="p">,</span> 
                   <span class="n">args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;QS-DEC&#39;</span><span class="p">))</span>
             <span class="p">)</span>
-
+<span class="n">calcs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">atmos</span><span class="o">.</span><span class="n">tx_mean</span><span class="p">,</span> 
+                  <span class="n">args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;YS&#39;</span><span class="p">))</span>
+            <span class="p">)</span>
 
 <span class="c1"># Parallel computing part...</span>
 <span class="k">with</span> <span class="n">Client</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
