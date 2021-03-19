@@ -15,8 +15,53 @@ $(function() {
       }
     })
 
+    // Creates and activates any iframes. Use data-iframe to load an iframe in tab.
+    // Use data-pavics-link to open in PAVICS
+    function activateIframe() {
+      $(".tab-pane.active").each(function(index, item) {
+        if ($(item).data("iframe")) {
+          html = ''
+
+          // Add pavics link
+          if ($(item).data("pavics-link")) {
+            html += '<div class="open-in-pavics">'
+            html += '  <a target="_blank" href="' + $(item).data("pavics-link") + '">'
+            html += '   Open this notebook in PAVICS'
+            html += '  </a>'
+            html += '</div>'
+          }
+
+          // Add spinner and iframe
+          html += '<img id="spinner" style="width: 100%" src="assets/images/loading-image.gif">'
+
+          html += '<iframe src="' + $(item).data("iframe") + '" frameBorder="0" style="width: 100%; height: 110vh" onload="finishLoadingIframe()"></iframe>'
+          $(item).html(html)
+
+          // Prevent loading twice
+          $(item).data("iframe", "")
+        }
+      })
+    }
+
+    // Called after loading of page is complete
+    function afterLoad() {
+      // Activate initial iframe
+      activateIframe()
+
+      // Listen for tab changes
+      $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        activateIframe()
+      })
+   }
+
+
     // Add content
-    $("#main").load("pages/" + page)
+    $("#main").load("pages/" + page, afterLoad)
   })
 })
 
+/* Called when iframe is finished loading */
+function finishLoadingIframe() {
+  // Hide spinner
+  $("#spinner").remove()
+}
