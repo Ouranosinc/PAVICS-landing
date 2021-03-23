@@ -2,8 +2,17 @@
 
 
 $(function() {
+  // Determine template
+  var template
+  if (window.location.pathname.match(/_fr\.html/)) {
+    template = "assets/template_fr.html"
+  }
+  else {
+    template = "assets/template.html"
+  }
+
   // Load template
-  $("body").load("assets/template.html", function() {
+  $("body").load(template, function() {
     // Get current page url
     const page = window.location.pathname.split("/")[window.location.pathname.split("/").length - 1]
 
@@ -16,7 +25,7 @@ $(function() {
     })
 
     // Creates and activates any iframes. Use data-iframe to load an iframe in tab.
-    // Use data-pavics-link to open in PAVICS
+    // Use data-pavics-link to open in PAVICS. Link text goes in data-pavics-link-text
     function activateIframe() {
       $(".tab-pane.active").each(function(index, item) {
         if ($(item).data("iframe")) {
@@ -26,7 +35,7 @@ $(function() {
           if ($(item).data("pavics-link")) {
             html += '<div class="open-in-pavics">'
             html += '  <a target="_blank" href="' + $(item).data("pavics-link") + '">'
-            html += '   Open this notebook in PAVICS'
+            html += $(item).data("pavics-link-text")
             html += '  </a>'
             html += '</div>'
           }
@@ -64,4 +73,21 @@ $(function() {
 function finishLoadingIframe() {
   // Hide spinner
   $("#spinner").remove()
+}
+
+/** Switch to the other language */
+function switchLanguage() {
+  const path = window.location.pathname
+  if (path == "/") {
+    window.location.href = "/index_fr.html"
+    return
+  }
+
+  // English is just French without _fr
+  if (path.match(/_fr\.html/)) {
+    window.location.href = path.replace("_fr.html", ".html")
+    return
+  }
+
+  window.location.href = path.replace(".html", "_fr.html")
 }
