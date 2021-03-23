@@ -11,6 +11,7 @@ import hvplot.xarray
 from bokeh.models.tools import HoverTool
 import pandas as pd
 import holoviews as hv
+from xclim.core import units
 import geopandas as gpd
 import warnings
 import shutil
@@ -120,8 +121,7 @@ for o in options_dict.keys():
                                    pn.pane.HTML(f'<a href="{thrds_access}" target="_blank">{dataset}<a />',)))
         summary.append(pn.Row(pn.pane.HTML("thredds catalog :", ),
                               pn.pane.HTML(f'<a href="{thrds_xml}" target="_blank">{thrds_xml}<a />',)))
-        summary.append(pn.Row(pn.pane.HTML("access tutorial :", ), pn.pane.HTML(
-            f'<a href="/climate_analysis.html" target="_blank">PAVICS data tutorial<a />')))
+
         inst_field = 'institution' if 'institution' in df.columns else 'institute'
 
         summary.append(pn.Row(pn.pane.HTML(f"{inst_field} :"), pn.pane.HTML(df[inst_field].unique()[0])))
@@ -170,8 +170,15 @@ for o in options_dict.keys():
         if set(['lat', 'lon']).issubset(set(list(ds.dims.keys()))):
 
             v = sorted(list(ds.data_vars.keys()), reverse=True)
-            map1 = ds[v[0]].isel(time=0).hvplot.image(x='lon',y='lat',xlim=xlim, ylim=ylim, rasterize=True, cmap='RdBu_r', hover=False,
-                                                      xlabel='longitude',ylabel='latitude',frame_height=300, frame_width=750) * world1.hvplot(c='')
+            if units.units2pint(ds[v[0]]) == 'kelvin':
+                unit_str = '°K'
+            else:
+                unit_str = ds[v[0]].units
+
+            title = f"Example of spatial domain : single time-step for variable {v[0]}"
+            map1 = ds[v[0]].isel(time=0).hvplot.image(title=title,x='lon',y='lat',xlim=xlim, ylim=ylim, rasterize=True, cmap='RdBu_r', hover=False,
+                                                      xlabel='longitude',ylabel='latitude', clabel=unit_str,
+                                                      frame_height=300, frame_width=750).opts(toolbar=None, fontsize={'title': 12} ) * world1.hvplot(c='')
         else:
             vars = list(ds.data_vars)
             vars.remove('lat')
@@ -191,7 +198,8 @@ for o in options_dict.keys():
     pn.config.sizing_mode = "stretch_width"
 
     spacer = pn.Spacer(height=0, margin=0)
-    main_content = pn.Column(title_w, create_data_summary, sizing_mode="stretch_width",
+    main_content = pn.Column(pn.Column(pn.pane.HTML(f'<a href="/climate_analysis.html" target="_blank">PAVICS data access tutorial<a />'), title_w, )
+                             , create_data_summary, sizing_mode="stretch_width",
                              max_width=MAX_WIDTH, align="center")
 
     main_area = pn.Column(
