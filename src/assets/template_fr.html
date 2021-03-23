@@ -1,0 +1,71 @@
+<style>
+  .navbar {
+    background-color: #333;
+  }
+  .navbar li {
+    margin-left: 20px;
+  }
+  .navbar li.active > a {
+    border-bottom: solid 2px red;
+  }
+  .nav-link {
+    white-space: nowrap;
+  }
+</style>
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><img src="assets/images/pavics_no_text.svg" style="height: 45px; top: 7px; position: absolute">
+      <span style="padding-left: 49px;">PAVICS</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index_fr.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="datasets_fr.html">Datasets</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="climate_analysis_fr.html">Climate Analysis</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="hydrology_fr.html">Hydrology</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="news_fr.html">News</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="language-switcher">
+          <a><h6 class="second-language" onclick="switchLanguage()">En</h6></a>
+          <h6>Fr</h6>
+        </li>
+        <li>
+          <a href="https://www.ouranos.ca/" target="_blank">
+            <img src="assets/images/logo-ouranos.png" alt="Logo" style="height: 30px; margin-top: 5px;">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="main">
+  <!-- Content will be placed here -->
+</div>
+
+<!-- All footer content should go here -->
+<div id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm" style="text-align: center;">Contact: <a href="mailto:pavics@ouranos.ca">pavics@ouranos.ca</a></div>
+      <div class="col-sm" style="text-align: center;">Twitter: <a href="https://twitter.com/PAVICSOuranos" target="_blank">@PAVICSOuranos</a></div>
+      <div class="col-sm" style="text-align: center;">Legal: <a href="https://github.com/Ouranosinc/Legal-Ouranos/blob/master/PAVICS/PAVICS_Conditions_PrivacyPolicy_en_fr.md" target="_blank">PAVICS Conditions</a></div>
+    </div>
+  </div>
+</div>
