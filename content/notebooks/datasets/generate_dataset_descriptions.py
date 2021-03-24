@@ -173,7 +173,7 @@ for o in options_dict.keys():
             if units.units2pint(ds[v[0]]) == 'kelvin':
                 unit_str = '°K'
             else:
-                unit_str = ds[v[0]].units
+                unit_str = units.pint2cfunits(units.units2pint(ds[v[0]]))
 
             title = f"Example of spatial domain : single time-step for variable {v[0]} ({unit_str})"
             map1 = ds[v[0]].isel(time=0).hvplot.image(title=title,x='lon',y='lat',xlim=xlim, ylim=ylim, rasterize=True, cmap='RdBu_r', hover=False,
@@ -193,13 +193,13 @@ for o in options_dict.keys():
         return out1
 
 
-    MAX_WIDTH = 850
+    MAX_WIDTH = 800
 
     pn.config.sizing_mode = "stretch_width"
 
     spacer = pn.Spacer(height=0, margin=0)
-    main_content = pn.Column(pn.Column(pn.pane.HTML(f'<a href="/climate_analysis.html" target="_blank">PAVICS data access tutorial<a />'), title_w, )
-                             , create_data_summary, sizing_mode="stretch_width",
+    #link = pn.pane.HTML(f'<a href="/climate_analysis.html" target="_blank">PAVICS data access tutorial<a />')
+    main_content = pn.Column(title_w, create_data_summary, sizing_mode="stretch_width",
                              max_width=MAX_WIDTH, align="center")
 
     main_area = pn.Column(
