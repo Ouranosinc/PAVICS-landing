@@ -13,89 +13,93 @@
 <div class="band" id="pavics">
   <div class="container">
     <img src="assets/images/pavics_v_white.svg" style="margin-bottom: 30px;">
-    <h2>Power Analytics and Visualization for Climate Science</h2>
+    <h2>Pôle d'analyse et de visualisation de l'information climatique et scientifique</h2>
     <br/>
-    <a class="btn btn-outline-light" href="https://pavics.ouranos.ca/jupyter/hub/login" target="_blank">Login / Register</a>
+    <a class="btn btn-outline-light" href="https://pavics.ouranos.ca/jupyter/hub/login" target="_blank">Connexion / Inscription</a>
     <br/>
     <br/>
     <p>
-      PAVICS est un laboratoire virtuel facilitant l'analyse des données climatiques. 
-      Il donne accès à plusieurs collections de données allant des observations, 
-      projections climatiques et réanalyses.  Il fournit également un environnement de programmation Python 
-      pour analyser ces données sans avoir à les télécharger.
-      Cet environnement de travail est constamment mis à jour avec les bibliothèques les plus efficaces pour l'analyse des données climatiques. 
-      bibliothèques les plus performantes pour l'analyse des données climatiques, en plus d'assurer un contrôle de qualité sur les données fournies et les métriques associées. 
-      qualité des données fournies et des métadonnées associées.
+      PAVICS est un laboratoire virtuel facilitant l'analyse de données
+      climatiques. Il permet d'accéder à plusieurs collections de données
+      d'observations, de projections climatiques et de réanalyse. Il offre aussi
+      un environnement de programmation Python permettant d'analyser ces données
+      sans avoir à les télécharger. Cet environnement de travail est constamment
+      mis à jour avec les librairies les plus performantes pour l'analyse de
+      données climatiques. De plus, Ouranos assure un contrôle de qualité sur les
+      données offertes et leur métadonnées.
     </p>
 
     <ul style="list-style-position: inside;">
-      <li>Data and files in netCDF format</li>
-      <li>Metadata following  CF-conventions</li>
-      <li>Parallel computing environment (xarray + dask)</li>
+      <li>Fichiers et données en format netCDF</li>
+      <li>Métadonnées suivant la convention CF</li>
+      <li>Environnement d'analyse parallèle (xarray + dask)</li>
     </ul>
 
     <div style="font-size: 140%;">
-      <a href="news.html"><i class="fas fa-newspaper"></i> News</a>
+      <a href="news_fr.html"><i class="fas fa-newspaper"></i> Nouvelles</a>
     </div>
   </div>
 </div>
 
 <div class="band" id="datasets">
   <div class="container">
-    <h2><a href="datasets.html">Access Datasets</a></h2>
+    <h2><a href="datasets_fr.html">Accéder aux données</a></h2>
     <p>
-      PAVICS provides data access via a dedicated THREDDS server
-      providing access to a growing variety of climate and weather related datasets including
+      PAVICS fournit un accès aux données via un serveur THREDDS dédié,
+      donnant accès à une variété croissante de données climatiques et météorologiques, notamment
     </p>
 
     <ul style="list-style-position: inside;">
-      <li>Future climate change projections </li>
-      <li>Observational data (station & gridded)</li>
-      <li>Reanalysis data</li>
-      <li>Weather forecast data</li>
+      <li>Projections futures des changements climatiques</li>
+      <li>Données d'observation (aux stations et sur grille)</li>
+      <li>Données de réanalyse</li>
+      <li>Données de prévisions météorologiques</li>
     </ul>
   </div>
 </div>
 
 <div class="band" id="climate_analysis">
   <div class="container">
-    <h2><a href="climate_analysis.html">Analyse Climate Data</a></h2>
+    <h2><a href="climate_analysis_fr.html">Analyser les données climatiques</a></h2>
     <p>
-      PAVICS provides methods for finding and analysing climate data, offering tools that span
-      the range of common data analysis steps including
+      PAVICS fournit des méthodes de recherche et d'analyse des données climatiques,
+      offrant des outils qui couvrent une gamme d'étapes courantes d'analyse des données,
+      notamment
     </p>
     <ul style="list-style-position: inside;">
-      <li>Finding and accessing datasets</li>
-      <li>Spatio-temporal subsetting</li>
-      <li>Climate indicator calculations</li>
-      <li>Ensemble statistics & metrics</li>
-      <li>Data visualization</li>
+      <li>Recherche et accès aux données</li>
+      <li>Découpage spatio-temporel</li>
+      <li>Calculs d'indices climatiques</li>
+      <li>Statistiques d'ensemble</li>
+      <li>Visualisation de données</li>
     </ul>
   </div>
 </div>
 
 <div class="band" id="hydrology">
   <div class="container">
-    <h2><a href="hydrology.html">Run Hydrological Models</a></h2>
+    <h2><a href="hydrology_fr.html">Exécuter des modèles hydrologiques</a></h2>
     <p>
-      PAVICS offers a suite of tools to streamline the analysis of climate change's impacts on hydrology. 
-      It relies on <a href="http://raven.uwaterloo.ca/">Raven</a>, a hydrological modeling framework that lets hydrologists define
-      custom hydrological models or emulate existing ones. These models are minimally driven by daily time
-       series of temperature and precipitation, and return series of flow and state variables such as snow pack and soil water.     
+      PAVICS offre une gamme d'outils pour faciliter l'analyse des impacts des changements climatiques sur l'hydrologie.
+      Elle s'appuie pour cela sur <a href="http://raven.uwaterloo.ca/">Raven</a>, un cadre de modélisation hydrologique qui permet
+      d'assembler différents processus hydrologiques pour créer des modèles sur mesure ou émuler des modèles existant.
+      Ces modèles doivent minimalement être forcés par des séries journalières de température et précipitation, et
+      retournent des séries de débits en rivière et les variables d'état du modèle, comme la neige ou l'eau dans le sol.
+
     </p>
     <ul style="list-style-position: inside;">
-      <li>Simulate stream flow using one of four global models: HMETS, GR4J-CemaNeige, HBV-EC and MOHYSE</li>
-      <li>Run frequency analyses on flow series</li>
-      <li>Extract physiographic properties of watersheds</li>
-      <li>Estimate model parameters in ungauged basins</li>
-      <li>Make hydrological predictions from numerical weather forecasts</li>
+      <li>Simuler les débits en rivière par quatre modèles globaux: HMETS, GR4J-CemaNeige, HBV-EC et MOHYSE</li>
+      <li>Faire de l'analyse fréquentielle sur les séries de débits</li>
+      <li>Extraire les propriétés physiographiques d'un bassin versant</li>
+      <li>Estimer des paramètres d'un modèle en bassin non-jaugé</li>
+      <li>Piloter un modèle hydrologique par les prévisions d'ECCC</li>
     </ul>
   </div>
 </div>
 
 <div class="band" id="partners">
   <div class="container">
-    <h3>PAVICS is part of a national suite of climate data portals</h3>
+    <h3>PAVICS fait partie d’un regroupement national de portails de données climatiques.</h3>
     <br/>
     <div class="row">
       <div class="col-sm">
@@ -103,26 +107,26 @@
           <a class="noicon partnerlink" href="https://climateatlas.ca/" title="Climate Atlas">
             <img alt="logo" data-entity-type="" data-entity-uuid="" src="assets/images/CA-logo-colour-whitetext-EN.png" style="height: 70px;"></div>
           </a>
-        <div class="txt"><p>Stories and explanations about climate change, and local climate data that can be explored using maps and graphs.</p></div>
+        <div class="txt"><p>Il combine la science climatique, la cartographie, la vidéographie et le conte d’histoire pour amener la question mondiale du changement climatique plus près de nous.</p></div>
       </div>
       <div class="col-sm">
         <div class="portal-logo">
           <a class="noicon ccdp partnerlink" href="http://climatedata.ca" title="Climate Data Canada">
-            <img alt="" data-entity-type="" data-entity-uuid="" src="assets/images/logo-climate-data-ca-1-text.png" style="height: 100px;"></a><br><a class="noicon ccdp partnerlink" href="http://climatedata.ca/" title="Climate Data Canada">
+            <img alt="" data-entity-type="" data-entity-uuid="" src="assets/images/logo-climate-data-ca-1-text-fr.png" style="height: 100px;"></a><br><a class="noicon ccdp partnerlink" href="http://climatedata.ca/" title="Climate Data Canada">
           </a>
         </div>
-        <div class="txt"><p>High-resolution climate data to help decision makers build a more resilient Canada.</p></div>
+        <div class="txt"><p>Données climatiques haute résolution pour aider les décideurs à construire un Canada plus résilient.</p></div>
       </div>
       <div class="col-sm">
         <div class="portal-logo">
           <img alt="" data-entity-type="" data-entity-uuid="" src="assets/images/pavics_logo.png" style="height: 100px;">
         </div>
-        <div class="txt"><p>Advanced tools for academia, climate scenario developers, and other expert users.</p></div>
+        <div class="txt"><p>Outils évolués pour le milieu universitaire, les développeurs de scénarios climatiques et les autres utilisateurs experts.</p></div>
       </div>
     </div>
     <br>
     <br>
-    <h3>Quebec Resources</h3>
+    <h3>Ressources pour le Québec</h3>
     <div>
       <a href="https://www.ouranos.ca/portraits-climatiques/#/" target="_blank">
         <img src="assets/images/portraits_climatiques2.png" style="height: 75px">
@@ -132,7 +136,7 @@
   <br>
   <br>
   <div class="container-fluid">
-    <h3>Partners</h3>
+    <h3>Partenaires</h3>
     <br>
     <div id="partner-logos" class="row">
       <div class="logo col-sm">

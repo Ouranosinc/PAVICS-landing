@@ -1,0 +1,113 @@
+<style>
+  /* Make the nav-link icons large, on their own line and centered */
+  .nav-link img {
+    height: 28px;
+    display: block;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.4;
+  }
+  .nav-link.active img {
+    opacity: 1;
+  } 
+  .nav-tabs .nav-link { 
+    text-align: center;
+    font-weight: bold;
+  }
+  a.nav-link {
+    color: #AAA;
+  }
+
+  /* Remove tab borders */
+  .nav-tabs {
+    border: none;
+    justify-content: center;
+  }
+  .nav-tabs .nav-link {
+    border: none;
+  }
+
+  a {
+    text-decoration:none;
+  }
+
+  .open-in-pavics {
+    padding-top: 20px;
+    text-indent:100px;
+    font-size:17px
+  }
+
+</style>
+
+<div class="band band-sm" id="hydrology">
+  <div class="container">
+    <h2>EXÉCUTER DES MODÈLES HYDROLOGIQUES</h2>
+    <p>
+      PAVICS offre une gamme d'outils pour faciliter l'analyse des impacts des changements climatiques sur l'hydrologie.
+      Elle s'appuie pour cela sur <a href="http://raven.uwaterloo.ca/">Raven</a>.
+    </p>
+  </div>
+</div>
+
+<div class="container">
+  <ul class="nav nav-tabs" id="myTab">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#a">
+        <img src="assets/icons/noun_river.png">
+        Modèles hydrologiques
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#b">
+        <img src="assets/icons/noun_histogram.png">
+        Analyse fréquentielle
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#c">
+        <img src="assets/icons/noun_Guangxi_Zhuang_Autonomous_Region.png">
+        Propriétés des bassins
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#d">
+        <img src="assets/icons/noun_parameter.png">
+        Estimation des paramètres
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#e">
+        <img src="assets/icons/noun_forecast.png">
+        Prévisions
+      </a>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane show active" id="a" 
+      data-iframe="assets/notebooks/Running_hydrological_models_on_a_remote_server.html" 
+      data-pavics-link="https://pavics.ouranos.ca/jupyter/hub/user-redirect/lab/tree/tutorial-notebooks/raven-master/docs/source/notebooks/Running_hydrological_models_on_a_remote_server.ipynb"
+      data-pavics-link-text="Open this notebook in PAVICS"></div>
+
+    <div class="tab-pane" id="b" 
+      data-iframe="assets/notebooks/time_series_analysis.html"
+      data-pavics-link="https://pavics.ouranos.ca/jupyter/hub/user-redirect/lab/tree/tutorial-notebooks/raven-master/docs/source/notebooks/time_series_analysis.ipynb"
+      data-pavics-link-text="Open this notebook in PAVICS"></div>
+
+    <div class="tab-pane" id="c" 
+      data-iframe="assets/notebooks/Extract_geographical_watershed_properties.html"
+      data-pavics-link="https://pavics.ouranos.ca/jupyter/hub/user-redirect/lab/tree/tutorial-notebooks/raven-master/docs/source/notebooks/Extract_geographical_watershed_properties.ipynb"
+      data-pavics-link-text="Open this notebook in PAVICS"></div>
+
+    <div class="tab-pane" id="d" 
+      data-iframe="assets/notebooks/Model_calibration.html"
+      data-pavics-link="https://pavics.ouranos.ca/jupyter/hub/user-redirect/lab/tree/tutorial-notebooks/raven-master/docs/source/notebooks/Model_calibration.ipynb"
+      data-pavics-link-text="Open this notebook in PAVICS"></div>
+
+    <div class="tab-pane" id="e" 
+      data-iframe="assets/notebooks/Hydrological_realtime_forecasting.html"
+      data-pavics-link="https://pavics.ouranos.ca/jupyter/hub/user-redirect/lab/tree/tutorial-notebooks/raven-master/docs/source/notebooks/Hydrological_realtime_forecasting.ipynb"
+      data-pavics-link-text="Open this notebook in PAVICS"></div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<style>
+  /* Make the nav-link icons large, on their own line and centered */
+  .nav-link img {
+    height: 28px;
+    display: block;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.4;
+  }
+  .nav-link.active img {
+    opacity: 1;
+  } 
+  .nav-tabs .nav-link { 
+    text-align: center;
+    font-weight: bold;
+  }
+  a.nav-link {
+    color: #AAA;
+  }
+
+  /* Remove tab borders */
+  .nav-tabs {
+    border: none;
+    justify-content: center;
+  }
+  .nav-tabs .nav-link {
+    border: none;
+  }
+</style>
+
+<div class="band band-sm" id="datasets">
+  <div class="container">
+    <h2>ACCÉDER AUX DONNÉES CLIMATIQUES</h2>
+    <p>
+      PAVICS fournit un accès aux données via un serveur THREDDS dédié,
+      donnant accès à une variété croissante de données climatiques et météorologiques
+    </p>
+
+  </div>
+</div>
+
+
+<div class="container">
+  <ul class="nav nav-tabs" id="myTab">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#a">
+        <img src="assets/icons/noun_world.png">
+        Simulations climatiques
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#b">
+        <img src="assets/icons/noun_weather_station.png">
+        Observations
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#c">
+        <img src="assets/icons/noun_algorithm.png">
+        Réanalyses
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#d">
+        <img src="assets/icons/noun_forecast.png">
+        Prévisions
+      </a>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane show active" id="a" data-iframe="assets/notebooks/Datasets_1-Climate_Simulations.html"></div>
+    <div class="tab-pane" id="b" data-iframe="assets/notebooks/Datasets_2-Observations.html"></div>
+    <div class="tab-pane" id="c" data-iframe="assets/notebooks/Datasets_3-Reanalysis.html"></div>
+    <div class="tab-pane" id="d" data-iframe="assets/notebooks/Datasets_4-forecasts.html"></div>
+  </div>
+</div>

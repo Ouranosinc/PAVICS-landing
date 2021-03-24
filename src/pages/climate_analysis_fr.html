@@ -1,0 +1,80 @@
+<style>
+  /* Make the nav-link icons large, on their own line and centered */
+  .nav-link i {
+    display: block;
+    font-size: 20pt;
+    margin-bottom: 10px;
+    color: #AAA;
+  }
+  .nav-link.active i {
+    color: black;
+  }
+  .nav-tabs .nav-link { 
+    text-align: center;
+    font-weight: bold;
+  }
+  a.nav-link {
+    color: #AAA;
+  }
+
+  /* Remove tab borders */
+  .nav-tabs {
+    border: none;
+    justify-content: center;
+  }
+  .nav-tabs .nav-link {
+    border: none;
+  }
+</style>
+
+<div class="band band-sm" id="climate_analysis">
+  <div class="container">
+    <h2>ANALYSER LES DONNÉES CLIMATIQUES</h2>
+    <p>
+      PAVICS fournit des méthodes de recherche et d'analyse des données climatiques,
+      offrant des outils qui couvrent une gamme d'étapes courantes d'analyse des données
+    </p>
+  </div>
+</div>
+
+<div class="container">
+  <ul class="nav nav-tabs" id="myTab">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#a">
+        <i class="fas fa-search"></i>
+        1. Accès
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#b">
+        <i class="fas fa-cut"></i>
+        2. Découpage
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#c">
+        <i class="fas fa-cogs"></i>
+        3. Indices climatiques
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#d">
+        <i class="fas fa-chart-line"></i>
+        4. Statistiques d'ensemble
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#e">
+        <i class="fas fa-map"></i>
+        5. Visualisation
+      </a>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane show active" id="a" data-iframe="assets/notebooks/PAVICStutorial_ClimateDataAnalysis-1DataAccess.html"></div>
+    <div class="tab-pane" id="b" data-iframe="assets/notebooks/PAVICStutorial_ClimateDataAnalysis-2Subsetting.html"></div>
+    <div class="tab-pane" id="c" data-iframe="assets/notebooks/PAVICStutorial_ClimateDataAnalysis-3Climate-Indicators.html"></div>
+    <div class="tab-pane" id="d" data-iframe="assets/notebooks/PAVICStutorial_ClimateDataAnalysis-4Ensembles.html"></div>
+    <div class="tab-pane" id="e" data-iframe="assets/notebooks/PAVICStutorial_ClimateDataAnalysis-5Visualization.html"></div>  </div>
+</div>
