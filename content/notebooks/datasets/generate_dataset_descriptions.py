@@ -175,9 +175,9 @@ for o in options_dict.keys():
             else:
                 unit_str = ds[v[0]].units
 
-            title = f"Example of spatial domain : single time-step for variable {v[0]}"
+            title = f"Example of spatial domain : single time-step for variable {v[0]} ({unit_str})"
             map1 = ds[v[0]].isel(time=0).hvplot.image(title=title,x='lon',y='lat',xlim=xlim, ylim=ylim, rasterize=True, cmap='RdBu_r', hover=False,
-                                                      xlabel='longitude',ylabel='latitude', clabel=unit_str,
+                                                      xlabel='longitude',ylabel='latitude',
                                                       frame_height=300, frame_width=750).opts(toolbar=None, fontsize={'title': 12} ) * world1.hvplot(c='')
         else:
             vars = list(ds.data_vars)
