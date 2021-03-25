@@ -14267,16 +14267,18 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">birdy</span> <span class="kn">import</span> <span class="n">WPSClient</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+<span class="kn">import</span> <span class="nn">os</span>
 
-<span class="kn">from</span> <span class="nn">ravenpy.utilities.testdata</span> <span class="kn">import</span> <span class="n">get_file</span>
-<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+<span class="kn">from</span> <span class="nn">birdy</span> <span class="kn">import</span> <span class="n">WPSClient</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">from</span> <span class="nn">pandas.plotting</span> <span class="kn">import</span> <span class="n">register_matplotlib_converters</span>
-<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">ravenpy.utilities.testdata</span> <span class="kn">import</span> <span class="n">get_local_testdata</span>
+
 <span class="n">register_matplotlib_converters</span><span class="p">()</span>
 
 <span class="c1"># Set environment variable WPS_URL to &quot;http://localhost:9099&quot; to run on the default local server</span>
@@ -14292,7 +14294,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># The model parameter boundaries. Can either be a string of comma separated values, a list, an array or a named tuple.</span>
@@ -14336,7 +14338,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">calibration</span><span class="p">,</span> <span class="n">hydrograph</span><span class="p">,</span> <span class="n">storage</span><span class="p">,</span> <span class="n">solution</span><span class="p">,</span> <span class="n">diagnostics</span><span class="p">,</span> <span class="n">calibparams</span><span class="p">,</span> <span class="n">rv</span><span class="p">]</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">asobj</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -14378,7 +14380,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call the model with the time series, model parameters and other configuration parameters</span>
@@ -14400,7 +14402,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">diagnostics</span><span class="p">)</span>
@@ -14425,10 +14427,10 @@ a.anchor-link {
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>observed data series,filename,DIAG_NASH_SUTCLIFFE,DIAG_RMSE,
-HYDROGRAPH_ALL,/tmp/pywps_process_veadmqpu/Salmon-River-Near-Prince-George_meteo_daily.nc,0.50717,36.373,
+HYDROGRAPH_ALL,/tmp/pywps_process_q_kr07wf/Salmon-River-Near-Prince-George_meteo_daily.nc,0.50717,36.373,
 
 observed data series,filename,DIAG_NASH_SUTCLIFFE,DIAG_RMSE,
-HYDROGRAPH_ALL,/tmp/pywps_process_derwa3pp/Salmon-River-Near-Prince-George_meteo_daily.nc,0.50717,36.373,
+HYDROGRAPH_ALL,/tmp/pywps_process_tfoib3ce/Salmon-River-Near-Prince-George_meteo_daily.nc,0.50717,36.373,
 
 </pre>
 </div>
