@@ -115,10 +115,11 @@ for o in options_dict.keys():
 
         thrds_access = f"https://{'/'.join([p for p in df['path'][0].split('//')[-1].split('/')[0:-1]])}/catalog.html".replace(
             'dodsC', 'catalog')
-        thrds_xml = thrds_access.replace('.html', '.xml')
+        thrds_xml = thrds_access
 
-        summary = pn.Column(pn.Row(pn.pane.HTML("dataset :",),
-                                   pn.pane.HTML(f'<a href="{thrds_access}" target="_blank">{dataset}<a />',)))
+
+        summary = pn.Column(pn.Row(pn.pane.HTML("dataset :",),pn.pane.HTML(f'{dataset}',)))
+        summary.append(pn.Row(pn.pane.HTML("tutorial :",),pn.pane.HTML(f'<a href="/climate_analysis.html" target="_blank">PAVICS data access tutorial<a />',)))
         summary.append(pn.Row(pn.pane.HTML("thredds catalog :", ),
                               pn.pane.HTML(f'<a href="{thrds_xml}" target="_blank">{thrds_xml}<a />',)))
 
