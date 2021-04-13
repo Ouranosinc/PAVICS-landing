@@ -25,8 +25,6 @@ warnings.simplefilter('ignore')
 
 intake_path = Path('intake_cats')
 cats = sorted([l for l in list(intake_path.glob('*.json')) if l.name != 'cmip5.json'])
-cat = intake_esm.intake.open_esm_datastore(cats[-1])
-cats
 
 ## Climate simulations - bias adjusted
 # bias adjusted
@@ -36,7 +34,7 @@ world = gpd.GeoDataFrame(geometry=world.simplify(0.05))
 
 options_dict = {}
 options_dict['Datasets_1-Climate_Simulations'] = []
-for c in [c for c in cats if 'biasadjusted.json' in c.name]:
+for c in [c for c in cats if 'biasadjusted.json' in c.name or 'climex.json' in c.name]:
     cat = intake_esm.intake.open_esm_datastore(c)
     options = list(cat.df['title'].unique())
     options_dict['Datasets_1-Climate_Simulations'].extend([o for o in options if 'Ouranos' in o])
@@ -84,7 +82,10 @@ for o in options_dict.keys():
             lons = ds.lon.values
             lons[lons >= 180] = lons[lons >= 180] - 360
             ds = ds.assign_coords(lon=lons)
-        ds = ds.sortby(['lat', 'lon'])
+        if 'realization' in ds.dims:
+            ds = ds.isel(realization=0).squeeze()
+        if set(['lat', 'lon']).issubset(set(list(ds.dims.keys()))):
+            ds = ds.sortby(['lat', 'lon'])
         xlim = (float(ds.lon.min().values), float(ds.lon.max().values))
 
         ylim = (float(ds.lat.min().values), float(ds.lat.max().values))
@@ -120,8 +121,8 @@ for o in options_dict.keys():
 
         summary = pn.Column(pn.Row(pn.pane.HTML("dataset :",),pn.pane.HTML(f'{dataset}',)))
         summary.append(pn.Row(pn.pane.HTML("tutorial :",),pn.pane.HTML(f'<a href="/climate_analysis.html" target="_blank">PAVICS data access tutorial<a />',)))
-        summary.append(pn.Row(pn.pane.HTML("thredds catalog :", ),
-                              pn.pane.HTML(f'<a href="{thrds_xml}" target="_blank">{thrds_xml}<a />',)))
+        summary.append(pn.Row(pn.pane.HTML("location :", ),
+                              pn.pane.HTML(f'<a href="{thrds_xml}" target="_blank">thredds catalog<a />',)))
 
         inst_field = 'institution' if 'institution' in df.columns else 'institute'
 
@@ -168,18 +169,27 @@ for o in options_dict.keys():
 
         ## map
 
-        if set(['lat', 'lon']).issubset(set(list(ds.dims.keys()))):
+        if set(['lat', 'lon']).issubset(set(list(ds.dims.keys()))) or set(['rlat', 'rlon']).issubset(set(list(ds.dims.keys()))):
 
             v = sorted(list(ds.data_vars.keys()), reverse=True)
-            if units.units2pint(ds[v[0]]) == 'kelvin':
+            for vv in v:
+                if len(ds[vv].dims) >=3:
+                    break
+            if units.units2pint(ds[vv]) == 'kelvin':
                 unit_str = '°K'
             else:
-                unit_str = units.pint2cfunits(units.units2pint(ds[v[0]]))
+                unit_str = units.pint2cfunits(units.units2pint(ds[vv]))
 
-            title = f"Example of spatial domain : single time-step for variable {v[0]} ({unit_str})"
-            map1 = ds[v[0]].isel(time=0).hvplot.image(title=title,x='lon',y='lat',xlim=xlim, ylim=ylim, rasterize=True, cmap='RdBu_r', hover=False,
+            title = f"Example of spatial domain : single time-step for variable {vv} ({unit_str})"
+            if set(['lat', 'lon']).issubset(set(list(ds.dims.keys()))):
+                map1 = ds[vv].isel(time=0).hvplot.image(title=title,x='lon',y='lat',xlim=xlim, ylim=ylim, rasterize=True, cmap='RdBu_r', hover=False,
                                                       xlabel='longitude',ylabel='latitude',
                                                       frame_height=300, frame_width=750).opts(toolbar=None, fontsize={'title': 12} ) * world1.hvplot(c='')
+            else:
+                map1 = ds[vv].isel(time=0).hvplot.contourf(levels=15,title=title, x='lon', y='lat', xlim=xlim, ylim=ylim, rasterize=True,
+                                                    cmap='RdBu_r', hover=False, xlabel = 'longitude', ylabel = 'latitude',
+                                                    frame_height = 300, frame_width = 750).opts(toolbar=None, fontsize={'title': 12} ) * world1.hvplot(c='')
+
         else:
             vars = list(ds.data_vars)
             vars.remove('lat')
