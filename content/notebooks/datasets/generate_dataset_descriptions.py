@@ -60,11 +60,28 @@ for o in options_dict.keys():
     options1 = options_dict[o]
     title_w = pn.widgets.Select(options=options1)
 
-
+    lang='en'
     # title_w
     @pn.depends(title_w.param.value)
-    def create_data_summary(dataset=title_w.param.value, type=o):
-        o
+    def create_data_summary(dataset=title_w.param.value):
+        summary_fields = {}
+        summary_fields['en'] = dict(title='Summary', dataset='dataset',tutorial='tutorial', location='location',
+                                    filename='filename', project= 'project (processing level)', frequency='frequency',
+                                    temporal_coverage='temporal coverage', variables='variables',
+                                    driving_experiment='driving experiment(s)'
+                                    )
+        summary_fields['fr'] = dict(title='Sommaire', dataset='jeu de données', tutorial='tutoriel', location='emplacement',
+                                    filename='nom de fichier',project='projet (niveau de traitement)', frequency='fréquence',
+                                    temporal_coverage='couverture temporelle', variables='variables',
+                                    driving_experiment='expérience(s) de pilotage'
+                                    )
+        details_fields = {}
+        details_fields['en'] = dict(title='Details', more_info='more info', abstract='abstract')
+        details_fields['fr'] = dict(title='Détails', more_info="plus d'info", abstract='résumé')
+
+        legal_fields = {}
+        legal_fields['en'] = dict(title='License / Terms of use', license_type='license type', license='license')
+        legal_fields['fr'] = dict(title='License / Conditions', license_type='type de license', license='license')
         df = None
         for c in cats:
             cat = intake_esm.intake.open_esm_datastore(c)
@@ -100,7 +117,6 @@ for o in options_dict.keys():
 
         # bias corr specific info
         if 'driving_experiment' in df.columns:
-
             exp1 = [d.split(',') for d in df['driving_experiment'].unique()]
             exp1 = sorted(list({x for l in exp1 for x in l}))
         else:
@@ -113,59 +129,74 @@ for o in options_dict.keys():
         w = 175
 
         ## summary info
-
         thrds_access = f"https://{'/'.join([p for p in df['path'][0].split('//')[-1].split('/')[0:-1]])}/catalog.html".replace(
             'dodsC', 'catalog')
-        thrds_xml = thrds_access
+        if len(df['path']) == 1:
+            ncmls = df['path'][0].split('//')[-1].split('/')[-1]
+        else:
+
+            ncmls = f"ensemble of {len(df['path'])} files"
 
 
-        summary = pn.Column(pn.Row(pn.pane.HTML("dataset :",),pn.pane.HTML(f'{dataset}',)))
-        summary.append(pn.Row(pn.pane.HTML("tutorial :",),pn.pane.HTML(f'<a href="/climate_analysis.html" target="_blank">PAVICS data access tutorial<a />',)))
-        summary.append(pn.Row(pn.pane.HTML("location :", ),
-                              pn.pane.HTML(f'<a href="{thrds_xml}" target="_blank">thredds catalog<a />',)))
+
+        summary = pn.Column(pn.Row(pn.pane.HTML(f"{summary_fields[lang]['dataset']} :",),pn.pane.HTML(f'{dataset}',)))
+
+        summary.append(pn.Row(pn.pane.HTML(f"{summary_fields[lang]['tutorial']} :",),pn.pane.HTML(f'<a href="/climate_analysis.html" target="_blank">PAVICS data access tutorial<a />',)))
+
+
+        summary.append(pn.Row(pn.pane.HTML(f"{summary_fields[lang]['location']} ({summary_fields[lang]['filename']}):", ),
+                              pn.pane.HTML(f'<a href="{thrds_access}" target="_blank">THREDDS catalog<a />' + f" ({ncmls})")))
+
 
         inst_field = 'institution' if 'institution' in df.columns else 'institute'
 
-        summary.append(pn.Row(pn.pane.HTML(f"{inst_field} :"), pn.pane.HTML(df[inst_field].unique()[0])))
+        summary.append(pn.Row(pn.pane.HTML("institution :"), pn.pane.HTML(df[inst_field].unique()[0])))
+
         if prj1:
-            summary.append(pn.Row(pn.pane.HTML("project (processing level) :", ), pn.pane.HTML(prj1)))
+            summary.append(pn.Row(pn.pane.HTML(f"{summary_fields[lang]['project']} :", ), pn.pane.HTML(prj1)))
         if 'frequency' in df.columns:
-            summary.append(pn.Row(pn.pane.HTML("frequency :", ), pn.pane.HTML(df['frequency'].unique()[0])))
+            summary.append(pn.Row(pn.pane.HTML(f"{summary_fields[lang]['frequency']} :", ), pn.pane.HTML(df['frequency'].unique()[0])))
         if o == 'Datasets_4-forecasts':
-            summary.append(pn.Row(pn.pane.HTML("temporal coverage:", ), pn.pane.HTML(
+            summary.append(pn.Row(pn.pane.HTML(f"{summary_fields[lang]['temporal_coverage']} :", ), pn.pane.HTML(
                 f"current forecast")))
         else:
-            summary.append(pn.Row(pn.pane.HTML("temporal coverage:", ), pn.pane.HTML(
+            summary.append(pn.Row(pn.pane.HTML(f"{summary_fields[lang]['temporal_coverage']} :", ), pn.pane.HTML(
             f"{ds.time.min().dt.strftime('%Y/%m/%d').values} - {ds.time.max().dt.strftime('%Y/%m/%d').values}")))
         summary.append(
-            pn.Row(pn.pane.HTML("variables :", ), pn.pane.HTML(', '.join(sorted([v for v in ds.data_vars])))))
+            pn.Row(pn.pane.HTML(f"{summary_fields[lang]['variables']} :", ), pn.pane.HTML(', '.join(sorted([v for v in ds.data_vars])))))
         if exp1:
-            summary.append(pn.Row(pn.pane.HTML("driving experiment(s) :",), pn.pane.HTML(', '.join(exp1))))
+            summary.append(pn.Row(pn.pane.HTML(f"{summary_fields[lang]['driving_experiment']} :",), pn.pane.HTML(', '.join(exp1))))
 
-        out = pn.Tabs(('Summary', summary))
+        out = pn.Tabs((summary_fields[lang]['title'], summary))
 
         ## details
 
-        details = pn.Column(pn.Row(pn.pane.HTML('abstract : ', width=w), pn.pane.HTML(ds.attrs['abstract'],)))
+        details = pn.Column(pn.Row(pn.pane.HTML(f"{details_fields[lang]['abstract']} : ", width=w), pn.pane.HTML(ds.attrs['abstract'],)))
         for check in ['bias_adjust', 'target_data', 'target_ref']:
             for attr in [attr for attr in ds.attrs if check in attr]:
                 details.append(pn.Row(pn.pane.HTML(f"{attr.replace('_', ' ')}: ", ),
                                       pn.pane.HTML(ds.attrs[attr], )))
-        details.append(
-            pn.Row(pn.pane.HTML('more info : ', width=w), pn.pane.HTML(ds.attrs['dataset_description'],)))
-        out.append(('Details', details))
+
+
+        details.append(pn.Row(pn.pane.HTML(f"{details_fields[lang]['more_info']} : ", width=w), pn.pane.HTML(ds.attrs['dataset_description'], )))
+        out.append((details_fields[lang]['title'], details))
+
 
         ## legal
+
         legal = pn.Column(
-            pn.Row(pn.pane.HTML("license type :", ), pn.pane.HTML(ds.attrs['license_type'], )))
-        legal.append(pn.Row(pn.pane.HTML("license :",), pn.pane.HTML(ds.attrs['license'], )))
+            pn.Row(pn.pane.HTML(f"{legal_fields[lang]['license_type']} :", ), pn.pane.HTML(ds.attrs['license_type'], )))
+        legal.append(pn.Row(pn.pane.HTML(f"{legal_fields[lang]['license']} :",), pn.pane.HTML(ds.attrs['license'], )))
 
         for check in ['attribution', 'citation', 'terms']:
             for attr in [attr for attr in ds.attrs if check in attr]:
-                legal.append(pn.Row(pn.pane.HTML(f"{attr.replace('_', ' ')}: ", ),
+                attr_name = attr.replace('_',' ')
+                if lang == 'fr':
+                    attr_name = attr_name.replace("terms of use", "conditions d'utilisation")
+                legal.append(pn.Row(pn.pane.HTML(f"{attr_name}: ", ),
                                     pn.pane.HTML(ds.attrs[attr], )))
 
-        out.append(('License / Terms of use', legal))
+        out.append((legal_fields[lang]['title'], legal))
 
         ## map
 
@@ -179,14 +210,15 @@ for o in options_dict.keys():
                 unit_str = '°K'
             else:
                 unit_str = units.pint2cfunits(units.units2pint(ds[vv]))
-
-            title = f"Example of spatial domain : single time-step for variable {vv} ({unit_str})"
+            title = {}
+            title['en'] = f"Example of spatial domain : single time-step for variable {vv} ({unit_str})"
+            title['fr'] = f"Exemple de domaine spatial: pas de temps unique pour variable {vv} ({unit_str})"
             if set(['lat', 'lon']).issubset(set(list(ds.dims.keys()))):
-                map1 = ds[vv].isel(time=0).hvplot.image(title=title,x='lon',y='lat',xlim=xlim, ylim=ylim, rasterize=True, cmap='RdBu_r', hover=False,
+                map1 = ds[vv].isel(time=0).hvplot.image(title=title[lang],x='lon',y='lat',xlim=xlim, ylim=ylim, rasterize=True, cmap='RdBu_r', hover=False,
                                                       xlabel='longitude',ylabel='latitude',
                                                       frame_height=300, frame_width=750).opts(toolbar=None, fontsize={'title': 12} ) * world1.hvplot(c='')
             else:
-                map1 = ds[vv].isel(time=0).hvplot.contourf(levels=15,title=title, x='lon', y='lat', xlim=xlim, ylim=ylim, rasterize=True,
+                map1 = ds[vv].isel(time=0).hvplot.contourf(levels=15,title=title[lang], x='lon', y='lat', xlim=xlim, ylim=ylim, rasterize=True,
                                                     cmap='RdBu_r', hover=False, xlabel = 'longitude', ylabel = 'latitude',
                                                     frame_height = 300, frame_width = 750).opts(toolbar=None, fontsize={'title': 12} ) * world1.hvplot(c='')
 
@@ -210,15 +242,20 @@ for o in options_dict.keys():
 
     spacer = pn.Spacer(height=0, margin=0)
     #link = pn.pane.HTML(f'<a href="/climate_analysis.html" target="_blank">PAVICS data access tutorial<a />')
-    main_content = pn.Column(title_w, create_data_summary, sizing_mode="stretch_width",
-                             max_width=MAX_WIDTH, align="center")
+    del lang
+    for lang in ['fr','en']:
+        main_content = pn.Column(title_w, create_data_summary, sizing_mode="stretch_width",
+                                 max_width=MAX_WIDTH, align="center")
 
-    main_area = pn.Column(
-        spacer,  # TRICK: WONT WORK WITHOUT. YOU CAN SET HEIGHT TO 0 TO NOT TAKE UP HEIGHT
-        main_content,
-        sizing_mode="stretch_both",
-    )
-    from bokeh.resources import CDN
-    main_area.save(f'{o}.html', embed=True, resources=CDN)
-    outdir =  repo.joinpath('src/assets/notebooks')
-    shutil.copy(f'{o}.html', outdir.as_posix())
+        main_area = pn.Column(
+            spacer,  # TRICK: WONT WORK WITHOUT. YOU CAN SET HEIGHT TO 0 TO NOT TAKE UP HEIGHT
+            main_content,
+            sizing_mode="stretch_both",
+        )
+        from bokeh.resources import CDN
+        outhtml = f'{o}.html'
+        if lang == 'fr':
+            outhtml = f'{o}_{lang}.html'
+        main_area.save(outhtml, embed=True, resources=CDN)
+        outdir =  repo.joinpath('src/assets/notebooks')
+        shutil.copy(outhtml, outdir.as_posix())
