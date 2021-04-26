@@ -81,7 +81,7 @@ for o in options_dict.keys():
 
         legal_fields = {}
         legal_fields['en'] = dict(title='License / Terms of use', license_type='license type', license='license')
-        legal_fields['fr'] = dict(title='License / Conditions', license_type='type de license', license='license')
+        legal_fields['fr'] = dict(title='Licence / Conditions', license_type='type de licence', license='licence')
         df = None
         for c in cats:
             cat = intake_esm.intake.open_esm_datastore(c)
