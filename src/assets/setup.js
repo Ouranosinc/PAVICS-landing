@@ -43,7 +43,7 @@ $(function() {
           // Add spinner and iframe
           html += '<img id="spinner" style="width: 100%" src="assets/images/loading-image.gif">'
 
-          html += '<iframe src="' + $(item).data("iframe") + '" frameBorder="0" style="width: 100%; height: 1100vh" onload="finishLoadingIframe()"></iframe>'
+          html += '<iframe src="' + $(item).data("iframe") + '" frameBorder="0" style="width: 100%; height: 110vh" onload="finishLoadingIframe()"></iframe>'
           $(item).html(html)
 
           // Prevent loading twice
