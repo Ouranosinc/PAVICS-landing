@@ -14264,10 +14264,10 @@ a.anchor-link {
 <p>To launch OSTRICH, we need to provide it with lower and an upper bounds for all parameters, as well as input data for the model and streamflow observations to compare against. Here we calibrate the GR4J-CemaNeige on the Salmon river watershed.</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
@@ -14277,13 +14277,16 @@ a.anchor-link {
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">from</span> <span class="nn">pandas.plotting</span> <span class="kn">import</span> <span class="n">register_matplotlib_converters</span>
 
-<span class="kn">from</span> <span class="nn">ravenpy.utilities.testdata</span> <span class="kn">import</span> <span class="n">get_local_testdata</span>
+<span class="kn">from</span> <span class="nn">ravenpy.utilities.testdata</span> <span class="kn">import</span> <span class="n">get_file</span>
 
 <span class="n">register_matplotlib_converters</span><span class="p">()</span>
 
 <span class="c1"># Set environment variable WPS_URL to &quot;http://localhost:9099&quot; to run on the default local server</span>
-<span class="n">url</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;WPS_URL&quot;</span><span class="p">,</span> <span class="s2">&quot;https://pavics.ouranos.ca/twitcher/ows/proxy/raven/wps&quot;</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s2">&quot;WPS_URL&quot;</span><span class="p">,</span> <span class="s2">&quot;https://pavics.ouranos.ca/twitcher/ows/proxy/raven/wps&quot;</span>
+<span class="p">)</span>
 <span class="n">wps</span> <span class="o">=</span> <span class="n">WPSClient</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">url</span>
 </pre></div>
 
      </div>
@@ -14291,10 +14294,33 @@ a.anchor-link {
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[1]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#39;http://localhost:9099&#39;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># The model parameter boundaries. Can either be a string of comma separated values, a list, an array or a named tuple.</span>
@@ -14305,20 +14331,24 @@ a.anchor-link {
 <span class="n">ts</span> <span class="o">=</span> <span class="n">get_file</span><span class="p">(</span><span class="s2">&quot;raven-gr4j-cemaneige/Salmon-River-Near-Prince-George_meteo_daily.nc&quot;</span><span class="p">)</span>
 
 <span class="c1"># GR4J-CN model configuration parameters</span>
-<span class="n">config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">area</span><span class="o">=</span><span class="mf">4250.6</span><span class="p">,</span>
-              <span class="n">elevation</span><span class="o">=</span><span class="mf">843.0</span><span class="p">,</span>
-              <span class="n">latitude</span><span class="o">=</span><span class="mf">54.4848</span><span class="p">,</span>
-              <span class="n">longitude</span><span class="o">=-</span><span class="mf">123.3659</span><span class="p">,</span>
-              <span class="n">start_date</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1954</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-              <span class="n">duration</span><span class="o">=</span><span class="mi">208</span><span class="p">)</span>
+<span class="n">config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">area</span><span class="o">=</span><span class="mf">4250.6</span><span class="p">,</span>
+    <span class="n">elevation</span><span class="o">=</span><span class="mf">843.0</span><span class="p">,</span>
+    <span class="n">latitude</span><span class="o">=</span><span class="mf">54.4848</span><span class="p">,</span>
+    <span class="n">longitude</span><span class="o">=-</span><span class="mf">123.3659</span><span class="p">,</span>
+    <span class="n">start_date</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1954</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">duration</span><span class="o">=</span><span class="mi">208</span><span class="p">,</span>
+<span class="p">)</span>
 
 <span class="c1"># OSTRICH configuration parameters</span>
-<span class="n">calib</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;DDS&#39;</span><span class="p">,</span>
-             <span class="n">max_iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-             <span class="n">lowerbounds</span><span class="o">=</span><span class="n">lowerBounds</span><span class="p">,</span>
-             <span class="n">upperbounds</span><span class="o">=</span><span class="n">upperBounds</span><span class="p">,</span>
-             <span class="c1"># Comment out the random seed to show different results!</span>
-             <span class="n">random_seed</span><span class="o">=</span><span class="mf">6.67408</span><span class="o">*</span><span class="mi">10</span><span class="o">**-</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">calib</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;DDS&quot;</span><span class="p">,</span>
+    <span class="n">max_iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">lowerbounds</span><span class="o">=</span><span class="n">lowerBounds</span><span class="p">,</span>
+    <span class="n">upperbounds</span><span class="o">=</span><span class="n">upperBounds</span><span class="p">,</span>
+    <span class="c1"># Comment out the random seed to show different results!</span>
+    <span class="n">random_seed</span><span class="o">=</span><span class="mf">6.67408</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="o">-</span><span class="mi">11</span><span class="p">,</span>
+<span class="p">)</span>
 
 <span class="c1"># Call Ostrich with the timeseries, calibration parameters and other configuration parameters</span>
 <span class="n">resp</span> <span class="o">=</span> <span class="n">wps</span><span class="o">.</span><span class="n">ostrich_gr4j_cemaneige</span><span class="p">(</span><span class="n">ts</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">ts</span><span class="p">),</span> <span class="o">**</span><span class="n">config</span><span class="p">,</span> <span class="o">**</span><span class="n">calib</span><span class="p">)</span>
@@ -14327,6 +14357,43 @@ a.anchor-link {
      </div>
 </div>
 </div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ts</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>PosixPath(&#39;/home/lvu/.raven_testing_data/master/raven-gr4j-cemaneige/Salmon-River-Near-Prince-George_meteo_daily.nc&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -14338,10 +14405,12 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">calibration</span><span class="p">,</span> <span class="n">hydrograph</span><span class="p">,</span> <span class="n">storage</span><span class="p">,</span> <span class="n">solution</span><span class="p">,</span> <span class="n">diagnostics</span><span class="p">,</span> <span class="n">calibparams</span><span class="p">,</span> <span class="n">rv</span><span class="p">]</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">asobj</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">calibration</span><span class="p">,</span> <span class="n">hydrograph</span><span class="p">,</span> <span class="n">storage</span><span class="p">,</span> <span class="n">solution</span><span class="p">,</span> <span class="n">diagnostics</span><span class="p">,</span> <span class="n">calibparams</span><span class="p">,</span> <span class="n">rv</span><span class="p">]</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="n">asobj</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">calibparams</span><span class="p">)</span>
 </pre></div>
 
@@ -14380,7 +14449,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call the model with the time series, model parameters and other configuration parameters</span>
@@ -14402,7 +14471,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">diagnostics</span><span class="p">)</span>
@@ -14427,10 +14496,12 @@ a.anchor-link {
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>observed data series,filename,DIAG_NASH_SUTCLIFFE,DIAG_RMSE,
-HYDROGRAPH_ALL,/tmp/pywps_process_q_kr07wf/Salmon-River-Near-Prince-George_meteo_daily.nc,0.50717,36.373,
+HYDROGRAPH_ALL,/tmp/pywps_process_4pqu99t6/Salmon-River-Near-Prince-George_meteo_daily.nc,0.50717,36.373,
+HYDROGRAPH_ALL,/tmp/pywps_process_4pqu99t6/Salmon-River-Near-Prince-George_meteo_daily.nc,0.50717,36.373,
 
 observed data series,filename,DIAG_NASH_SUTCLIFFE,DIAG_RMSE,
-HYDROGRAPH_ALL,/tmp/pywps_process_tfoib3ce/Salmon-River-Near-Prince-George_meteo_daily.nc,0.50717,36.373,
+HYDROGRAPH_ALL,/tmp/pywps_process_a6pe0h5q/Salmon-River-Near-Prince-George_meteo_daily.nc,0.50717,36.373,
+HYDROGRAPH_ALL,/tmp/pywps_process_a6pe0h5q/Salmon-River-Near-Prince-George_meteo_daily.nc,0.50717,36.373,
 
 </pre>
 </div>

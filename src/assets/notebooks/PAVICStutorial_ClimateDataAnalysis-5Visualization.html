@@ -14278,9 +14278,10 @@ a.anchor-link {
 </ul>
 <hr>
 <p><a id='notes'></a></p>
-<p><em>NOTE : To run this series of tutorials in the PAVICS JupyterLab, notebooks and tutorial data should be copied into your 'writable-workspace' directory.</em></p>
-<p><em>Note on ensemble stastics and percentiles : It is critical to retain all ensemble realizations throughout data treatment steps when creating a new type of summary output (for example annual spatial-means, or 30 year climate normals) such that the final step is the calculation of ensemble percentiles (or mean, min, max) between realizations.  In general one should try to remember that the mean of percentile (or min, max) values does not equal the percentile (or min, max) of the mean conditions.</em></p>
-
+<div class="alert alert-info">
+<strong>Info!</strong> To run this series of tutorials in the PAVICS JupyterLab, notebooks should be copied into your <strong>writable-workspace</strong> directory. <a href=#workspace>see note below</a>
+</div><div class="alert alert-info">
+<strong>Note on ensemble statistics: </strong> It is critical to retain all ensemble realizations throughout data treatment steps when creating a new type of summary output (for example annual spatial-means, or 30 year climate normals) such that the final step is the calculation of ensemble percentiles (or mean, min, max) between realizations.  In general one should try to remember that the mean of percentile (or min, max) values does not equal the percentile (or min, max) of the mean conditions.</div>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14375,9 +14376,9 @@ a.anchor-link {
 
 
 
-<div id="ef34db9e-fd49-4ed1-adfd-37299a37c11f" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="46454ecd-c5fe-4495-b2d3-ab511fe21695" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('ef34db9e-fd49-4ed1-adfd-37299a37c11f');
+var element = document.getElementById('46454ecd-c5fe-4495-b2d3-ab511fe21695');
 
 (function(root) {
   function now() {
@@ -30092,9 +30093,9 @@ var element = document.getElementById('ef34db9e-fd49-4ed1-adfd-37299a37c11f');
 
 
 
-<div id="ef34db9e-fd49-4ed1-adfd-37299a37c11f" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="46454ecd-c5fe-4495-b2d3-ab511fe21695" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('ef34db9e-fd49-4ed1-adfd-37299a37c11f');
+var element = document.getElementById('46454ecd-c5fe-4495-b2d3-ab511fe21695');
 
 if ((window.PyViz === undefined) || (window.PyViz instanceof HTMLElement)) {
   window.PyViz = {comms: {}, comm_status:{}, kernels:{}, receivers: {}, plot_index: []}
@@ -31993,6 +31994,17 @@ Attributes:
 
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<hr>
+<h3 id="Notes">Notes<a class="anchor-link" href="#Notes">&#182;</a></h3><p><a id='workspace'></a></p>
+<p><div class="alert alert-info"><strong>Info! writeable-workspace location.</strong> To avoid permission errors for notebooks which write output to disk it is necessary to copy tutorial notebooks from the "pavics-homepage" folder to a location within your "writeable-workspace"
+</div>
+<img src=writable_workspace.png></p>
+<p><em><a href="#top">return to top of page</a></em></p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
