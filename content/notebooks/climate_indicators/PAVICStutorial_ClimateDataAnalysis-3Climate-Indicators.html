@@ -15937,7 +15937,7 @@ Attributes:
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Parallel-processing-section">Parallel processing section<a class="anchor-link" href="#Parallel-processing-section">&#182;</a></h4><p>In many cases the following code can be left as is. It will employ a dask distributed <code>Client</code> to execute the user defined list of calculations from the previous cell in parrallel. Resulting netcdf files (1 file per simulation per calculation) are written into an <code>output</code> subfolder</p>
+<h4 id="Parallel-processing-section">Parallel processing section<a class="anchor-link" href="#Parallel-processing-section">&#182;</a></h4><p>In many cases the following code can be used as is (or with only slight modifications). It will iteratively prepare a series <code>dask.delayed</code> computations on the input datasets found within the THREDDS catalog url (in this case we prepare <code>dask.delayed</code> tasks to output one netcdf file per simulation per climate indicator calculation). Then, employing a dask distributed <code>Client</code>, simulataneously execute all calculations in parralel. Climate indicator calculation output netcdf files are written into an <code>output</code> subfolder.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
