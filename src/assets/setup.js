@@ -34,7 +34,6 @@ $(function() {
           // Add pavics link
           if ($(item).data("pavics-link")) {
             html += '<div class="open-in-pavics">'
-            html += '<strong>Info!</strong>'
             html += '  <a target="_blank" href="' + $(item).data("pavics-link") + '">'
             html += $(item).data("pavics-link-text")
             html += '  </a>'
