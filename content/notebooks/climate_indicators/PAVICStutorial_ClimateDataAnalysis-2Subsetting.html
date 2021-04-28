@@ -14281,7 +14281,7 @@ a.anchor-link {
 </ul>
 <p>This tutorial uses <a href="https://clisops.readthedocs.io/en/latest/" target="_blank">clisops</a> for subsetting operations, and <a href="https://geopandas.org/" target="_blank">geopandas</a> to manipulate region geometries.  We re-use part of the data-access tutorial to select a dataset from cb-oura-1.0 datasets from the PAVICS THREDDS server.</p>
 <div class="alert alert-info">
-<strong>Info!</strong> To run this series of tutorials in the PAVICS JupyterLab, notebooks should be copied into your <strong>writable-workspace</strong> directory. <a href=#workspace>see note below</a>
+To run this series of tutorials in the PAVICS JupyterLab, notebooks should be copied into your <a href=#workspace>writable-workspace</a> directory. 
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -17027,7 +17027,7 @@ Attributes: (12/26)
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a id='poly'></a></p>
 <hr>
-<h2 id="Subsetting-using-a-polygon">Subsetting using a polygon<a class="anchor-link" href="#Subsetting-using-a-polygon">&#182;</a></h2><p>The <code>subset_shape</code> function can extract data within an arbitrary shape defined by one or multiple polygons. It crops the original grid to the polygon then masks everything outside it.</p>
+<h2 id="Subsetting-using-a-polygon">Subsetting using a polygon<a class="anchor-link" href="#Subsetting-using-a-polygon">&#182;</a></h2><p>The <code>subset_shape</code> function can extract data within an arbitrary shape defined by one or multiple polygons. It crops the original grid to the polygon then masks everything outside it. Supported files types include most common GIS formats including shapefile, geojson, and geopackage.</p>
 <p>Use cases:</p>
 <ul>
 <li>Analyze climate variables within a country, state or watershed</li>

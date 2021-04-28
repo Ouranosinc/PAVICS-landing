@@ -14269,8 +14269,13 @@ a.anchor-link {
 <p>PAVICS climate <a href="/datasets.html" target="_blank">datasets<a /> are hosted on a <a href="https://www.unidata.ucar.edu/software/tds/current/" target="_blank">THREDDS data server</a> at <a href="https://pavics.ouranos.ca/thredds" target="_blank">https://pavics.ouranos.ca/thredds</a>. Although THREDDS provides a user-interface for browsing datasets, it is often more practical to  navigate the catalogue programatically.</p>
 <p>This tutorial demonstates how to access an ensemble of climate simulations, namely Ouranos' standard ensemble of bias-adjusted climate scenarios version 1.0 (cb-oura-1.0), using python commands. The ensemble contains <a href="https://pavics.ouranos.ca/twitcher/ows/proxy/thredds/catalog/datasets/simulations/bias_adjusted/cmip5/ouranos/cb-oura-1.0/catalog.html" target="_blank">22 bias-adjusted CMIP5 simulations</a> in netCDF format, each with three variables (tasmin, tasmax, pr) and dimensions of longitude, latitude and time (1064, 700, 55175). Instead of downloading huge volumes of data locally, this  tutorial shows how to stream only the relevant portion using a standard called Data Access Protocol (DAP).</p>
 <p>The tutorial uses the <a href="https://unidata.github.io/siphon/latest/index.html" target="_blank">siphon</a> library to browse the THREDDS catalog, and <a href="http://xarray.pydata.org/en/stable/index.html" target="_blank">xarray</a> to open a streaming connection to the remote data.</p>
+<ul>
+<li>THREDDS services <a href="https://www.unidata.ucar.edu/software/tds/current/reference/Services.html">https://www.unidata.ucar.edu/software/tds/current/reference/Services.html</a></li>
+</ul>
 <div class="alert alert-info">
-<strong>Info!</strong> To run this series of tutorials in the PAVICS JupyterLab, notebooks should be copied into your <strong>writable-workspace</strong> directory. <a href=#workspace>see note below</a>
+PAVICS datasets are often provided via user-friendly <a href=#ncml>NetCDF Markup Language (NcML) aggregations</a> a convenient way to combine multiple files into a single, logical dataset. 
+</div><div class="alert alert-info">
+To run this series of tutorials in the PAVICS JupyterLab, notebooks should be copied into your <a href=#workspace>writable-workspace</a> directory. 
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15644,7 +15649,10 @@ Attributes:
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
-<h3 id="Notes">Notes<a class="anchor-link" href="#Notes">&#182;</a></h3><p><a id='workspace'></a></p>
+<h3 id="Notes">Notes<a class="anchor-link" href="#Notes">&#182;</a></h3><p><a id='ncml'></a></p>
+<div class="alert alert-info">
+<strong>Info!</strong>  <a href=https://www.unidata.ucar.edu/software/netcdf-java/v4.6/ncml/index.htm target='_blank'>NetCDF Markup Language (NcML)</a>: PAVICS datasets are often provided via user-friendly NcML aggregations, a convenient way to combine multiple files into a single, logical dataset. For example, the particular catalog used in this tutorial accesses 22 climate datasets, where each simulation consists of a NcML aggregation. From a user's standpoint each cb-oura-1.0 simulation is accessible as a single .ncml, where in reality it consists of an aggregation of individual yearly netcdf files for each of the three variables (tasmin, tasmax, pr) over the period 1950-2100. 
+</div><p><a id='workspace'></a></p>
 <p><div class="alert alert-info"><strong>Info! writeable-workspace location.</strong> To avoid permission errors for notebooks which write output to disk it is necessary to copy tutorial notebooks from the "pavics-homepage" folder to a location within your "writeable-workspace"
 </div>
 <img src="writable_workspace.png"></p>

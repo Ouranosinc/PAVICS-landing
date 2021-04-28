@@ -14276,12 +14276,9 @@ a.anchor-link {
 <ul>
 <li><a href="#advanced">Interactive dashboarding</a></li>
 </ul>
-<hr>
-<p><a id='notes'></a></p>
 <div class="alert alert-info">
-<strong>Info!</strong> To run this series of tutorials in the PAVICS JupyterLab, notebooks should be copied into your <strong>writable-workspace</strong> directory. <a href=#workspace>see note below</a>
-</div><div class="alert alert-info">
-<strong>Note on ensemble statistics: </strong> It is critical to retain all ensemble realizations throughout data treatment steps when creating a new type of summary output (for example annual spatial-means, or 30 year climate normals) such that the final step is the calculation of ensemble percentiles (or mean, min, max) between realizations.  In general one should try to remember that the mean of percentile (or min, max) values does not equal the percentile (or min, max) of the mean conditions.</div>
+To run this series of tutorials in the PAVICS JupyterLab, notebooks should be copied into your <a href=#workspace>writable-workspace</a> directory. 
+</div>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14376,9 +14373,9 @@ a.anchor-link {
 
 
 
-<div id="70353eb9-b3ce-4fdd-a429-92c4908cd7f1" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="9d8fa6e4-1a43-4bb2-b7d0-aa8072397d0c" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('70353eb9-b3ce-4fdd-a429-92c4908cd7f1');
+var element = document.getElementById('9d8fa6e4-1a43-4bb2-b7d0-aa8072397d0c');
 
 (function(root) {
   function now() {
@@ -30093,9 +30090,9 @@ var element = document.getElementById('70353eb9-b3ce-4fdd-a429-92c4908cd7f1');
 
 
 
-<div id="70353eb9-b3ce-4fdd-a429-92c4908cd7f1" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="9d8fa6e4-1a43-4bb2-b7d0-aa8072397d0c" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('70353eb9-b3ce-4fdd-a429-92c4908cd7f1');
+var element = document.getElementById('9d8fa6e4-1a43-4bb2-b7d0-aa8072397d0c');
 
 if ((window.PyViz === undefined) || (window.PyViz instanceof HTMLElement)) {
   window.PyViz = {comms: {}, comm_status:{}, kernels:{}, receivers: {}, plot_index: []}
@@ -30838,8 +30835,7 @@ Data variables:
 <p><a id='maps'></a></p>
 <hr>
 <h2 id="Maps-of-climate-normals">Maps of climate normals<a class="anchor-link" href="#Maps-of-climate-normals">&#182;</a></h2><p>In this section we examine steps to create an interactive map of 30 year climatologies. First we calculate 30 year averages on our ensemble dataset
-as well as a subsequent delta change calculation with respect to a reference period. We then calculate ensembles percentiles of the 30 year normals. Finally we employ <a href="https://holoviz.org/" target="_blank">holoviz</a> tools to create an interactive figure to explore the data.</p>
-<p><em>Notes : Remember the importance of calculating ensemble percentiles as a last step (see <a href="#notes">notes</a>).</em></p>
+as well as a subsequent delta change calculation with respect to a reference period. We then calculate ensembles percentiles of the 30 year normals. Finally we employ <a href="https://holoviz.org/" target="_blank">holoviz</a> tools to create an interactive figure to explore the data. <em>Remember the importance of calculating ensemble percentiles as a last step (see <a href="#notes">notes</a>).</em></p>
 <p><em><a href="#top">return to top of page</a></em></p>
 
 </div>
@@ -31998,7 +31994,9 @@ Attributes:
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <hr>
-<h3 id="Notes">Notes<a class="anchor-link" href="#Notes">&#182;</a></h3><p><a id='workspace'></a></p>
+<h3 id="Notes">Notes<a class="anchor-link" href="#Notes">&#182;</a></h3><p><a id='notes'></a></p>
+<div class="alert alert-info">
+<strong>Note on ensemble statistics: </strong> It is critical to retain all ensemble realizations throughout data treatment steps when creating a new type of summary output (for example annual spatial-means, or 30 year climate normals) such that the final step is the calculation of ensemble percentiles (or mean, min, max) between realizations.  In general one should try to remember that the mean of percentile (or min, max) values does not equal the percentile (or min, max) of the mean conditions.</div><p><a id='workspace'></a></p>
 <p><div class="alert alert-info"><strong>Info! writeable-workspace location.</strong> To avoid permission errors for notebooks which write output to disk it is necessary to copy tutorial notebooks from the "pavics-homepage" folder to a location within your "writeable-workspace"
 </div>
 <img src=writable_workspace.png></p>
