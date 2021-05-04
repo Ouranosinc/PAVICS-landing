@@ -15863,7 +15863,6 @@ Attributes:
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Advanced-Topics">Advanced Topics<a class="anchor-link" href="#Advanced-Topics">&#182;</a></h3><p><a id='multiproc'></a></p>
 <h4 id="Parallel-processing-of-the-entire-ensemble">Parallel processing of the entire ensemble<a class="anchor-link" href="#Parallel-processing-of-the-entire-ensemble">&#182;</a></h4><p>xclim uses <code>xarray</code> and its built-in support of <code>Dask</code> parallelization for most of its operations allowing for simple configuration of climate indicator calculation employing <a href="http://xarray.pydata.org/en/stable/dask.html" target="_blank">parallel computing</a>. Here we show a simple workflow to calculate climate indicators for all simulations (n=22) in the <code>cb-oura-1.0</code> ensemble.   From a user standpoint simply specifying the <code>chunks</code> argument when opening the data via <code>xarray.open_dataset</code> will autmomatically result in dask being employed.  In this case, the calculations are additionally computed in parrallel via a <code>dask.distributed</code> client of worker processes instead of the default scheduler.</p>
-<p><em><a href="#top1">return to top of page</a></em></p>
 
 </div>
 </div>
@@ -15874,14 +15873,15 @@ Attributes:
 <li>The dataset(s) to be used (in this case cb-oura-1.0 thredds catalogue url)</li>
 <li>A subset region of interest (in this case a polygon over Gaspésie)</li>
 <li>A start and end date on which to perform the calculations</li>
-<li>A list of climate indicator calculations to perform (a python list of <code>xclim.atmos</code> functions and associated key-word arguments) </li>
+<li>A list of climate indicator calculations to perform (a python list of <code>xclim.atmos</code> functions and associated key-word arguments)</li>
 </ul>
+<p><em><a href="#top1">return to top of page</a></em></p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">dask</span> <span class="kn">import</span> <span class="n">compute</span>
@@ -15927,6 +15927,7 @@ Attributes:
 <span class="n">calcs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">atmos</span><span class="o">.</span><span class="n">tx_mean</span><span class="p">,</span> 
                   <span class="n">args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;YS&#39;</span><span class="p">))</span>
             <span class="p">)</span>
+<span class="c1"># Additional calculations added here ...</span>
 </pre></div>
 
      </div>
@@ -15937,8 +15938,9 @@ Attributes:
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Parallel-processing-section">Parallel processing section<a class="anchor-link" href="#Parallel-processing-section">&#182;</a></h4><p>In many cases the following code can be used as is (or with only slight modifications). It will iteratively prepare a series <code>dask.delayed</code> computations on the input datasets found within the THREDDS catalog url (in this case we prepare <code>dask.delayed</code> tasks to output one netcdf file per simulation per climate indicator calculation). Then, employing a dask distributed <code>Client</code>, simulataneously execute all calculations in parralel. Climate indicator calculation output netcdf files are written into an <code>output</code> subfolder.</p>
-
+<h4 id="Parallel-processing-section">Parallel processing section<a class="anchor-link" href="#Parallel-processing-section">&#182;</a></h4><p>The following section of code will execute the calculations prepared above. In many cases the following code can be used as is (or with only slight modifications). It will iteratively prepare a series <code>dask.delayed</code> computations on the input datasets found within the THREDDS catalog url (in this case we prepare <code>dask.delayed</code> tasks to output one netcdf file per simulation per climate indicator calculation). Then, employing a dask distributed <code>Client</code>, simulataneously execute all calculations in parralel. Climate indicator calculation output netcdf files are written into an <code>output</code> subfolder.</p>
+<div class="alert alert-info"><strong>Info!</strong> Despite increased performance via parallel processing executing this portion of the tutorial will likely take some time to finish all computations.
+</div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
