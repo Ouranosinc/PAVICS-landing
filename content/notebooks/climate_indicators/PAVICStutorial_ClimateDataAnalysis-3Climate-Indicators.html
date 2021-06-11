@@ -15955,7 +15955,9 @@ Attributes:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># We define a small sub-function for xclim.atmos indicator calculation and export to netcdf.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NBVAL_SKIP </span>
+
+<span class="c1"># We define a small sub-function for xclim.atmos indicator calculation and export to netcdf.</span>
 <span class="c1"># compute=False results in returning a dask.delayed object : computation is not immediately executed.</span>
 <span class="c1"># dask.delayed objects for all calculations are appended to a list and executed in parralel all at once </span>
 <span class="k">def</span> <span class="nf">indicator_calc</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">outfile</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">attrs</span><span class="p">):</span>
