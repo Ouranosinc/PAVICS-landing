@@ -15967,7 +15967,7 @@ Attributes:
     <span class="k">return</span> <span class="n">dsout</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">compute</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># Parallel computing part...</span>
-<span class="k">with</span> <span class="n">Client</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+<span class="k">with</span> <span class="n">Client</span><span class="p">(</span><span class="n">local_dir</span><span class="o">=</span><span class="s1">&#39;/notebook_dir/writable-workspace/tmp&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
     
     <span class="c1"># loop over the list of calculations to perform</span>
     <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">calcs</span><span class="p">:</span> 
