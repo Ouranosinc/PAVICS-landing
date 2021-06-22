@@ -90,6 +90,7 @@ for o in options_dict.keys():
             if len(cat.search(title=dataset).df) > 0:
                 df = cat.search(title=dataset).df
                 break
+
         ds = xr.open_dataset(df['path'][0], chunks=dict(time=1))
         if 'longitude' in ds.dims:
             ds = ds.rename({'longitude':'lon'})
@@ -164,8 +165,10 @@ for o in options_dict.keys():
         else:
             summary.append(pn.Row(pn.pane.HTML(f"{summary_fields[lang]['temporal_coverage']} :", ), pn.pane.HTML(
             f"{ds.time.min().dt.strftime('%Y/%m/%d').values} - {ds.time.max().dt.strftime('%Y/%m/%d').values}")))
-        summary.append(
-            pn.Row(pn.pane.HTML(f"{summary_fields[lang]['variables']} :", ), pn.pane.HTML(', '.join(sorted([v for v in ds.data_vars])))))
+
+        if 'Climatedata.ca' not in dataset:
+            summary.append(
+                pn.Row(pn.pane.HTML(f"{summary_fields[lang]['variables']} :", ), pn.pane.HTML(', '.join(sorted([v for v in ds.data_vars])))))
         if exp1:
             summary.append(pn.Row(pn.pane.HTML(f"{summary_fields[lang]['driving_experiment']} :",), pn.pane.HTML(', '.join(exp1))))
 
