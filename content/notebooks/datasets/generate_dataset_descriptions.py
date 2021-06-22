@@ -34,11 +34,13 @@ world = gpd.GeoDataFrame(geometry=world.simplify(0.05))
 
 options_dict = {}
 options_dict['Datasets_1-Climate_Simulations'] = []
+options = []
 for c in [c for c in cats if 'biasadjusted.json' in c.name or 'climex.json' in c.name]:
     cat = intake_esm.intake.open_esm_datastore(c)
-    options = list(cat.df['title'].unique())
-    options_dict['Datasets_1-Climate_Simulations'].extend([o for o in options if 'Ouranos' in o])
-    options_dict['Datasets_1-Climate_Simulations'].extend([o for o in options if 'Ouranos' not in o])
+    options.extend(list(cat.df['title'].unique()))
+options_dict['Datasets_1-Climate_Simulations'].extend([o for o in options if 'Ouranos' in o])
+options_dict['Datasets_1-Climate_Simulations'].extend([o for o in options if 'ClimEx' in o])
+options_dict['Datasets_1-Climate_Simulations'].extend([o for o in options if 'Ouranos' not in o and 'ClimEx' not in o])
 
 options_dict['Datasets_2-Observations'] = []
 for c in [c for c in cats if 'obs.json' in c.name]:
