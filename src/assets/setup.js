@@ -68,7 +68,8 @@ $(function() {
       // Get the anchor at the end of the url, e.g. "src/hydrology.html#c" --> "#c"
       let anchor = window.location.hash;
       if (anchor) {
-        // If the anchor is set, set the corresponding tab/item to active
+        // If the anchor is set, first set the default (i.e. the first) tab and item to inactive, then
+        // set the user selected tab and item to active
         $("#a.tab-pane").removeClass("show active");
         $(`${anchor}.tab-pane`).addClass("show active");
         $("a.nav-link").each(function() {
