@@ -31,12 +31,12 @@ $(function() {
         if ($(item).data("iframe")) {
 
           // Update the location bar url with the item hash
-          let h = "#" + item.id;
-          if (history.pushState) {
-            history.pushState(null, null, h);
+          let anchor = "#" + item.id;
+          if (window.history.pushState) {
+            window.history.pushState(null, null, anchor);
           }
           else {
-            location.hash = h;
+            window.location.hash = anchor;
           }
 
           html = ''
