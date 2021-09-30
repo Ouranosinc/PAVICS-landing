@@ -29,6 +29,16 @@ $(function() {
     function activateIframe() {
       $(".tab-pane.active").each(function(index, item) {
         if ($(item).data("iframe")) {
+
+          // Update the location bar url with the item hash
+          let h = "#" + item.id;
+          if (history.pushState) {
+            history.pushState(null, null, h);
+          }
+          else {
+            location.hash = h;
+          }
+
           html = ''
 
           // Add pavics link
@@ -54,6 +64,25 @@ $(function() {
 
     // Called after loading of page is complete
     function afterLoad() {
+
+      // Get the anchor at the end of the url, e.g. "src/hydrology.html#c" --> "#c"
+      let anchor = window.location.hash;
+      if (anchor) {
+        // If the anchor is set, set the corresponding tab/item to active
+        $("#a.tab-pane").removeClass("show active");
+        $(`${anchor}.tab-pane`).addClass("show active");
+        $("a.nav-link").each(function() {
+          if ($(this).attr("href") === "#a") {
+            $(this).removeClass("active")
+          }
+        });
+        $("a.nav-link").each(function() {
+          if ($(this).attr("href") === anchor) {
+            $(this).addClass("active")
+          }
+        });
+      }
+
       // Activate initial iframe
       activateIframe()
 
