@@ -17,13 +17,26 @@ import warnings
 import shutil
 import git
 from shapely.geometry import Polygon
+import requests
+import re
 repo = git.Repo('.', search_parent_directories=True)
 repo = Path(repo.git_dir).parent
 
 warnings.simplefilter('ignore')
 
+u = 'https://pavics.ouranos.ca/catalog/'
 
+src = requests.get(u).text
+
+m = re.findall('href="(.*?)"', src)
 intake_path = Path('intake_cats')
+for fn in m:
+    if ".." in fn: continue
+    print(f'downloading {fn}')
+    r = requests.get(u + fn)
+    open(intake_path.joinpath(fn), 'wb').write(r.content)
+
+
 cats = sorted([l for l in list(intake_path.glob('*.json')) if l.name != 'cmip5.json'])
 
 ## Climate simulations - bias adjusted
@@ -158,7 +171,10 @@ for o in options_dict.keys():
         if prj1:
             summary.append(pn.Row(pn.pane.HTML(f"{summary_fields[lang]['project']} :", ), pn.pane.HTML(prj1)))
         if 'frequency' in df.columns:
-            summary.append(pn.Row(pn.pane.HTML(f"{summary_fields[lang]['frequency']} :", ), pn.pane.HTML(df['frequency'].unique()[0])))
+            freq = df['frequency'].unique()[0]
+            if isinstance(freq, float):
+                freq = str(freq)
+            summary.append(pn.Row(pn.pane.HTML(f"{summary_fields[lang]['frequency']} :", ), pn.pane.HTML(freq)))
         if o == 'Datasets_4-forecasts':
             summary.append(pn.Row(pn.pane.HTML(f"{summary_fields[lang]['temporal_coverage']} :", ), pn.pane.HTML(
                 f"current forecast")))
