@@ -239,7 +239,7 @@ for o in options_dict.keys():
                                                       xlabel='longitude',ylabel='latitude',
                                                       frame_height=300, frame_width=750).opts(toolbar=None, fontsize={'title': 12} ) * world1.hvplot(c='')
             else:
-                map1 = ds[vv].isel(time=0).hvplot.contourf(levels=15,title=title[lang], x='lon', y='lat', xlim=xlim, ylim=ylim, rasterize=True,
+                map1 = ds[vv].isel(time=0).hvplot.quadmesh(title=title[lang], x='lon', y='lat', xlim=xlim, ylim=ylim, rasterize=True,
                                                     cmap='RdBu_r', hover=False, xlabel = 'longitude', ylabel = 'latitude',
                                                     frame_height = 300, frame_width = 750).opts(toolbar=None, fontsize={'title': 12} ) * world1.hvplot(c='')
 
