@@ -1,5 +1,5 @@
 PAVICS provides methods for finding and analysing climate data, offering tools that span
-the range of common data analysis steps including: 
+the range of common data analysis steps including:
 ___
 * Finding and accessing datasets
 * Spatio-temporal subsetting
