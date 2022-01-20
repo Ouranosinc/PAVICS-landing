@@ -1,0 +1,10 @@
+# conda env create -f environment-dev.yml
+
+name: PAVICS-landing
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  # then `pre-commit install` to initialize
+  - pre-commit
