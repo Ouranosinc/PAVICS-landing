@@ -1,0 +1,65 @@
+<style>
+  .portal-logo {
+    min-height: 100px;
+    margin-bottom: 10px;
+  }
+
+  #partner-logos .logo img {
+    max-width: 80%;
+    max-height: 44px;
+  }
+</style>
+
+<div class="band" id="partners">
+  <div class="container-fluid">
+    <body>
+      <h3 id="citation">How to cite : </h3>
+      <p> Use of PAVICS should be acknowledged in the following manner : <br> "Data access and analysis environment was provided
+        through the Power Analytics and Visualization for Climate Science (PAVICS) platform (Ouranos and CRIM, 2018-<span id="year"></span>).
+        PAVICS is funded through Ouranos, the Computer Research Institute of Montreal (CRIM),
+        Environment and Climate Change Canada (ECCC), CANARIE, the Fonds Vert and the Fonds d’électrification et de changements climatiques, the Canadian Foundation for Innovation (CFI),
+        and the Fonds de Recherche du Québec (FRQ)"
+      </p>
+      <!-- JS before /body -->
+      <script>
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+      </script>
+    </body>
+    <br>
+    <br>
+    <h3>Partners</h3>
+    <br>
+    <div id="partner-logos" class="row">
+      <div class="logo col-sm">
+        <a href="https://www.ouranos.ca/" target="_blank">
+          <img src="assets/images/logo-ouranos.png" alt="Logo">
+        </a>
+      </div>
+      <div class="logo col-sm">
+        <a href="https://www.crim.ca/fr" target="_blank">
+          <img src="assets/images/logo-crim.png" alt="Logo">
+        </a>
+      </div>
+      <div class="logo col-sm">
+        <a href="https://www.canada.ca/en/environment-climate-change.html" target="_blank">
+          <img src="assets/images/logo-eccc-en.png" alt="Logo" style="max-width: 100%">
+        </a>
+      </div>
+      <div class="logo col-sm">
+        <a href="https://www.canarie.ca/" target="_blank">
+          <img src="assets/images/logo-canarie.png" alt="Logo">
+        </a>
+      </div>
+      <div class="logo col-sm">
+        <a href="https://www.environnement.gouv.qc.ca/" target="_blank">
+          <img src="assets/images/QUEBEC_blanc.png" alt="Logo">
+        </a>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>
+
+
