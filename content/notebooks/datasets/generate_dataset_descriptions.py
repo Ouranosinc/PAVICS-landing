@@ -73,7 +73,12 @@ for c in [c for c in cats if "obs.json" in c.name]:
 options_dict["Datasets_3-Reanalysis"] = []
 for c in [c for c in cats if "reanalysis.json" in c.name]:
     cat = intake_esm.intake.open_esm_datastore(c)
-    options_dict["Datasets_3-Reanalysis"].extend(list(cat.df["title"].unique()))
+    options = list(cat.df["title"].unique())
+options_dict["Datasets_3-Reanalysis"].extend([o for o in options if "ERA5-Land" in o])
+
+options_dict["Datasets_3-Reanalysis"].extend(
+    [o for o in options if "ERA5-Land" not in o]
+)
 
 options_dict["Datasets_4-forecasts"] = []
 for c in [c for c in cats if "forecast.json" in c.name]:
