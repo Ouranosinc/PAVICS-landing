@@ -1,1 +1,36 @@
-{"esmcat_version": "0.1.0", "id": "stationobs", "description": "station observations", "catalog_file": "stationobs.csv.gz", "attributes": [{"column_name": "license_type"}, {"column_name": "title"}, {"column_name": "institute_id"}, {"column_name": "institute"}, {"column_name": "frequency"}, {"column_name": "dataset_id"}, {"column_name": "variable_name"}, {"column_name": "variable_long_name"}], "assets": {"column_name": "path", "format": "netcdf"}}
+{
+  "esmcat_version": "0.1.0",
+  "id": "stationobs",
+  "description": "station observations",
+  "catalog_file": "stationobs.csv.gz",
+  "attributes": [
+    {
+      "column_name": "license_type"
+    },
+    {
+      "column_name": "title"
+    },
+    {
+      "column_name": "institute_id"
+    },
+    {
+      "column_name": "institute"
+    },
+    {
+      "column_name": "frequency"
+    },
+    {
+      "column_name": "dataset_id"
+    },
+    {
+      "column_name": "variable_name"
+    },
+    {
+      "column_name": "variable_long_name"
+    }
+  ],
+  "assets": {
+    "column_name": "path",
+    "format": "netcdf"
+  }
+}

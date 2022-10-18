@@ -401,47 +401,35 @@ for o in options_dict.keys():
                 "fr"
             ] = f"Exemple de domaine spatial: pas de temps unique pour variable {vv} ({unit_str})"
             if {"lat", "lon"}.issubset(set(list(ds.dims.keys()))):
-                map1 = (
-                    ds[vv]
-                    .isel(time=0)
-                    .hvplot.image(
-                        title=title[lang],
-                        x="lon",
-                        y="lat",
-                        xlim=xlim,
-                        ylim=ylim,
-                        rasterize=True,
-                        cmap="RdBu_r",
-                        hover=False,
-                        xlabel="longitude",
-                        ylabel="latitude",
-                        frame_height=300,
-                        frame_width=750,
-                    )
-                    .opts(toolbar=None, fontsize={"title": 12})
-                    * world1.hvplot(c="")
-                )
+                map1 = ds[vv].isel(time=0).hvplot.image(
+                    title=title[lang],
+                    x="lon",
+                    y="lat",
+                    xlim=xlim,
+                    ylim=ylim,
+                    rasterize=True,
+                    cmap="RdBu_r",
+                    hover=False,
+                    xlabel="longitude",
+                    ylabel="latitude",
+                    frame_height=300,
+                    frame_width=750,
+                ).opts(toolbar=None, fontsize={"title": 12}) * world1.hvplot(c="")
             else:
-                map1 = (
-                    ds[vv]
-                    .isel(time=0)
-                    .hvplot.quadmesh(
-                        title=title[lang],
-                        x="lon",
-                        y="lat",
-                        xlim=xlim,
-                        ylim=ylim,
-                        rasterize=True,
-                        cmap="RdBu_r",
-                        hover=False,
-                        xlabel="longitude",
-                        ylabel="latitude",
-                        frame_height=300,
-                        frame_width=750,
-                    )
-                    .opts(toolbar=None, fontsize={"title": 12})
-                    * world1.hvplot(c="")
-                )
+                map1 = ds[vv].isel(time=0).hvplot.quadmesh(
+                    title=title[lang],
+                    x="lon",
+                    y="lat",
+                    xlim=xlim,
+                    ylim=ylim,
+                    rasterize=True,
+                    cmap="RdBu_r",
+                    hover=False,
+                    xlabel="longitude",
+                    ylabel="latitude",
+                    frame_height=300,
+                    frame_width=750,
+                ).opts(toolbar=None, fontsize={"title": 12}) * world1.hvplot(c="")
 
         else:
             vars = list(ds.data_vars)
