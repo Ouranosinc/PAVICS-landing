@@ -16,6 +16,7 @@ import panel as pn
 import requests
 import xarray as xr
 from bokeh.models.tools import HoverTool
+from dask.diagnostics import ProgressBar
 from IPython.display import HTML, Markdown
 from shapely.geometry import Polygon
 from siphon.catalog import TDSCatalog
@@ -73,7 +74,12 @@ for c in [c for c in cats if "obs.json" in c.name]:
 options_dict["Datasets_3-Reanalysis"] = []
 for c in [c for c in cats if "reanalysis.json" in c.name]:
     cat = intake_esm.intake.open_esm_datastore(c)
-    options_dict["Datasets_3-Reanalysis"].extend(list(cat.df["title"].unique()))
+    options = list(cat.df["title"].unique())
+options_dict["Datasets_3-Reanalysis"].extend([o for o in options if "ERA5-Land" in o])
+
+options_dict["Datasets_3-Reanalysis"].extend(
+    [o for o in options if "ERA5-Land" not in o]
+)
 
 options_dict["Datasets_4-forecasts"] = []
 for c in [c for c in cats if "forecast.json" in c.name]:
@@ -306,7 +312,7 @@ for o in options_dict.keys():
 
         details = pn.Column(
             pn.Row(
-                pn.pane.HTML(f"{details_fields[lang]['abstract']} : ", width=w),
+                pn.pane.HTML(f"{details_fields[lang]['abstract']} : "),
                 pn.pane.HTML(
                     ds.attrs["abstract"],
                 ),
@@ -327,7 +333,7 @@ for o in options_dict.keys():
 
         details.append(
             pn.Row(
-                pn.pane.HTML(f"{details_fields[lang]['more_info']} : ", width=w),
+                pn.pane.HTML(f"{details_fields[lang]['more_info']} : "),
                 pn.pane.HTML(
                     ds.attrs["dataset_description"],
                 ),
@@ -401,7 +407,8 @@ for o in options_dict.keys():
                 "fr"
             ] = f"Exemple de domaine spatial: pas de temps unique pour variable {vv} ({unit_str})"
             if {"lat", "lon"}.issubset(set(list(ds.dims.keys()))):
-                map1 = ds[vv].isel(time=0).hvplot.image(
+                arr = ds[vv].isel(time=0).load()
+                map1 = arr.hvplot.image(
                     title=title[lang],
                     x="lon",
                     y="lat",
@@ -416,7 +423,8 @@ for o in options_dict.keys():
                     frame_width=750,
                 ).opts(toolbar=None, fontsize={"title": 12}) * world1.hvplot(c="")
             else:
-                map1 = ds[vv].isel(time=0).hvplot.quadmesh(
+                arr = ds[vv].isel(time=0).load()
+                map1 = arr.hvplot.quadmesh(
                     title=title[lang],
                     x="lon",
                     y="lat",
@@ -457,25 +465,26 @@ for o in options_dict.keys():
     spacer = pn.Spacer(height=0, margin=0)
     # link = pn.pane.HTML(f'<a href="/climate_analysis.html" target="_blank">PAVICS data access tutorial<a />')
     del lang
-    for lang in ["fr", "en"]:
-        main_content = pn.Column(
-            title_w,
-            create_data_summary,
-            sizing_mode="stretch_width",
-            max_width=MAX_WIDTH,
-            align="center",
-        )
+    with ProgressBar():
+        for lang in ["fr", "en"]:
+            main_content = pn.Column(
+                title_w,
+                create_data_summary,
+                sizing_mode="stretch_width",
+                max_width=MAX_WIDTH,
+                align="center",
+            )
 
-        main_area = pn.Column(
-            spacer,  # TRICK: WONT WORK WITHOUT. YOU CAN SET HEIGHT TO 0 TO NOT TAKE UP HEIGHT
-            main_content,
-            sizing_mode="stretch_both",
-        )
-        from bokeh.resources import CDN
+            main_area = pn.Column(
+                spacer,  # TRICK: WONT WORK WITHOUT. YOU CAN SET HEIGHT TO 0 TO NOT TAKE UP HEIGHT
+                main_content,
+                sizing_mode="stretch_both",
+            )
+            from bokeh.resources import CDN
 
-        outhtml = f"{o}.html"
-        if lang == "fr":
-            outhtml = f"{o}_{lang}.html"
-        main_area.save(outhtml, embed=True, resources=CDN)
-        outdir = repo.joinpath("src/assets/notebooks")
-        shutil.copy(outhtml, outdir.as_posix())
+            outhtml = f"{o}.html"
+            if lang == "fr":
+                outhtml = f"{o}_{lang}.html"
+            main_area.save(outhtml, embed=True, resources=CDN)
+            outdir = repo.joinpath("src/assets/notebooks")
+            shutil.copy(outhtml, outdir.as_posix())
