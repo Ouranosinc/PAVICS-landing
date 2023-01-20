@@ -57,13 +57,13 @@ for c in [c for c in cats if "biasadjusted.json" in c.name or "climex.json" in c
     cat = intake_esm.intake.open_esm_datastore(c)
     options.extend(list(cat.df["title"].unique()))
 options_dict["Datasets_1-Climate_Simulations"].extend(
-    [o for o in options if "Ouranos" in o]
+    [o for o in options if "Ouranos" in o and "ESPO" not in o]
 )
 options_dict["Datasets_1-Climate_Simulations"].extend(
     [o for o in options if "ClimEx" in o]
 )
 options_dict["Datasets_1-Climate_Simulations"].extend(
-    [o for o in options if "Ouranos" not in o and "ClimEx" not in o]
+    [o for o in options if "Ouranos" not in o and "ClimEx" not in o and "NASA" not in o]
 )
 
 options_dict["Datasets_2-Observations"] = []
