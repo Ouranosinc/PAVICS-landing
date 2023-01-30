@@ -40,8 +40,47 @@ for fn in m:
     r = requests.get(u + fn)
     open(intake_path.joinpath(fn), "wb").write(r.content)
 
+shutil.rmtree(intake_path)
+intake_path.mkdir()
+shutil.copytree("/tmp/intake/", intake_path, dirs_exist_ok=True)
 
-cats = sorted(l for l in list(intake_path.glob("*.json")) if l.name != "cmip5.json")
+cats = sorted(
+    l
+    for l in list(intake_path.glob("*.json"))
+    if l.name != "cmip5.json" and l.name != "biasadjusted5.json"
+)
+
+
+def _correct_titles(df):
+    titles = [
+        o.replace("PCIC/ECCC", "PCIC/ECCC : CMIP5") if "(BCCAQv2)" in o else o
+        for o in df["title"]
+    ]
+    titles = [
+        o.replace("PCIC/ECCC", "PCIC/ECCC : CMIP6")
+        if "PCIC/ECCC Canadian Downscaled Climate Scenarios – Univariate CMIP6" in o
+        else o
+        for o in titles
+    ]
+    titles = [
+        o.replace("Ouranos", "Ouranos : CMIP5")
+        if "Ouranos standard ensemble of bias-adjusted " in o
+        else o
+        for o in titles
+    ]
+    titles = [
+        o.replace("The ClimEx", "Ouranos : The ClimEx") if "ClimEx" in o else o
+        for o in titles
+    ]
+    df["title"] = titles
+    return df
+
+
+# options_dict["Datasets_1-Climate_Simulations"] = [o.replace('PCIC/ECCC', 'PCIC/ECCC : CMIP5') if "(BCCAQv2)" in o else o for o in options_dict["Datasets_1-Climate_Simulations"]]
+# options_dict["Datasets_1-Climate_Simulations"] = [o.replace('PCIC/ECCC', 'PCIC/ECCC : CMIP6') if "PCIC/ECCC Canadian Downscaled Climate Scenarios – Univariate CMIP6" in o else o for o in options_dict["Datasets_1-Climate_Simulations"]]
+# options_dict["Datasets_1-Climate_Simulations"] = [o.replace('Ouranos', 'Ouranos : CMIP5') if "Ouranos standard ensemble of bias-adjusted " in o else o for o in options_dict["Datasets_1-Climate_Simulations"]]
+# options_dict["Datasets_1-Climate_Simulations"] = [o.replace('The ClimEx', 'Ouranos : The ClimEx') if "ClimEx" in o else o for o in options_dict["Datasets_1-Climate_Simulations"]]
+
 
 ## Climate simulations - bias adjusted
 # bias adjusted
@@ -53,18 +92,21 @@ world = gpd.GeoDataFrame(geometry=world.simplify(0.05))
 options_dict = {}
 options_dict["Datasets_1-Climate_Simulations"] = []
 options = []
-for c in [c for c in cats if "biasadjusted.json" in c.name or "climex.json" in c.name]:
+for c in [
+    c
+    for c in cats
+    if "biasadjusted.json" in c.name in c.name or "climex.json" in c.name
+]:
     cat = intake_esm.intake.open_esm_datastore(c)
+    cat.df = _correct_titles(cat.df)
     options.extend(list(cat.df["title"].unique()))
 options_dict["Datasets_1-Climate_Simulations"].extend(
     [o for o in options if "Ouranos" in o and "ESPO" not in o]
 )
 options_dict["Datasets_1-Climate_Simulations"].extend(
-    [o for o in options if "ClimEx" in o]
-)
-options_dict["Datasets_1-Climate_Simulations"].extend(
     [o for o in options if "Ouranos" not in o and "ClimEx" not in o and "NASA" not in o]
 )
+
 
 options_dict["Datasets_2-Observations"] = []
 for c in [c for c in cats if "obs.json" in c.name]:
@@ -142,10 +184,19 @@ for o in options_dict.keys():
         df = None
         for c in cats:
             cat = intake_esm.intake.open_esm_datastore(c)
+            cat.df = _correct_titles(cat.df)
             if len(cat.search(title=dataset).df) > 0:
                 df = cat.search(title=dataset).df
                 break
-
+        print(df["path"][0])
+        if "cmip6" in df["path"][0]:
+            cat = intake_esm.intake.open_esm_datastore(
+                c.parent.joinpath("biasadjusted5.json")
+            )
+            cat.df = _correct_titles(cat.df)
+            df = cat.search(title=dataset).df
+            df["project_id"] = "CMIP6"
+            df["processing"] = "bias_adjusted"
         ds = xr.open_dataset(df["path"][0], chunks=dict(time=1))
         if "longitude" in ds.dims:
             ds = ds.rename({"longitude": "lon"})
@@ -485,6 +536,8 @@ for o in options_dict.keys():
             outhtml = f"{o}.html"
             if lang == "fr":
                 outhtml = f"{o}_{lang}.html"
+
+            # main_area.show()
             main_area.save(outhtml, embed=True, resources=CDN)
             outdir = repo.joinpath("src/assets/notebooks")
             shutil.copy(outhtml, outdir.as_posix())
