@@ -20,6 +20,9 @@
       "column_name": "dataset_id"
     },
     {
+      "column_name": "frequency"
+    },
+    {
       "column_name": "variable_name"
     },
     {
