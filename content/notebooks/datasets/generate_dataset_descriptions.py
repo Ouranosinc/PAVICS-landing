@@ -40,9 +40,9 @@ for fn in m:
     r = requests.get(u + fn)
     open(intake_path.joinpath(fn), "wb").write(r.content)
 
-shutil.rmtree(intake_path)
-intake_path.mkdir()
-shutil.copytree("/tmp/intake/", intake_path, dirs_exist_ok=True)
+# shutil.rmtree(intake_path)
+# intake_path.mkdir()
+# shutil.copytree("/tmp/intake/", intake_path, dirs_exist_ok=True)
 
 cats = sorted(
     l
@@ -189,14 +189,14 @@ for o in options_dict.keys():
                 df = cat.search(title=dataset).df
                 break
         print(df["path"][0])
-        if "cmip6" in df["path"][0]:
-            cat = intake_esm.intake.open_esm_datastore(
-                c.parent.joinpath("biasadjusted5.json")
-            )
-            cat.df = _correct_titles(cat.df)
-            df = cat.search(title=dataset).df
-            df["project_id"] = "CMIP6"
-            df["processing"] = "bias_adjusted"
+        # if "cmip6" in df["path"][0]:
+        #     cat = intake_esm.intake.open_esm_datastore(
+        #         c.parent.joinpath("biasadjusted.json")
+        #     )
+        #     cat.df = _correct_titles(cat.df)
+        #     df = cat.search(title=dataset).df
+        #     df["project_id"] = "CMIP6"
+        #     df["processing"] = "bias_adjusted"
         ds = xr.open_dataset(df["path"][0], chunks=dict(time=1))
         if "longitude" in ds.dims:
             ds = ds.rename({"longitude": "lon"})
