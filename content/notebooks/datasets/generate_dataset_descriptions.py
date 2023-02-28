@@ -198,6 +198,14 @@ for o in options_dict.keys():
         #     df["project_id"] = "CMIP6"
         #     df["processing"] = "bias_adjusted"
         ds = xr.open_dataset(df["path"][0], chunks=dict(time=1))
+        if (
+            dataset
+            == "PCIC/ECCC : CMIP6 Canadian Downscaled Climate Scenarios – Univariate CMIP6"
+        ):  # df['dataset_id'][0] == 'CanDCS-U6':
+            df["driving_experiment"] = ds.attrs["GCM__experiment_id"]
+            df["driving_model"] = ds.attrs["GCM__model_id"]
+            df["institute"] = ds.attrs["institution"]
+
         if "longitude" in ds.dims:
             ds = ds.rename({"longitude": "lon"})
         if "latitude" in ds.dims:
