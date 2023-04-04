@@ -23,6 +23,7 @@ repos:
     rev: 23.3.0
     hooks:
       - id: black
+        args: [ --target-version=py37 ]
   - repo: https://github.com/PyCQA/isort
     rev: 5.12.0
     hooks:
@@ -32,13 +33,13 @@ repos:
     rev: 1.7.0
     hooks:
       - id: nbqa-black
-        args: [ '--target-version=py37' ]
-        additional_dependencies: [ black==22.10.0 ]
+        args: [ --target-version=py37 ]
+        additional_dependencies: [ black==23.3.0 ]
       - id: nbqa-pyupgrade
-        args: [ '--py37-plus' ]
-        additional_dependencies: [ pyupgrade==v3.1.0 ]
+        args: [ --py37-plus ]
+        additional_dependencies: [ pyupgrade==v3.3.1 ]
       - id: nbqa-isort
-        additional_dependencies: [ isort==5.10.1 ]
+        additional_dependencies: [ isort==5.12.0 ]
   - repo: meta
     hooks:
       - id: check-hooks-apply
@@ -47,6 +48,7 @@ repos:
 ci:
   autofix_commit_msg: |
     [pre-commit.ci] auto fixes from pre-commit.com hooks
+
     for more information, see https://pre-commit.ci
   autofix_prs: true
   autoupdate_branch: ''
