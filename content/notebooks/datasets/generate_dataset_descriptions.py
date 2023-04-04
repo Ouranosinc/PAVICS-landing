@@ -134,6 +134,7 @@ for o in options_dict.keys():
     title_w = pn.widgets.Select(options=options1)
 
     lang = "en"
+
     # title_w
     @pn.depends(title_w.param.value)
     def create_data_summary(dataset=title_w.param.value):
@@ -259,7 +260,6 @@ for o in options_dict.keys():
         if len(df["path"]) == 1:
             ncmls = df["path"][0].split("//")[-1].split("/")[-1]
         else:
-
             ncmls = f"ensemble of {len(df['path'])} files"
 
         summary = pn.Column(
@@ -449,7 +449,6 @@ for o in options_dict.keys():
             "rlat",
             "rlon",
         }.issubset(set(list(ds.dims.keys()))):
-
             v = sorted(list(ds.data_vars.keys()), reverse=True)
             for vv in v:
                 if len(ds[vv].dims) >= 3:
