@@ -56,6 +56,7 @@ def _correct_titles(df):
         o.replace("PCIC/ECCC", "PCIC/ECCC : CMIP5") if "(BCCAQv2)" in o else o
         for o in df["title"]
     ]
+
     titles = [
         o.replace("PCIC/ECCC", "PCIC/ECCC : CMIP6")
         if "PCIC/ECCC Canadian Downscaled Climate Scenarios – Univariate CMIP6" in o
@@ -72,6 +73,22 @@ def _correct_titles(df):
         o.replace("The ClimEx", "Ouranos : The ClimEx") if "ClimEx" in o else o
         for o in titles
     ]
+
+    titles = [
+        o.replace("ESPO-G6", "Ouranos : ESPO-G6") if "ESPO-G6" in o else o
+        for o in titles
+    ]
+
+    titles = [
+        o.replace(
+            "Ouranos : ESPO-G6-R2 v1.0.0 : Ouranos Multipurpose Climate Scenarios - Global Models CMIP6",
+            "Ouranos : ESPO-G6-R2 v1.0.0 : Ouranos Multipurpose Climate Scenarios - Global Models CMIP6 - RDRS v2.1",
+        )
+        if "ESPO-G6-R2" in o
+        else o
+        for o in titles
+    ]
+
     df["title"] = titles
     return df
 
@@ -92,16 +109,13 @@ world = gpd.GeoDataFrame(geometry=world.simplify(0.05))
 options_dict = {}
 options_dict["Datasets_1-Climate_Simulations"] = []
 options = []
-for c in [
-    c
-    for c in cats
-    if "biasadjusted.json" in c.name in c.name or "climex.json" in c.name
-]:
+for c in [c for c in cats if "biasadjusted.json" in c.name or "climex.json" in c.name]:
     cat = intake_esm.intake.open_esm_datastore(c)
     cat.df = _correct_titles(cat.df)
     options.extend(list(cat.df["title"].unique()))
+
 options_dict["Datasets_1-Climate_Simulations"].extend(
-    [o for o in options if "Ouranos" in o and "ESPO" not in o]
+    [o for o in options if "Ouranos" in o and "ESPO-R" not in o]
 )
 options_dict["Datasets_1-Climate_Simulations"].extend(
     [o for o in options if "Ouranos" not in o and "ClimEx" not in o and "NASA" not in o]
@@ -117,11 +131,15 @@ options_dict["Datasets_3-Reanalysis"] = []
 for c in [c for c in cats if "reanalysis.json" in c.name]:
     cat = intake_esm.intake.open_esm_datastore(c)
     options = list(cat.df["title"].unique())
+
+options_dict["Datasets_3-Reanalysis"].extend([o for o in options if "RDRS" in o])
+
 options_dict["Datasets_3-Reanalysis"].extend([o for o in options if "ERA5-Land" in o])
 
 options_dict["Datasets_3-Reanalysis"].extend(
-    [o for o in options if "ERA5-Land" not in o]
+    [o for o in options if o not in options_dict["Datasets_3-Reanalysis"]]
 )
+
 
 options_dict["Datasets_4-forecasts"] = []
 for c in [c for c in cats if "forecast.json" in c.name]:
@@ -188,6 +206,8 @@ for o in options_dict.keys():
             cat.df = _correct_titles(cat.df)
             if len(cat.search(title=dataset).df) > 0:
                 df = cat.search(title=dataset).df
+                if "ESPO-G6" in dataset:
+                    df["project_id"] = "CMIP6"
                 break
         print(df["path"][0])
         # if "cmip6" in df["path"][0]:
@@ -221,6 +241,8 @@ for o in options_dict.keys():
             ds = ds.isel(realization=0).squeeze()
         if {"lat", "lon"}.issubset(set(list(ds.dims.keys()))):
             ds = ds.sortby(["lat", "lon"])
+        if "ESPO-G6-R2" in df["path"][0] or "RDRS" in df["path"][0]:
+            ds["lon"] = ds.lon.where(ds.lon < 0)
         xlim = (float(ds.lon.min().values), float(ds.lon.max().values))
         ylim = (float(ds.lat.min().values), float(ds.lat.max().values))
 
@@ -242,10 +264,15 @@ for o in options_dict.keys():
 
         # bias corr specific info
         if "driving_experiment" in df.columns:
+            if "ESPO-G6" in df["path"][0]:
+                if "experiment_id" in ds.attrs:
+                    df["driving_experiment"] = ds.attrs["experiment_id"]
+
             exp1 = [d.split(",") for d in df["driving_experiment"].unique()]
             exp1 = sorted(list({x for l in exp1 for x in l}))
         else:
             exp1 = None
+
         if "project_id" in df.columns and "processing" in df.columns:
             prj1 = f"{df['project_id'].unique()[0]} ({df['processing'].unique()[0]})"
         else:
