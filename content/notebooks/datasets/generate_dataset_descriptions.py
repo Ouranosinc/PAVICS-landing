@@ -79,16 +79,6 @@ def _correct_titles(df):
         for o in titles
     ]
 
-    titles = [
-        o.replace(
-            "Ouranos : ESPO-G6-R2 v1.0.0 : Ouranos Multipurpose Climate Scenarios - Global Models CMIP6",
-            "Ouranos : ESPO-G6-R2 v1.0.0 : Ouranos Multipurpose Climate Scenarios - Global Models CMIP6 - RDRS v2.1",
-        )
-        if "ESPO-G6-R2" in o
-        else o
-        for o in titles
-    ]
-
     df["title"] = titles
     return df
 
@@ -289,13 +279,24 @@ for o in options_dict.keys():
         else:
             ncmls = f"ensemble of {len(df['path'])} files"
 
+        doi = None
+
+        if "doi" in ds.attrs:
+            doi = ds.attrs["doi"]
+            doi = f'<a href="{doi}" target="_blank">DOI<a />'
+
+        if doi:
+            dataset1 = f"{dataset} ({doi})"
+        else:
+            dataset1 = dataset
+
         summary = pn.Column(
             pn.Row(
                 pn.pane.HTML(
                     f"{summary_fields[lang]['dataset']} :",
                 ),
                 pn.pane.HTML(
-                    f"{dataset}",
+                    f"{dataset1}",
                 ),
             )
         )
