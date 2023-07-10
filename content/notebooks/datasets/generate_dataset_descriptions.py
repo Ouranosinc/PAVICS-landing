@@ -213,7 +213,9 @@ for o in options_dict.keys():
             dataset
             == "PCIC/ECCC : CMIP6 Canadian Downscaled Climate Scenarios – Univariate CMIP6"
         ):  # df['dataset_id'][0] == 'CanDCS-U6':
-            df["driving_experiment"] = ds.attrs["GCM__experiment_id"]
+            df["driving_experiment"] = [
+                f"historical,ssp{p.split('ssp')[-1].split('_')[0]}" for p in df["path"]
+            ]
             df["driving_model"] = ds.attrs["GCM__model_id"]
             df["institute"] = ds.attrs["institution"]
 
@@ -256,7 +258,10 @@ for o in options_dict.keys():
         if "driving_experiment" in df.columns:
             if "ESPO-G6" in df["path"][0]:
                 if "experiment_id" in ds.attrs:
-                    df["driving_experiment"] = ds.attrs["experiment_id"]
+                    df["driving_experiment"] = [
+                        f"historical,ssp{p.split('ssp')[-1].split('_')[0]}"
+                        for p in df["path"]
+                    ]
 
             exp1 = [d.split(",") for d in df["driving_experiment"].unique()]
             exp1 = sorted(list({x for l in exp1 for x in l}))
