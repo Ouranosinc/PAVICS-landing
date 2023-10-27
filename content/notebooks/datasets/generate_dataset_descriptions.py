@@ -75,7 +75,12 @@ def _correct_titles(df):
     ]
 
     titles = [
-        o.replace("ESPO-G6", "Ouranos : ESPO-G6") if "ESPO-G6" in o else o
+        o.replace("ESPO-G6", "Ouranos : ESPO-G6").replace(
+            "Ouranos Multipurpose Climate Scenarios",
+            "Ouranos Ensemble of Bias-adjusted Simulations",
+        )
+        if "ESPO-G6" in o
+        else o
         for o in titles
     ]
 
@@ -111,7 +116,6 @@ options_dict["Datasets_1-Climate_Simulations"].extend(
     [o for o in options if "Ouranos" not in o and "ClimEx" not in o and "NASA" not in o]
 )
 
-
 options_dict["Datasets_2-Observations"] = []
 for c in [c for c in cats if "obs.json" in c.name]:
     cat = intake_esm.intake.open_esm_datastore(c)
@@ -129,7 +133,6 @@ options_dict["Datasets_3-Reanalysis"].extend([o for o in options if "ERA5-Land" 
 options_dict["Datasets_3-Reanalysis"].extend(
     [o for o in options if o not in options_dict["Datasets_3-Reanalysis"]]
 )
-
 
 options_dict["Datasets_4-forecasts"] = []
 for c in [c for c in cats if "forecast.json" in c.name]:
@@ -264,7 +267,9 @@ for o in options_dict.keys():
                     ]
 
             exp1 = [d.split(",") for d in df["driving_experiment"].unique()]
-            exp1 = sorted(list({x for l in exp1 for x in l}))
+            exp1 = sorted(list({item for sublist in exp1 for item in sublist}))
+            if "ESPO-G6-R2" in dataset:
+                exp1.append("ssp585")
         else:
             exp1 = None
 
