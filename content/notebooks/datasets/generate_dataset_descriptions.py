@@ -58,15 +58,19 @@ def _correct_titles(df):
     ]
 
     titles = [
-        o.replace("PCIC/ECCC", "PCIC/ECCC : CMIP6")
-        if "PCIC/ECCC Canadian Downscaled Climate Scenarios – Univariate CMIP6" in o
-        else o
+        (
+            o.replace("PCIC/ECCC", "PCIC/ECCC : CMIP6")
+            if "PCIC/ECCC Canadian Downscaled Climate Scenarios – Univariate CMIP6" in o
+            else o
+        )
         for o in titles
     ]
     titles = [
-        o.replace("Ouranos", "Ouranos : CMIP5")
-        if "Ouranos standard ensemble of bias-adjusted " in o
-        else o
+        (
+            o.replace("Ouranos", "Ouranos : CMIP5")
+            if "Ouranos standard ensemble of bias-adjusted " in o
+            else o
+        )
         for o in titles
     ]
     titles = [
@@ -75,12 +79,14 @@ def _correct_titles(df):
     ]
 
     titles = [
-        o.replace("ESPO-G6", "Ouranos : ESPO-G6").replace(
-            "Ouranos Multipurpose Climate Scenarios",
-            "Ouranos Ensemble of Bias-adjusted Simulations",
+        (
+            o.replace("ESPO-G6", "Ouranos : ESPO-G6").replace(
+                "Ouranos Multipurpose Climate Scenarios",
+                "Ouranos Ensemble of Bias-adjusted Simulations",
+            )
+            if "ESPO-G6" in o
+            else o
         )
-        if "ESPO-G6" in o
-        else o
         for o in titles
     ]
 
@@ -496,12 +502,12 @@ for o in options_dict.keys():
             else:
                 unit_str = units.pint2cfunits(units.units2pint(ds[vv]))
             title = {}
-            title[
-                "en"
-            ] = f"Example of spatial domain : single time-step for variable {vv} ({unit_str})"
-            title[
-                "fr"
-            ] = f"Exemple de domaine spatial: pas de temps unique pour variable {vv} ({unit_str})"
+            title["en"] = (
+                f"Example of spatial domain : single time-step for variable {vv} ({unit_str})"
+            )
+            title["fr"] = (
+                f"Exemple de domaine spatial: pas de temps unique pour variable {vv} ({unit_str})"
+            )
             if {"lat", "lon"}.issubset(set(list(ds.dims.keys()))):
                 arr = ds[vv].isel(time=0).load()
                 map1 = arr.hvplot.image(
