@@ -1,22 +1,24 @@
 import os
 import shutil
-os.environ['USE_PYGEOS'] = '0'
 
-import panel as pn
-import numpy as np
-from shapely.geometry import Polygon
-import xarray as xr
-import pandas as pd
-import geopandas as gpd
-import requests
+os.environ["USE_PYGEOS"] = "0"
+
 from pathlib import Path
-from dask.diagnostics import ProgressBar
+
+import geopandas as gpd
 import git
-from xclim.core import units
 import holoviews as hv
 import hvplot
 import hvplot.pandas
 import hvplot.xarray
+import numpy as np
+import pandas as pd
+import panel as pn
+import requests
+import xarray as xr
+from dask.diagnostics import ProgressBar
+from shapely.geometry import Polygon
+from xclim.core import units
 
 try:
     repo = git.Repo(".", search_parent_directories=True)
@@ -24,22 +26,31 @@ try:
 except:
     repo = Path(".")
 
+
 def _correct_titles(df):
     titles = [
-        o.replace("PCIC/ECCC", "PCIC/ECCC : CanDCS-U5 : CMIP5") if "(BCCAQv2)" in o else o
+        (
+            o.replace("PCIC/ECCC", "PCIC/ECCC : CanDCS-U5 : CMIP5")
+            if "(BCCAQv2)" in o
+            else o
+        )
         for o in df["title"]
     ]
 
     titles = [
-        o.replace("PCIC/ECCC", "PCIC/ECCC : CanDCS-U6 : CMIP6")
-        if "PCIC/ECCC Canadian Downscaled Climate Scenarios – Univariate CMIP6" in o
-        else o
+        (
+            o.replace("PCIC/ECCC", "PCIC/ECCC : CanDCS-U6 : CMIP6")
+            if "PCIC/ECCC Canadian Downscaled Climate Scenarios – Univariate CMIP6" in o
+            else o
+        )
         for o in titles
     ]
     titles = [
-        o.replace("Ouranos", "Ouranos : CMIP5")
-        if "Ouranos standard ensemble of bias-adjusted " in o
-        else o
+        (
+            o.replace("Ouranos", "Ouranos : CMIP5")
+            if "Ouranos standard ensemble of bias-adjusted " in o
+            else o
+        )
         for o in titles
     ]
     titles = [
@@ -48,82 +59,108 @@ def _correct_titles(df):
     ]
 
     titles = [
-        o.replace("ESPO-G6", "Ouranos : ESPO-G6").replace(
-            "Ouranos Multipurpose Climate Scenarios",
-            "Ouranos Ensemble of Bias-adjusted Simulations",
+        (
+            o.replace("ESPO-G6", "Ouranos : ESPO-G6").replace(
+                "Ouranos Multipurpose Climate Scenarios",
+                "Ouranos Ensemble of Bias-adjusted Simulations",
+            )
+            if "ESPO-G6" in o
+            else o
         )
-        if "ESPO-G6" in o
-        else o
         for o in titles
     ]
 
     titles = [
-        o.replace("CRCM5-CMIP6", "Ouranos : CRCM5-CMIP6")
-        if "CRCM5-CMIP6" in o
-        else o
+        o.replace("CRCM5-CMIP6", "Ouranos : CRCM5-CMIP6") if "CRCM5-CMIP6" in o else o
         for o in titles
     ]
 
     df["title"] = titles
     return df
 
+
 # Simulations
 url_geo = "https://pavics.ouranos.ca/geoserver/public/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=public%3Aglobal_admin_boundaries&maxFeatures=500000&outputFormat=gpkg"
-outworld = Path('dataset_summary_data').joinpath('world.gpkg')
+outworld = Path("dataset_summary_data").joinpath("world.gpkg")
 with requests.get(url_geo, stream=True) as r:
     r.raise_for_status()
-    with open(outworld.as_posix(), 'wb') as f:
+    with open(outworld.as_posix(), "wb") as f:
         for chunk in r.iter_content(chunk_size=8192):
             # If you have chunk encoded response uncomment if
             # and set chunk_size parameter to None.
-            #if chunk:
+            # if chunk:
             f.write(chunk)
 world = gpd.read_file(outworld)
 world = gpd.GeoDataFrame(geometry=world.simplify(0.05))
 # opts = list(set([o.split(':')[0].strip() for o in options_dict['Datasets_1-Climate_Simulations']]))
 # opts
-df_list ={}
-for csv in Path('dataset_summary_data').glob('*.csv'):
-    df_list[csv.stem]= _correct_titles(pd.read_csv(csv))
+df_list = {}
+for csv in Path("dataset_summary_data").glob("*.csv"):
+    df_list[csv.stem] = _correct_titles(pd.read_csv(csv))
 df_list
 
 options_dict = {}
 options_dict["Datasets_1-Climate_Simulations"] = []
 options = []
-options.extend([l for l in list(df_list['simulations']["title"].unique()) if 'ESPO-R5' not in l])
+options.extend(
+    [l for l in list(df_list["simulations"]["title"].unique()) if "ESPO-R5" not in l]
+)
 options = [o for o in options if "ESPO-R" not in o]
 
-for dsid in ['ESPO-G6', 'CRCM5-CMIP6']:
+for dsid in ["ESPO-G6", "CRCM5-CMIP6"]:
     options_dict["Datasets_1-Climate_Simulations"].extend(
         [o for o in options if "Ouranos" in o and dsid in o]
     )
 
 options_dict["Datasets_1-Climate_Simulations"].extend(
-    [o for o in options if "Ouranos" in o and 'CMIP6' in o and o not in options_dict["Datasets_1-Climate_Simulations"]]
+    [
+        o
+        for o in options
+        if "Ouranos" in o
+        and "CMIP6" in o
+        and o not in options_dict["Datasets_1-Climate_Simulations"]
+    ]
 )
 options_dict["Datasets_1-Climate_Simulations"].extend(
-    [o for o in options if 'CMIP6' in o and o not in options_dict["Datasets_1-Climate_Simulations"]]
+    [
+        o
+        for o in options
+        if "CMIP6" in o and o not in options_dict["Datasets_1-Climate_Simulations"]
+    ]
 )
 
 
 options_dict["Datasets_1-Climate_Simulations"].extend(
-    [o for o in options if "Ouranos" in o and 'CMIP5' in o and o not in options_dict["Datasets_1-Climate_Simulations"]]
+    [
+        o
+        for o in options
+        if "Ouranos" in o
+        and "CMIP5" in o
+        and o not in options_dict["Datasets_1-Climate_Simulations"]
+    ]
 )
 
 options_dict["Datasets_1-Climate_Simulations"].extend(
-    [o for o in options if "Ouranos" not in o and "ClimEx" not in o and "NASA" not in o and o not in options_dict["Datasets_1-Climate_Simulations"] ]
+    [
+        o
+        for o in options
+        if "Ouranos" not in o
+        and "ClimEx" not in o
+        and "NASA" not in o
+        and o not in options_dict["Datasets_1-Climate_Simulations"]
+    ]
 )
 
 options_dict["Datasets_2-Observations"] = []
-for c in [c for c in df_list.keys() if 'obs' in c]:
-    #cat = intake_esm.intake.open_esm_datastore(c)
+for c in [c for c in df_list.keys() if "obs" in c]:
+    # cat = intake_esm.intake.open_esm_datastore(c)
     options_dict["Datasets_2-Observations"].extend(list(df_list[c]["title"].unique()))
 
 
 options_dict["Datasets_3-Reanalysis"] = []
 options = []
-for c in [c for c in df_list.keys() if 'reanalyses' in c]:
-     options.extend(list(df_list[c]["title"].unique()))
+for c in [c for c in df_list.keys() if "reanalyses" in c]:
+    options.extend(list(df_list[c]["title"].unique()))
 
 options_dict["Datasets_3-Reanalysis"].extend([o for o in options if "RDRS" in o])
 options_dict["Datasets_3-Reanalysis"].extend([o for o in options if "ERA5-Land" in o])
@@ -135,20 +172,19 @@ options_dict["Datasets_3-Reanalysis"].extend(
 
 options_dict["Datasets_4-forecasts"] = []
 for c in [c for c in df_list.keys() if "forecast" in c]:
-    
+
     options_dict["Datasets_4-forecasts"].extend(list(df_list[c]["title"].unique()))
-    
+
 options_dict
 
 for o in options_dict.keys():
     print(o)
     options1 = options_dict[o]
 
-    title_w = pn.widgets.Select(value=options1[0],
-                                options=options1, width=800)
+    title_w = pn.widgets.Select(value=options1[0], options=options1, width=800)
     lang = "en"
     main_content = pn.Column()
-    
+
     # title_w
     @pn.depends(title_w.param.value)
     def create_data_summary(dataset=title_w.param.value):
@@ -201,24 +237,25 @@ for o in options_dict.keys():
             )
             df = None
             for c in df_list.keys():
-                #cat = intake_esm.intake.open_esm_datastore(c)
-                #cat.df = _correct_titles(cat.df)
+                # cat = intake_esm.intake.open_esm_datastore(c)
+                # cat.df = _correct_titles(cat.df)
                 dfall = df_list[c]
-                df = dfall[dfall.title==dataset]
+                df = dfall[dfall.title == dataset]
                 if len(df) > 0:
                     if "ESPO-G6" in dataset:
                         df["project_id"] = "CMIP6"
                     break
 
             print(df["path"].values[0])
-            
+
             ds = xr.open_dataset(df["path"].values[0], chunks=dict(time=15))
             if (
-                    dataset
-                    == "PCIC/ECCC : CMIP6 Canadian Downscaled Climate Scenarios – Univariate CMIP6"
+                dataset
+                == "PCIC/ECCC : CMIP6 Canadian Downscaled Climate Scenarios – Univariate CMIP6"
             ):
                 df["driving_experiment_id"] = [
-                    f"historical,ssp{p.split('ssp')[-1].split('_')[0]}" for p in df["path"]
+                    f"historical,ssp{p.split('ssp')[-1].split('_')[0]}"
+                    for p in df["path"]
                 ]
                 df["driving_model"] = ds.attrs["GCM__model_id"]
                 df["institute"] = ds.attrs["institution"]
@@ -237,7 +274,11 @@ for o in options_dict.keys():
                 ds = ds.isel(realization=0).squeeze()
             if {"lat", "lon"}.issubset(set(list(ds.dims.keys()))):
                 ds = ds.sortby(["lat", "lon"])
-            if "ESPO-G6-R2" in df["path"].values[0] or "RDRS" in df["path"].values[0] or 'CRCM' in df["path"].values[0]:
+            if (
+                "ESPO-G6-R2" in df["path"].values[0]
+                or "RDRS" in df["path"].values[0]
+                or "CRCM" in df["path"].values[0]
+            ):
                 ds["lon"] = ds.lon.where(ds.lon < 0)
             xlim = (float(ds.lon.min().values), float(ds.lon.max().values))
             ylim = (float(ds.lat.min().values), float(ds.lat.max().values))
@@ -259,7 +300,7 @@ for o in options_dict.keys():
             lic = ds.attrs["license"]
 
             # bias corr specific info
-            if not all(df['driving_experiment_id'].isnull().unique()): 
+            if not all(df["driving_experiment_id"].isnull().unique()):
                 if "ESPO-G6" in df["path"].values[0]:
                     if "experiment_id" in ds.attrs:
                         df["driving_experiment_id"] = [
@@ -273,7 +314,9 @@ for o in options_dict.keys():
             else:
                 exp1 = None
 
-            if  not all(df['project_id'].isnull().unique()) and  not all(df['processing_level'].isnull().unique()):
+            if not all(df["project_id"].isnull().unique()) and not all(
+                df["processing_level"].isnull().unique()
+            ):
                 prj1 = f"{df['project_id'].unique()[0]} ({df['processing_level'].unique()[0]})"
             else:
                 prj1 = None
@@ -333,20 +376,21 @@ for o in options_dict.keys():
                     ),
                 )
             )
-            chunks = df['dask_chunks'].mode()[0]
+            chunks = df["dask_chunks"].mode()[0]
             xr_open_str = f"xarray.open_dataset(opendap_url, decode_timedelta=False, chunks={chunks})"
             summary.append(
                 pn.Row(
-                    pn.pane.HTML( f"{summary_fields[lang]['xarray_example']} :"), pn.pane.HTML(xr_open_str)
+                    pn.pane.HTML(f"{summary_fields[lang]['xarray_example']} :"),
+                    pn.pane.HTML(xr_open_str),
                 )
             )
-            
-            
+
             inst_field = "institution" if "institution" in df.columns else "institute"
 
             summary.append(
                 pn.Row(
-                    pn.pane.HTML("institution :"), pn.pane.HTML(df[inst_field].unique()[0])
+                    pn.pane.HTML("institution :"),
+                    pn.pane.HTML(df[inst_field].unique()[0]),
                 )
             )
 
@@ -387,7 +431,7 @@ for o in options_dict.keys():
                             f"{summary_fields[lang]['temporal_coverage']} :",
                         ),
                         pn.pane.HTML(
-                            #f"{ds.time.min().dt.strftime('%Y/%m/%d').values} - {ds.time.max().dt.strftime('%Y/%m/%d').values}"
+                            # f"{ds.time.min().dt.strftime('%Y/%m/%d').values} - {ds.time.max().dt.strftime('%Y/%m/%d').values}"
                             f"{df['start_year'].min()}-{df['end_year'].max()}"
                         ),
                     )
@@ -399,7 +443,9 @@ for o in options_dict.keys():
                         pn.pane.HTML(
                             f"{summary_fields[lang]['variables']} :",
                         ),
-                        pn.pane.HTML(", ".join(sorted(v for v in ds.data_vars))),  # noqa
+                        pn.pane.HTML(
+                            ", ".join(sorted(v for v in ds.data_vars))
+                        ),  # noqa
                     )
                 )
             if exp1:
@@ -499,8 +545,8 @@ for o in options_dict.keys():
             }.issubset(set(list(ds.dims.keys()))):
                 v = sorted(list(ds.data_vars.keys()), reverse=True)
 
-                if any([vv in v for vv in ['tasmin','tas','prsn']]):
-                    for vv in ['tasmin','tas','prsn']:
+                if any([vv in v for vv in ["tasmin", "tas", "prsn"]]):
+                    for vv in ["tasmin", "tas", "prsn"]:
                         if vv in v:
                             break
                 else:
@@ -512,12 +558,12 @@ for o in options_dict.keys():
                 else:
                     unit_str = units.pint2cfunits(units.units2pint(ds[vv]))
                 title = {}
-                title[
-                    "en"
-                ] = f"Example of spatial domain : single time-step for variable {vv} ({unit_str})"
-                title[
-                    "fr"
-                ] = f"Exemple de domaine spatial: pas de temps unique pour variable {vv} ({unit_str})"
+                title["en"] = (
+                    f"Example of spatial domain : single time-step for variable {vv} ({unit_str})"
+                )
+                title["fr"] = (
+                    f"Exemple de domaine spatial: pas de temps unique pour variable {vv} ({unit_str})"
+                )
                 if {"lat", "lon"}.issubset(set(list(ds.dims.keys()))):
                     arr = ds[vv].isel(time=1).load()
                     map1 = arr.hvplot.image(
@@ -570,7 +616,6 @@ for o in options_dict.keys():
             out1 = pn.Column(map1, out)
             return out1
 
-
     MAX_WIDTH = 800
 
     pn.config.sizing_mode = "stretch_width"
@@ -599,8 +644,8 @@ for o in options_dict.keys():
             if lang == "fr":
                 outhtml = f"{o}_{lang}.html"
 
-            #s = main_area.show()
-            #print(f"The line above is lying to you. The _real_ adress is:\n https://pavics.ouranos.ca/jupyter/user-redirect/proxy/{s.port}/")
+            # s = main_area.show()
+            # print(f"The line above is lying to you. The _real_ adress is:\n https://pavics.ouranos.ca/jupyter/user-redirect/proxy/{s.port}/")
             main_area.save(outhtml, embed=True, resources=CDN)
             outdir = repo.joinpath("src/assets/notebooks")
             shutil.copy(outhtml, outdir.as_posix())
