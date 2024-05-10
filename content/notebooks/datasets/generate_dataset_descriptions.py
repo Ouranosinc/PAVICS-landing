@@ -492,7 +492,7 @@ for o in options_dict.keys():
                         )
                     )
 
-            #if "dataset_description" in ds.attrs.keys():
+            # if "dataset_description" in ds.attrs.keys():
             for check in ["dataset_description", "further_info_url"]:
                 for attr in [attr for attr in ds.attrs if check in attr]:
                     details.append(
@@ -658,8 +658,8 @@ for o in options_dict.keys():
             # s = main_area.show()
             # print(f"The line above is lying to you. The _real_ adress is:\n https://pavics.ouranos.ca/jupyter/user-redirect/proxy/{s.port}/")
             main_area.save(outhtml, embed=True, resources=CDN)
-            #outdir = repo.joinpath("src/assets/notebooks")
-            #shutil.copy(outhtml, outdir.as_posix())
+            outdir = repo.joinpath("src/assets/notebooks")
+            shutil.copy(outhtml, outdir.as_posix())
 
 # #test = pn.Column(filt_w, data_w)
 # #s = test.show()
