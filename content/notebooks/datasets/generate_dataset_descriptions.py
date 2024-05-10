@@ -129,7 +129,15 @@ options_dict["Datasets_1-Climate_Simulations"].extend(
     ]
 )
 
-
+options_dict["Datasets_1-Climate_Simulations"].extend(
+    [
+        o
+        for o in options
+        if "Ouranos" in o
+        and "ClimEx" in o
+        and o not in options_dict["Datasets_1-Climate_Simulations"]
+    ]
+)
 options_dict["Datasets_1-Climate_Simulations"].extend(
     [
         o
@@ -150,6 +158,7 @@ options_dict["Datasets_1-Climate_Simulations"].extend(
         and o not in options_dict["Datasets_1-Climate_Simulations"]
     ]
 )
+print(options_dict["Datasets_1-Climate_Simulations"])
 
 options_dict["Datasets_2-Observations"] = []
 for c in [c for c in df_list.keys() if "obs" in c]:
@@ -649,8 +658,8 @@ for o in options_dict.keys():
             # s = main_area.show()
             # print(f"The line above is lying to you. The _real_ adress is:\n https://pavics.ouranos.ca/jupyter/user-redirect/proxy/{s.port}/")
             main_area.save(outhtml, embed=True, resources=CDN)
-            outdir = repo.joinpath("src/assets/notebooks")
-            shutil.copy(outhtml, outdir.as_posix())
+            #outdir = repo.joinpath("src/assets/notebooks")
+            #shutil.copy(outhtml, outdir.as_posix())
 
 # #test = pn.Column(filt_w, data_w)
 # #s = test.show()
