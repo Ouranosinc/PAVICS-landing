@@ -17,7 +17,7 @@ urls = dict(
 df_cols = {
     "title": [],
     "dataset_id": [],
-    "dataset_description": [],
+    "dataset_description": ["further_info_url"],
     "institution": ["institute", "GRIB_centreDescription"],
     "institution_id": ["institute_id"],
     "start_year": [],
@@ -87,7 +87,7 @@ for key, url in urls.items():
             ds_dict[ncml]["path"] = dd.opendap_url()
             ds_dict[ncml]["thredds_cat"] = url
             for col in df_cols:
-                print(col)
+                
                 if col == "variables":
                     ds_dict[ncml][col] = ",".join(sorted(list(ds.data_vars)))
                 elif col.endswith("_year"):
@@ -104,7 +104,7 @@ for key, url in urls.items():
 
                             ds_dict[ncml][col] = ds.attrs[col]
                     except:
-                        print(col)
+                        
                         if col in opts:
                             ds_dict[ncml][col] = ""
                         else:
@@ -112,19 +112,19 @@ for key, url in urls.items():
             chunks = None
             for vv in ds.data_vars:
                 if "time" in ds[vv].dims:
-                    print(vv)
+                    
                     if (
                         "_ChunkSizes" in ds[vv].attrs
                         and "_bnds" not in vv
-                        and vv != "rotated_pole"
+                        and vv != "rotated_pole" and vv != "poids" and vv != "time_vectors"
                     ):
-                        # print(ds[vv].attrs['_ChunkSizes'])
+                        
                         if "realization" not in ds.dims:
                             chunks = {
                                 d: ds[vv].attrs["_ChunkSizes"][ii]
                                 for ii, d in enumerate(ds[vv].dims)
                             }
-                            print(chunks)
+                            
                         else:
                             chunks = {
                                 d: ds[vv].attrs["_ChunkSizes"][ii]

@@ -483,15 +483,17 @@ for o in options_dict.keys():
                         )
                     )
 
-            if "dataset_description" in ds.attrs.keys():
-                details.append(
-                    pn.Row(
-                        pn.pane.HTML(f"{details_fields[lang]['more_info']} : "),
-                        pn.pane.HTML(
-                            ds.attrs["dataset_description"],
-                        ),
+            #if "dataset_description" in ds.attrs.keys():
+            for check in ["dataset_description", "further_info_url"]:
+                for attr in [attr for attr in ds.attrs if check in attr]:
+                    details.append(
+                        pn.Row(
+                            pn.pane.HTML(f"{details_fields[lang]['more_info']} : "),
+                            pn.pane.HTML(
+                                ds.attrs[attr],
+                            ),
+                        )
                     )
-                )
             out.append((details_fields[lang]["title"], details))
 
             ## legal
