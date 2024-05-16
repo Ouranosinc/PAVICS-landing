@@ -87,7 +87,7 @@ for key, url in urls.items():
             ds_dict[ncml]["path"] = dd.opendap_url()
             ds_dict[ncml]["thredds_cat"] = url
             for col in df_cols:
-                
+
                 if col == "variables":
                     ds_dict[ncml][col] = ",".join(sorted(list(ds.data_vars)))
                 elif col.endswith("_year"):
@@ -104,7 +104,7 @@ for key, url in urls.items():
 
                             ds_dict[ncml][col] = ds.attrs[col]
                     except:
-                        
+
                         if col in opts:
                             ds_dict[ncml][col] = ""
                         else:
@@ -112,19 +112,21 @@ for key, url in urls.items():
             chunks = None
             for vv in ds.data_vars:
                 if "time" in ds[vv].dims:
-                    
+
                     if (
                         "_ChunkSizes" in ds[vv].attrs
                         and "_bnds" not in vv
-                        and vv != "rotated_pole" and vv != "poids" and vv != "time_vectors"
+                        and vv != "rotated_pole"
+                        and vv != "poids"
+                        and vv != "time_vectors"
                     ):
-                        
+
                         if "realization" not in ds.dims:
                             chunks = {
                                 d: ds[vv].attrs["_ChunkSizes"][ii]
                                 for ii, d in enumerate(ds[vv].dims)
                             }
-                            
+
                         else:
                             chunks = {
                                 d: ds[vv].attrs["_ChunkSizes"][ii]
