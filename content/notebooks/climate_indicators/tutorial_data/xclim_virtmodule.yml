@@ -1,6 +1,6 @@
 module: pavics-demo
 realm: atmos
- 
+
 indicators:
     tx_days_above_27_annual:
         base: tx_days_above
@@ -8,7 +8,7 @@ indicators:
             thresh: 27 degC
             freq: YS
         cf_attrs:
-            var_name: tx_days_above_27       
+            var_name: tx_days_above_27
     tx_days_above_27_seasonal:
         base: tx_days_above
         parameters:
@@ -21,11 +21,10 @@ indicators:
         parameters:
             freq: YS
         cf_attrs:
-            var_name: tx_mean       
+            var_name: tx_mean
     tx_mean_seasonal:
         base: tx_mean
         parameters:
             freq: QS-DEC
         cf_attrs:
             var_name: tx_mean
-   
