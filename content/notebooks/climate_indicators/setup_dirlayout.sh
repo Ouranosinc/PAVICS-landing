@@ -11,12 +11,10 @@ THIS_DIR="`dirname "$THIS_FILE"`"
 
 # Unzip notebook 3 output to avoid having to generate it during automated
 # testing since it takes a long time.  Notebook 4 and 5 depend on this output.
-NOTEBOOK_3_OUTDIR_BASE="/notebook_dir/writable-workspace/tmp/tutorial3"
-mkdir -p $NOTEBOOK_3_OUTDIR_BASE
-unzip $THIS_DIR/tutorial3.zip -d $NOTEBOOK_3_OUTDIR_BASE/
-NOTEBOOK_5_OUTDIR_BASE="/notebook_dir/writable-workspace/tmp/tutorial5"
-mkdir -p $NOTEBOOK_5_OUTDIR_BASE
-unzip $THIS_DIR/tutorial5.zip -d $NOTEBOOK_5_OUTDIR_BASE/
+NOTEBOOK_OUTDIR_BASE="/notebook_dir/writable-workspace/tmp"
+mkdir -p $NOTEBOOK_OUTDIR_BASE
+unzip $THIS_DIR/tutorial3.zip -d $NOTEBOOK_OUTDIR_BASE/
+unzip $THIS_DIR/tutorial5.zip -d $NOTEBOOK_OUTDIR_BASE/
 
 # Re-create /notebook_dir/pavics-homepage/tutorial_data layout for:
 # DriverError: /notebook_dir/pavics-homepage/tutorial_data/test_regions.geojson: No such file or directory
