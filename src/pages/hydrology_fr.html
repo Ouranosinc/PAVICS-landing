@@ -31,7 +31,11 @@
   a {
     text-decoration:none;
   }
-
+  .open-in-pavics_a {
+    padding-top: 10px;
+    padding-left:30px;
+    font-size:14px
+  }
   .open-in-pavics {
     padding-top: 20px;
     padding-left:100px;
@@ -41,6 +45,7 @@
     left: +100px;
     width: 90%
   }
+
 
 </style>
 
@@ -64,8 +69,8 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#b">
-        <img src="assets/icons/noun_histogram.png">
-        Analyse fréquentielle
+        <img src="assets/icons/noun_parameter.png">
+        Estimation des paramètres
       </a>
     </li>
     <li class="nav-item">
@@ -76,42 +81,36 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#d">
-        <img src="assets/icons/noun_parameter.png">
-        Estimation des paramètres
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#e">
-        <img src="assets/icons/noun_forecast.png">
-        Prévisions
+        <img src="assets/icons/noun_histogram.png">
+        Analyse fréquentielle
       </a>
     </li>
   </ul>
-  <div class="open-in-pavics"><a href="/assets/docs/PAVICS-Hydro Tutorial.pdf" download>Télécharger le document : Introduction à PAVICS-Hydro</a></div>
+  <details class="open-in-pavics">
+  <summary>Ressources supplémentaires</summary>
+    <div class="open-in-pavics_a"><a href="/assets/docs/PAVICS-Hydro Tutorial.pdf" download>Télécharger le document : Introduction à PAVICS-Hydro</a></div>
+    <div class="open-in-pavics_a"><a href="https://pavics.ouranos.ca/jupyter/hub/user-redirect/lab/tree/tutorial-notebooks/hydro" target="_blank">Exemples supplémentaires</a></div>
+  </details>
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane show active" id="a" 
-      data-iframe="assets/notebooks/Running_hydrological_models_on_a_remote_server.html" 
-      data-pavics-link="https://pavics.ouranos.ca/jupyter/hub/user-redirect/lab/tree/tutorial-notebooks/raven-master/docs/source/notebooks/Running_hydrological_models_on_a_remote_server.ipynb"
+      data-iframe="assets/notebooks/PAVICStutorial_Hydrology-01_Intro.html"
+      data-pavics-link="https://pavics.ouranos.ca/jupyter/hub/user-redirect/lab/tree/pavics-homepage/PAVICStutorial_Hydrology-01_Intro.ipynb"
       data-pavics-link-text="Ce contenu a été généré à partir d'un notebook Jupyter et les analyses ne peuvent pas être exécutées directement sur cette page. Ouvrir ce notebook dans le JupyterHub PAVICS"></div>
 
     <div class="tab-pane" id="b" 
-      data-iframe="assets/notebooks/time_series_analysis.html"
-      data-pavics-link="https://pavics.ouranos.ca/jupyter/hub/user-redirect/lab/tree/tutorial-notebooks/raven-master/docs/source/notebooks/time_series_analysis.ipynb"
+      data-iframe="assets/notebooks/PAVICStutorial_Hydrology-02_Calibration.html"
+      data-pavics-link="https://pavics.ouranos.ca/jupyter/hub/user-redirect/lab/tree/pavics-homepage/PAVICStutorial_Hydrology-02_Calibration.ipynb"
       data-pavics-link-text="Ce contenu a été généré à partir d'un notebook Jupyter et les analyses ne peuvent pas être exécutées directement sur cette page. Ouvrir ce notebook dans le JupyterHub PAVICS"></div>
 
     <div class="tab-pane" id="c" 
-      data-iframe="assets/notebooks/Extract_geographical_watershed_properties.html"
-      data-pavics-link="https://pavics.ouranos.ca/jupyter/hub/user-redirect/lab/tree/tutorial-notebooks/raven-master/docs/source/notebooks/Extract_geographical_watershed_properties.ipynb"
+      data-iframe="assets/notebooks/PAVICStutorial_Hydrology-03_Watershed_properties.html"
+      data-pavics-link="https://pavics.ouranos.ca/jupyter/hub/user-redirect/lab/tree/pavics-homepage/PAVICStutorial_Hydrology-03_Watershed_properties.ipynb"
       data-pavics-link-text="Ce contenu a été généré à partir d'un notebook Jupyter et les analyses ne peuvent pas être exécutées directement sur cette page. Ouvrir ce notebook dans le JupyterHub PAVICS"></div>
 
     <div class="tab-pane" id="d" 
-      data-iframe="assets/notebooks/Model_calibration.html"
-      data-pavics-link="https://pavics.ouranos.ca/jupyter/hub/user-redirect/lab/tree/tutorial-notebooks/raven-master/docs/source/notebooks/Model_calibration.ipynb"
+      data-iframe="assets/notebooks/PAVICStutorial_Hydrology-04_Time_series_analysis.html"
+      data-pavics-link="https://pavics.ouranos.ca/jupyter/hub/user-redirect/lab/tree/pavics-homepage/PAVICStutorial_Hydrology-04_Time_series_analysis.ipynb"
       data-pavics-link-text="Ce contenu a été généré à partir d'un notebook Jupyter et les analyses ne peuvent pas être exécutées directement sur cette page. Ouvrir ce notebook dans le JupyterHub PAVICS"></div>
 
-    <div class="tab-pane" id="e" 
-      data-iframe="assets/notebooks/Hydrological_realtime_forecasting.html"
-      data-pavics-link="https://pavics.ouranos.ca/jupyter/hub/user-redirect/lab/tree/tutorial-notebooks/raven-master/docs/source/notebooks/Hydrological_realtime_forecasting.ipynb"
-      data-pavics-link-text="Ce contenu a été généré à partir d'un notebook Jupyter et les analyses ne peuvent pas être exécutées directement sur cette page. Ouvrir ce notebook dans le JupyterHub PAVICS"></div>
   </div>
 </div>
