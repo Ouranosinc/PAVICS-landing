@@ -9,7 +9,6 @@ repo = git.Repo(".", search_parent_directories=True)
 repo = Path(repo.git_dir).parent
 
 folders = dict(climate_indicators=False, hydrology=False)
-run_flag = False  # execute notebooks before conversion?
 for folder, run_flag in folders.items():
     for nb in [
         p
