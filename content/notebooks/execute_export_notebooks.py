@@ -4,7 +4,6 @@ from pathlib import Path
 
 import git
 
-
 repo = git.Repo(".", search_parent_directories=True)
 repo = Path(repo.git_dir).parent
 
