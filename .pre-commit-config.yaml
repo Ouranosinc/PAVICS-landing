@@ -3,12 +3,12 @@ default_language_version:
 
 repos:
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.15.2
+    rev: v3.16.0
     hooks:
       - id: pyupgrade
         args: [ '--py37-plus' ]
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v4.6.0
     hooks:
       - id: trailing-whitespace
         exclude: .html|.svg|.css
@@ -20,7 +20,7 @@ repos:
       #   args: [ '--autofix', '--no-ensure-ascii', '--no-sort-keys' ]
       #   exclude: .geojson|.ipynb
   - repo: https://github.com/psf/black-pre-commit-mirror
-    rev: 24.3.0
+    rev: 24.4.2
     hooks:
       - id: black
         args: [ '--target-version=py37' ]
@@ -32,12 +32,12 @@ repos:
   - repo: https://github.com/nbQA-dev/nbQA
     rev: 1.8.5
     hooks:
-      - id: nbqa-black
-        args: [ '--target-version=py37' ]
-        additional_dependencies: [ 'black==23.12.1' ]
       - id: nbqa-pyupgrade
         args: [ '--py37-plus' ]
-        additional_dependencies: [ 'pyupgrade==v3.14.0' ]
+        additional_dependencies: [ 'pyupgrade==v3.16.0' ]
+      - id: nbqa-black
+        args: [ '--target-version=py37' ]
+        additional_dependencies: [ 'black==24.4.2' ]
       - id: nbqa-isort
         args: [ '--profile=black' ]
         additional_dependencies: [ 'isort==5.13.2' ]
