@@ -36,11 +36,12 @@ def _correct_titles(df):
         )
         for o in df["title"]
     ]
-    
+
     titles = [
         (
             o.replace("PCIC/ECCC :", "PCIC/ECCC : CanDCS-M6")
-            if "PCIC/ECCC : Canadian Downscaled Climate Scenarios – Multivariate CMIP6" in o
+            if "PCIC/ECCC : Canadian Downscaled Climate Scenarios – Multivariate CMIP6"
+            in o
             else o
         )
         for o in titles
@@ -54,9 +55,7 @@ def _correct_titles(df):
         )
         for o in titles
     ]
-    
 
-    
     titles = [
         (
             o.replace("Ouranos", "Ouranos : CMIP5")
