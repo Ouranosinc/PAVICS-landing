@@ -36,15 +36,27 @@ def _correct_titles(df):
         )
         for o in df["title"]
     ]
+    
+    titles = [
+        (
+            o.replace("PCIC/ECCC :", "PCIC/ECCC : CanDCS-M6")
+            if "PCIC/ECCC : Canadian Downscaled Climate Scenarios – Multivariate CMIP6" in o
+            else o
+        )
+        for o in titles
+    ]
 
     titles = [
         (
-            o.replace("PCIC/ECCC", "PCIC/ECCC : CanDCS-U6 : CMIP6")
+            o.replace("PCIC/ECCC", "PCIC/ECCC : CanDCS-U6")
             if "PCIC/ECCC Canadian Downscaled Climate Scenarios – Univariate CMIP6" in o
             else o
         )
         for o in titles
     ]
+    
+
+    
     titles = [
         (
             o.replace("Ouranos", "Ouranos : CMIP5")
@@ -121,6 +133,13 @@ options_dict["Datasets_1-Climate_Simulations"].extend(
         and o not in options_dict["Datasets_1-Climate_Simulations"]
     ]
 )
+
+for dsid in ["CanDCS-M6", "CanDCS-U6"]:
+    options_dict["Datasets_1-Climate_Simulations"].extend(
+        [o for o in options if "PCIC" in o and dsid in o]
+    )
+
+
 options_dict["Datasets_1-Climate_Simulations"].extend(
     [
         o
