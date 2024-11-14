@@ -17,5 +17,5 @@ For testing, you can run `npx http-server src -c-1` to view the site locally, or
 
 # Python environment.yml
 
-To ensure notebooks and exemples will run on the platform correctly it is advised to use the most recent PAVICS environment.yml
+To ensure notebooks and examples will run on the platform correctly it is advised to use the most recent PAVICS environment.yml
 https://github.com/Ouranosinc/PAVICS-e2e-workflow-tests/blob/master/docker/environment.yml
