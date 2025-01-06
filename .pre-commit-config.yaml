@@ -3,7 +3,7 @@ default_language_version:
 
 repos:
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.17.0
+    rev: v3.19.1
     hooks:
       - id: pyupgrade
         args: [ '--py310-plus' ]
@@ -30,7 +30,7 @@ repos:
       - id: isort
         args: [ '--profile=black' ]
   - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.8.7
+    rev: 1.9.1
     hooks:
       - id: nbqa-pyupgrade
         args: [ '--py310-plus' ]
