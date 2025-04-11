@@ -32,5 +32,6 @@ def main():
             except:
                 print(nb)
 
+
 if __name__ == "__main__":
     main()
