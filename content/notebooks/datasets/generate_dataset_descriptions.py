@@ -275,7 +275,11 @@ for o in options_dict.keys():
 
             print(df["path"].values[0])
 
-            ds = xr.open_dataset(df["path"].values[0], chunks=dict(time=15))
+            ds = xr.open_dataset(
+                df["path"].values[0],
+                decode_timedelta=False,
+                chunks=dict(time=15, lat=50 * 3, lon=50 * 3, rlon=50 * 3, rlat=50 * 3),
+            )
             if (
                 dataset
                 == "PCIC/ECCC : CMIP6 Canadian Downscaled Climate Scenarios – Univariate CMIP6"
@@ -572,16 +576,20 @@ for o in options_dict.keys():
                 "rlat",
                 "rlon",
             }.issubset(set(list(ds.dims.keys()))):
-                v = sorted(list(ds.data_vars.keys()), reverse=True)
-
-                if any([vv in v for vv in ["tasmin", "tas", "prsn"]]):
-                    for vv in ["tasmin", "tas", "prsn"]:
+                v = sorted(list(ds.data_vars.keys()))
+                v = [vv for vv in v if "_delta_" not in vv]
+                var_prior = ["tasmin", "tas", "prsn"]
+                if any([vv in v for vv in var_prior]):
+                    for vv in var_prior:
                         if vv in v:
                             break
                 else:
-                    for vv in v:
-                        if len(ds[vv].dims) >= 3:
-                            break
+                    if len([vv for vv in v if "tg_mean" in vv]) > 0:
+                        vv = [vv for vv in v if "tg_mean" in vv][0]
+                    else:
+                        for vv in v:
+                            if len(ds[vv].dims) >= 3 and "units" in ds[vv].attrs:
+                                break
                 if units.units2pint(ds[vv]) == "kelvin":
                     unit_str = "°K"
                 else:
@@ -593,8 +601,10 @@ for o in options_dict.keys():
                 title["fr"] = (
                     f"Exemple de domaine spatial: pas de temps unique pour variable {vv} ({unit_str})"
                 )
+
                 if {"lat", "lon"}.issubset(set(list(ds.dims.keys()))):
-                    arr = ds[vv].isel(time=1).load()
+                    tt = round(len(ds[vv].time) / 2)
+                    arr = ds[vv].isel(time=tt).load()
                     map1 = arr.hvplot.image(
                         title=title[lang],
                         x="lon",
@@ -610,7 +620,8 @@ for o in options_dict.keys():
                         frame_width=750,
                     ).opts(toolbar=None, fontsize={"title": 12}) * world1.hvplot(c="")
                 else:
-                    arr = ds[vv].isel(time=1).load()
+                    tt = round(len(ds[vv].time) / 2)
+                    arr = ds[vv].isel(time=tt).load()
                     map1 = arr.hvplot.quadmesh(
                         title=title[lang],
                         x="lon",
