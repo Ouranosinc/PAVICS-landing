@@ -7529,7 +7529,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>This third tutorial will demonstate PAVICS tools for calculating climate indicators, accessing Ouranos' <a href="https://www.nature.com/articles/s41597-023-02855-z" target="_blank"><strong>ESPO-G6-R2 v1.0</strong></a> ensemble.  PAVICS incorporates the <a href="https://xclim.readthedocs.io/en/stable/" target="_blank">xclim</a> library which essentially has two layers for the calculation of indicators. The first <code>xclim.indices</code> is a core layer and contains the various algorithms and calculation logic, as well as any potential unit conversions.  A second layer consists of <code>xclim.core.indicator.Indicator</code> instances that essentially perform the same computations found in <code>xclim.indices</code>, but also run a number of health checks on input data and assign attributes to the output arrays. Indicators are split into realms (<code>atmos</code>, <code>land</code>, <code>seaIce</code>), according to the variables they operate on.</p>
+<p>This third tutorial will demonstrate PAVICS tools for calculating climate indicators, accessing Ouranos' <a href="https://www.nature.com/articles/s41597-023-02855-z" target="_blank"><strong>ESPO-G6-R2 v1.0</strong></a> ensemble.  PAVICS incorporates the <a href="https://xclim.readthedocs.io/en/stable/" target="_blank">xclim</a> library which essentially has two layers for the calculation of indicators. The first <code>xclim.indices</code> is a core layer and contains the various algorithms and calculation logic, as well as any potential unit conversions.  A second layer consists of <code>xclim.core.indicator.Indicator</code> instances that essentially perform the same computations found in <code>xclim.indices</code>, but also run a number of health checks on input data and assign attributes to the output arrays. Indicators are split into realms (<code>atmos</code>, <code>land</code>, <code>seaIce</code>), according to the variables they operate on.</p>
 <p>This tutorial uses the <code>xclim.atmos</code> module outlining steps for:</p>
 <ul>
 <li><a href="#climcalc">Climate indicator calculation</a></li>
@@ -7562,7 +7562,6 @@ To conserve any modifications to tutorial notebooks in the PAVICS JupyterLab the
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numba</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">clisops.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">subset</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">dask.diagnostics</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProgressBar</span>
@@ -7573,10 +7572,10 @@ To conserve any modifications to tutorial notebooks in the PAVICS JupyterLab the
 <span class="c1"># TODO change address</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://pavics.ouranos.ca/twitcher/ows/proxy/thredds/catalog/datasets/simulations/bias_adjusted/cmip6/ouranos/ESPO-G/ESPO-G6-R2v1.0.0/catalog.xml"</span>  <span class="c1"># TEST_USE_PROD_DATA</span>
 
-<span class="c1"># Create Catalog</span>
+<span class="c1"># Create Catalogue</span>
 <span class="n">cat</span> <span class="o">=</span> <span class="n">TDSCatalog</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
-<span class="c1"># Subset over the Gaspé peninsula in eastern Quebec</span>
+<span class="c1"># Subset over the Gaspé peninsula in eastern Québec</span>
 <span class="n">gaspe</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span>
     <span class="s2">"/notebook_dir/pavics-homepage/tutorial_data/gaspesie_mrc.geojson"</span>
 <span class="p">)</span>
@@ -7591,7 +7590,7 @@ To conserve any modifications to tutorial notebooks in the PAVICS JupyterLab the
 <span class="c1"># What we see here is only a representation of the full content, the entire data set hasn't been loaded.</span>
 <span class="n">display</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
 
-<span class="c1"># plot of single day tasmin</span>
+<span class="c1"># Plot of single-day tasmin</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">tasmin</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -8698,7 +8697,7 @@ seaIce: CICE4</dd><dt><span>type :</span></dt><dd>GCM</dd><dt><span>xrfreq :</sp
     <span class="n">out</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s2">"rlon"</span><span class="p">,</span> <span class="s2">"rlat"</span><span class="p">],</span> <span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"spatial mean"</span><span class="p">)</span>
 
-    <span class="c1"># Calculate a 30 year climatology and plot a map</span>
+    <span class="c1"># Calculate a 30-year climatology and plot a map</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">subset</span><span class="o">.</span><span class="n">subset_time</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="s2">"1981"</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="s2">"2010"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span>
         <span class="n">dim</span><span class="o">=</span><span class="s2">"time"</span><span class="p">,</span> <span class="n">keep_attrs</span><span class="o">=</span><span class="kc">True</span>
@@ -8740,7 +8739,7 @@ seaIce: CICE4</dd><dt><span>type :</span></dt><dd>GCM</dd><dt><span>xrfreq :</sp
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <hr/>
 <p><a id="missing"></a></p>
-<h3 id="Missing-data-options">Missing data options<a class="anchor-link" href="#Missing-data-options">¶</a></h3><p>Some data sets require consideration of how best to deal with possible missing data in the input time-series. For example, The World Meteorological Organisation recommends that where monthly means are computed from daily values it should be considered missing if either of these two criteria are met:  observations are missing for 11 or more days during the month; observations are missing for a period of 5 or more consecutive days during the month.  Stricter criteria are sometimes used in practice, with a tolerance of 5 missing values or 3 consecutive missing values, or in other cases one may simply wish to use a simple percent threshold demonstrated below.</p>
+<h3 id="Missing-data-options">Missing data options<a class="anchor-link" href="#Missing-data-options">¶</a></h3><p>Some data sets require consideration of how best to deal with possible missing data in the input time-series. For example, The World Meteorological Organisation recommends that where monthly means are computed from daily values, it should be considered missing if either of these two criteria is met: observations are missing for 11 or more days during the month; observations are missing for a period of 5 or more consecutive days during the month. Stricter criteria are sometimes used in practice, with a tolerance of five (5) missing values or three (3) consecutive missing values, or in other cases one may simply wish to use a simple percentage threshold demonstrated below.</p>
 <p>The <code>xclim.set_options</code> can be used to choose from a number of <a href="https://xclim.readthedocs.io/en/stable/checks.html#missing-values-identification" target="_blank">missing data options</a>.</p>
 <p><em><a href="#top1">return to top of page</a></em></p>
 </div>
@@ -8760,7 +8759,7 @@ seaIce: CICE4</dd><dt><span>type :</span></dt><dd>GCM</dd><dt><span>xrfreq :</sp
 <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://pavics.ouranos.ca/twitcher/ows/proxy/thredds/dodsC/datasets/station_obs/ECCC_AHCCD_gen3_temperature.ncml"</span>
 <span class="n">ds_stat</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">station</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">istat</span> <span class="o">=</span> <span class="mi">115</span>
-<span class="c1"># Compare use of differernt percent tolerance levels  (tolerance == 0.1)</span>
+<span class="c1"># Compare use of different percentage tolerance levels (tolerance == 0.1)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 <span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"blue"</span><span class="p">,</span> <span class="s2">"green"</span><span class="p">,</span> <span class="s2">"orange"</span><span class="p">]</span>
 
@@ -8769,7 +8768,7 @@ seaIce: CICE4</dd><dt><span>type :</span></dt><dd>GCM</dd><dt><span>xrfreq :</sp
     <span class="k">with</span> <span class="n">xclim</span><span class="o">.</span><span class="n">set_options</span><span class="p">(</span>
         <span class="n">check_missing</span><span class="o">=</span><span class="s2">"pct"</span><span class="p">,</span> <span class="n">missing_options</span><span class="o">=</span><span class="p">{</span><span class="s2">"pct"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"tolerance"</span><span class="p">:</span> <span class="n">tol</span><span class="p">}}</span>
     <span class="p">):</span>
-        <span class="c1"># compute yearly max tasmax</span>
+        <span class="c1"># Compute yearly max tasmax</span>
         <span class="n">tx_mean</span> <span class="o">=</span> <span class="n">xclim</span><span class="o">.</span><span class="n">atmos</span><span class="o">.</span><span class="n">tx_mean</span><span class="p">(</span>
             <span class="n">tasmax</span><span class="o">=</span><span class="n">ds_stat</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">station</span><span class="o">=</span><span class="n">istat</span><span class="p">)</span><span class="o">.</span><span class="n">tasmax</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">"YS"</span>
         <span class="p">)</span>
@@ -8815,7 +8814,7 @@ seaIce: CICE4</dd><dt><span>type :</span></dt><dd>GCM</dd><dt><span>xrfreq :</sp
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a id="french"></a></p>
-<h3 id="Adding-french-language-metadata-fields">Adding french language metadata fields<a class="anchor-link" href="#Adding-french-language-metadata-fields">¶</a></h3><p>Climate indicator output can be customized to include additional translated metadata fields. French translations are supported directly while others can be user configured. By setting french language <a href="https://xclim.readthedocs.io/en/stable/internationalization.html#" target="_blank">internationalization</a>  options via <code>xclim.set_options</code> we note the additional <code>description_fr</code> and <code>longname_fr</code> attributes.</p>
+<h3 id="Adding-French-language-metadata-fields">Adding French language metadata fields<a class="anchor-link" href="#Adding-French-language-metadata-fields">¶</a></h3><p>Climate indicator output can be customized to include additional translated metadata fields. French translations are supported directly, while others can be user-configured. By setting French language <a href="https://xclim.readthedocs.io/en/stable/internationalization.html#" target="_blank">internationalization</a> options via <code>xclim.set_options</code> we note the additional <code>description_fr</code> and <code>longname_fr</code> attributes.</p>
 <p><em><a href="#top1">return to top of page</a></em></p>
 </div>
 </div>
@@ -9648,7 +9647,7 @@ Attributes:
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Advanced-Topics">Advanced Topics<a class="anchor-link" href="#Advanced-Topics">¶</a></h3><p><a id="multiproc"></a></p>
-<h4 id="Parallel-processing-climate-indicator-calculations">Parallel processing climate indicator calculations<a class="anchor-link" href="#Parallel-processing-climate-indicator-calculations">¶</a></h4><p>xclim uses <code>xarray</code> and its built-in support of <code>Dask</code> parallelization for most of its operations allowing for simple configuration of climate indicator calculation employing <a href="http://xarray.pydata.org/en/stable/dask.html" target="_blank">parallel computing</a>. Here we show a simple workflow to calculate climate indicators using Ouranos' <strong>ESPO-G6-R2</strong> bias-adjusted simulations.   From a user standpoint simply specifying the <code>chunks</code> argument when opening the data via <code>xarray.open_dataset</code> will autmomatically result in dask being employed.  In this case, the calculations are additionally computed in parrallel via a <code>dask.distributed</code> client of worker processes instead of the default scheduler.</p>
+<h4 id="Parallel-processing-climate-indicator-calculations">Parallel processing climate indicator calculations<a class="anchor-link" href="#Parallel-processing-climate-indicator-calculations">¶</a></h4><p><code>xclim</code> uses <code>xarray</code> and its built-in support of <code>Dask</code> parallelization for most of its operations allowing for simple configuration of climate indicator calculation employing <a href="https://docs.xarray.dev/en/stable/user-guide/dask.html" target="_blank">parallel computing</a>. Here we show a simple workflow to calculate climate indicators using Ouranos' <strong>ESPO-G6-R2</strong> bias-adjusted simulations. From a user standpoint simply specifying the <code>chunks</code> argument when opening the data via <code>xarray.open_dataset</code> will automatically result in dask being employed. In this case, the calculations are additionally computed in parallel via a <code>dask.distributed</code> client of worker processes instead of the default scheduler.</p>
 </div>
 </div>
 </div>
@@ -9680,7 +9679,6 @@ Attributes:
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">dask</span><span class="w"> </span><span class="kn">import</span> <span class="n">compute</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">dask.distributed</span><span class="w"> </span><span class="kn">import</span> <span class="n">Client</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">clear_output</span><span class="p">,</span> <span class="n">display</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">xclim.core.indicator</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_indicator_module_from_yaml</span>
@@ -9712,9 +9710,7 @@ Attributes:
     <span class="k">return</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">h</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">tcr_likely_models</span><span class="p">])]</span>
 
 
-<span class="c1"># create a simple search sub-function</span>
-
-
+<span class="c1"># create a simple search subfunction</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">get_ncfilelist</span><span class="p">(</span><span class="n">scen</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tcr_likely</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="n">cat</span> <span class="o">=</span> <span class="n">TDSCatalog</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
     <span class="n">ncfiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">cat</span><span class="o">.</span><span class="n">datasets</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cat</span><span class="o">.</span><span class="n">datasets</span> <span class="k">if</span> <span class="n">scen</span> <span class="ow">in</span> <span class="n">c</span><span class="p">]</span>
@@ -9728,12 +9724,13 @@ Attributes:
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">"Expected number of datasets for </span><span class="si">{</span><span class="n">scen</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2"> : found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ncfiles</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
             <span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>
 
 
 <span class="c1"># specify output folder for netcdf files</span>
 <span class="n">output</span> <span class="o">=</span> <span class="s2">"/notebook_dir/writable-workspace/tmp/tutorial3/output"</span>
 
-<span class="c1"># Create Catalog</span>
+<span class="c1"># Create Catalogue</span>
 <span class="n">cat</span> <span class="o">=</span> <span class="n">TDSCatalog</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
 <span class="n">datasets</span> <span class="o">=</span> <span class="p">{}</span>
@@ -9770,7 +9767,7 @@ Attributes:
 <div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We will subset over the Gaspé peninsula in eastern Quebec</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># We will subset over the Gaspé peninsula in eastern Québec</span>
 <span class="n">gaspe</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span>
     <span class="s2">"/notebook_dir/pavics-homepage/tutorial_data/gaspesie_mrc.geojson"</span>
 <span class="p">)</span>
@@ -9778,7 +9775,7 @@ Attributes:
 <span class="c1"># buffer the region slightly (.05 degrees) to include slightly more gridcells than necessary</span>
 <span class="n">gaspe</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="n">gaspe</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">0.05</span><span class="p">))</span>
 
-<span class="c1"># calculate on data using start year - if `start_date=None` calculation starts on the intitial timestep</span>
+<span class="c1"># calculate on data using start year - if `start_date=None` calculation starts on the initial timestep</span>
 <span class="n">start_date</span> <span class="o">=</span> <span class="s2">"1981"</span>
 
 <span class="c1"># define an end_date - if `end_date=None` calculation will use the last timestep as an end_date</span>
@@ -9790,7 +9787,7 @@ Attributes:
 <span class="p">)</span>
 
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">indmod</span><span class="o">.</span><span class="n">iter_indicators</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s2">":"</span><span class="p">,</span> <span class="n">ind</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">ind</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9847,7 +9844,6 @@ tx_mean_seasonal : &lt;xclim.indicators.pavics-demo.TX_MEAN_SEASONAL object at 0
 <span class="k">with</span> <span class="n">Client</span><span class="p">(</span><span class="o">**</span><span class="n">dask_kwargs</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
     <span class="n">clear_output</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">ssp</span><span class="p">,</span> <span class="n">ds_list</span> <span class="ow">in</span> <span class="n">datasets</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="c1"># print(ssp, datasets)</span>
         <span class="k">for</span> <span class="n">dd</span> <span class="ow">in</span> <span class="n">ds_list</span><span class="p">:</span>
             <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">dd</span><span class="o">.</span><span class="n">access_urls</span><span class="p">[</span><span class="s2">"OPENDAP"</span><span class="p">],</span> <span class="o">**</span><span class="n">xr_kwargs</span><span class="p">)</span>
             <span class="n">ds</span> <span class="o">=</span> <span class="n">subset</span><span class="o">.</span><span class="n">subset_shape</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">gaspe</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span>
