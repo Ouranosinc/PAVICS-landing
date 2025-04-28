@@ -3,8 +3,10 @@
 name: PAVICS-landing
 channels:
   - conda-forge
-  - defaults
-
 dependencies:
+  - python >=3.10,<3.14
+  - gitpython
+  - jupyter
+  - nbconvert
   # then `pre-commit install` to initialize
   - pre-commit
