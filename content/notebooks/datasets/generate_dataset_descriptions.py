@@ -156,15 +156,17 @@ options_dict["Datasets_1-Climate_Simulations"].extend(
         and o not in options_dict["Datasets_1-Climate_Simulations"]
     ]
 )
-options_dict["Datasets_1-Climate_Simulations"].extend(
-    [
-        o
-        for o in options
-        if "Ouranos" in o
-        and "CMIP5" in o
-        and o not in options_dict["Datasets_1-Climate_Simulations"]
-    ]
-)
+
+## Remove CMIP5 scengen 2025-09-15
+# options_dict["Datasets_1-Climate_Simulations"].extend(
+#     [
+#         o
+#         for o in options
+#         if "Ouranos" in o
+#         and "CMIP5" in o
+#         and o not in options_dict["Datasets_1-Climate_Simulations"]
+#     ]
+# )
 
 options_dict["Datasets_1-Climate_Simulations"].extend(
     [
@@ -173,6 +175,7 @@ options_dict["Datasets_1-Climate_Simulations"].extend(
         if "Ouranos" not in o
         and "ClimEx" not in o
         and "NASA" not in o
+        and "CMIP5" not in o
         and o not in options_dict["Datasets_1-Climate_Simulations"]
     ]
 )
@@ -244,9 +247,7 @@ for o in options_dict.keys():
                 driving_experiment_id="expérience(s) de pilotage",
             )
             details_fields = dict()
-            details_fields["en"] = dict(
-                title="Details", more_info="more info", abstract="abstract"
-            )
+            details_fields["en"] = dict()
             details_fields["fr"] = dict(
                 title="Détails", more_info="plus d'info", abstract="résumé"
             )
