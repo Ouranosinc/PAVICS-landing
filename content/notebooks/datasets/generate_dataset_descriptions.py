@@ -247,8 +247,7 @@ for o in options_dict.keys():
                 driving_experiment_id="expérience(s) de pilotage",
             )
             details_fields = dict()
-            details_fields["en"] = dict(
-            )
+            details_fields["en"] = dict()
             details_fields["fr"] = dict(
                 title="Détails", more_info="plus d'info", abstract="résumé"
             )
