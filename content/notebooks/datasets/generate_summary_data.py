@@ -123,13 +123,13 @@ for key, url in urls.items():
 
                         if "realization" not in ds.dims:
                             chunks = {
-                                d: ds[vv].attrs["_ChunkSizes"][ii]
+                                d: int(ds[vv].attrs["_ChunkSizes"][ii])
                                 for ii, d in enumerate(ds[vv].dims)
                             }
 
                         else:
                             chunks = {
-                                d: ds[vv].attrs["_ChunkSizes"][ii]
+                                d: int(ds[vv].attrs["_ChunkSizes"][ii])
                                 for ii, d in enumerate(
                                     ds[vv].isel(realization=0).squeeze().dims
                                 )

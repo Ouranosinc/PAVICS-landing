@@ -7540,7 +7540,7 @@ a.anchor-link {
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">rasterio</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">rioxarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">rioxarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rio</span>  <span class="c1"># noqa</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">birdy</span><span class="w"> </span><span class="kn">import</span> <span class="n">WPSClient</span>
 
 <span class="c1"># This is the URL of the Geoserver that will perform the computations for us.</span>
@@ -7672,7 +7672,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Generic-watershed-properties">Generic watershed properties<a class="anchor-link" href="#Generic-watershed-properties">¶</a></h2><p>Now that we have delineated a watershed, lets find the zonal statistics and other properties using the <code>shape_properties</code> process. This process requires a <code>shape</code> argument defining the watershed contour, the exterior polygon. The polygon can be given either as a link to a geometry file  (e.g. a geojson file such as <code>feature_url</code>), or as data embeded in a string. For example, if variable <code>feature</code> is a <code>GeoPandas</code> geometry, <code>json.dumps(feature)</code> can be used to convert it to a string and pass it as the <code>shape</code> argument.</p>
+<h2 id="Generic-watershed-properties">Generic watershed properties<a class="anchor-link" href="#Generic-watershed-properties">¶</a></h2><p>Now that we have delineated a watershed, lets find the zonal statistics and other properties using the <code>shape_properties</code> process. This process requires a <code>shape</code> argument defining the watershed contour, the exterior polygon. The polygon can be given either as a link to a geometry file  (e.g. a geojson file such as <code>feature_url</code>), or as data embedded in a string. For example, if variable <code>feature</code> is a <code>GeoPandas</code> geometry, <code>json.dumps(feature)</code> can be used to convert it to a string and pass it as the <code>shape</code> argument.</p>
 <p>Typically, we expect users will simply upload a shapefile and use this code to perform the extraction on the region of interest.</p>
 </div>
 </div>
@@ -7836,14 +7836,14 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Downloading to /tmp/tmp0kmim77d/subset_1.tiff.
+<pre>Downloading to /tmp/tmpwovoi_hh/subset_1.tiff.
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;matplotlib.collections.QuadMesh at 0x7f72fcb9f0d0&gt;</pre>
+<pre>&lt;matplotlib.collections.QuadMesh at 0x7fb33ff596d0&gt;</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -8209,13 +8209,13 @@ The number of occurrences of each land-use category is: [18949  9163 29747   313
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>'https://pavics.ouranos.ca/wpsoutputs/raven/4aba539e-208d-11f0-aa49-0242ac13001a/input.json'</pre>
+<pre>'https://pavics.ouranos.ca/wpsoutputs/raven/0da6ce44-68c0-11f0-ad60-0242ac13000d/input.json'</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>'https://pavics.ouranos.ca/wpsoutputs/raven/4aba539e-208d-11f0-aa49-0242ac13001a/clipped_je_2en78.tiff'</pre>
+<pre>'https://pavics.ouranos.ca/wpsoutputs/raven/0da6ce44-68c0-11f0-ad60-0242ac13000d/clipped_376drw4u.tiff'</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -8227,7 +8227,8 @@ The number of occurrences of each land-use category is: [18949  9163 29747   313
        ...,
        [-32768, -32768, -32768, ..., -32768, -32768, -32768],
        [-32768, -32768, -32768, ..., -32768, -32768, -32768],
-       [-32768, -32768, -32768, ..., -32768, -32768, -32768]], dtype=int16)</pre>
+       [-32768, -32768, -32768, ..., -32768, -32768, -32768]],
+      shape=(88, 253), dtype=int16)</pre>
 </div>
 </div>
 </div>
