@@ -81,6 +81,8 @@ for key, url in urls.items():
     for dd in tds.crawl(url, depth=10):
         ncml = Path(dd.name).stem
         print(ncml)
+        if any([v in dd.opendap_url() for v in ['bccaqv2','cb-oura-1.0']]):
+            continue
         if "ESPO-R" not in ncml:
             ds_dict[ncml] = dict()
             ds = xr.open_dataset(dd.opendap_url(), chunks=dict(time=100))
