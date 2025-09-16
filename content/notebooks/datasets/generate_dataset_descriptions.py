@@ -247,7 +247,9 @@ for o in options_dict.keys():
                 driving_experiment_id="expérience(s) de pilotage",
             )
             details_fields = dict()
-            details_fields["en"] = dict()
+            details_fields["en"] = dict(
+                title="Details", more_info="more_info", abstract="abstract"
+            )
             details_fields["fr"] = dict(
                 title="Détails", more_info="plus d'info", abstract="résumé"
             )
@@ -507,7 +509,7 @@ for o in options_dict.keys():
                     details.append(
                         pn.Row(
                             pn.pane.HTML(
-                                f"{attr.replace('_', ' ')}: ",
+                                f"{attr.replace('_', ' ').replace('cat:','').replace('cat%3a','')}: ",
                             ),
                             pn.pane.HTML(
                                 ds.attrs[attr],
@@ -516,7 +518,7 @@ for o in options_dict.keys():
                     )
 
             # if "dataset_description" in ds.attrs.keys():
-            for check in ["dataset_description", "further_info_url"]:
+            for check in ["dataset_description"]:
                 for attr in [attr for attr in ds.attrs if check in attr]:
                     details.append(
                         pn.Row(
