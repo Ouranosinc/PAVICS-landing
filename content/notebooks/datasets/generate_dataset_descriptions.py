@@ -593,10 +593,13 @@ for o in options_dict.keys():
                         for vv in v:
                             if len(ds[vv].dims) >= 3 and "units" in ds[vv].attrs:
                                 break
-                if units.units2pint(ds[vv]) == "kelvin":
-                    unit_str = "°K"
-                else:
-                    unit_str = units.pint2cfunits(units.units2pint(ds[vv]))
+                try:
+                    if units.units2pint(ds[vv]) == "kelvin":
+                        unit_str = "°K"
+                    else:
+                        unit_str = units.pint2cfunits(units.units2pint(ds[vv]))
+                except:
+                    unit_str = ds[vv].attrs.get("units", "")
                 title = {}
                 title["en"] = (
                     f"Example of spatial domain : single time-step for variable {vv} ({unit_str})"
