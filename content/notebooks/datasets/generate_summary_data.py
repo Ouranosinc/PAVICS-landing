@@ -19,7 +19,7 @@ df_cols = {
     "dataset_id": [],
     "dataset_description": ["further_info_url"],
     "institution": ["institute", "GRIB_centreDescription"],
-    "institution_id": ["institute_id"],
+    "institution_id": ["institute_id", "organisation"],
     "start_year": [],
     "end_year": [],
     "abstract": [],
@@ -92,6 +92,10 @@ for key, url in urls.items():
 
                 if col == "variables":
                     ds_dict[ncml][col] = ",".join(sorted(list(ds.data_vars)))
+                elif col == "institution" and "CaSR" in ncml:
+                    ds_dict[ncml][col] = ds.attrs["institute"]
+                elif col == "institution" and "NRCanMET-daily" in ncml:
+                    ds_dict[ncml][col] = "Natural Resources Canada"
                 elif col.endswith("_year"):
                     if "start" in col:
                         ds_dict[ncml][col] = ds.time.min().dt.year.values
