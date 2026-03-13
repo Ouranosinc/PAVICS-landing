@@ -85,7 +85,10 @@ def _correct_titles(df):
         o.replace("CRCM5-CMIP6", "Ouranos : CRCM5-CMIP6") if "CRCM5-CMIP6" in o else o
         for o in titles
     ]
-
+    titles = [
+        o.replace("PINS v1", "Ouranos : PINS v1") if "PINS v1" in o else o
+        for o in titles
+    ]
     df["title"] = titles
     return df
 
@@ -118,7 +121,7 @@ options.extend(
 )
 options = [o for o in options if "ESPO-R" not in o]
 
-for dsid in ["ESPO-G6", "CRCM5-CMIP6"]:
+for dsid in ["CRCM5-CMIP6", "ESPO-G6-R2", "ESPO-G6-E5L", ]:
     options_dict["Datasets_1-Climate_Simulations"].extend(
         [o for o in options if "Ouranos" in o and dsid in o]
     )
@@ -132,6 +135,16 @@ options_dict["Datasets_1-Climate_Simulations"].extend(
         and o not in options_dict["Datasets_1-Climate_Simulations"]
     ]
 )
+
+options_dict["Datasets_1-Climate_Simulations"].extend(
+    [
+        o
+        for o in options
+        if "Ouranos" in o
+        and o not in options_dict["Datasets_1-Climate_Simulations"]
+    ]
+)
+
 
 for dsid in ["CanDCS-M6", "CanDCS-U6"]:
     options_dict["Datasets_1-Climate_Simulations"].extend(
@@ -191,7 +204,8 @@ options_dict["Datasets_3-Reanalysis"] = []
 options = []
 for c in [c for c in df_list.keys() if "reanalyses" in c]:
     options.extend(list(df_list[c]["title"].unique()))
-
+    
+options_dict["Datasets_3-Reanalysis"].extend([o for o in options if "CaSR" in o])
 options_dict["Datasets_3-Reanalysis"].extend([o for o in options if "RDRS" in o])
 options_dict["Datasets_3-Reanalysis"].extend([o for o in options if "ERA5-Land" in o])
 
@@ -312,6 +326,7 @@ for o in options_dict.keys():
                 "ESPO-G6-R2" in df["path"].values[0]
                 or "RDRS" in df["path"].values[0]
                 or "CRCM" in df["path"].values[0]
+                or "CaSR" in df["path"].values[0]
             ):
                 ds["lon"] = ds.lon.where(ds.lon < 0)
             xlim = (float(ds.lon.min().values), float(ds.lon.max().values))
@@ -497,14 +512,14 @@ for o in options_dict.keys():
             ## details
 
             details = pn.Column(
-                pn.Row(
-                    pn.pane.HTML(f"{details_fields[lang]['abstract']} : "),
-                    pn.pane.HTML(
-                        ds.attrs["abstract"],
-                    ),
-                )
+                # pn.Row(
+                #     pn.pane.HTML(f"{details_fields[lang]['abstract']} : "),
+                #     pn.pane.HTML(
+                #         ds.attrs["abstract"],
+                #     ),
+                # )
             )
-            for check in ["bias_adjust", "target_data", "target_ref"]:
+            for check in ["abstract", "bias_adjust", "target_data", "target_ref"]:
                 for attr in [attr for attr in ds.attrs if check in attr]:
                     details.append(
                         pn.Row(
