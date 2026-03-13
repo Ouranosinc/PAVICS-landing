@@ -121,7 +121,11 @@ options.extend(
 )
 options = [o for o in options if "ESPO-R" not in o]
 
-for dsid in ["CRCM5-CMIP6", "ESPO-G6-R2", "ESPO-G6-E5L", ]:
+for dsid in [
+    "CRCM5-CMIP6",
+    "ESPO-G6-R2",
+    "ESPO-G6-E5L",
+]:
     options_dict["Datasets_1-Climate_Simulations"].extend(
         [o for o in options if "Ouranos" in o and dsid in o]
     )
@@ -140,8 +144,7 @@ options_dict["Datasets_1-Climate_Simulations"].extend(
     [
         o
         for o in options
-        if "Ouranos" in o
-        and o not in options_dict["Datasets_1-Climate_Simulations"]
+        if "Ouranos" in o and o not in options_dict["Datasets_1-Climate_Simulations"]
     ]
 )
 
@@ -204,7 +207,7 @@ options_dict["Datasets_3-Reanalysis"] = []
 options = []
 for c in [c for c in df_list.keys() if "reanalyses" in c]:
     options.extend(list(df_list[c]["title"].unique()))
-    
+
 options_dict["Datasets_3-Reanalysis"].extend([o for o in options if "CaSR" in o])
 options_dict["Datasets_3-Reanalysis"].extend([o for o in options if "RDRS" in o])
 options_dict["Datasets_3-Reanalysis"].extend([o for o in options if "ERA5-Land" in o])
