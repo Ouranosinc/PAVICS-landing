@@ -1,0 +1,2 @@
+Variable code,Description,Units,Temporal grouping,Aggregation
+snw,Surface snow amount,kg m-2,daily,time: mean

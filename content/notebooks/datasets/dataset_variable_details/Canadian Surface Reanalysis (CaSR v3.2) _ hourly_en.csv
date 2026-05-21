@@ -1,0 +1,34 @@
+Variable code,Description,Units,Temporal grouping,Aggregation
+20mWind,"Wind Speed (20m). Height is approximate, see description.",m s-1,hourly,time: point
+20mWinddir,Meteorological Wind Direction (20m),degree,hourly,time: point
+hur,20 metre Relative Humidity (height is approximate :  see description),%,hourly,time: point
+hurs,Near-Surface Relative Humidity (1.5m),%,hourly,time: point
+hus,20 metre Specific Humidity (height is approximate :  see description),1,hourly,time: point
+huss,Near-Surface Specific Humidity (1.5m),1,hourly,time: point
+pr,Precipitation,kg m-2 s-1,hourly,time: mean (interval: 1 hour)
+prfrmod,Freezing Rain,kg m-2 s-1,hourly,time: mean (interval: 1 hour)
+prmod,Precipitation,kg m-2 s-1,hourly,time: mean (interval: 1 hour)
+prramod,Liquid Precipitation,kg m-2 s-1,hourly,time: mean (interval: 1 hour)
+prrpmod,Refrozen Rain,kg m-2 s-1,hourly,time: mean (interval: 1 hour)
+prsnmod,Snowfall Flux,kg m-2 s-1,hourly,time: mean (interval: 1 hour)
+ps,Surface Air Pressure,Pa,hourly,time: point
+psl,Sea Level Pressure,Pa,hourly,time: point
+rlds,Surface Downwelling Longwave Radiation,W m-2,hourly,time: mean (interval: 1 hour)
+rsds,Surface Downwelling Shortwave Radiation,W m-2,hourly,time: mean (interval: 1 hour)
+sfcWind,Near-Surface Wind Speed (10m),m s-1,hourly,time: point
+ta,20 metre Air Temperature (height is approximate :  see description),K,hourly,time: point
+tas,1.5 metre temperature,K,hourly,time: point
+tdp,20 metre dewpoint temperature (height is approximate :  see description),K,hourly,time: point
+tdps,1.5 metre dewpoint temperature,K,hourly,time: point
+ua,"Eastward Wind (20m). Height is approximate, see description.",m s-1,hourly,time: point
+uas,Eastward Near-Surface Wind (10m),m s-1,hourly,time: point
+va,"Northward Wind (20m). Height is approximate, see description.",m s-1,hourly,time: point
+vas,Northward Near-Surface Wind (10m),m s-1,hourly,time: point
+winddir,Near-Surface Meteorological Wind Direction (10m),degree,hourly,time: point
+zcrd09975,Model vertical grid coordinate,m,hourly,time: point
+zcrd10000,Model vertical grid coordinate at the surface,m,hourly,time: point
+orog,Surface Altitude,m,invariant,
+sftgif,Land Ice Area Fraction,1,invariant,
+sftlf,Land Area Fraction including Lakes,1,invariant,
+sftlkf,Lake Area Fraction,1,invariant,
+sftof,Sea Area Fraction,1,invariant,

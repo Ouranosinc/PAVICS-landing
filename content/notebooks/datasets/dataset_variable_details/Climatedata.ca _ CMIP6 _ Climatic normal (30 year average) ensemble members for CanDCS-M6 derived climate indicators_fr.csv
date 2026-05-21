@@ -1,0 +1,127 @@
+Code variable,Déscription,Unités,Groupement temporel,Agrégation
+cdd,30-year climatological average of Maximum consecutive days with daily precipitation below 1 mm/day.,days,30y average,time: mean time: sum over days
+cdd_delta_1971_2000,30-year climatological average of Maximum consecutive days with daily precipitation below 1 mm/day: abs. delta compared to 1971-2000.,days,30y average,time: mean time: sum over days
+cdd_delta_1991_2020,30-year climatological average of Maximum consecutive days with daily precipitation below 1 mm/day: abs. delta compared to 1991-2020.,days,30y average,time: mean time: sum over days
+cddcold_18,30-year climatological average of Cumulative sum of temperature degrees for mean daily temperature above 18 degc.,K days,30y average,tasmin: time: minimum tasmax: time: maximum time: mean within days time: sum over days
+cddcold_18_delta_1971_2000,30-year climatological average of Cumulative sum of temperature degrees for mean daily temperature above 18 degc: abs. delta compared to 1971-2000.,K days,30y average,tasmin: time: minimum tasmax: time: maximum time: mean within days time: sum over days
+cddcold_18_delta_1991_2020,30-year climatological average of Cumulative sum of temperature degrees for mean daily temperature above 18 degc: abs. delta compared to 1991-2020.,K days,30y average,tasmin: time: minimum tasmax: time: maximum time: mean within days time: sum over days
+dlyfrzthw_tx0_tn-1,30-year climatological average of Number of days where maximum daily temperatures are above 0 degc and minimum daily temperatures are at or below -1 degc.,days,30y average,tasmin: time: minimum tasmax: time: maximum
+dlyfrzthw_tx0_tn-1_delta_1971_2000,30-year climatological average of Number of days where maximum daily temperatures are above 0 degc and minimum daily temperatures are at or below -1 degc: abs. delta compared to 1971-2000.,days,30y average,tasmin: time: minimum tasmax: time: maximum
+dlyfrzthw_tx0_tn-1_delta_1991_2020,30-year climatological average of Number of days where maximum daily temperatures are above 0 degc and minimum daily temperatures are at or below -1 degc: abs. delta compared to 1991-2020.,days,30y average,tasmin: time: minimum tasmax: time: maximum
+first_fall_frost,30-year climatological average of First day of year with a period of at least 1 days of minimum temperature below 0 degc.,,30y average,time: minimum
+first_fall_frost_delta_1971_2000,30-year climatological average of First day of year with a period of at least 1 days of minimum temperature below 0 degc: abs. delta compared to 1971-2000.,,30y average,time: minimum
+first_fall_frost_delta_1991_2020,30-year climatological average of First day of year with a period of at least 1 days of minimum temperature below 0 degc: abs. delta compared to 1991-2020.,,30y average,time: minimum
+first_snowfall,30 year mean First day of snow year (starting July 1st) when snowfall exceeded 1 mm/day,dayofsnowyear,30y average,
+first_snowfall_delta_1971_2000,30 year mean First day of snow year (starting July 1st) when snowfall exceeded 1 mm/day: delta compared to 1971-2000.,dayofsnowyear,30y average,
+first_snowfall_delta_1991_2020,30 year mean First day of snow year (starting July 1st) when snowfall exceeded 1 mm/day: delta compared to 1991-2020.,dayofsnowyear,30y average,
+frost_days,30-year climatological average of Number of days where the daily minimum temperature is below 0 degc.,days,30y average,time: minimum time: sum over days
+frost_days_delta_1971_2000,30-year climatological average of Number of days where the daily minimum temperature is below 0 degc: abs. delta compared to 1971-2000.,days,30y average,time: minimum time: sum over days
+frost_days_delta_1991_2020,30-year climatological average of Number of days where the daily minimum temperature is below 0 degc: abs. delta compared to 1991-2020.,days,30y average,time: minimum time: sum over days
+frost_free_season,30-year climatological average of Maximum number of consecutive days with minimum temperature at or above 0 degc.,days,30y average,time: minimum time: maximum over days
+frost_free_season_delta_1971_2000,30-year climatological average of Maximum number of consecutive days with minimum temperature at or above 0 degc: abs. delta compared to 1971-2000.,days,30y average,time: minimum time: maximum over days
+frost_free_season_delta_1991_2020,30-year climatological average of Maximum number of consecutive days with minimum temperature at or above 0 degc: abs. delta compared to 1991-2020.,days,30y average,time: minimum time: maximum over days
+gddgrow_0,30-year climatological average of Cumulative sum of temperature degrees for mean daily temperature above 0 degc.,K days,30y average,tasmin: time: minimum tasmax: time: maximum time: mean within days time: sum over days
+gddgrow_0_delta_1971_2000,30-year climatological average of Cumulative sum of temperature degrees for mean daily temperature above 0 degc: abs. delta compared to 1971-2000.,K days,30y average,tasmin: time: minimum tasmax: time: maximum time: mean within days time: sum over days
+gddgrow_0_delta_1991_2020,30-year climatological average of Cumulative sum of temperature degrees for mean daily temperature above 0 degc: abs. delta compared to 1991-2020.,K days,30y average,tasmin: time: minimum tasmax: time: maximum time: mean within days time: sum over days
+gddgrow_5,30-year climatological average of Cumulative sum of temperature degrees for mean daily temperature above 5 degc.,K days,30y average,tasmin: time: minimum tasmax: time: maximum time: mean within days time: sum over days
+gddgrow_5_delta_1971_2000,30-year climatological average of Cumulative sum of temperature degrees for mean daily temperature above 5 degc: abs. delta compared to 1971-2000.,K days,30y average,tasmin: time: minimum tasmax: time: maximum time: mean within days time: sum over days
+gddgrow_5_delta_1991_2020,30-year climatological average of Cumulative sum of temperature degrees for mean daily temperature above 5 degc: abs. delta compared to 1991-2020.,K days,30y average,tasmin: time: minimum tasmax: time: maximum time: mean within days time: sum over days
+hddheat_18,30-year climatological average of Cumulative sum of temperature degrees for mean daily temperature below 18 degc.,K days,30y average,tasmin: time: minimum tasmax: time: maximum time: mean within days time: sum over days
+hddheat_18_delta_1971_2000,30-year climatological average of Cumulative sum of temperature degrees for mean daily temperature below 18 degc: abs. delta compared to 1971-2000.,K days,30y average,tasmin: time: minimum tasmax: time: maximum time: mean within days time: sum over days
+hddheat_18_delta_1991_2020,30-year climatological average of Cumulative sum of temperature degrees for mean daily temperature below 18 degc: abs. delta compared to 1991-2020.,K days,30y average,tasmin: time: minimum tasmax: time: maximum time: mean within days time: sum over days
+ice_days,30-year climatological average of Number of days with maximum daily temperature below 0 degc.,days,30y average,time: maximum time: sum over days
+ice_days_delta_1971_2000,30-year climatological average of Number of days with maximum daily temperature below 0 degc: abs. delta compared to 1971-2000.,days,30y average,time: maximum time: sum over days
+ice_days_delta_1991_2020,30-year climatological average of Number of days with maximum daily temperature below 0 degc: abs. delta compared to 1991-2020.,days,30y average,time: maximum time: sum over days
+last_snowfall,30 year mean Last day of snow year (starting July 1st) when snowfall exceeded 1 mm/day,dayofsnowyear,30y average,
+last_snowfall_delta_1971_2000,30 year mean Last day of snow year (starting July 1st) when snowfall exceeded 1 mm/day: delta compared to 1971-2000.,dayofsnowyear,30y average,
+last_snowfall_delta_1991_2020,30 year mean Last day of snow year (starting July 1st) when snowfall exceeded 1 mm/day: delta compared to 1991-2020.,dayofsnowyear,30y average,
+last_spring_frost,30-year climatological average of Last day of minimum daily temperature below a threshold of 0 degc for at least 1 days before a given date (07-15).,,30y average,time: minimum
+last_spring_frost_delta_1971_2000,30-year climatological average of Last day of minimum daily temperature below a threshold of 0 degc for at least 1 days before a given date (07-15): abs. delta compared to 1971-2000.,,30y average,time: minimum
+last_spring_frost_delta_1991_2020,30-year climatological average of Last day of minimum daily temperature below a threshold of 0 degc for at least 1 days before a given date (07-15): abs. delta compared to 1991-2020.,,30y average,time: minimum
+nr_cdd,"30-year climatological average of Number of dry periods of 6 day(s) or more, during which the maximal precipitation on a window of 6 day(s) is below 1.0 mm.",,30y average,time: mean
+nr_cdd_delta_1971_2000,"30-year climatological average of Number of dry periods of 6 day(s) or more, during which the maximal precipitation on a window of 6 day(s) is below 1.0 mm: abs. delta compared to 1971-2000.",,30y average,time: mean
+nr_cdd_delta_1991_2020,"30-year climatological average of Number of dry periods of 6 day(s) or more, during which the maximal precipitation on a window of 6 day(s) is below 1.0 mm: abs. delta compared to 1991-2020.",,30y average,time: mean
+pr10mm,30-year climatological average of Number of days with daily precipitation at or above 10 mm/day.,days,30y average,time: mean time: sum over days
+pr10mm_delta_1971_2000,30-year climatological average of Number of days with daily precipitation at or above 10 mm/day: abs. delta compared to 1971-2000.,days,30y average,time: mean time: sum over days
+pr10mm_delta_1991_2020,30-year climatological average of Number of days with daily precipitation at or above 10 mm/day: abs. delta compared to 1991-2020.,days,30y average,time: mean time: sum over days
+pr1mm,30-year climatological average of Number of days with daily precipitation at or above 1.0 mm/day.,days,30y average,time: mean time: sum over days
+pr1mm_delta_1971_2000,30-year climatological average of Number of days with daily precipitation at or above 1.0 mm/day: abs. delta compared to 1971-2000.,days,30y average,time: mean time: sum over days
+pr1mm_delta_1991_2020,30-year climatological average of Number of days with daily precipitation at or above 1.0 mm/day: abs. delta compared to 1991-2020.,days,30y average,time: mean time: sum over days
+pr20mm,30-year climatological average of Number of days with daily precipitation at or above 20 mm/day.,days,30y average,time: mean time: sum over days
+pr20mm_delta_1971_2000,30-year climatological average of Number of days with daily precipitation at or above 20 mm/day: abs. delta compared to 1971-2000.,days,30y average,time: mean time: sum over days
+pr20mm_delta_1991_2020,30-year climatological average of Number of days with daily precipitation at or above 20 mm/day: abs. delta compared to 1991-2020.,days,30y average,time: mean time: sum over days
+prtot,30-year climatological average of Total accumulated precipitation.,mm,30y average,time: mean time: sum over days
+prtot_delta_1971_2000,30-year climatological average of Total accumulated precipitation: abs. delta compared to 1971-2000.,mm,30y average,time: mean time: sum over days
+prtot_delta_1991_2020,30-year climatological average of Total accumulated precipitation: abs. delta compared to 1991-2020.,mm,30y average,time: mean time: sum over days
+prx1day,30-year climatological average of Maximum 1-day total precipitation.,mm/day,30y average,time: mean time: maximum over days
+prx1day_delta_1971_2000,30-year climatological average of Maximum 1-day total precipitation: abs. delta compared to 1971-2000.,mm/day,30y average,time: mean time: maximum over days
+prx1day_delta_1991_2020,30-year climatological average of Maximum 1-day total precipitation: abs. delta compared to 1991-2020.,mm/day,30y average,time: mean time: maximum over days
+prx5day,30-year climatological average of Maximum 5-day total precipitation amount.,mm,30y average,time: mean time: maximum over days
+prx5day_delta_1971_2000,30-year climatological average of Maximum 5-day total precipitation amount: abs. delta compared to 1971-2000.,mm,30y average,time: mean time: maximum over days
+prx5day_delta_1991_2020,30-year climatological average of Maximum 5-day total precipitation amount: abs. delta compared to 1991-2020.,mm,30y average,time: mean time: maximum over days
+ratot,30 year mean Total accumulated liquid precipitation,mm,30y average, time: sum over days
+ratot_delta_1971_2000,30 year mean Total accumulated liquid precipitation: delta compared to 1971-2000.,mm,30y average, time: sum over days
+ratot_delta_1991_2020,30 year mean Total accumulated liquid precipitation: delta compared to 1991-2020.,mm,30y average, time: sum over days
+rax1day,30 year mean Total accumulated liquid precipitation,mm,30y average, time: maximum over days
+rax1day_delta_1971_2000,30 year mean Total accumulated liquid precipitation: delta compared to 1971-2000.,mm,30y average, time: maximum over days
+rax1day_delta_1991_2020,30 year mean Total accumulated liquid precipitation: delta compared to 1991-2020.,mm,30y average, time: maximum over days
+sn10mm,30 year mean Number of days with snowfall at or above 10.0 mm/day,days,30y average, time: sum over days
+sn10mm_delta_1971_2000,30 year mean Number of days with snowfall at or above 10.0 mm/day: delta compared to 1971-2000.,days,30y average, time: sum over days
+sn10mm_delta_1991_2020,30 year mean Number of days with snowfall at or above 10.0 mm/day: delta compared to 1991-2020.,days,30y average, time: sum over days
+sn2mm,30 year mean Number of days with snowfall at or above 2.0 mm/day,days,30y average, time: sum over days
+sn2mm_delta_1971_2000,30 year mean Number of days with snowfall at or above 2.0 mm/day: delta compared to 1971-2000.,days,30y average, time: sum over days
+sn2mm_delta_1991_2020,30 year mean Number of days with snowfall at or above 2.0 mm/day: delta compared to 1991-2020.,days,30y average, time: sum over days
+snowfall_season_length,30 year mean Number of days between first and last days (inclusive) when snowfall is above 1 mm/day,days,30y average,
+snowfall_season_length_delta_1971_2000,30 year mean Number of days between first and last days (inclusive) when snowfall is above 1 mm/day: delta compared to 1971-2000.,days,30y average,
+snowfall_season_length_delta_1991_2020,30 year mean Number of days between first and last days (inclusive) when snowfall is above 1 mm/day: delta compared to 1991-2020.,days,30y average,
+sntot,30 year mean Total accumulated solid precipitation,mm,30y average, time: sum over days
+sntot_delta_1971_2000,30 year mean Total accumulated solid precipitation: delta compared to 1971-2000.,mm,30y average, time: sum over days
+sntot_delta_1991_2020,30 year mean Total accumulated solid precipitation: delta compared to 1991-2020.,mm,30y average, time: sum over days
+snx1day,30 year mean Maximum 1-day solid precipitation amount,mm,30y average, time: maximum over days
+snx1day_delta_1971_2000,30 year mean Maximum 1-day solid precipitation amount: delta compared to 1971-2000.,mm,30y average, time: maximum over days
+snx1day_delta_1991_2020,30 year mean Maximum 1-day solid precipitation amount: delta compared to 1991-2020.,mm,30y average, time: maximum over days
+tg_mean,30-year climatological average of Mean daily mean temperature.,K,30y average,tasmin: time: minimum tasmax: time: maximum time: mean within days time: mean over days
+tg_mean_delta_1971_2000,30-year climatological average of Mean daily mean temperature: abs. delta compared to 1971-2000.,K,30y average,tasmin: time: minimum tasmax: time: maximum time: mean within days time: mean over days
+tg_mean_delta_1991_2020,30-year climatological average of Mean daily mean temperature: abs. delta compared to 1991-2020.,K,30y average,tasmin: time: minimum tasmax: time: maximum time: mean within days time: mean over days
+tn_mean,30-year climatological average of Mean daily minimum temperature.,K,30y average,time: minimum time: mean over days
+tn_mean_delta_1971_2000,30-year climatological average of Mean daily minimum temperature: abs. delta compared to 1971-2000.,K,30y average,time: minimum time: mean over days
+tn_mean_delta_1991_2020,30-year climatological average of Mean daily minimum temperature: abs. delta compared to 1991-2020.,K,30y average,time: minimum time: mean over days
+tn_min,30-year climatological average of Minimum daily minimum temperature.,K,30y average,time: minimum time: minimum over days
+tn_min_delta_1971_2000,30-year climatological average of Minimum daily minimum temperature: abs. delta compared to 1971-2000.,K,30y average,time: minimum time: minimum over days
+tn_min_delta_1991_2020,30-year climatological average of Minimum daily minimum temperature: abs. delta compared to 1991-2020.,K,30y average,time: minimum time: minimum over days
+tnlt_m15,30-year climatological average of The number of days with minimum temperature below -15 degc.,days,30y average,time: minimum time: sum over days
+tnlt_m15_delta_1971_2000,30-year climatological average of The number of days with minimum temperature below -15 degc: abs. delta compared to 1971-2000.,days,30y average,time: minimum time: sum over days
+tnlt_m15_delta_1991_2020,30-year climatological average of The number of days with minimum temperature below -15 degc: abs. delta compared to 1991-2020.,days,30y average,time: minimum time: sum over days
+tnlt_m25,30-year climatological average of The number of days with minimum temperature below -25 degc.,days,30y average,time: minimum time: sum over days
+tnlt_m25_delta_1971_2000,30-year climatological average of The number of days with minimum temperature below -25 degc: abs. delta compared to 1971-2000.,days,30y average,time: minimum time: sum over days
+tnlt_m25_delta_1991_2020,30-year climatological average of The number of days with minimum temperature below -25 degc: abs. delta compared to 1991-2020.,days,30y average,time: minimum time: sum over days
+tr_18,30-year climatological average of Number of days with minimum daily temperature above 18 degc.,days,30y average,time: minimum time: sum over days
+tr_18_delta_1971_2000,30-year climatological average of Number of days with minimum daily temperature above 18 degc: abs. delta compared to 1971-2000.,days,30y average,time: minimum time: sum over days
+tr_18_delta_1991_2020,30-year climatological average of Number of days with minimum daily temperature above 18 degc: abs. delta compared to 1991-2020.,days,30y average,time: minimum time: sum over days
+tr_20,30-year climatological average of Number of days with minimum daily temperature above 20 degc.,days,30y average,time: minimum time: sum over days
+tr_20_delta_1971_2000,30-year climatological average of Number of days with minimum daily temperature above 20 degc: abs. delta compared to 1971-2000.,days,30y average,time: minimum time: sum over days
+tr_20_delta_1991_2020,30-year climatological average of Number of days with minimum daily temperature above 20 degc: abs. delta compared to 1991-2020.,days,30y average,time: minimum time: sum over days
+tr_22,30-year climatological average of Number of days with minimum daily temperature above 22 degc.,days,30y average,time: minimum time: sum over days
+tr_22_delta_1971_2000,30-year climatological average of Number of days with minimum daily temperature above 22 degc: abs. delta compared to 1971-2000.,days,30y average,time: minimum time: sum over days
+tr_22_delta_1991_2020,30-year climatological average of Number of days with minimum daily temperature above 22 degc: abs. delta compared to 1991-2020.,days,30y average,time: minimum time: sum over days
+tx_max,30-year climatological average of Maximum daily maximum temperature.,K,30y average,time: maximum time: maximum over days
+tx_max_delta_1971_2000,30-year climatological average of Maximum daily maximum temperature: abs. delta compared to 1971-2000.,K,30y average,time: maximum time: maximum over days
+tx_max_delta_1991_2020,30-year climatological average of Maximum daily maximum temperature: abs. delta compared to 1991-2020.,K,30y average,time: maximum time: maximum over days
+tx_mean,30-year climatological average of Mean daily maximum temperature.,K,30y average,time: maximum time: mean over days
+tx_mean_delta_1971_2000,30-year climatological average of Mean daily maximum temperature: abs. delta compared to 1971-2000.,K,30y average,time: maximum time: mean over days
+tx_mean_delta_1991_2020,30-year climatological average of Mean daily maximum temperature: abs. delta compared to 1991-2020.,K,30y average,time: maximum time: mean over days
+txgt_25,30-year climatological average of The number of days with maximum temperature above 25 degc.,days,30y average,time: maximum time: sum over days
+txgt_25_delta_1971_2000,30-year climatological average of The number of days with maximum temperature above 25 degc: abs. delta compared to 1971-2000.,days,30y average,time: maximum time: sum over days
+txgt_25_delta_1991_2020,30-year climatological average of The number of days with maximum temperature above 25 degc: abs. delta compared to 1991-2020.,days,30y average,time: maximum time: sum over days
+txgt_27,30-year climatological average of The number of days with maximum temperature above 27 degc.,days,30y average,time: maximum time: sum over days
+txgt_27_delta_1971_2000,30-year climatological average of The number of days with maximum temperature above 27 degc: abs. delta compared to 1971-2000.,days,30y average,time: maximum time: sum over days
+txgt_27_delta_1991_2020,30-year climatological average of The number of days with maximum temperature above 27 degc: abs. delta compared to 1991-2020.,days,30y average,time: maximum time: sum over days
+txgt_29,30-year climatological average of The number of days with maximum temperature above 29 degc.,days,30y average,time: maximum time: sum over days
+txgt_29_delta_1971_2000,30-year climatological average of The number of days with maximum temperature above 29 degc: abs. delta compared to 1971-2000.,days,30y average,time: maximum time: sum over days
+txgt_29_delta_1991_2020,30-year climatological average of The number of days with maximum temperature above 29 degc: abs. delta compared to 1991-2020.,days,30y average,time: maximum time: sum over days
+txgt_30,30-year climatological average of The number of days with maximum temperature above 30 degc.,days,30y average,time: maximum time: sum over days
+txgt_30_delta_1971_2000,30-year climatological average of The number of days with maximum temperature above 30 degc: abs. delta compared to 1971-2000.,days,30y average,time: maximum time: sum over days
+txgt_30_delta_1991_2020,30-year climatological average of The number of days with maximum temperature above 30 degc: abs. delta compared to 1991-2020.,days,30y average,time: maximum time: sum over days
+txgt_32,30-year climatological average of The number of days with maximum temperature above 32 degc.,days,30y average,time: maximum time: sum over days
+txgt_32_delta_1971_2000,30-year climatological average of The number of days with maximum temperature above 32 degc: abs. delta compared to 1971-2000.,days,30y average,time: maximum time: sum over days
+txgt_32_delta_1991_2020,30-year climatological average of The number of days with maximum temperature above 32 degc: abs. delta compared to 1991-2020.,days,30y average,time: maximum time: sum over days

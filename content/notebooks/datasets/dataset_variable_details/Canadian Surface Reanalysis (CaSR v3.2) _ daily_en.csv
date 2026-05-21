@@ -1,0 +1,50 @@
+Variable code,Description,Units,Temporal grouping,Aggregation
+20mWind,"Wind Speed (20m). Height is approximate, see description.",m s-1,daily,time: mean (interval: 1 day)
+20mWinddir,Meteorological Wind Direction (20m),degree,daily,time: mean (interval: 1 day)
+cfia,Analysis: Confidence Index of CaPA 24h Analysis at surface,%,daily,time: point
+hur,20 metre Relative Humidity (height is approximate :  see description),%,daily,time: mean (interval: 1 day)
+hurmax,20 metre Relative Humidity (height is approximate :  see description),%,daily,time: maximum (interval: 1 day)
+hurmin,20 metre Relative Humidity (height is approximate :  see description),%,daily,time: minimum (interval: 1 day)
+hurs,Near-Surface Relative Humidity (1.5m),%,daily,time: mean (interval: 1 day)
+hursmax,Near-Surface Relative Humidity (1.5m),%,daily,time: maximum (interval: 1 day)
+hursmin,Near-Surface Relative Humidity (1.5m),%,daily,time: minimum (interval: 1 day)
+hus,20 metre Specific Humidity (height is approximate :  see description),1,daily,time: mean (interval: 1 day)
+huss,Near-Surface Specific Humidity (1.5m),1,daily,time: mean (interval: 1 day)
+pr,Precipitation,kg m-2 s-1,daily,time: mean (interval: 1 day)
+prfrmod,Freezing Rain,kg m-2 s-1,daily,time: mean (interval: 1 day)
+prmod,Precipitation,kg m-2 s-1,daily,time: mean (interval: 1 day)
+prramod,Liquid Precipitation,kg m-2 s-1,daily,time: mean (interval: 1 day)
+prrpmod,Refrozen Rain,kg m-2 s-1,daily,time: mean (interval: 1 day)
+prsnmod,Snowfall Flux,kg m-2 s-1,daily,time: mean (interval: 1 day)
+ps,Surface Air Pressure,Pa,daily,time: mean (interval: 1 day)
+psl,Sea Level Pressure,Pa,daily,time: mean (interval: 1 day)
+rlds,Surface Downwelling Longwave Radiation,W m-2,daily,time: mean (interval: 1 day)
+rsds,Surface Downwelling Shortwave Radiation,W m-2,daily,time: mean (interval: 1 day)
+sfcWind,Near-Surface Wind Speed (10m),m s-1,daily,time: mean (interval: 1 day)
+sfcWindmax,Near-Surface Wind Speed (10m),m s-1,daily,time: maximum (interval: 1 day)
+snd,Snow Depth,m,daily,time: point area: mean where land
+snw,Surface Snow Amount,kg m-2,daily,time: point area: mean where land
+ta,20 metre Air Temperature (height is approximate :  see description),K,daily,time: mean (interval: 1 day)
+tamax,20 metre Air Temperature (height is approximate :  see description),K,daily,time: maximum (interval: 1 day)
+tamin,20 metre Air Temperature (height is approximate :  see description),K,daily,time: minimum (interval: 1 day)
+tas,1.5 metre temperature,K,daily,time: mean (interval: 1 day)
+tasmax,1.5 metre temperature,K,daily,time: maximum (interval: 1 day)
+tasmin,1.5 metre temperature,K,daily,time: minimum (interval: 1 day)
+tdp,20 metre dewpoint temperature (height is approximate :  see description),K,daily,time: mean (interval: 1 day)
+tdpmax,20 metre dewpoint temperature (height is approximate :  see description),K,daily,time: maximum (interval: 1 day)
+tdpmin,20 metre dewpoint temperature (height is approximate :  see description),K,daily,time: minimum (interval: 1 day)
+tdps,1.5 metre dewpoint temperature,K,daily,time: mean (interval: 1 day)
+tdpsmax,1.5 metre dewpoint temperature,K,daily,time: maximum (interval: 1 day)
+tdpsmin,1.5 metre dewpoint temperature,K,daily,time: minimum (interval: 1 day)
+ua,"Eastward Wind (20m). Height is approximate, see description.",m s-1,daily,time: mean (interval: 1 day)
+uas,Eastward Near-Surface Wind (10m),m s-1,daily,time: mean (interval: 1 day)
+va,"Northward Wind (20m). Height is approximate, see description.",m s-1,daily,time: mean (interval: 1 day)
+vas,Northward Near-Surface Wind (10m),m s-1,daily,time: mean (interval: 1 day)
+winddir,Near-Surface Meteorological Wind Direction (10m),degree,daily,time: mean (interval: 1 day)
+zcrd09975,Model vertical grid coordinate,m,daily,time: mean (interval: 1 day)
+zcrd10000,Model vertical grid coordinate at the surface,m,daily,time: mean (interval: 1 day)
+orog,Surface Altitude,m,invariant,
+sftgif,Land Ice Area Fraction,1,invariant,
+sftlf,Land Area Fraction including Lakes,1,invariant,
+sftlkf,Lake Area Fraction,1,invariant,
+sftof,Sea Area Fraction,1,invariant,

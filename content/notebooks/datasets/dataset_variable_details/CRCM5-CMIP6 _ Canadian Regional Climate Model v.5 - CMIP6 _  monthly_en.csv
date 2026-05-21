@@ -1,0 +1,35 @@
+Variable code,Description,Units,Temporal grouping,Aggregation
+clwvi,Condensed Water Path,kg m-2,monthly,area: time: mean
+evspsbl,Evaporation Including Sublimation and Transpiration,kg m-2 s-1,monthly,area: time: mean
+hfls,Surface Upward Latent Heat Flux,W m-2,monthly,area: time: mean
+hurs,Near-Surface Relative Humidity,%,monthly,area: time: mean
+huss,Near-Surface Specific Humidity,1,monthly,area: time: mean
+mrro,Total Runoff,kg m-2 s-1,monthly,area: mean where land time: mean
+mrros,Surface Runoff,kg m-2 s-1,monthly,area: mean where land time: mean
+pr,Precipitation,kg m-2 s-1,monthly,area: time: mean
+prfr,Freezing rain Flux,kg m-2 s-1,monthly,area: time: mean
+prra,Rainfall Flux,kg m-2 s-1,monthly,area: time: mean
+prsn,Snowfall Flux,kg m-2 s-1,monthly,area: time: mean
+prw,Water Vapor Path,kg m-2,monthly,area: time: mean
+ps,Surface Air Pressure,Pa,monthly,area: time: mean
+psl,Sea Level Pressure,Pa,monthly,area: time: mean
+rlds,Surface Downwelling Longwave Radiation,W m-2,monthly,area: time: mean
+rsds,Surface Downwelling Shortwave Radiation,W m-2,monthly,area: time: mean
+snw,Surface Snow Amount,kg m-2,monthly,area: mean where land time: mean
+tas,Near-Surface Air Temperature,K,monthly,area: time: mean
+tasmax,Daily Maximum Near-Surface Air Temperature,K,monthly,area: mean time: maximum within days time: mean over days
+tasmin,Daily Minimum Near-Surface Air Temperature,K,monthly,area: mean time: minimum within days time: mean over days
+uas,Eastward Near-Surface Wind,m s-1,monthly,area: time: mean
+vas,Northward Near-Surface Wind,m s-1,monthly,area: time: mean
+areacella,Atmosphere Grid-Cell Area,m2,invariant,area: sum
+classFrac,Land Area Fraction for the Canadian Land Surface Scheme,%,invariant,area: mean
+cropFrac,Crop Fraction,%,invariant,area: mean
+grassFrac,Natural Grass Fraction,%,invariant,area: mean
+orog,Surface Altitude,m,invariant,area: mean
+sftgif,Percentage of the Grid Cell Covered by Glacier,%,invariant,area: mean
+sftlaf,Percentage of the Grid Cell Occupied by Lake,%,invariant,area: mean where fresh_free_water
+sftlf,Percentage of the Grid Cell Occupied by Land,%,invariant,area: mean
+sftof,Percentage of the Grid Cell Occupied by Sea,%,invariant,area: mean
+treeFracPrimDec,Total Primary Deciduous Tree Fraction,%,invariant,area: mean
+treeFracPrimEver,Total Primary Evergreen Tree Fraction,%,invariant,area: mean
+wetlandFrac,Wetland Fraction,%,invariant,area: mean

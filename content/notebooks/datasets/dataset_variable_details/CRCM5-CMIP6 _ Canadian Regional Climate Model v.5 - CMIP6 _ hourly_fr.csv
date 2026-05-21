@@ -1,0 +1,25 @@
+Code variable,Déscription,Unités,Groupement temporel,Agrégation
+evspsbl,Evaporation Including Sublimation and Transpiration,kg m-2 s-1,hourly,area: time: mean
+hurs,Near-Surface Relative Humidity,%,hourly,area: mean time: point
+huss,Near-Surface Specific Humidity,1,hourly,area: mean time: point
+pr,Precipitation,kg m-2 s-1,hourly,area: mean time: mean
+prfr,Freezing rain Flux,kg m-2 s-1,hourly,area: time: mean
+ps,Surface Air Pressure,Pa,hourly,area: mean time: point
+psl,Sea Level Pressure,Pa,hourly,area: mean time: point
+rlds,Surface Downwelling Longwave Radiation,W m-2,hourly,area: time: mean
+rsds,Surface Downwelling Shortwave Radiation,W m-2,hourly,area: time: mean
+tas,Near-Surface Air Temperature,K,hourly,area: mean time: point
+uas,Eastward Near-Surface Wind,m s-1,hourly,area: mean time: point
+vas,Northward Near-Surface Wind,m s-1,hourly,area: mean time: point
+areacella,Atmosphere Grid-Cell Area,m2,invariant,area: sum
+classFrac,Land Area Fraction for the Canadian Land Surface Scheme,%,invariant,area: mean
+cropFrac,Crop Fraction,%,invariant,area: mean
+grassFrac,Natural Grass Fraction,%,invariant,area: mean
+orog,Surface Altitude,m,invariant,area: mean
+sftgif,Percentage of the Grid Cell Covered by Glacier,%,invariant,area: mean
+sftlaf,Percentage of the Grid Cell Occupied by Lake,%,invariant,area: mean where fresh_free_water
+sftlf,Percentage of the Grid Cell Occupied by Land,%,invariant,area: mean
+sftof,Percentage of the Grid Cell Occupied by Sea,%,invariant,area: mean
+treeFracPrimDec,Total Primary Deciduous Tree Fraction,%,invariant,area: mean
+treeFracPrimEver,Total Primary Evergreen Tree Fraction,%,invariant,area: mean
+wetlandFrac,Wetland Fraction,%,invariant,area: mean

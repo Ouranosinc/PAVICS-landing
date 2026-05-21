@@ -1,0 +1,8 @@
+Variable code,Description,Units,Temporal grouping,Aggregation
+clwvi,Condensed Water Path,kg m-2,daily,time: point
+pr,Precipitation,kg m-2 s-1,daily,time: mean
+prsn,Snowfall Flux,kg m-2 s-1,daily,time: mean
+prw,Water Vapor Path,kg m-2,daily,time: point
+tas,Near-Surface Air Temperature,K,daily,time: point
+tasmax,Daily Maximum Near-Surface Temperature maximum,K,daily,time:  maximum
+tasmin,Daily Minimum Near-Surface Temperature minimum,K,daily,time:  minimum

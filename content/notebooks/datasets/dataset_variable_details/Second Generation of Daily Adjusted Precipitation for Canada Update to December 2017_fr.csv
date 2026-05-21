@@ -1,0 +1,13 @@
+Code variable,Déscription,Unités,Groupement temporel,Agrégation
+pr,Daily Total Precipitation,mm day-1,daily,
+prlp,Daily Rainfall,mm day-1,daily,
+prsn,Daily Snowfall,mm day-1,daily,
+elev,elevation,m,invariant,
+frommonth,from month,,invariant,
+fromyear,from year,,invariant,
+lat,latitude,degrees_north,invariant,
+lon,longitude,degrees_east,invariant,
+prov,province,,invariant,
+stns_joined,joined station (y/n),,invariant,
+tomonth,to month,,invariant,
+toyear,to year,,invariant,
