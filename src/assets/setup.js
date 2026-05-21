@@ -62,6 +62,152 @@ $(function() {
       })
     }
 
+    // Dataset notebook browser support
+    var datasetNotebookManifest = null
+
+    function encodeHTML(value) {
+      return $('<div/>').text(value).html()
+    }
+
+    function getDatasetManifest(callback) {
+      if (datasetNotebookManifest) {
+        callback(datasetNotebookManifest)
+        return
+      }
+      $.getJSON("assets/datasets-notebooks.json").done(function(data) {
+        datasetNotebookManifest = data
+        callback(data)
+      }).fail(function() {
+        console.error("Unable to load dataset manifest from assets/datasets-notebooks.json")
+      })
+    }
+
+    function setupDatasetBrowser(page) {
+      if (page !== "datasets.html" && page !== "datasets_fr.html") {
+        return
+      }
+
+      getDatasetManifest(function(manifest) {
+        const isFrench = page === "datasets_fr.html"
+        const activePane = $(".tab-pane.active")
+        if (!activePane.length) {
+          return
+        }
+
+        const category = activePane.data("category") || "Datasets_1-Climate_Simulations"
+        const categoryData = manifest[category]
+        if (!categoryData) {
+          activePane.html('<div class="alert alert-warning">' + (isFrench ? 'La catégorie de jeux de données est introuvable.' : 'Dataset category not found.') + '</div>')
+          return
+        }
+
+        let browser = activePane.find("#dataset-browser")
+        if (!browser.length) {
+          activePane.empty()
+          browser = $(
+            '<div id="dataset-browser" class="dataset-browser">' +
+              '<div class="form-row">' +
+                '<div class="form-group col-md-4">' +
+                  '<label for="dataset-folder-select">' + (isFrench ? 'Sélectionner un groupe de jeux de données' : 'Select a dataset group') + '</label>' +
+                  '<select id="dataset-folder-select" class="form-control"></select>' +
+                '</div>' +
+                '<div class="form-group col-md-8">' +
+                  '<label for="dataset-file-select">' + (isFrench ? 'Sélectionner un jeu de données' : 'Select a dataset file') + '</label>' +
+                  '<select id="dataset-file-select" class="form-control"></select>' +
+                '</div>' +
+              '</div>' +
+              '<div id="dataset-iframe-wrapper" class="dataset-iframe-wrapper">' +
+                '<img id="dataset-spinner" style="width:100%;display:none;" src="assets/images/loading-image.gif" alt="Loading...">' +
+                '<iframe id="dataset-viewer" src="" frameborder="0" style="display:none; width:100%; height:120vh;" onload="datasetIframeLoaded(this)"></iframe>' +
+              '</div>' +
+            '</div>'
+          )
+          activePane.append(browser)
+        }
+
+        const folderSelect = activePane.find("#dataset-folder-select")
+        const fileSelect = activePane.find("#dataset-file-select")
+        const spinner = activePane.find("#dataset-spinner")
+        const viewer = activePane.find("#dataset-viewer")
+        const subfolders = categoryData.subfolders || {}
+        const folderNames = Object.keys(subfolders).sort()
+
+        function getFileCandidates(files) {
+          const preferred = isFrench
+            ? files.filter(function(file) { return file.endsWith("_fr.html") })
+            : files.filter(function(file) { return !file.endsWith("_fr.html") })
+          return preferred.length ? preferred : files.slice()
+        }
+
+        function setIframeSource(fileName) {
+          if (!fileName) {
+            viewer.hide()
+            spinner.hide()
+            return
+          }
+          const url = categoryData.path + "/" + fileName
+          viewer.hide()
+          spinner.show()
+          viewer.attr("src", url)
+        }
+
+        function loadSelectedFile() {
+          const selectedFile = fileSelect.val()
+          setIframeSource(selectedFile)
+        }
+
+        function makeLabel(fileName) {
+          return fileName.replace(/_fr\.html$/, "").replace(/\.html$/, "").trim()
+        }
+
+        function populateFileSelect(folderName) {
+          const files = subfolders[folderName] || []
+          const candidates = getFileCandidates(files)
+          fileSelect.empty()
+
+          if (!candidates.length) {
+            fileSelect.append('<option value="">' + (isFrench ? 'Aucun fichier disponible' : 'No files available') + '</option>')
+            setIframeSource("")
+            return
+          }
+
+          candidates.forEach(function(file) {
+            fileSelect.append('<option value="' + encodeHTML(file) + '">' + encodeHTML(makeLabel(file)) + '</option>')
+          })
+          fileSelect.val(candidates[0])
+          loadSelectedFile()
+        }
+
+        folderSelect.empty()
+        if (!folderNames.length) {
+          folderSelect.append('<option value="">' + (isFrench ? 'Aucun groupe disponible' : 'No dataset groups available') + '</option>')
+          fileSelect.empty()
+          setIframeSource("")
+          return
+        }
+
+        folderNames.forEach(function(name) {
+          folderSelect.append('<option value="' + encodeHTML(name) + '">' + encodeHTML(name) + '</option>')
+        })
+
+        folderSelect.off("change").on("change", function() {
+          populateFileSelect($(this).val())
+        })
+
+        fileSelect.off("change").on("change", loadSelectedFile)
+
+        if (!folderSelect.val()) {
+          folderSelect.val(folderNames[0])
+        }
+        populateFileSelect(folderSelect.val())
+      })
+    }
+
+    function datasetIframeLoaded(iframe) {
+      $(iframe).show()
+      $(iframe).siblings("#dataset-spinner").hide()
+    }
+
     // Called after loading of page is complete
     function afterLoad() {
 
@@ -86,10 +232,12 @@ $(function() {
 
       // Activate initial iframe
       activateIframe()
+      setupDatasetBrowser(page)
 
       // Listen for tab changes
       $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         activateIframe()
+        setupDatasetBrowser(page)
       })
    }
 
