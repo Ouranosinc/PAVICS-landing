@@ -153,14 +153,14 @@ body {
   margin-top: 0.5rem;
 }
 
-..dataset-folder-radios .dataset-folder-radio {
+.dataset-folder-radios .dataset-folder-radio {
   display: inline-flex;
   align-items: flex-start;
   white-space: normal;
   max-width: 23rem;
   margin-bottom: 0;
   margin-right: 0;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 
 .dataset-folder-radios .dataset-folder-radio input {
@@ -168,7 +168,7 @@ body {
 }
 
 .dataset-browser select.form-control {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 
 
