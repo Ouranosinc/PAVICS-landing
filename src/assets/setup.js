@@ -107,12 +107,11 @@ $(function() {
           browser = $(
             '<div id="dataset-browser" class="dataset-browser">' +
               '<div class="form-row">' +
-                '<div class="form-group col-md-4">' +
-                  '<label for="dataset-folder-select">' + (isFrench ? 'Sélectionner un groupe de jeux de données' : 'Select a dataset group') + '</label>' +
+                '<div class="form-group col-12">' +
+                  '<label for="dataset-folder-select">' + (isFrench ? 'Institution' : 'Institution') + '</label>' +
                   '<select id="dataset-folder-select" class="form-control"></select>' +
                 '</div>' +
-                '<div class="form-group col-md-8">' +
-                  '<label for="dataset-file-select">' + (isFrench ? 'Sélectionner un jeu de données' : 'Select a dataset file') + '</label>' +
+                '<div class="form-group col-12">' +
                   '<select id="dataset-file-select" class="form-control"></select>' +
                 '</div>' +
               '</div>' +
@@ -130,7 +129,7 @@ $(function() {
         const spinner = activePane.find("#dataset-spinner")
         const viewer = activePane.find("#dataset-viewer")
         const subfolders = categoryData.subfolders || {}
-        const folderNames = Object.keys(subfolders).sort()
+        const folderNames = Object.keys(subfolders)
 
         function getFileCandidates(files) {
           const preferred = isFrench
@@ -139,16 +138,16 @@ $(function() {
           return preferred.length ? preferred : files.slice()
         }
 
-        function setIframeSource(fileName) {
-          if (!fileName) {
+        function setIframeSource(filePath) {
+          if (!filePath) {
             viewer.hide()
             spinner.hide()
             return
           }
-          const url = categoryData.path + "/" + fileName
+          const url = categoryData.path + "/" + filePath
           viewer.hide()
           spinner.show()
-          viewer.attr("src", url)
+          viewer.attr("src", encodeURI(url))
         }
 
         function loadSelectedFile() {
@@ -172,9 +171,9 @@ $(function() {
           }
 
           candidates.forEach(function(file) {
-            fileSelect.append('<option value="' + encodeHTML(file) + '">' + encodeHTML(makeLabel(file)) + '</option>')
+            fileSelect.append('<option value="' + encodeHTML(folderName + "/" + file) + '">' + encodeHTML(makeLabel(file)) + '</option>')
           })
-          fileSelect.val(candidates[0])
+          fileSelect.val(folderName + "/" + candidates[0])
           loadSelectedFile()
         }
 
@@ -203,7 +202,7 @@ $(function() {
       })
     }
 
-    function datasetIframeLoaded(iframe) {
+    window.datasetIframeLoaded = function(iframe) {
       $(iframe).show()
       $(iframe).siblings("#dataset-spinner").hide()
     }

@@ -2,6 +2,26 @@
   "Datasets_1-Climate_Simulations": {
     "path": "assets/notebooks/Datasets_1-Climate_Simulations",
     "subfolders": {
+      "Ouranos Consortium on Regional Climatology and Adaptation to Climate Change": [
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _  monthly.html",
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _  monthly_fr.html",
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ 3-hourly.html",
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ 3-hourly_fr.html",
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ daily.html",
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ daily_fr.html",
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ hourly.html",
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ hourly_fr.html",
+        "ESPO-G6-R2 v1.0.0 _ Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1.html",
+        "ESPO-G6-R2 v1.0.0 _ Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1_fr.html",
+        "ESPO-G6-R2 v1.0.0 _ Derived Climate Indicators - Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1.html",
+        "ESPO-G6-R2 v1.0.0 _ Derived Climate Indicators - Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1_fr.html",
+        "ESPO-G6-E5L v1.0.0 _ Ouranos Ensemble of Bias-adjusted Simulations - Global Models CMIP6 - ERA5-Land.html",
+        "ESPO-G6-E5L v1.0.0 _ Ouranos Ensemble of Bias-adjusted Simulations - Global Models CMIP6 - ERA5-Land_fr.html",
+        "PINS v1 _ Portraits d'indices de la neige au sol.html",
+        "PINS v1 _ Portraits d'indices de la neige au sol_fr.html",
+        "The ClimEx CRCM5 Large Ensemble.html",
+        "The ClimEx CRCM5 Large Ensemble_fr.html"
+      ],
       "Canadian Centre for Climate Services _ Climatedata.ca": [
         "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble members for CanDCS-M6 derived climate indicators.html",
         "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble members for CanDCS-M6 derived climate indicators_fr.html",
@@ -19,26 +39,6 @@
         "Climatedata.ca _ CMIP6 _ Yearly ensemble percentiles for CanDCS-M6 derived climate indicators_fr.html",
         "Climatedata.ca _ CMIP6 _ Yearly ensemble percentiles for CanDCS-U6 derived climate indicators.html",
         "Climatedata.ca _ CMIP6 _ Yearly ensemble percentiles for CanDCS-U6 derived climate indicators_fr.html"
-      ],
-      "Ouranos Consortium on Regional Climatology and Adaptation to Climate Change": [
-        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _  monthly.html",
-        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _  monthly_fr.html",
-        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ 3-hourly.html",
-        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ 3-hourly_fr.html",
-        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ daily.html",
-        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ daily_fr.html",
-        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ hourly.html",
-        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ hourly_fr.html",
-        "ESPO-G6-E5L v1.0.0 _ Ouranos Ensemble of Bias-adjusted Simulations - Global Models CMIP6 - ERA5-Land.html",
-        "ESPO-G6-E5L v1.0.0 _ Ouranos Ensemble of Bias-adjusted Simulations - Global Models CMIP6 - ERA5-Land_fr.html",
-        "ESPO-G6-R2 v1.0.0 _ Derived Climate Indicators - Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1.html",
-        "ESPO-G6-R2 v1.0.0 _ Derived Climate Indicators - Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1_fr.html",
-        "ESPO-G6-R2 v1.0.0 _ Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1.html",
-        "ESPO-G6-R2 v1.0.0 _ Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1_fr.html",
-        "PINS v1 _ Portraits d'indices de la neige au sol.html",
-        "PINS v1 _ Portraits d'indices de la neige au sol_fr.html",
-        "The ClimEx CRCM5 Large Ensemble.html",
-        "The ClimEx CRCM5 Large Ensemble_fr.html"
       ],
       "Pacific Climate Impacts Consortium (PCIC)": [
         "CanDCS-M6 Canadian Downscaled Climate Scenarios – Multivariate CMIP6.html",
