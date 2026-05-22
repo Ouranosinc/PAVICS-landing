@@ -25,18 +25,18 @@
       "Canadian Centre for Climate Services _ Climatedata.ca": [
         "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble members for CanDCS-M6 derived climate indicators.html",
         "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble members for CanDCS-M6 derived climate indicators_fr.html",
-        "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble members for CanDCS-U6 derived climate indicators.html",
-        "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble members for CanDCS-U6 derived climate indicators_fr.html",
         "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble percentiles for CanDCS-M6 derived climate indicators.html",
         "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble percentiles for CanDCS-M6 derived climate indicators_fr.html",
-        "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble percentiles for CanDCS-U6 derived climate indicators.html",
-        "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble percentiles for CanDCS-U6 derived climate indicators_fr.html",
         "Climatedata.ca _ CMIP6 _ Yearly ensemble members for CanDCS-M6 derived climate indicators.html",
         "Climatedata.ca _ CMIP6 _ Yearly ensemble members for CanDCS-M6 derived climate indicators_fr.html",
-        "Climatedata.ca _ CMIP6 _ Yearly ensemble members for CanDCS-U6 derived climate indicators.html",
-        "Climatedata.ca _ CMIP6 _ Yearly ensemble members for CanDCS-U6 derived climate indicators_fr.html",
         "Climatedata.ca _ CMIP6 _ Yearly ensemble percentiles for CanDCS-M6 derived climate indicators.html",
         "Climatedata.ca _ CMIP6 _ Yearly ensemble percentiles for CanDCS-M6 derived climate indicators_fr.html",
+        "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble members for CanDCS-U6 derived climate indicators.html",
+        "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble members for CanDCS-U6 derived climate indicators_fr.html",
+        "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble percentiles for CanDCS-U6 derived climate indicators.html",
+        "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble percentiles for CanDCS-U6 derived climate indicators_fr.html",
+        "Climatedata.ca _ CMIP6 _ Yearly ensemble members for CanDCS-U6 derived climate indicators.html",
+        "Climatedata.ca _ CMIP6 _ Yearly ensemble members for CanDCS-U6 derived climate indicators_fr.html",
         "Climatedata.ca _ CMIP6 _ Yearly ensemble percentiles for CanDCS-U6 derived climate indicators.html",
         "Climatedata.ca _ CMIP6 _ Yearly ensemble percentiles for CanDCS-U6 derived climate indicators_fr.html"
       ],
@@ -62,16 +62,6 @@
   "Datasets_3-Reanalysis": {
     "path": "assets/notebooks/Datasets_3-Reanalysis",
     "subfolders": {
-      "ECMWF": [
-        "ERA5 _ daily.html",
-        "ERA5 _ daily_fr.html",
-        "ERA5 _ hourly.html",
-        "ERA5 _ hourly_fr.html",
-        "ERA5-Land _ daily.html",
-        "ERA5-Land _ daily_fr.html",
-        "ERA5-Land _ hourly.html",
-        "ERA5-Land _ hourly_fr.html"
-      ],
       "Environment and Climate Change Canada": [
         "Canadian Surface Reanalysis (CaSR v3.2) _ daily.html",
         "Canadian Surface Reanalysis (CaSR v3.2) _ daily_fr.html",
@@ -81,6 +71,16 @@
         "Regional Deterministic Reforecast System - RDRS v2.1 _ daily_fr.html",
         "Regional Deterministic Reforecast System - RDRS v2.1 _ hourly.html",
         "Regional Deterministic Reforecast System - RDRS v2.1 _ hourly_fr.html"
+      ],
+      "ECMWF": [
+        "ERA5 _ daily.html",
+        "ERA5 _ daily_fr.html",
+        "ERA5 _ hourly.html",
+        "ERA5 _ hourly_fr.html",
+        "ERA5-Land _ daily.html",
+        "ERA5-Land _ daily_fr.html",
+        "ERA5-Land _ hourly.html",
+        "ERA5-Land _ hourly_fr.html"
       ]
     }
   },
