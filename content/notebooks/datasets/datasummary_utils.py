@@ -514,7 +514,7 @@ def create_access_table(dfin, lang='en'):
     if fx_locs:
         fx_locs = fx_locs.replace('/pavics-data/', 'https://pavics.ouranos.ca/twitcher/ows/proxy/thredds/catalog/birdhouse/')
     if tmp_locs:
-        if len(fx_locs) == 0 or fx_locs == tmp_locs:
+        if not fx_locs or fx_locs == tmp_locs:
             thrds_str = thrds_str + f'<a href="{tmp_locs}/catalog.html" target="_blank">{open_link[lang]}<a />'
         else:
             thrds_str = thrds_str + f'<a href="{tmp_locs}/catalog.html" target="_blank">{tmp_title}<a />'
