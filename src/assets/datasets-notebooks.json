@@ -3,14 +3,14 @@
     "path": "assets/notebooks/Datasets_1-Climate_Simulations",
     "subfolders": {
       "Ouranos": [
-        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _  monthly.html",
-        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _  monthly_fr.html",
-        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ 3-hourly.html",
-        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ 3-hourly_fr.html",
         "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ daily.html",
         "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ daily_fr.html",
         "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ hourly.html",
         "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ hourly_fr.html",
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ 3-hourly.html",
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ 3-hourly_fr.html",
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _  monthly.html",
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _  monthly_fr.html",
         "ESPO-G6-R2 v1.0.0 _ Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1.html",
         "ESPO-G6-R2 v1.0.0 _ Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1_fr.html",
         "ESPO-G6-R2 v1.0.0 _ Derived Climate Indicators - Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1.html",
