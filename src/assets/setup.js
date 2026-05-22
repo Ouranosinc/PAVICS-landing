@@ -53,7 +53,7 @@ $(function() {
           // Add spinner and iframe
           html += '<img id="spinner" style="width: 100%" src="assets/images/loading-image.gif">'
 
-          html += '<iframe src="' + $(item).data("iframe") + '" frameBorder="0" style="width: 100%; height: 120vh" onload="finishLoadingIframe()"></iframe>'
+          html += '<iframe src="' + $(item).data("iframe") + '" frameBorder="0" style="width: 100%; height: 85vh" onload="finishLoadingIframe()"></iframe>'
           $(item).html(html)
 
           // Prevent loading twice
@@ -108,8 +108,8 @@ $(function() {
             '<div id="dataset-browser" class="dataset-browser">' +
               '<div class="form-row">' +
                 '<div class="form-group col-12">' +
-                  '<label for="dataset-folder-select">' + (isFrench ? 'Institution' : 'Institution') + '</label>' +
-                  '<select id="dataset-folder-select" class="form-control"></select>' +
+                  '<label>' + (isFrench ? 'Institution' : 'Institution') + '</label>' +
+                  '<div id="dataset-folder-select" class="dataset-folder-radios btn-group btn-group-toggle" data-toggle="buttons" role="group"></div>' +
                 '</div>' +
                 '<div class="form-group col-12">' +
                   '<select id="dataset-file-select" class="form-control"></select>' +
@@ -117,7 +117,7 @@ $(function() {
               '</div>' +
               '<div id="dataset-iframe-wrapper" class="dataset-iframe-wrapper">' +
                 '<img id="dataset-spinner" style="width:100%;display:none;" src="assets/images/loading-image.gif" alt="Loading...">' +
-                '<iframe id="dataset-viewer" src="" frameborder="0" style="display:none; width:100%; height:120vh;" onload="datasetIframeLoaded(this)"></iframe>' +
+                '<iframe id="dataset-viewer" src="" frameborder="0" style="display:none; width:100%; height:85vh;" onload="datasetIframeLoaded(this)"></iframe>' +
               '</div>' +
             '</div>'
           )
@@ -155,8 +155,16 @@ $(function() {
           setIframeSource(selectedFile)
         }
 
+        function normalizeLabel(value) {
+          return value
+            .replace(/_fr\.html$/, "")
+            .replace(/\.html$/, "")
+            .replace(/_/g, "-")
+            .trim()
+        }
+
         function makeLabel(fileName) {
-          return fileName.replace(/_fr\.html$/, "").replace(/\.html$/, "").trim()
+          return normalizeLabel(fileName)
         }
 
         function populateFileSelect(folderName) {
@@ -179,26 +187,36 @@ $(function() {
 
         folderSelect.empty()
         if (!folderNames.length) {
-          folderSelect.append('<option value="">' + (isFrench ? 'Aucun groupe disponible' : 'No dataset groups available') + '</option>')
+          folderSelect.append('<div class="text-muted">' + (isFrench ? 'Aucun groupe disponible' : 'No dataset groups available') + '</div>')
           fileSelect.empty()
           setIframeSource("")
           return
         }
 
-        folderNames.forEach(function(name) {
-          folderSelect.append('<option value="' + encodeHTML(name) + '">' + encodeHTML(name) + '</option>')
+        folderNames.forEach(function(name, index) {
+          const optionLabel = encodeHTML(normalizeLabel(name))
+          const optionValue = encodeHTML(name)
+          const activeClass = index === 0 ? ' active' : ''
+          const checkedAttr = index === 0 ? ' checked' : ''
+          folderSelect.append(
+            '<label class="btn btn-outline-secondary dataset-folder-radio' + activeClass + '">' +
+              '<input type="radio" name="dataset-folder" autocomplete="off" value="' + optionValue + '"' + checkedAttr + '> ' + optionLabel +
+            '</label>'
+          )
         })
 
-        folderSelect.off("change").on("change", function() {
+        folderSelect.off("change").on("change", "input[name=dataset-folder]", function() {
           populateFileSelect($(this).val())
+          folderSelect.find('label').removeClass('active')
+          $(this).closest('label').addClass('active')
         })
 
         fileSelect.off("change").on("change", loadSelectedFile)
 
-        if (!folderSelect.val()) {
-          folderSelect.val(folderNames[0])
+        if (!folderSelect.find('input[name=dataset-folder]:checked').length) {
+          folderSelect.find('input[name=dataset-folder]').first().prop('checked', true).closest('label').addClass('active')
         }
-        populateFileSelect(folderSelect.val())
+        populateFileSelect(folderSelect.find('input[name=dataset-folder]:checked').val())
       })
     }
 

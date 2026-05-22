@@ -243,7 +243,7 @@ def create_summary_tab(dfin, lang='en'):
     if doi is not None:
         doi = f'<a href="{doi}" target="_blank">{open_link[lang]}<a />'
         summ['DOI'] = doi
-    summ['Instituion'] = dfin.institution.values[0]
+    summ['Institution'] = dfin.institution.values[0]
     tmp_str = f"{ds_tmp.isel(time=0).time.dt.strftime("%Y-%m-%d").values} - {ds_tmp.isel(time=-1).time.dt.strftime("%Y-%m-%d").values}"
     summ[summary_fields[lang]['temporal_coverage']] = tmp_str
     summ[summary_fields[lang]['frequency']] = dfin['frequency'].values[0]
@@ -511,9 +511,14 @@ def create_access_table(dfin, lang='en'):
         tmp_locs =  commonpath(tmp_locs) if tmp_locs else tmp_locs
     if tmp_locs:
         tmp_locs = tmp_locs.replace('/pavics-data/', 'https://pavics.ouranos.ca/twitcher/ows/proxy/thredds/catalog/birdhouse/')
-        thrds_str = thrds_str + f'<a href="{tmp_locs}/catalog.html" target="_blank">{tmp_title}<a />'
     if fx_locs:
         fx_locs = fx_locs.replace('/pavics-data/', 'https://pavics.ouranos.ca/twitcher/ows/proxy/thredds/catalog/birdhouse/')
+    if tmp_locs:
+        if len(fx_locs) == 0 or fx_locs == tmp_locs:
+            thrds_str = thrds_str + f'<a href="{tmp_locs}/catalog.html" target="_blank">{open_link[lang]}<a />'
+        else:
+            thrds_str = thrds_str + f'<a href="{tmp_locs}/catalog.html" target="_blank">{tmp_title}<a />'
+    if fx_locs and fx_locs != tmp_locs:
         thrds_str = thrds_str + '<br>' + f'<a href="{fx_locs}/catalog.html" target="_blank">{fx_title}<a />'
     access[summary_fields[lang]['netcdf']] = thrds_str
     agg_str = f'<a href="{thrds_access}" target="_blank">{agg_title}<a />'

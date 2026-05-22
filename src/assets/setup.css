@@ -119,3 +119,56 @@ body {
   color:#fff;
   -webkit-transition: all 0.3s ease; -o-transition: all 0.3s ease; transition: all 0.3s ease;
 }
+
+/* Datasets page specific sizing */
+.datasets-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1120px;
+  width: 100%;
+}
+
+.datasets-container .nav,
+.datasets-container .tab-content,
+.datasets-container .alert {
+  width: 100%;
+}
+
+.dataset-iframe-wrapper {
+  margin-bottom: 0;
+}
+
+.dataset-iframe-wrapper iframe {
+  min-height: 400px;
+  max-height: 85vh;
+}
+
+.dataset-folder-radios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+..dataset-folder-radios .dataset-folder-radio {
+  display: inline-flex;
+  align-items: flex-start;
+  white-space: normal;
+  max-width: 23rem;
+  margin-bottom: 0;
+  margin-right: 0;
+  font-size: 0.95rem;
+}
+
+.dataset-folder-radios .dataset-folder-radio input {
+  margin-top: 0.2rem;
+}
+
+.dataset-browser select.form-control {
+  font-size: 0.95rem;
+}
+
+
