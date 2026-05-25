@@ -18,6 +18,7 @@ import dask
 import html
 import warnings
 from tqdm.auto import tqdm
+from datetime import datetime
 
 
 stylesheet = """
@@ -93,6 +94,15 @@ def correct_institutes(df):
         )
         for o in inst
     ]
+
+    inst = [
+        (
+            o.replace("Ouranos Consortium on Regional Climatology and Adaptation to Climate Change", "Ouranos")
+            if "Ouranos" in o
+            else o
+        )
+        for o in inst
+    ]
     
     df["institution"] = inst
     return df
@@ -100,6 +110,7 @@ def correct_institutes(df):
     
 
 def correct_titles(df):
+    
     titles = [
         (
             o.replace("PCIC/ECCC", "CanDCS-U5 : CMIP5")
@@ -244,7 +255,28 @@ def create_summary_tab(dfin, lang='en'):
         doi = f'<a href="{doi}" target="_blank">{open_link[lang]}<a />'
         summ['DOI'] = doi
     summ['Institution'] = dfin.institution.values[0]
-    tmp_str = f"{ds_tmp.isel(time=0).time.dt.strftime("%Y-%m-%d").values} - {ds_tmp.isel(time=-1).time.dt.strftime("%Y-%m-%d").values}"
+
+    first_flag = True
+    for p in tqdm(dfin['path'], total=len(dfin['path'])):
+        
+        ds_tmp = xr.open_dataset(p, chunks=chunks, decode_timedelta=False)
+        max_tmp = ds_tmp.isel(time=-1).time
+        min_tmp = ds_tmp.isel(time=0).time
+        max_tmp = datetime(max_tmp.dt.year.values, max_tmp.dt.month.values, max_tmp.dt.day.values)
+        min_tmp = datetime(min_tmp.dt.year.values, min_tmp.dt.month.values, min_tmp.dt.day.values)
+        if first_flag:
+            
+            max_time = max_tmp
+            min_time = min_tmp
+            first_flag =False
+            
+        else:
+            max_time = max(max_time, max_tmp)
+            min_time = min(min_time,min_tmp)
+            
+    tmp_str = f"{min_time.strftime("%Y-%m-%d")} - {max_time.strftime("%Y-%m-%d")}"
+    if 'GEPS' in dfin.title.values[0]:
+        tmp_str = 'Current forecast'
     summ[summary_fields[lang]['temporal_coverage']] = tmp_str
     summ[summary_fields[lang]['frequency']] = dfin['frequency'].values[0]
     summ = pd.DataFrame.from_dict(summ, orient="index", columns=['info'])
