@@ -89,13 +89,12 @@ for key, url in urls.items():
             ds_dict[ncml]["path"] = dd.opendap_url()
             ds_dict[ncml]["thredds_cat"] = url
             for col in df_cols:
-                
-                
+
                 if col == "variables":
                     ds_dict[ncml][col] = ",".join(sorted(list(ds.data_vars)))
-                elif col == 'institution' and 'CaSR' in ncml:
-                    ds_dict[ncml][col] = ds.attrs['institute']
-                elif col == 'institution' and 'NRCanMET-daily' in ncml:
+                elif col == "institution" and "CaSR" in ncml:
+                    ds_dict[ncml][col] = ds.attrs["institute"]
+                elif col == "institution" and "NRCanMET-daily" in ncml:
                     ds_dict[ncml][col] = "Natural Resources Canada"
                 elif col.endswith("_year"):
                     if "start" in col:
