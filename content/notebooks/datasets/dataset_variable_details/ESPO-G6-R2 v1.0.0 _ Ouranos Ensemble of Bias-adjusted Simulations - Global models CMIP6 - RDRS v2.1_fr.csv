@@ -1,0 +1,7 @@
+Code variable,Déscription,Unités,Groupement temporel,Agrégation
+pr,Mean daily precipitation flux,kg m-2 s-1,daily,time: mean within days
+tasmax,Maximal daily temperature,K,daily,time: maximum within days
+tasmin,Minimal daily temperature,K,daily,time: minimum within days
+lakeFrac,Lake Area Fraction,,invariant,
+sftlf,Land Area Fraction,,invariant,
+sftof,Sea Area Fraction,,invariant,

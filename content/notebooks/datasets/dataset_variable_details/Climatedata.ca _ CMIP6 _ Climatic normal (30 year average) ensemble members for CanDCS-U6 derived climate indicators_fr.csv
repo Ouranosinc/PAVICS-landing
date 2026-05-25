@@ -1,0 +1,100 @@
+Code variable,Déscription,Unités,Groupement temporel,Agrégation
+ccdcold_18,30 year mean Cooling degree days (Tmean > 18C) ,degree_days,30y average,
+ccdcold_18_delta_1971_2000,30 year mean Cooling degree days (Tmean > 18C) : delta compared to 1971-2000.,degree_days,30y average,
+ccdcold_18_delta_1991_2020,30 year mean Cooling degree days (Tmean > 18C) : delta compared to 1991-2020.,degree_days,30y average,
+cdd,30 year mean Maximum consecutive dry days (Precip < 1mm),days,30y average,
+cdd_delta_1971_2000,30 year mean Maximum consecutive dry days (Precip < 1mm): delta compared to 1971-2000.,days,30y average,
+cdd_delta_1991_2020,30 year mean Maximum consecutive dry days (Precip < 1mm): delta compared to 1991-2020.,days,30y average,
+dlyfrzthw_tx0_tn-1,30 year mean Daily freezethaw cycles,days,30y average,tasmin: time: minimum tasmax: time: maximum
+dlyfrzthw_tx0_tn-1_delta_1971_2000,30 year mean Daily freezethaw cycles: delta compared to 1971-2000.,days,30y average,tasmin: time: minimum tasmax: time: maximum
+dlyfrzthw_tx0_tn-1_delta_1991_2020,30 year mean Daily freezethaw cycles: delta compared to 1991-2020.,days,30y average,tasmin: time: minimum tasmax: time: maximum
+first_fall_frost,30 year mean Day of year of first fall frost,,30y average,time: minimum
+first_fall_frost_delta_1971_2000,30 year mean Day of year of first fall frost: delta compared to 1971-2000.,,30y average,time: minimum
+first_fall_frost_delta_1991_2020,30 year mean Day of year of first fall frost: delta compared to 1991-2020.,,30y average,time: minimum
+frost_days,30 year mean Frost days (Tmin <0°C) ,days,30y average,
+frost_days_delta_1971_2000,30 year mean Frost days (Tmin <0°C) : delta compared to 1971-2000.,days,30y average,
+frost_days_delta_1991_2020,30 year mean Frost days (Tmin <0°C) : delta compared to 1991-2020.,days,30y average,
+frost_free_season,30 year mean Frost free season,days,30y average,time: minimum time: min within days time: maximum over days
+frost_free_season_delta_1971_2000,30 year mean Frost free season: delta compared to 1971-2000.,days,30y average,time: minimum time: min within days time: maximum over days
+frost_free_season_delta_1991_2020,30 year mean Frost free season: delta compared to 1991-2020.,days,30y average,time: minimum time: min within days time: maximum over days
+gddgrow_0,30 year mean Growing degree days above 0,K days,30y average,time: mean time: mean within days time: sum over days
+gddgrow_0_delta_1971_2000,30 year mean Growing degree days above 0: delta compared to 1971-2000,K days,30y average,time: mean time: mean within days time: sum over days
+gddgrow_0_delta_1991_2020,30 year mean Growing degree days above 0: delta compared to 1991-2020,K days,30y average,time: mean time: mean within days time: sum over days
+gddgrow_5,30 year mean Annual Growing Degree Days (Tmean > 5C),degree_days,30y average,
+gddgrow_5_delta_1971_2000,30 year mean Annual Growing Degree Days (Tmean > 5C): delta compared to 1971-2000.,degree_days,30y average,
+gddgrow_5_delta_1991_2020,30 year mean Annual Growing Degree Days (Tmean > 5C): delta compared to 1991-2020.,degree_days,30y average,
+hddheat_18,30 year mean Heating Degree Days (Tmean < 18C),degree_days,30y average,
+hddheat_18_delta_1971_2000,30 year mean Heating Degree Days (Tmean < 18C): delta compared to 1971-2000.,degree_days,30y average,
+hddheat_18_delta_1991_2020,30 year mean Heating Degree Days (Tmean < 18C): delta compared to 1991-2020.,degree_days,30y average,
+ice_days,30 year mean Number of ice days (Tmax < 0 degC),days,30y average,
+ice_days_delta_1971_2000,30 year mean Number of ice days (Tmax < 0 degC): delta compared to 1971-2000.,days,30y average,
+ice_days_delta_1991_2020,30 year mean Number of ice days (Tmax < 0 degC): delta compared to 1991-2020.,days,30y average,
+last_spring_frost,30 year mean Day of year of last spring frost,,30y average,time: minimum
+last_spring_frost_delta_1971_2000,30 year mean Day of year of last spring frost: delta compared to 1971-2000,,30y average,time: minimum
+last_spring_frost_delta_1991_2020,30 year mean Day of year of last spring frost: delta compared to 1991-2020,,30y average,time: minimum
+nr_cdd,30 year mean Number of cdd periods in given time period with more than 5 days. the time period should be defined by the bounds of the time coordinate.,,30y average,time: mean
+nr_cdd_delta_1971_2000,30 year mean Number of cdd periods in given time period with more than 5 days. the time period should be defined by the bounds of the time coordinate.: delta compared to 1971-2000.,,30y average,time: mean
+nr_cdd_delta_1991_2020,30 year mean Number of cdd periods in given time period with more than 5 days. the time period should be defined by the bounds of the time coordinate.: delta compared to 1991-2020.,,30y average,time: mean
+prcptot,30 year mean Annual total precipitation on wet days,mm,30y average,
+prcptot_delta_1971_2000,30 year mean Annual total precipitation on wet days: delta compared to 1971-2000.,mm,30y average,
+prcptot_delta_1991_2020,30 year mean Annual total precipitation on wet days: delta compared to 1991-2020.,mm,30y average,
+r10mm,30-year mean of Number of days with daily precipitation at or above 10 mm/day,days,30y average,time: mean time: sum over days
+r10mm_delta_1971_2000,30-year mean of Number of days with daily precipitation at or above 10 mm/day: absolute delta compared to 1971-2000.,days,30y average,time: mean time: sum over days
+r10mm_delta_1991_2020,30-year mean of Number of days with daily precipitation at or above 10 mm/day: absolute delta compared to 1991-2020.,days,30y average,time: mean time: sum over days
+r1mm,30 year mean Number of wet days (precip >= 1 mm),days,30y average,time: mean time: sum within days time: sum over days
+r1mm_delta_1971_2000,30 year mean Number of wet days (precip >= 1 mm): delta compared to 1971-2000,days,30y average,time: mean time: sum within days time: sum over days
+r1mm_delta_1991_2020,30 year mean Number of wet days (precip >= 1 mm): delta compared to 1991-2020,days,30y average,time: mean time: sum within days time: sum over days
+r20mm,30 year mean Very heavy precipitation days (precipitation≥20 mm) ,days,30y average,
+r20mm_delta_1971_2000,30 year mean Very heavy precipitation days (precipitation≥20 mm) : delta compared to 1971-2000.,days,30y average,
+r20mm_delta_1991_2020,30 year mean Very heavy precipitation days (precipitation≥20 mm) : delta compared to 1991-2020.,days,30y average,
+rx1day,30 year mean Maximum 1-day precipitation,mm day-1,30y average,
+rx1day_delta_1971_2000,30 year mean Maximum 1-day precipitation: delta compared to 1971-2000.,mm day-1,30y average,
+rx1day_delta_1991_2020,30 year mean Maximum 1-day precipitation: delta compared to 1991-2020.,mm day-1,30y average,
+rx5day,30 year mean Maximum 5-day total precipitation,mm,30y average,time: mean time: sum within days time: maximum over days
+rx5day_delta_1971_2000,30 year mean Maximum 5-day total precipitation: delta compared to 1971-2000.,mm,30y average,time: mean time: sum within days time: maximum over days
+rx5day_delta_1991_2020,30 year mean Maximum 5-day total precipitation: delta compared to 1991-2020.,mm,30y average,time: mean time: sum within days time: maximum over days
+tg_mean,30 year mean Mean daily mean temperature,K,30y average,time: mean time: mean within days time: mean over days
+tg_mean_delta_1971_2000,30 year mean Mean daily mean temperature: delta compared to 1971-2000.,K,30y average,time: mean time: mean within days time: mean over days
+tg_mean_delta_1991_2020,30 year mean Mean daily mean temperature: delta compared to 1991-2020.,K,30y average,time: mean time: mean within days time: mean over days
+tn_mean,30 year mean Mean daily minimum temperature,K,30y average,
+tn_mean_delta_1971_2000,30 year mean Mean daily minimum temperature: delta compared to 1971-2000.,K,30y average,
+tn_mean_delta_1991_2020,30 year mean Mean daily minimum temperature: delta compared to 1991-2020.,K,30y average,
+tn_min,30 year mean Minimum daily minimum temperature,K,30y average,
+tn_min_delta_1971_2000,30 year mean Minimum daily minimum temperature: delta compared to 1971-2000.,K,30y average,
+tn_min_delta_1991_2020,30 year mean Minimum daily minimum temperature: delta compared to 1991-2020.,K,30y average,
+tnlt_m15,30 year mean Number of days with tmin < -15c,days,30y average,time: minimum time: minimum within days time: sum over days
+tnlt_m15_delta_1971_2000,30 year mean Number of days with tmin < -15c: delta compared to 1971-2000,days,30y average,time: minimum time: minimum within days time: sum over days
+tnlt_m15_delta_1991_2020,30 year mean Number of days with tmin < -15c: delta compared to 1991-2020,days,30y average,time: minimum time: minimum within days time: sum over days
+tnlt_m25,30 year mean Number of days with tmin < -25c,days,30y average,time: minimum time: minimum within days time: sum over days
+tnlt_m25_delta_1971_2000,30 year mean Number of days with tmin < -25c: delta compared to 1971-2000,days,30y average,time: minimum time: minimum within days time: sum over days
+tnlt_m25_delta_1991_2020,30 year mean Number of days with tmin < -25c: delta compared to 1991-2020,days,30y average,time: minimum time: minimum within days time: sum over days
+tr_18,30 year mean Number of tropical nights (tmin > 18c),days,30y average,time: minimum time: minimum within days time: sum over days
+tr_18_delta_1971_2000,30 year mean Number of tropical nights (tmin > 18c): delta compared to 1971-2000,days,30y average,time: minimum time: minimum within days time: sum over days
+tr_18_delta_1991_2020,30 year mean Number of tropical nights (tmin > 18c): delta compared to 1991-2020,days,30y average,time: minimum time: minimum within days time: sum over days
+tr_20,30 year mean Number of days with Tmin > 20 degC,days,30y average,
+tr_20_delta_1971_2000,30 year mean Number of days with Tmin > 20 degC: delta compared to 1971-2000.,days,30y average,
+tr_20_delta_1991_2020,30 year mean Number of days with Tmin > 20 degC: delta compared to 1991-2020.,days,30y average,
+tr_22,30 year mean Number of tropical nights (tmin > 22c),days,30y average,time: minimum time: minimum within days time: sum over days
+tr_22_delta_1971_2000,30 year mean Number of tropical nights (tmin > 22c): delta compared to 1971-2000,days,30y average,time: minimum time: minimum within days time: sum over days
+tr_22_delta_1991_2020,30 year mean Number of tropical nights (tmin > 22c): delta compared to 1991-2020,days,30y average,time: minimum time: minimum within days time: sum over days
+tx_max,30 year mean Maximum daily maximum temperature,K,30y average,
+tx_max_delta_1971_2000,30 year mean Maximum daily maximum temperature: delta compared to 1971-2000.,K,30y average,
+tx_max_delta_1991_2020,30 year mean Maximum daily maximum temperature: delta compared to 1991-2020.,K,30y average,
+tx_mean,30 year mean Mean daily maximum temperature,K,30y average,
+tx_mean_delta_1971_2000,30 year mean Mean daily maximum temperature: delta compared to 1971-2000.,K,30y average,
+tx_mean_delta_1991_2020,30 year mean Mean daily maximum temperature: delta compared to 1991-2020.,K,30y average,
+txgt_25,30 year mean Number of days with Tmax > 25 degC,days,30y average,
+txgt_25_delta_1971_2000,30 year mean Number of days with Tmax > 25 degC: delta compared to 1971-2000.,days,30y average,
+txgt_25_delta_1991_2020,30 year mean Number of days with Tmax > 25 degC: delta compared to 1991-2020.,days,30y average,
+txgt_27,30 year mean Number of days with tmax > 27c,days,30y average,time: maximum time: maximum within days time: sum over days
+txgt_27_delta_1971_2000,30 year mean Number of days with tmax > 27c: delta compared to 1971-2000,days,30y average,time: maximum time: maximum within days time: sum over days
+txgt_27_delta_1991_2020,30 year mean Number of days with tmax > 27c: delta compared to 1991-2020,days,30y average,time: maximum time: maximum within days time: sum over days
+txgt_29,30 year mean Number of days with tmax > 29c,days,30y average,time: maximum time: maximum within days time: sum over days
+txgt_29_delta_1971_2000,30 year mean Number of days with tmax > 29c: delta compared to 1971-2000,days,30y average,time: maximum time: maximum within days time: sum over days
+txgt_29_delta_1991_2020,30 year mean Number of days with tmax > 29c: delta compared to 1991-2020,days,30y average,time: maximum time: maximum within days time: sum over days
+txgt_30,30 year mean Number of days with Tmax > 30 degC,days,30y average,
+txgt_30_delta_1971_2000,30 year mean Number of days with Tmax > 30 degC: delta compared to 1971-2000.,days,30y average,
+txgt_30_delta_1991_2020,30 year mean Number of days with Tmax > 30 degC: delta compared to 1991-2020.,days,30y average,
+txgt_32,30 year mean Number of days with tmax > 32c,days,30y average,time: maximum time: maximum within days time: sum over days
+txgt_32_delta_1971_2000,30 year mean Number of days with tmax > 32c: delta compared to 1971-2000,days,30y average,time: maximum time: maximum within days time: sum over days
+txgt_32_delta_1991_2020,30 year mean Number of days with tmax > 32c: delta compared to 1991-2020,days,30y average,time: maximum time: maximum within days time: sum over days

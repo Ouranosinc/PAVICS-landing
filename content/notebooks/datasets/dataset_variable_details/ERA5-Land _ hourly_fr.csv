@@ -1,0 +1,4 @@
+Code variable,Déscription,Unités,Groupement temporel,Agrégation
+pr,Precipitation,kg m-2 s-1,hourly,time: mean (interval: 1 hour)
+tas,2 metre temperature,K,hourly,time: point
+z,geopotential,m2 s-2,invariant,

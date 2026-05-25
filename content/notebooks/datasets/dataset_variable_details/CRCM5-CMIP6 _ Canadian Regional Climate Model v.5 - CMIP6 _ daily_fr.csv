@@ -1,0 +1,19 @@
+Code variable,Déscription,Unités,Groupement temporel,Agrégation
+pr,Precipitation,kg m-2 s-1,daily,area: mean time: mean
+prsn,Snowfall Flux,kg m-2 s-1,daily,area: time: mean
+snw,Surface Snow Amount,kg m-2,daily,area: mean where land time: point
+tas,Near-Surface Air Temperature,K,daily,area: mean time: point
+tasmax,Daily Maximum Near-Surface Air Temperature,K,daily,area: mean time: maximum
+tasmin,Daily Minimum Near-Surface Air Temperature,K,daily,area: mean time: minimum
+areacella,Atmosphere Grid-Cell Area,m2,invariant,area: sum
+classFrac,Land Area Fraction for the Canadian Land Surface Scheme,%,invariant,area: mean
+cropFrac,Crop Fraction,%,invariant,area: mean
+grassFrac,Natural Grass Fraction,%,invariant,area: mean
+orog,Surface Altitude,m,invariant,area: mean
+sftgif,Percentage of the Grid Cell Covered by Glacier,%,invariant,area: mean
+sftlaf,Percentage of the Grid Cell Occupied by Lake,%,invariant,area: mean where fresh_free_water
+sftlf,Percentage of the Grid Cell Occupied by Land,%,invariant,area: mean
+sftof,Percentage of the Grid Cell Occupied by Sea,%,invariant,area: mean
+treeFracPrimDec,Total Primary Deciduous Tree Fraction,%,invariant,area: mean
+treeFracPrimEver,Total Primary Evergreen Tree Fraction,%,invariant,area: mean
+wetlandFrac,Wetland Fraction,%,invariant,area: mean

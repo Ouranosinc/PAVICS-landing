@@ -1,0 +1,34 @@
+Variable code,Description,Units,Temporal grouping,Aggregation
+ccdcold_18,Cooling degree days (Tmean > 18C) ,degree_days,annual,
+cdd,Maximum consecutive dry days (Precip < 1mm),days,annual,
+dlyfrzthw_tx0_tn-1,Daily freezethaw cycles,days,annual,tasmin: time: minimum tasmax: time: maximum
+first_fall_frost,Day of year of first fall frost,,annual,time: minimum
+frost_days,Frost days (Tmin <0°C) ,days,annual,
+frost_free_season,Frost free season,days,annual,time: minimum time: min within days time: maximum over days
+gddgrow_5,Annual Growing Degree Days (Tmean > 5C),degree_days,annual,
+hddheat_18,Heating Degree Days (Tmean < 18C),degree_days,annual,
+ice_days,Number of ice days (Tmax < 0 degC),days,annual,
+last_spring_frost,Day of year of last spring frost,,annual,time: minimum
+gddgrow_0,Growing degree days above 0,K days,annual; monthly,time: mean time: mean within days time: sum over days
+nr_cdd,Number of cdd periods in given time period with more than 5 days. the time period should be defined by the bounds of the time coordinate.,,annual; monthly,time: mean
+rx5day,Maximum 5-day total precipitation,mm,annual; monthly,time: mean time: sum within days time: maximum over days
+tn_min,Minimum daily minimum temperature,K,annual; monthly,
+tnlt_m15,Number of days with tmin < -15c,days,annual; monthly,time: minimum time: minimum within days time: sum over days
+tnlt_m25,Number of days with tmin < -25c,days,annual; monthly,time: minimum time: minimum within days time: sum over days
+tr_18,Number of tropical nights (tmin > 18c),days,annual; monthly,time: minimum time: minimum within days time: sum over days
+tr_20,Number of days with Tmin > 20 degC,days,annual; monthly,
+tr_22,Number of tropical nights (tmin > 22c),days,annual; monthly,time: minimum time: minimum within days time: sum over days
+tx_max,Maximum daily maximum temperature,K,annual; monthly,
+txgt_25,Number of days with Tmax > 25 degC,days,annual; monthly,
+txgt_27,Number of days with tmax > 27c,days,annual; monthly,time: maximum time: maximum within days time: sum over days
+txgt_29,Number of days with tmax > 29c,days,annual; monthly,time: maximum time: maximum within days time: sum over days
+txgt_30,Number of days with Tmax > 30 degC,days,annual; monthly,
+txgt_32,Number of days with tmax > 32c,days,annual; monthly,time: maximum time: maximum within days time: sum over days
+prcptot,Annual total precipitation on wet days,mm,annual; monthly; seasonal,
+r10mm,Number of days with daily precipitation at or above 10 mm/day,days,annual; monthly; seasonal,time: mean time: sum over days
+r1mm,Number of wet days (precip >= 1 mm),days,annual; monthly; seasonal,time: mean time: sum within days time: sum over days
+r20mm,Very heavy precipitation days (precipitation≥20 mm) ,days,annual; monthly; seasonal,
+rx1day,Maximum 1-day precipitation,mm day-1,annual; monthly; seasonal,
+tg_mean,Mean daily mean temperature,K,annual; monthly; seasonal,time: mean time: mean within days time: mean over days
+tn_mean,Mean daily minimum temperature,K,annual; monthly; seasonal,
+tx_mean,Mean daily maximum temperature,K,annual; monthly; seasonal,

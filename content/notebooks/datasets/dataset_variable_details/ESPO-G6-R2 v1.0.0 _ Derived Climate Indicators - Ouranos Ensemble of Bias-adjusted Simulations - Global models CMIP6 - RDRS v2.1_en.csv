@@ -1,0 +1,42 @@
+Variable code,Description,Units,Temporal grouping,Aggregation
+rx5day,Maximum 5-day total precipitation amount,mm,6month; annual,time: mean within days time: maximum over days
+degree_days_above_0,Cumulative sum of temperature degrees for mean daily temperature above 0 degc,K days,annual,tasmin: time: minimum within days tasmax: time: maximum within days time: mean within days time: sum over days
+degree_days_above_13,Cumulative sum of temperature degrees for mean daily temperature above 13 degc,K days,annual,tasmin: time: minimum within days tasmax: time: maximum within days time: mean within days time: sum over days
+degree_days_above_18,Cumulative sum of temperature degrees for mean daily temperature above 18 degc,K days,annual,tasmin: time: minimum within days tasmax: time: maximum within days time: mean within days time: sum over days
+degree_days_above_22,Cumulative sum of temperature degrees for mean daily temperature above 22 degc,K days,annual,tasmin: time: minimum within days tasmax: time: maximum within days time: mean within days time: sum over days
+degree_days_above_4,Cumulative sum of temperature degrees for mean daily temperature above 4 degc,K days,annual,tasmin: time: minimum within days tasmax: time: maximum within days time: mean within days time: sum over days
+degree_days_above_5,Cumulative sum of temperature degrees for mean daily temperature above 5 degc,K days,annual,tasmin: time: minimum within days tasmax: time: maximum within days time: mean within days time: sum over days
+heat_spell_frequency_class1,Number of heat spells,1,annual,tasmin: time: minimum within days tasmax: time: maximum within days
+heat_spell_frequency_class2,Number of heat spells,1,annual,tasmin: time: minimum within days tasmax: time: maximum within days
+heat_spell_frequency_class3,Number of heat spells,1,annual,tasmin: time: minimum within days tasmax: time: maximum within days
+heat_spell_total_length_class1,Total length of heat spells.,days,annual,tasmin: time: minimum within days tasmax: time: maximum within days
+heat_spell_total_length_class2,Total length of heat spells.,days,annual,tasmin: time: minimum within days tasmax: time: maximum within days
+heat_spell_total_length_class3,Total length of heat spells.,days,annual,tasmin: time: minimum within days tasmax: time: maximum within days
+prcptot_AMJJASO,Total accumulated precipitation,mm,annual,time: mean within days time: sum over days
+tn_days_above_18,The number of days with minimum temperature above 18 degc,days,annual,time: minimum within days time: sum over days
+tn_days_above_20,The number of days with minimum temperature above 20 degc,days,annual,time: minimum within days time: sum over days
+tn_days_above_22,The number of days with minimum temperature above 22 degc,days,annual,time: minimum within days time: sum over days
+tx_days_above_30,The number of days with maximum temperature above 30 degc,days,annual,time: maximum within days time: sum over days
+tx_days_above_32,The number of days with maximum temperature above 32 degc,days,annual,time: maximum within days time: sum over days
+degree_days_below_0,Cumulative sum of temperature degrees for mean daily temperature below 0 degc,K days,annual-julyjune,tasmin: time: minimum within days tasmax: time: maximum within days time: mean within days time: sum over days
+degree_days_below_15,Cumulative sum of temperature degrees for mean daily temperature below 15 degc,K days,annual-julyjune,tasmin: time: minimum within days tasmax: time: maximum within days time: mean within days time: sum over days
+degree_days_below_18,Cumulative sum of temperature degrees for mean daily temperature below 18 degc,K days,annual-julyjune,tasmin: time: minimum within days tasmax: time: maximum within days time: mean within days time: sum over days
+tn_days_above_0,The number of days with minimum temperature above 0 degc,days,seasonal,time: minimum within days time: sum over days
+tn_days_below_m15,The number of days with minimum temperature below -15 degc,days,seasonal,time: minimum within days time: sum over days
+tn_days_below_m25,The number of days with minimum temperature below -25 degc,days,seasonal,time: minimum within days time: sum over days
+dlyfrzthw,Number of days where maximum daily temperatures are above 0 degc and minimum daily temperatures are at or below 0 degc,days,seasonal; annual,tasmin: time: minimum within days tasmax: time: maximum within days
+dry_days,Number of dry days,days,seasonal; annual,time: mean within days time: sum over days
+dry_spell_frequency,"Number of dry periods of 6 day(s) or more, during which the maximal precipitation on a window of 6 day(s) is below 1 mm.",1,seasonal; annual,time: mean within days
+liquidprcptot,Total accumulated precipitation when temperature is above 0 degc,mm,seasonal; annual,pr: time: mean within days tas: tasmin: time: minimum within days tasmax: time: maximum within days time: mean within days time: sum over days
+pr_days_above_1,Number of days with daily precipitation at or above 1 mm/d,days,seasonal; annual,time: mean within days time: sum over days
+pr_days_above_10,Number of days with daily precipitation at or above 10 mm/d,days,seasonal; annual,time: mean within days time: sum over days
+pr_days_above_20,Number of days with daily precipitation at or above 20 mm/d,days,seasonal; annual,time: mean within days time: sum over days
+prcptot,Total accumulated precipitation,mm,seasonal; annual,time: mean within days time: sum over days
+rx1day,Maximum 1-day total precipitation,mm/day,seasonal; annual,time: mean within days time: maximum over days
+solidprcptot,Total accumulated solid precipitation,mm,seasonal; annual,pr: time: mean within days tas: tasmin: time: minimum within days tasmax: time: maximum within days time: mean within days time: sum over days
+tg_mean,Mean daily mean temperature,K,seasonal; annual,tasmin: time: minimum within days tasmax: time: maximum within days time: mean within days time: mean over days
+tn_mean,Mean daily minimum temperature,K,seasonal; annual,time: minimum within days time: mean over days
+tn_min,Minimum daily minimum temperature,K,seasonal; annual,time: minimum within days time: minimum over days
+tx_days_below_0,The number of days with maximum temperature below 0 degc,days,seasonal; annual,time: maximum within days time: sum over days
+tx_max,Maximum daily maximum temperature,K,seasonal; annual,time: maximum within days time: maximum over days
+tx_mean,Mean daily maximum temperature,K,seasonal; annual,time: maximum within days time: mean over days

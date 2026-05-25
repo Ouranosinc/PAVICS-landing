@@ -1,0 +1,5 @@
+Code variable,Déscription,Unités,Groupement temporel,Agrégation
+pr,Precipitation,kg m-2 d-1,daily,time: mean
+prsn,Solid precipitation,kg m-2 d-1,daily,
+tasmax,Daily Maximum Near-Surface Air Temperature,degC,daily,time: maximum
+tasmin,Daily Minimum Near-Surface Air Temperature,degC,daily,time: minimum

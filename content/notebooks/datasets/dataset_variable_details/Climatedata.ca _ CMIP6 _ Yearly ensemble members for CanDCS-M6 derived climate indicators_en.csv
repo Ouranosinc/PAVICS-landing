@@ -1,0 +1,43 @@
+Variable code,Description,Units,Temporal grouping,Aggregation
+cdd,Maximum consecutive days with daily precipitation below 1 mm/day,days,annual,time: mean time: sum over days
+cddcold_18,Cumulative sum of temperature degrees for mean daily temperature above 18 degc,K days,annual,tasmin: time: minimum tasmax: time: maximum time: mean within days time: sum over days
+dlyfrzthw_tx0_tn-1,Number of days where maximum daily temperatures are above 0 degc and minimum daily temperatures are at or below -1 degc,days,annual,tasmin: time: minimum tasmax: time: maximum
+first_fall_frost,First day of year with a period of at least 1 days of minimum temperature below 0 degc,,annual,time: minimum
+frost_days,Number of days where the daily minimum temperature is below 0 degc,days,annual,time: minimum time: sum over days
+frost_free_season,Maximum number of consecutive days with minimum temperature at or above 0 degc,days,annual,time: minimum time: maximum over days
+gddgrow_5,Cumulative sum of temperature degrees for mean daily temperature above 5 degc,K days,annual,tasmin: time: minimum tasmax: time: maximum time: mean within days time: sum over days
+hddheat_18,Cumulative sum of temperature degrees for mean daily temperature below 18 degc,K days,annual,tasmin: time: minimum tasmax: time: maximum time: mean within days time: sum over days
+ice_days,Number of days with maximum daily temperature below 0 degc,days,annual,time: maximum time: sum over days
+last_spring_frost,Last day of minimum daily temperature below a threshold of 0 degc for at least 1 days before a given date (07-15),,annual,time: minimum
+first_snowfall,First day of snow year (starting July 1st) when snowfall exceeded 1 mm/day,dayofsnowyear,annual-julyjune,
+last_snowfall,Last day of snow year (starting July 1st) when snowfall exceeded 1 mm/day,dayofsnowyear,annual-julyjune,
+snowfall_season_length,Number of days between first and last days (inclusive) when snowfall is above 1 mm/day,days,annual-julyjune,
+gddgrow_0,Cumulative sum of temperature degrees for mean daily temperature above 0 degc,K days,annual; monthly,tasmin: time: minimum tasmax: time: maximum time: mean within days time: sum over days
+nr_cdd,"Number of dry periods of 6 day(s) or more, during which the maximal precipitation on a window of 6 day(s) is below 1.0 mm.",,annual; monthly,time: mean
+prx5day,Maximum 5-day total precipitation amount,mm,annual; monthly,time: mean time: maximum over days
+tn_min,Minimum daily minimum temperature,K,annual; monthly,time: minimum time: minimum over days
+tnlt_m15,The number of days with minimum temperature below -15 degc,days,annual; monthly,time: minimum time: sum over days
+tnlt_m25,The number of days with minimum temperature below -25 degc,days,annual; monthly,time: minimum time: sum over days
+tr_18,Number of days with minimum daily temperature above 18 degc,days,annual; monthly,time: minimum time: sum over days
+tr_20,Number of days with minimum daily temperature above 20 degc,days,annual; monthly,time: minimum time: sum over days
+tr_22,Number of days with minimum daily temperature above 22 degc,days,annual; monthly,time: minimum time: sum over days
+tx_max,Maximum daily maximum temperature,K,annual; monthly,time: maximum time: maximum over days
+txgt_25,The number of days with maximum temperature above 25 degc,days,annual; monthly,time: maximum time: sum over days
+txgt_27,The number of days with maximum temperature above 27 degc,days,annual; monthly,time: maximum time: sum over days
+txgt_29,The number of days with maximum temperature above 29 degc,days,annual; monthly,time: maximum time: sum over days
+txgt_30,The number of days with maximum temperature above 30 degc,days,annual; monthly,time: maximum time: sum over days
+txgt_32,The number of days with maximum temperature above 32 degc,days,annual; monthly,time: maximum time: sum over days
+pr10mm,Number of days with daily precipitation at or above 10 mm/day,days,annual; monthly; seasonal,time: mean time: sum over days
+pr1mm,Number of days with daily precipitation at or above 1.0 mm/day,days,annual; monthly; seasonal,time: mean time: sum over days
+pr20mm,Number of days with daily precipitation at or above 20 mm/day,days,annual; monthly; seasonal,time: mean time: sum over days
+prtot,Total accumulated precipitation,mm,annual; monthly; seasonal,time: mean time: sum over days
+prx1day,Maximum 1-day total precipitation,mm/day,annual; monthly; seasonal,time: mean time: maximum over days
+ratot,Total accumulated liquid precipitation,mm,annual; monthly; seasonal, time: sum over days
+rax1day,Total accumulated liquid precipitation,mm,annual; monthly; seasonal, time: maximum over days
+sn10mm,Number of days with snowfall at or above 10.0 mm/day,days,annual; monthly; seasonal, time: sum over days
+sn2mm,Number of days with snowfall at or above 2.0 mm/day,days,annual; monthly; seasonal, time: sum over days
+sntot,Total accumulated solid precipitation,mm,annual; monthly; seasonal, time: sum over days
+snx1day,Maximum 1-day solid precipitation amount,mm,annual; monthly; seasonal, time: maximum over days
+tg_mean,Mean daily mean temperature,K,annual; monthly; seasonal,tasmin: time: minimum tasmax: time: maximum time: mean within days time: mean over days
+tn_mean,Mean daily minimum temperature,K,annual; monthly; seasonal,time: minimum time: mean over days
+tx_mean,Mean daily maximum temperature,K,annual; monthly; seasonal,time: maximum time: mean over days

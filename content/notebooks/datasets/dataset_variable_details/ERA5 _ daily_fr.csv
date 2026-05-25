@@ -1,0 +1,7 @@
+Code variable,Déscription,Unités,Groupement temporel,Agrégation
+pr,Precipitation,kg m-2 s-1,daily,time: mean (interval: 1 day)
+prsn,Snowfall flux,kg m-2 s-1,daily,time: mean (interval: 1 day)
+tas,2 metre temperature,K,daily,time: point
+tasmax,2 metre temperature,K,daily,time: point
+tasmin,2 metre temperature,K,daily,time: point
+sftlf,Land Area Fraction,%,invariant,area: mean

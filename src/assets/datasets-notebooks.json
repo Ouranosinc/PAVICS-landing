@@ -1,0 +1,96 @@
+{
+  "Datasets_1-Climate_Simulations": {
+    "path": "assets/notebooks/Datasets_1-Climate_Simulations",
+    "subfolders": {
+      "Ouranos": [
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ daily.html",
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ daily_fr.html",
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ hourly.html",
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ hourly_fr.html",
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ 3-hourly.html",
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _ 3-hourly_fr.html",
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _  monthly.html",
+        "CRCM5-CMIP6 _ Canadian Regional Climate Model v.5 - CMIP6 _  monthly_fr.html",
+        "ESPO-G6-R2 v1.0.0 _ Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1.html",
+        "ESPO-G6-R2 v1.0.0 _ Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1_fr.html",
+        "ESPO-G6-R2 v1.0.0 _ Derived Climate Indicators - Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1.html",
+        "ESPO-G6-R2 v1.0.0 _ Derived Climate Indicators - Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1_fr.html",
+        "ESPO-G6-E5L v1.0.0 _ Ouranos Ensemble of Bias-adjusted Simulations - Global Models CMIP6 - ERA5-Land.html",
+        "ESPO-G6-E5L v1.0.0 _ Ouranos Ensemble of Bias-adjusted Simulations - Global Models CMIP6 - ERA5-Land_fr.html",
+        "PINS v1 _ Portraits d'indices de la neige au sol.html",
+        "PINS v1 _ Portraits d'indices de la neige au sol_fr.html",
+        "The ClimEx CRCM5 Large Ensemble.html",
+        "The ClimEx CRCM5 Large Ensemble_fr.html"
+      ],
+      "Canadian Centre for Climate Services _ Climatedata.ca": [
+        "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble members for CanDCS-M6 derived climate indicators.html",
+        "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble members for CanDCS-M6 derived climate indicators_fr.html",
+        "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble percentiles for CanDCS-M6 derived climate indicators.html",
+        "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble percentiles for CanDCS-M6 derived climate indicators_fr.html",
+        "Climatedata.ca _ CMIP6 _ Yearly ensemble members for CanDCS-M6 derived climate indicators.html",
+        "Climatedata.ca _ CMIP6 _ Yearly ensemble members for CanDCS-M6 derived climate indicators_fr.html",
+        "Climatedata.ca _ CMIP6 _ Yearly ensemble percentiles for CanDCS-M6 derived climate indicators.html",
+        "Climatedata.ca _ CMIP6 _ Yearly ensemble percentiles for CanDCS-M6 derived climate indicators_fr.html",
+        "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble members for CanDCS-U6 derived climate indicators.html",
+        "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble members for CanDCS-U6 derived climate indicators_fr.html",
+        "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble percentiles for CanDCS-U6 derived climate indicators.html",
+        "Climatedata.ca _ CMIP6 _ Climatic normal (30 year average) ensemble percentiles for CanDCS-U6 derived climate indicators_fr.html",
+        "Climatedata.ca _ CMIP6 _ Yearly ensemble members for CanDCS-U6 derived climate indicators.html",
+        "Climatedata.ca _ CMIP6 _ Yearly ensemble members for CanDCS-U6 derived climate indicators_fr.html",
+        "Climatedata.ca _ CMIP6 _ Yearly ensemble percentiles for CanDCS-U6 derived climate indicators.html",
+        "Climatedata.ca _ CMIP6 _ Yearly ensemble percentiles for CanDCS-U6 derived climate indicators_fr.html"
+      ],
+      "Pacific Climate Impacts Consortium (PCIC)": [
+        "CanDCS-M6 Canadian Downscaled Climate Scenarios – Multivariate CMIP6.html",
+        "CanDCS-M6 Canadian Downscaled Climate Scenarios – Multivariate CMIP6_fr.html",
+        "CanDCS-U6 Canadian Downscaled Climate Scenarios – Univariate CMIP6.html",
+        "CanDCS-U6 Canadian Downscaled Climate Scenarios – Univariate CMIP6_fr.html"
+      ]
+    }
+  },
+  "Datasets_2-Observations": {
+    "path": "assets/notebooks/Datasets_2-Observations",
+    "subfolders": {
+      "Environment and Climate Change Canada": [
+        "Second Generation of Daily Adjusted Precipitation for Canada Update to December 2017.html",
+        "Second Generation of Daily Adjusted Precipitation for Canada Update to December 2017_fr.html",
+        "Third Generation of Homogenized Daily Temperature for Canada Update to December 2023.html",
+        "Third Generation of Homogenized Daily Temperature for Canada Update to December 2023_fr.html"
+      ]
+    }
+  },
+  "Datasets_3-Reanalysis": {
+    "path": "assets/notebooks/Datasets_3-Reanalysis",
+    "subfolders": {
+      "Environment and Climate Change Canada": [
+        "Canadian Surface Reanalysis (CaSR v3.2) _ daily.html",
+        "Canadian Surface Reanalysis (CaSR v3.2) _ daily_fr.html",
+        "Canadian Surface Reanalysis (CaSR v3.2) _ hourly.html",
+        "Canadian Surface Reanalysis (CaSR v3.2) _ hourly_fr.html",
+        "Regional Deterministic Reforecast System - RDRS v2.1 _ daily.html",
+        "Regional Deterministic Reforecast System - RDRS v2.1 _ daily_fr.html",
+        "Regional Deterministic Reforecast System - RDRS v2.1 _ hourly.html",
+        "Regional Deterministic Reforecast System - RDRS v2.1 _ hourly_fr.html"
+      ],
+      "ECMWF": [
+        "ERA5 _ daily.html",
+        "ERA5 _ daily_fr.html",
+        "ERA5 _ hourly.html",
+        "ERA5 _ hourly_fr.html",
+        "ERA5-Land _ daily.html",
+        "ERA5-Land _ daily_fr.html",
+        "ERA5-Land _ hourly.html",
+        "ERA5-Land _ hourly_fr.html"
+      ]
+    }
+  },
+  "Datasets_4-forecasts": {
+    "path": "assets/notebooks/Datasets_4-forecasts",
+    "subfolders": {
+      "Canadian Meteorological Service - Montreal_": [
+        "Global Ensemble Prediction System (GEPS) - ECCC.html",
+        "Global Ensemble Prediction System (GEPS) - ECCC_fr.html"
+      ]
+    }
+  }
+}
