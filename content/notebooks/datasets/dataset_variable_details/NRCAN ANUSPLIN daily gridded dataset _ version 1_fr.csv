@@ -1,0 +1,4 @@
+Code variable,Déscription,Unités,Groupement temporel,Agrégation
+pr,lwe_precipitation_rate,mm s-1,daily,
+tasmax,air_temperature,K,daily,
+tasmin,air_temperature,K,daily,

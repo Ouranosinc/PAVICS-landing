@@ -52,10 +52,22 @@
     "path": "assets/notebooks/Datasets_2-Observations",
     "subfolders": {
       "Environment and Climate Change Canada": [
-        "Second Generation of Daily Adjusted Precipitation for Canada Update to December 2017.html",
-        "Second Generation of Daily Adjusted Precipitation for Canada Update to December 2017_fr.html",
         "Third Generation of Homogenized Daily Temperature for Canada Update to December 2023.html",
-        "Third Generation of Homogenized Daily Temperature for Canada Update to December 2023_fr.html"
+        "Third Generation of Homogenized Daily Temperature for Canada Update to December 2023_fr.html",
+        "Second Generation of Daily Adjusted Precipitation for Canada Update to December 2017.html",
+        "Second Generation of Daily Adjusted Precipitation for Canada Update to December 2017_fr.html"
+      ],
+      "Canadian Centre for Climate Services _ Climatedata.ca": [
+        "Climatedata.ca _ Yearly observed values for NRCAN ANUSPLIN v1 derived climate indicators.html",
+        "Climatedata.ca _ Yearly observed values for NRCAN ANUSPLIN v1 derived climate indicators_fr.html"
+      ],
+      "Natural Resources Canada": [
+        "NRCanMet daily gridded dataset over North America_ version 2022.html",
+        "NRCanMet daily gridded dataset over North America_ version 2022_fr.html",
+        "NRCAN ANUSPLIN daily gridded dataset _ version 1.html",
+        "NRCAN ANUSPLIN daily gridded dataset _ version 1_fr.html",
+        "NRCAN ANUSPLIN daily gridded dataset _ version 2.html",
+        "NRCAN ANUSPLIN daily gridded dataset _ version 2_fr.html"
       ]
     }
   },

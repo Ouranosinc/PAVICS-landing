@@ -103,6 +103,15 @@ def correct_institutes(df):
         )
         for o in inst
     ]
+
+    inst = [
+        (
+            o.replace("Natural Resources Canada : Canadian Forest Service", "Natural Resources Canada")
+            if "Natural Resources Canada : Canadian Forest Service" in o
+            else o
+        )
+        for o in inst
+    ]
     
     df["institution"] = inst
     return df
@@ -207,7 +216,6 @@ def create_map(dfin, overwrite=False):
             display(c) 
             data = data.load()
         clear_output()
-        display(data)
         
         fig = plt.figure(figsize=(4, 4))
         ax = fig.add_subplot(1, 1, 1, projection=ccrs.LambertConformal())
@@ -355,6 +363,8 @@ def create_variable_tab(dfin, lang='en', overwrite=False):
                     continue
             if any([m in inpath for m in ["30yAvg"]]):
                 xrfreq = '30CLIM'
+            if "anusplin_v1_climindices_gridded" in inpath:
+                xrfreq = 'YS'
             freq_map = {
                 'YS': 'annual',
                 'YS-JAN': 'annual',

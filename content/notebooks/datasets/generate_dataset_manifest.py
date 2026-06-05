@@ -25,7 +25,8 @@ for category in sorted([d for d in ROOT.iterdir() if d.name.startswith('Datasets
         filenames = [f.name for f in dirpath.iterdir() if f.is_file()]
         files = sorted([f for f in filenames if f.endswith('.html')])
         
-        sort_order = ["CRCM5-CMIP6*daily",
+        sort_order = [
+                      "CRCM5-CMIP6*daily",
                       "CRCM5-CMIP6* hourly",
                       "CRCM5-CMIP6*3-hourly",
                       "CRCM5-CMIP6*monthly",
@@ -36,7 +37,12 @@ for category in sorted([d for d in ROOT.iterdir() if d.name.startswith('Datasets
                       'ESPO',
                       'PINS', 
                       'ClimEX', 
-                      'CanDCS-M6']
+                      'CanDCS-M6',
+                      'Homogenized Daily Temp*', 
+                      'Daily Adjusted Prec*', 
+                      'NRCanMet*', 
+                      'NRCAN*' 
+                      ]
 
         def sort_key(x):
             normalized = x.lower()
