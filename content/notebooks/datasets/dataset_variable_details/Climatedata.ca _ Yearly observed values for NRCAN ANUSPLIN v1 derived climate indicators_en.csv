@@ -1,0 +1,42 @@
+Variable code,Description,Units,Temporal grouping,Aggregation
+cdd,Consecutive dry days is the greatest number of consecutive days per time period with daily precipitation amount  below 1 mm. The time period should be defined by the bounds of the time coordinate.,No.,annual,
+cddcold_18,Cooling Degree Days (Tmean > 18C),K days,annual,time: mean time: mean within days time: sum over days
+dlyfrzthw_tx0_tn-1,Daily freezethaw cycles,days,annual,
+first_fall_frost,Day of year of first fall frost,,annual,
+frost_days,Number of Frost Days (Tmin < 0C),days,annual,time: minimum within days time: sum over days
+frost_free_season,frost free season,days,annual,
+gddgrow_0,growing degree days above 0,K days,annual,time: mean time: mean within days time: sum over days
+gddgrow_10,growing degree days above 10,K days,annual,time: mean time: mean within days time: sum over days
+gddgrow_5,growing degree days above 5,K days,annual,time: mean time: mean within days time: sum over days
+gsl_5,ETCCDI Growing Season Length (Tmean > 5C),days,annual,time: mean
+hddheat_17,Heating Degree Days (Tmean < 17C),K days,annual,time: mean time: mean within days time: sum over days
+hddheat_18,Heating degree days (tmean < 18 degc),K days,annual,time: mean time: mean within days time: sum over days
+ice_days,Number of Ice Days (Tmax < 0C),days,annual,time: maximum within days time: sum over days
+last_spring_frost,Day of year of last spring frost,,annual,
+nr_cdd,Number of cdd periods in given time period with more than 5 days. The time period should be defined by the bounds of the time coordinate.,No.,annual,
+prcptot,Total precipitation,mm,annual,time: sum within days time: sum over days
+r10mm,Number of Wet Days (precip >= 10 mm),days,annual,time: sum within days time: sum over days
+r1mm,Number of Wet Days (precip >= 1 mm),days,annual,time: sum within days time: sum over days
+r20mm,Number of Wet Days (precip >= 20 mm),days,annual,time: sum within days time: sum over days
+rx1day,maximum 1-day total precipitation,mm/day,annual,
+rx5day,Highest precipitation amount  for five day interval (including the calendar day as the last day). The time period should be defined by the bounds of the time coordinate.,mm per 5 day,annual,
+sdii,Average precipitation during Wet Days (SDII),mm/day,annual,
+tg_mean,Mean daily mean temperature,K,annual,time: mean time: mean within days time: mean over days
+tn_max,Maximum daily minimum temperature,K,annual,time: minimum within days time: maximum over days
+tn_mean,Mean daily minimum temperature,K,annual,time: minimum within days time: mean over days
+tn_min,Minimum daily minimum temperature,K,annual,time: minimum within days time: minimum over days
+tnlt_-15,Number of days with Tmin < -15C,days,annual,time: minimum within days time: sum over days
+tnlt_-25,Number of days with Tmin < -25C,days,annual,time: minimum within days time: sum over days
+tr_18,Number of Tropical Nights (Tmin > 18C),days,annual,time: minimum within days time: sum over days
+tr_20,Number of Tropical Nights (Tmin > 20C),days,annual,time: minimum within days time: sum over days
+tr_22,Number of Tropical Nights (Tmin > 22C),days,annual,time: minimum within days time: sum over days
+tropical_nights,Number of tropical nights (tmin > 24 degc),days,annual, time: minimum within days time: sum over days
+tx_max,Maximum daily maximum temperature,K,annual,time: maximum within days time: maximum over days
+tx_mean,Mean daily maximum temperature,K,annual,time: maximum within days time: mean over days
+tx_min,Minimum daily maximum temperature,K,annual,time: maximum within days time: minimum over days
+txgt_25,Number of days with Tmax > 25C,days,annual,time: maximum within days time: sum over days
+txgt_27,Number of days with Tmax > 27C,days,annual,time: maximum within days time: sum over days
+txgt_29,Number of days with Tmax > 29C,days,annual,time: maximum within days time: sum over days
+txgt_30,Number of days with Tmax > 30C,days,annual,time: maximum within days time: sum over days
+txgt_32,Number of days with Tmax > 32C,days,annual,time: maximum within days time: sum over days
+txgt_37,Number of days with tmax > 37 degc,days,annual, time: maximum within days time: sum over days
