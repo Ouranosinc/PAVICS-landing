@@ -1,6 +1,6 @@
 # THIS script is no longer needed but will conserve for now as an archive of how the dataset descriptions were generated.
-# Use the NEW_summary_panel.ipynb notebook to generate dataset descriptions. 
-# 
+# Use the NEW_summary_panel.ipynb notebook to generate dataset descriptions.
+#
 import os
 import shutil
 
