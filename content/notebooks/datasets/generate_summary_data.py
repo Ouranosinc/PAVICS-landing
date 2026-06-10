@@ -53,6 +53,8 @@ optional = dict(
         "project_id",
         "driving_experiment_id",
         "processing_level",
+        "license",
+        "license_type",
     ],
     reanalyses=[
         "abstract",
@@ -85,7 +87,16 @@ for key, url in urls.items():
             continue
         if "ESPO-R" not in ncml:
             ds_dict[ncml] = dict()
-            ds = xr.open_dataset(dd.opendap_url(), chunks=dict(time=100))
+            ds = None
+            for ntry in range(0, 5):
+                try:
+                    ds = xr.open_dataset(dd.opendap_url(), chunks=dict(time=100))
+                    break
+                except:
+                    ntry -= 1
+                    ds = None
+            if ds is None:
+                raise OSError()
             ds_dict[ncml]["path"] = dd.opendap_url()
             ds_dict[ncml]["thredds_cat"] = url
             for col in df_cols:
