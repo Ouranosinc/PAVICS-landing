@@ -58,7 +58,7 @@ summary_fields["en"] = dict(
     xarray_example="Open with xarray",
     frequency="Frequency",
     temporal_coverage="Temporal coverage",
-    license="License"
+    license="License",
 )
 summary_fields["fr"] = dict(
     title="Sommaire",
@@ -72,7 +72,7 @@ summary_fields["fr"] = dict(
     xarray_example="Ouvrir avec xarray",
     frequency="Fréquence",
     temporal_coverage="Couverture temporelle",
-    license="License"
+    license="License",
 )
 
 

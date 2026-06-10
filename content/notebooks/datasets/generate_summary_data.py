@@ -54,7 +54,7 @@ optional = dict(
         "driving_experiment_id",
         "processing_level",
         "license",
-        "license_type"
+        "license_type",
     ],
     reanalyses=[
         "abstract",
@@ -96,7 +96,7 @@ for key, url in urls.items():
                     ntry -= 1
                     ds = None
             if ds is None:
-                raise IOError()
+                raise OSError()
             ds_dict[ncml]["path"] = dd.opendap_url()
             ds_dict[ncml]["thredds_cat"] = url
             for col in df_cols:

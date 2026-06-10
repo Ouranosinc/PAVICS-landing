@@ -30,10 +30,14 @@ for category in sorted(
 
     all_subdirs = sorted([d for d in category.iterdir() if d.is_dir()])
     subdirs = [d for d in all_subdirs if "Ouranos" in d.name]
-    order = ['Environment and Climate Change Canada', 'Canadian Centre for Climate Services', 'PCIC']
+    order = [
+        "Environment and Climate Change Canada",
+        "Canadian Centre for Climate Services",
+        "PCIC",
+    ]
     for o in order:
         subdirs.extend([d for d in all_subdirs if o in d.name and d not in subdirs])
-    
+
     subdirs.extend([d for d in all_subdirs if d not in subdirs])
     for dirpath in subdirs:
         filenames = [f.name for f in dirpath.iterdir() if f.is_file()]
