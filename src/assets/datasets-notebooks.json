@@ -59,7 +59,9 @@
       ],
       "Canadian Centre for Climate Services _ Climatedata.ca": [
         "Climatedata.ca _ Yearly observed values for NRCAN ANUSPLIN v1 derived climate indicators.html",
-        "Climatedata.ca _ Yearly observed values for NRCAN ANUSPLIN v1 derived climate indicators_fr.html"
+        "Climatedata.ca _ Yearly observed values for NRCAN ANUSPLIN v1 derived climate indicators_fr.html",
+        "Climatedata.ca _ Observed values for PCIC-Blend v1 derived climate indicators.html",
+        "Climatedata.ca _ Observed values for PCIC-Blend v1 derived climate indicators_fr.html"
       ],
       "Natural Resources Canada": [
         "NRCanMet daily gridded dataset over North America_ version 2022.html",
@@ -68,6 +70,10 @@
         "NRCAN ANUSPLIN daily gridded dataset _ version 1_fr.html",
         "NRCAN ANUSPLIN daily gridded dataset _ version 2.html",
         "NRCAN ANUSPLIN daily gridded dataset _ version 2_fr.html"
+      ],
+      "Pacific Climate Impacts Consortium (PCIC)": [
+        "PCIC_Blended_Observations_v1.html",
+        "PCIC_Blended_Observations_v1_fr.html"
       ]
     }
   },
