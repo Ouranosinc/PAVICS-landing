@@ -1,0 +1,5 @@
+Code variable,Déscription,Unités,Groupement temporel,Agrégation
+pr,Average daily total precipitation,mm day-1,daily,time: sum
+prsn,,mm day-1,daily,
+tasmax,Average daily maximum surface air temperature,degC,daily,time: max
+tasmin,Average daily minimum surface air temperature,degC,daily,time: min
