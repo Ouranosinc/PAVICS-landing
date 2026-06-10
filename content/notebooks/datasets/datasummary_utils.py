@@ -58,6 +58,7 @@ summary_fields["en"] = dict(
     xarray_example="Open with xarray",
     frequency="Frequency",
     temporal_coverage="Temporal coverage",
+    license="License"
 )
 summary_fields["fr"] = dict(
     title="Sommaire",
@@ -71,6 +72,7 @@ summary_fields["fr"] = dict(
     xarray_example="Ouvrir avec xarray",
     frequency="Fréquence",
     temporal_coverage="Couverture temporelle",
+    license="License"
 )
 
 
@@ -289,6 +291,7 @@ def create_summary_tab(dfin, lang="en"):
         tmp_str = "Current forecast"
     summ[summary_fields[lang]["temporal_coverage"]] = tmp_str
     summ[summary_fields[lang]["frequency"]] = dfin["frequency"].values[0]
+    summ[summary_fields[lang]["license"]] = dfin["license"].values[0]
     summ = pd.DataFrame.from_dict(summ, orient="index", columns=["info"])
     out = pn.widgets.Tabulator(
         summ,
