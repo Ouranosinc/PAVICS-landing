@@ -35,9 +35,24 @@ last_spring_frost_delta_1991_2020,30 year mean Day of year of last spring frost:
 nr_cdd,30 year mean Number of cdd periods in given time period with more than 5 days. the time period should be defined by the bounds of the time coordinate.,,30y average,time: mean
 nr_cdd_delta_1971_2000,30 year mean Number of cdd periods in given time period with more than 5 days. the time period should be defined by the bounds of the time coordinate.: delta compared to 1971-2000.,,30y average,time: mean
 nr_cdd_delta_1991_2020,30 year mean Number of cdd periods in given time period with more than 5 days. the time period should be defined by the bounds of the time coordinate.: delta compared to 1991-2020.,,30y average,time: mean
+pr10mm,30-year mean of Number of days with daily precipitation at or above 10 mm/day,days,30y average,time: mean time: sum over days
+pr10mm_delta_1971_2000,30-year mean of Number of days with daily precipitation at or above 10 mm/day: absolute delta compared to 1971-2000.,days,30y average,time: mean time: sum over days
+pr10mm_delta_1991_2020,30-year mean of Number of days with daily precipitation at or above 10 mm/day: absolute delta compared to 1991-2020.,days,30y average,time: mean time: sum over days
+pr1mm,30 year mean Number of wet days (precip >= 1 mm),days,30y average,time: mean time: sum within days time: sum over days
+pr1mm_delta_1971_2000,30 year mean Number of wet days (precip >= 1 mm): delta compared to 1971-2000,days,30y average,time: mean time: sum within days time: sum over days
+pr1mm_delta_1991_2020,30 year mean Number of wet days (precip >= 1 mm): delta compared to 1991-2020,days,30y average,time: mean time: sum within days time: sum over days
+pr20mm,30 year mean Very heavy precipitation days (precipitation≥20 mm) ,days,30y average,
+pr20mm_delta_1971_2000,30 year mean Very heavy precipitation days (precipitation≥20 mm) : delta compared to 1971-2000.,days,30y average,
+pr20mm_delta_1991_2020,30 year mean Very heavy precipitation days (precipitation≥20 mm) : delta compared to 1991-2020.,days,30y average,
 prcptot,30 year mean Annual total precipitation on wet days,mm,30y average,
 prcptot_delta_1971_2000,30 year mean Annual total precipitation on wet days: delta compared to 1971-2000.,mm,30y average,
 prcptot_delta_1991_2020,30 year mean Annual total precipitation on wet days: delta compared to 1991-2020.,mm,30y average,
+prtot,30 year mean Annual total precipitation on wet days,mm,30y average,
+prtot_delta_1971_2000,30 year mean Annual total precipitation on wet days: delta compared to 1971-2000.,mm,30y average,
+prtot_delta_1991_2020,30 year mean Annual total precipitation on wet days: delta compared to 1991-2020.,mm,30y average,
+prx1day,30 year mean Maximum 1-day precipitation,mm day-1,30y average,
+prx1day_delta_1971_2000,30 year mean Maximum 1-day precipitation: delta compared to 1971-2000.,mm day-1,30y average,
+prx1day_delta_1991_2020,30 year mean Maximum 1-day precipitation: delta compared to 1991-2020.,mm day-1,30y average,
 r10mm,30-year mean of Number of days with daily precipitation at or above 10 mm/day,days,30y average,time: mean time: sum over days
 r10mm_delta_1971_2000,30-year mean of Number of days with daily precipitation at or above 10 mm/day: absolute delta compared to 1971-2000.,days,30y average,time: mean time: sum over days
 r10mm_delta_1991_2020,30-year mean of Number of days with daily precipitation at or above 10 mm/day: absolute delta compared to 1991-2020.,days,30y average,time: mean time: sum over days

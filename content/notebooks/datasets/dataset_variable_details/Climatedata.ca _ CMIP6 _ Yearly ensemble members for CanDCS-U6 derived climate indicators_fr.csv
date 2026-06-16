@@ -24,7 +24,12 @@ txgt_27,Number of days with tmax > 27c,days,annual; monthly,time: maximum time: 
 txgt_29,Number of days with tmax > 29c,days,annual; monthly,time: maximum time: maximum within days time: sum over days
 txgt_30,Number of days with Tmax > 30 degC,days,annual; monthly,
 txgt_32,Number of days with tmax > 32c,days,annual; monthly,time: maximum time: maximum within days time: sum over days
+pr10mm,Number of days with daily precipitation at or above 10 mm/day,days,annual; monthly; seasonal,time: mean time: sum over days
+pr1mm,Number of wet days (precip >= 1 mm),days,annual; monthly; seasonal,time: mean time: sum within days time: sum over days
+pr20mm,Very heavy precipitation days (precipitation≥20 mm) ,days,annual; monthly; seasonal,
 prcptot,Annual total precipitation on wet days,mm,annual; monthly; seasonal,
+prtot,Annual total precipitation on wet days,mm,annual; monthly; seasonal,
+prx1day,Maximum 1-day precipitation,mm day-1,annual; monthly; seasonal,
 r10mm,Number of days with daily precipitation at or above 10 mm/day,days,annual; monthly; seasonal,time: mean time: sum over days
 r1mm,Number of wet days (precip >= 1 mm),days,annual; monthly; seasonal,time: mean time: sum within days time: sum over days
 r20mm,Very heavy precipitation days (precipitation≥20 mm) ,days,annual; monthly; seasonal,

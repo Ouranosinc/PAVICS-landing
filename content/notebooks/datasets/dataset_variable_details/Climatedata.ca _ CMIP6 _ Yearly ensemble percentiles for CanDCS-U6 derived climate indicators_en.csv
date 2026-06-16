@@ -74,9 +74,24 @@ txgt_30_p90,Number of days with Tmax > 30 degC,days,annual; monthly,
 txgt_32_p10,Number of days with tmax > 32c,days,annual; monthly,time: maximum time: maximum within days time: sum over days
 txgt_32_p50,Number of days with tmax > 32c,days,annual; monthly,time: maximum time: maximum within days time: sum over days
 txgt_32_p90,Number of days with tmax > 32c,days,annual; monthly,time: maximum time: maximum within days time: sum over days
+pr10mm_p10,Number of days with daily precipitation at or above 10 mm/day,days,seasonal; annual; monthly,time: mean time: sum over days
+pr10mm_p50,Number of days with daily precipitation at or above 10 mm/day,days,seasonal; annual; monthly,time: mean time: sum over days
+pr10mm_p90,Number of days with daily precipitation at or above 10 mm/day,days,seasonal; annual; monthly,time: mean time: sum over days
+pr1mm_p10,Number of wet days (precip >= 1 mm),days,seasonal; annual; monthly,time: mean time: sum within days time: sum over days
+pr1mm_p50,Number of wet days (precip >= 1 mm),days,seasonal; annual; monthly,time: mean time: sum within days time: sum over days
+pr1mm_p90,Number of wet days (precip >= 1 mm),days,seasonal; annual; monthly,time: mean time: sum within days time: sum over days
+pr20mm_p10,Number of wet days (precip >= 20 mm),days,seasonal; annual; monthly,time: mean time: sum within days time: sum over days
+pr20mm_p50,Number of wet days (precip >= 20 mm),days,seasonal; annual; monthly,time: mean time: sum within days time: sum over days
+pr20mm_p90,Number of wet days (precip >= 20 mm),days,seasonal; annual; monthly,time: mean time: sum within days time: sum over days
 prcptot_p10,Total precipitation,mm day-1,seasonal; annual; monthly,
 prcptot_p50,Total precipitation,mm day-1,seasonal; annual; monthly,
 prcptot_p90,Total precipitation,mm day-1,seasonal; annual; monthly,
+prtot_p10,Total precipitation,mm day-1,seasonal; annual; monthly,
+prtot_p50,Total precipitation,mm day-1,seasonal; annual; monthly,
+prtot_p90,Total precipitation,mm day-1,seasonal; annual; monthly,
+prx1day_p10,Maximum 1-day total precipitation,mm/day,seasonal; annual; monthly,time: mean time: sum within days time: maximum over days
+prx1day_p50,Maximum 1-day total precipitation,mm/day,seasonal; annual; monthly,time: mean time: sum within days time: maximum over days
+prx1day_p90,Maximum 1-day total precipitation,mm/day,seasonal; annual; monthly,time: mean time: sum within days time: maximum over days
 r10mm_p10,Number of days with daily precipitation at or above 10 mm/day,days,seasonal; annual; monthly,time: mean time: sum over days
 r10mm_p50,Number of days with daily precipitation at or above 10 mm/day,days,seasonal; annual; monthly,time: mean time: sum over days
 r10mm_p90,Number of days with daily precipitation at or above 10 mm/day,days,seasonal; annual; monthly,time: mean time: sum over days

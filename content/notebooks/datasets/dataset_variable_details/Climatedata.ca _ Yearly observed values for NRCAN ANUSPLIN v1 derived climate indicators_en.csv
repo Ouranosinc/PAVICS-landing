@@ -8,7 +8,7 @@ frost_free_season,frost free season,days,annual,
 gddgrow_0,growing degree days above 0,K days,annual,time: mean time: mean within days time: sum over days
 gddgrow_10,growing degree days above 10,K days,annual,time: mean time: mean within days time: sum over days
 gddgrow_5,growing degree days above 5,K days,annual,time: mean time: mean within days time: sum over days
-gsl_5,ETCCDI Growing Season Length (Tmean > 5C),days,annual,time: mean
+gsl_5,ETCCDI Growing Season Length (Tmean > 5C),days,annual,time: mean 
 hddheat_17,Heating Degree Days (Tmean < 17C),K days,annual,time: mean time: mean within days time: sum over days
 hddheat_18,Heating degree days (tmean < 18 degc),K days,annual,time: mean time: mean within days time: sum over days
 ice_days,Number of Ice Days (Tmax < 0C),days,annual,time: maximum within days time: sum over days
