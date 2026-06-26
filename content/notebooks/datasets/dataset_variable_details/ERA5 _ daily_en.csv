@@ -1,7 +1,7 @@
 Variable code,Description,Units,Temporal grouping,Aggregation
 pr,Precipitation,kg m-2 s-1,daily,time: mean (interval: 1 day)
 prsn,Snowfall flux,kg m-2 s-1,daily,time: mean (interval: 1 day)
-tas,2 metre temperature,K,daily,time: point
-tasmax,2 metre temperature,K,daily,time: point
-tasmin,2 metre temperature,K,daily,time: point
+tas,Near-Surface Air Temperature,K,daily,time: mean (interval: 1 day)
+tasmax,Daily Maximum Near-Surface Air Temperature,K,daily,time: maximum (interval: 1 day)
+tasmin,Daily Minimum Near-Surface Air Temperature,K,daily,time: minimum (interval: 1 day)
 sftlf,Land Area Fraction,%,invariant,area: mean

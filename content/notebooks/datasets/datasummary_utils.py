@@ -185,13 +185,16 @@ def correct_titles(df):
 def create_map(dfin, overwrite=False):
     print("create map png", dfin["title"].unique())
     outpng = Path("dataset_map_pngs", f"{dfin['title'].values[0].replace('/','_')}.png")
-
+    
     if not outpng.exists() or overwrite:
         outpng.parent.mkdir(exist_ok=True)
         # Method 1: Using ast.literal_eval (RECOMMENDED - safe)
         chunks = ast.literal_eval(dfin["dask_chunks"].values[0])
         # chunks = 'auto'
-        infile = dfin["path"].values[0]
+        if 'GHCN' in dfin['dataset_id'].iloc[0]:
+            infile = [p for p in dfin['path'].values if Path(p).name.startswith('pr_')][0] 
+        else:
+            infile = dfin["path"].values[0]
         ds_tmp = xr.open_dataset(infile, chunks=chunks, decode_timedelta=False)
         if "realization" in ds_tmp.dims:
             ds_tmp = ds_tmp.isel(realization=0).squeeze()
@@ -210,9 +213,11 @@ def create_map(dfin, overwrite=False):
         print(vv)
         tt = round(len(ds_tmp[vv].time) / 2)
         data = ds_tmp[vv].isel(time=tt)
-        with Client(**dask_kwargs) as c:
-            display(c)
-            data = data.load()
+        print(len(data.dims))
+        if len(data.dims) > 1:
+            with Client(**dask_kwargs) as c:
+                display(c)
+                data = data.load()
         clear_output()
 
         fig = plt.figure(figsize=(4, 4))
