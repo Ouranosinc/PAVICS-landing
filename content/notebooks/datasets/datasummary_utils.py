@@ -185,14 +185,16 @@ def correct_titles(df):
 def create_map(dfin, overwrite=False):
     print("create map png", dfin["title"].unique())
     outpng = Path("dataset_map_pngs", f"{dfin['title'].values[0].replace('/','_')}.png")
-    
+
     if not outpng.exists() or overwrite:
         outpng.parent.mkdir(exist_ok=True)
         # Method 1: Using ast.literal_eval (RECOMMENDED - safe)
         chunks = ast.literal_eval(dfin["dask_chunks"].values[0])
         # chunks = 'auto'
-        if 'GHCN' in dfin['dataset_id'].iloc[0]:
-            infile = [p for p in dfin['path'].values if Path(p).name.startswith('pr_')][0] 
+        if "GHCN" in dfin["dataset_id"].iloc[0]:
+            infile = [p for p in dfin["path"].values if Path(p).name.startswith("pr_")][
+                0
+            ]
         else:
             infile = dfin["path"].values[0]
         ds_tmp = xr.open_dataset(infile, chunks=chunks, decode_timedelta=False)

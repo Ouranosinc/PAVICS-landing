@@ -165,7 +165,7 @@ for key, url in urls.items():
             ):
                 ds_dict[ncml]["processing_level"] = "raw"
             if "ClimEx" in ds_dict[ncml]["title"]:
-                ds_dict[ncml]['dataset_id'] = "ClimEx"
+                ds_dict[ncml]["dataset_id"] = "ClimEx"
             clear_output()
     df = pd.DataFrame.from_dict(ds_dict, orient="index")
     df.reset_index(inplace=True)
