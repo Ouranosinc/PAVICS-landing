@@ -67,6 +67,10 @@
         "PCIC_Blended_Observations_v1.html",
         "PCIC_Blended_Observations_v1_fr.html"
       ],
+      "NOAA": [
+        "Global Historical Climatology Network - Daily (GHCNd).html",
+        "Global Historical Climatology Network - Daily (GHCNd)_fr.html"
+      ],
       "Natural Resources Canada": [
         "NRCanMet daily gridded dataset over North America_ version 2022.html",
         "NRCanMet daily gridded dataset over North America_ version 2022_fr.html",

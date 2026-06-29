@@ -1,0 +1,21 @@
+Variable code,Description,Units,Temporal grouping,Aggregation
+pr,Precipitation,kg m-2 s-1,daily,time: mean (interval: 1 day)
+pr_q_flag,Quality flag for pr.,,daily,
+ps,Surface Air Pressure,Pa,daily,time: mean (interval: 1 day)
+ps_q_flag,Quality flag for ps.,,daily,
+psl,Sea Level Pressure,Pa,daily,time: mean (interval: 1 day)
+psl_q_flag,Quality flag for psl.,,daily,
+sfcWind,Near-Surface Wind Speed,m s-1,daily,time: mean (interval: 1 day)
+sfcWind_q_flag,Quality flag for sfcWind.,,daily,
+snd,Snow Depth,m,daily,time: mean (interval: 1 day)
+snd_q_flag,Quality flag for snd.,,daily,
+tas,Daily Mean Near-Surface Air Temperature,K,daily,time: mean (interval: 1 day)
+tas_q_flag,Quality flag for tas.,,daily,
+tasmax,Daily Maximum Near-Surface Air Temperature,K,daily,time: max (interval: 1 day)
+tasmax_q_flag,Quality flag for tasmax.,,daily,
+tasmin,Daily Minimum Near-Surface Air Temperature,K,daily,time: min (interval: 1 day)
+tasmin_q_flag,Quality flag for tasmin.,,daily,
+tdps,2 metre dewpoint temperature,K,daily,time: mean (interval: 1 day)
+tdps_q_flag,Quality flag for tdps.,,daily,
+winddir,Near-Surface Wind Direction,degree,daily,time: mean (interval: 1 day)
+winddir_q_flag,Quality flag for winddir.,,daily,

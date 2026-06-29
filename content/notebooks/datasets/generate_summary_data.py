@@ -19,7 +19,7 @@ df_cols = {
     "dataset_id": [],
     "dataset_description": ["further_info_url"],
     "institution": ["institute", "GRIB_centreDescription"],
-    "institution_id": ["institute_id", "organisation"],
+    "institution_id": ["institute_id", "organisation", "instiution"],
     "start_year": [],
     "end_year": [],
     "abstract": [],
@@ -155,15 +155,17 @@ for key, url in urls.items():
                         break
 
             if key == "station_obs":
-                ds_dict[ncml]["dask_chunks"] = {"time": -1, "station": 1}
+                ds_dict[ncml]["dask_chunks"] = {"time": -1, "station": 50}
             else:
                 ds_dict[ncml]["dask_chunks"] = chunks
 
             if (
-                "ClimEX" in ds_dict[ncml]["title"]
+                "ClimEx" in ds_dict[ncml]["title"]
                 or "CRCM5-CMIP6" in ds_dict[ncml]["title"]
             ):
                 ds_dict[ncml]["processing_level"] = "raw"
+            if "ClimEx" in ds_dict[ncml]["title"]:
+                ds_dict[ncml]["dataset_id"] = "ClimEx"
             clear_output()
     df = pd.DataFrame.from_dict(ds_dict, orient="index")
     df.reset_index(inplace=True)
