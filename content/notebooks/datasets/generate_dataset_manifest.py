@@ -29,13 +29,9 @@ for category in sorted(
     subfolders = {}
 
     all_subdirs = sorted([d for d in category.iterdir() if d.is_dir()])
-    
+
     if "Reanalysis" in category.name:
-        order = [
-            "Environment and Climate Change Canada",
-            "ECMWF",
-            "Ouranos"
-        ]
+        order = ["Environment and Climate Change Canada", "ECMWF", "Ouranos"]
         subdirs = []
     else:
         subdirs = [d for d in all_subdirs if "Ouranos" in d.name]
