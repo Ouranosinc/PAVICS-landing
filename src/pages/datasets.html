@@ -96,7 +96,11 @@
   </div>
 
   <div class="alert alert-info">
-  <strong>Info!</strong>  <a href=https://www.unidata.ucar.edu/software/netcdf-java/v4.6/ncml/index.htm target='_blank'>NetCDF Markup Language (NcML)</a>: PAVICS datasets are often provided via user-friendly NcML aggregations, a convenient way to combine multiple files into a single, logical dataset. For example, the Ouranos standard ensemble of bias-adjusted climate scenarios version 1.0 (cb-oura-1.0) contains 22 climate datasets, where each simulation consists of a NcML aggregation. From a user's standpoint each cb-oura-1.0 simulation is accessible as a single .ncml, where in reality it consists of an aggregation of individual yearly netcdf files for each of the three variables (tasmin, tasmax, pr) over the period 1950-2100.
+    <strong>Info!</strong> <a href=https://www.unidata.ucar.edu/software/netcdf-java/v4.6/ncml/index.htm target='_blank'>NetCDF Markup Language (NcML)</a>: PAVICS datasets are often provided via user-friendly NcML aggregations, a convenient way to combine multiple files into a single, seamless dataset.</a>
+    <ul>
+      <li><strong>What it is:</strong> XML-based markup used by THREDDS to virtualize multiple NetCDF files as one.</li>
+      <li><strong>User Benefit:</strong> Replaces managing dozens of separate yearly or variable files with a single .ncml endpoint.</li>
+    </ul>
   </div>
 
 </div>
