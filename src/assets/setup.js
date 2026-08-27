@@ -159,7 +159,6 @@ $(function() {
           return value
             .replace(/_fr\.html$/, "")
             .replace(/\.html$/, "")
-            .replace(/_/g, "-")
             .trim()
         }
 
