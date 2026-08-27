@@ -1,0 +1,14 @@
+Code variable,Déscription,Unités,Groupement temporel,Agrégation
+evspsblpot,Potential evapotranspiration,kg m-2 s-1,daily,time: mean (interval: 1 hour)
+pr,Precipitation,kg m-2 s-1,daily,time: mean (interval: 1 day)
+prsn,Snowfall flux,kg m-2 s-1,daily,time: mean (interval: 1 day)
+rlds,Surface downwelling longwave flux,W m-2,daily,time: mean (interval: 1 day)
+rls,Surface net downward longwave flux,W m-2,daily,time: mean (interval: 1 day)
+rsds,Surface downwelling shortwave flux,W m-2,daily,time: mean (interval: 1 day)
+rss,Surface net downward shortwave flux,W m-2,daily,time: mean (interval: 1 day)
+snr,Surface snow density,kg m-3,daily,time: mean (interval: 1 day)
+snw,Surface Snow Amount,kg m-2,daily,time: point
+tas,Near-Surface Air Temperature,K,daily,time: mean (interval: 1 day)
+tasmax,Daily Maximum Near-Surface Air Temperature,K,daily,time: maximum (interval: 1 day)
+tasmin,Daily Minimum Near-Surface Air Temperature,K,daily,time: minimum (interval: 1 day)
+z,geopotential,m2 s-2,invariant,

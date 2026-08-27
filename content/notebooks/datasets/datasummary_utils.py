@@ -293,9 +293,12 @@ def create_summary_tab(dfin, lang="en"):
             max_time = max(max_time, max_tmp)
             min_time = min(min_time, min_tmp)
 
-    tmp_str = f"{min_time.strftime("%Y-%m-%d")} - {max_time.strftime("%Y-%m-%d")}"
     if "GEPS" in dfin.title.values[0]:
         tmp_str = "Current forecast"
+    elif "ORRC" in dfin.title.values[0]:
+        tmp_str = f"{min_time.strftime("%Y-%m-%d")} - near present"
+    else:
+        tmp_str = f"{min_time.strftime("%Y-%m-%d")} - {max_time.strftime("%Y-%m-%d")}"
     summ[summary_fields[lang]["temporal_coverage"]] = tmp_str
     summ[summary_fields[lang]["frequency"]] = dfin["frequency"].values[0]
     summ[summary_fields[lang]["license"]] = dfin["license"].values[0]

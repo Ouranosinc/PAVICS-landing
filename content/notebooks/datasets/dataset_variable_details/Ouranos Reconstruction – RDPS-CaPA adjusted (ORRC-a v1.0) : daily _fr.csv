@@ -1,0 +1,5 @@
+Code variable,Déscription,Unités,Groupement temporel,Agrégation
+pr,Precipitation,kg m-2 s-1,daily,time: mean (interval: 1 day)
+tas,1.5 metre temperature,K,daily,time: mean (interval: 1 day)
+tasmax,1.5 metre temperature,K,daily,time: maximum (interval: 1 day)
+tasmin,1.5 metre temperature,K,daily,time: minimum (interval: 1 day)

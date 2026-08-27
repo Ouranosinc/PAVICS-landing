@@ -1,0 +1,15 @@
+Code variable,Déscription,Unités,Groupement temporel,Agrégation
+hurs,Near-Surface Relative Humidity (1.5m),%,hourly,time: point
+huss,Near-Surface Specific Humidity (1.5m),1,hourly,time: point
+pr,Precipitation,kg m-2 s-1,hourly,time: mean (interval: 1 hour)
+prmod,Precipitation,kg m-2 s-1,hourly,time: mean (interval: 1 hour)
+ps,Surface Air Pressure,Pa,hourly,time: point
+psl,Sea Level Pressure,Pa,hourly,time: point
+rlds,Surface Downwelling Longwave Radiation,W m-2,hourly,time: mean (interval: 1 hour)
+rsds,Surface Downwelling Shortwave Radiation,W m-2,hourly,time: mean (interval: 1 hour)
+sfcWind,Near-Surface Wind Speed (10m),m s-1,hourly,time: point
+tas,1.5 metre temperature,K,hourly,time: point
+tdps,1.5 metre dewpoint temperature,K,hourly,time: point
+uas,Eastward Near-Surface Wind (10m),m s-1,hourly,time: point
+vas,Northward Near-Surface Wind (10m),m s-1,hourly,time: point
+winddir,Near-Surface Meteorological Wind Direction (10m),degree,hourly,time: point
