@@ -85,14 +85,14 @@
     "path": "assets/notebooks/Datasets_3-Reanalysis",
     "subfolders": {
       "Environment and Climate Change Canada": [
-        "Canadian Surface Reanalysis (CaSR v2.1) : daily.html",
-        "Canadian Surface Reanalysis (CaSR v2.1) : daily_fr.html",
-        "Canadian Surface Reanalysis (CaSR v2.1) : hourly.html",
-        "Canadian Surface Reanalysis (CaSR v2.1) : hourly_fr.html",
         "Canadian Surface Reanalysis (CaSR v3.2) : daily.html",
         "Canadian Surface Reanalysis (CaSR v3.2) : daily_fr.html",
         "Canadian Surface Reanalysis (CaSR v3.2) : hourly.html",
-        "Canadian Surface Reanalysis (CaSR v3.2) : hourly_fr.html"
+        "Canadian Surface Reanalysis (CaSR v3.2) : hourly_fr.html",
+        "Canadian Surface Reanalysis (CaSR v2.1) : daily.html",
+        "Canadian Surface Reanalysis (CaSR v2.1) : daily_fr.html",
+        "Canadian Surface Reanalysis (CaSR v2.1) : hourly.html",
+        "Canadian Surface Reanalysis (CaSR v2.1) : hourly_fr.html"
       ],
       "ECMWF": [
         "ERA5 : daily.html",
