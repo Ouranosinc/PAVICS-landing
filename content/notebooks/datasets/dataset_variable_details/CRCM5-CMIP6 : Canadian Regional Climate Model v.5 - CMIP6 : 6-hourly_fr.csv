@@ -1,0 +1,75 @@
+Code variable,Déscription,Unités,Groupement temporel,Agrégation
+hus1000,Specific Humidity at 1000hPa,1,6-hourly,area: mean time: point
+hus250,Specific Humidity at 250hPa,1,6-hourly,area: mean time: point
+hus500,Specific Humidity at 500hPa,1,6-hourly,area: mean time: point
+hus600,Specific Humidity at 600hPa,1,6-hourly,area: mean time: point
+hus700,Specific Humidity at 700hPa,1,6-hourly,area: mean time: point
+hus850,Specific Humidity at 850hPa,1,6-hourly,area: mean time: point
+hus925,Specific Humidity at 925hPa,1,6-hourly,area: mean time: point
+mrfso,Soil Frozen Water Content,kg m-2,6-hourly,area: mean where land time: point
+mrro,Total Runoff,kg m-2 s-1,6-hourly,area: mean where land time: mean
+mrros,Surface Runoff,kg m-2 s-1,6-hourly,area: mean where land time: mean
+mrsfl,Frozen Water Content of Soil Layer,kg m-2,6-hourly,area: mean where land time: point
+mrso,Total Soil Moisture Content,kg m-2,6-hourly,area: mean where land time: point
+mrsol,Total Water Content of Soil Layer,kg m-2,6-hourly,area: mean where land time: point
+snc,Snow Area Percentage,%,6-hourly,area: mean time: point
+snd,Snow Depth,m,6-hourly,area: mean where land time: point
+snm,Surface Snow Melt,kg m-2 s-1,6-hourly,area: mean where land time: mean
+snw,Surface Snow Amount,kg m-2,6-hourly,area: mean where land time: point
+ta1000,Air Temperature at 1000hPa,K,6-hourly,area: mean time: point
+ta250,Air Temperature at 250hPa,K,6-hourly,area: mean time: point
+ta500,Air Temperature at 500hPa,K,6-hourly,area: mean time: point
+ta600,Air Temperature at 600hPa,K,6-hourly,area: mean time: point
+ta700,Air Temperature at 700hPa,K,6-hourly,area: mean time: point
+ta850,Air Temperature at 850hPa,K,6-hourly,area: mean time: point
+ta925,Air Temperature at 925hPa,K,6-hourly,area: mean time: point
+tsl,Temperature of Soil,K,6-hourly,area: mean where land time: point
+ua1000,Eastward Wind at 1000hPa,m s-1,6-hourly,area: mean time: point
+ua250,Eastward Wind at 250hPa,m s-1,6-hourly,area: mean time: point
+ua500,Eastward Wind at 500hPa,m s-1,6-hourly,area: mean time: point
+ua600,Eastward Wind at 600hPa,m s-1,6-hourly,area: mean time: point
+ua700,Eastward Wind at 700hPa,m s-1,6-hourly,area: mean time: point
+ua850,Eastward Wind at 850hPa,m s-1,6-hourly,area: mean time: point
+ua925,Eastward Wind at 925hPa,m s-1,6-hourly,area: mean time: point
+va1000,Northward Wind at 1000hPa,m s-1,6-hourly,area: mean time: point
+va250,Northward Wind at 250hPa,m s-1,6-hourly,area: mean time: point
+va500,Northward Wind at 500hPa,m s-1,6-hourly,area: mean time: point
+va600,Northward Wind at 600hPa,m s-1,6-hourly,area: mean time: point
+va700,Northward Wind at 700hPa,m s-1,6-hourly,area: mean time: point
+va850,Northward Wind at 850hPa,m s-1,6-hourly,area: mean time: point
+va925,Northward Wind at 925hPa,m s-1,6-hourly,area: mean time: point
+wa1000,Upward Air Velocity at 1000hPa,m s-1,6-hourly,area: mean time: point
+wa250,Upward Air Velocity at 250hPa,m s-1,6-hourly,area: mean time: point
+wa500,Upward Air Velocity at 500hPa,m s-1,6-hourly,area: mean time: point
+wa600,Upward Air Velocity at 600hPa,m s-1,6-hourly,area: mean time: point
+wa700,Upward Air Velocity at 700hPa,m s-1,6-hourly,area: mean time: point
+wa850,Upward Air Velocity at 850hPa,m s-1,6-hourly,area: mean time: point
+wa925,Upward Air Velocity at 925hPa,m s-1,6-hourly,area: mean time: point
+zg1000,Geopotential Height at 1000hPa,m,6-hourly,area: mean time: point
+zg250,Geopotential Height at 250hPa,m,6-hourly,area: mean time: point
+zg500,Geopotential Height at 500hPa,m,6-hourly,area: mean time: point
+zg600,Geopotential Height at 600hPa,m,6-hourly,area: mean time: point
+zg700,Geopotential Height at 700hPa,m,6-hourly,area: mean time: point
+zg850,Geopotential Height at 850hPa,m,6-hourly,area: mean time: point
+zg925,Geopotential Height at 925hPa,m,6-hourly,area: mean time: point
+areacella,Atmosphere Grid-Cell Area,m2,invariant,area: sum
+classFrac,Land Area Fraction for the Canadian Land Surface Scheme,%,invariant,area: mean
+clayfrac,Clay Fraction,1,invariant,area: mean where land
+cropFrac,Percentage Crop Cover,%,invariant,area: mean where land over all_area_types
+depthl,Lake Depth,m,invariant,area: mean
+dtb,Depth to Bedrock,m,invariant,area: mean
+fldcapacity,Field Capacity,%,invariant,area: mean where land
+grassFrac,Natural Grass Area Percentage.,%,invariant,area: mean where land over all_area_types
+ksat,Saturated Hydraulic Conductivity,um s-1,invariant,area: mean where land
+mrsofc,Capacity of Soil to Store Water  (Field Capacity),kg m-2,invariant,area: mean where land
+orog,Surface Altitude,m,invariant,area: mean
+porosity,Soil Porosity,1,invariant,area: mean
+rootd,Maximum Root Depth,m,invariant,area: mean
+sandfrac,Sand Fraction,1,invariant,area: mean where land
+sftgif,Percentage of the Grid Cell Covered by Glacier,%,invariant,area: mean
+sftlaf,Percentage of the Grid Cell Occupied by Lake,%,invariant,area: mean
+sftlf,Percentage of the Grid Cell Occupied by Land,%,invariant,area: mean
+sfturf,Percentage of the Grid Cell Occupied by Urban Area,%,invariant,area: mean
+treeFracPrimDec,Percentage Cover by Deciduous Tree.,%,invariant,area: mean where land over all_area_types
+treeFracPrimEver, Percentage Cover by Evergreen Tree.,%,invariant,area: mean where land over all_area_types
+wetlandFrac,Wetland Fraction,%,invariant,area: mean where land

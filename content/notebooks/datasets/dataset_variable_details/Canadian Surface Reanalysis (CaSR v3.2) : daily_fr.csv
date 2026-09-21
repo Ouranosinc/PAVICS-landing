@@ -1,6 +1,5 @@
 Code variable,Déscription,Unités,Groupement temporel,Agrégation
 20mWind,"Wind Speed (20m). Height is approximate, see description.",m s-1,daily,time: mean (interval: 1 day)
-20mWinddir,Meteorological Wind Direction (20m),degree,daily,time: mean (interval: 1 day)
 cfia,Analysis: Confidence Index of CaPA 24h Analysis at surface,%,daily,time: point
 hur,20 metre Relative Humidity (height is approximate :  see description),%,daily,time: mean (interval: 1 day)
 hurmax,20 metre Relative Humidity (height is approximate :  see description),%,daily,time: maximum (interval: 1 day)
@@ -40,7 +39,6 @@ ua,"Eastward Wind (20m). Height is approximate, see description.",m s-1,daily,ti
 uas,Eastward Near-Surface Wind (10m),m s-1,daily,time: mean (interval: 1 day)
 va,"Northward Wind (20m). Height is approximate, see description.",m s-1,daily,time: mean (interval: 1 day)
 vas,Northward Near-Surface Wind (10m),m s-1,daily,time: mean (interval: 1 day)
-winddir,Near-Surface Meteorological Wind Direction (10m),degree,daily,time: mean (interval: 1 day)
 zcrd09975,Model vertical grid coordinate,m,daily,time: mean (interval: 1 day)
 zcrd10000,Model vertical grid coordinate at the surface,m,daily,time: mean (interval: 1 day)
 orog,Surface Altitude,m,invariant,

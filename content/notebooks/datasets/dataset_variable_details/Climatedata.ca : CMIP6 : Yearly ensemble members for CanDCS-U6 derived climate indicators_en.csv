@@ -9,31 +9,31 @@ gddgrow_5,Annual Growing Degree Days (Tmean > 5C),degree_days,annual,
 hddheat_18,Heating Degree Days (Tmean < 18C),degree_days,annual,
 ice_days,Number of ice days (Tmax < 0 degC),days,annual,
 last_spring_frost,Day of year of last spring frost,,annual,time: minimum
-gddgrow_0,Growing degree days above 0,K days,annual; monthly,time: mean time: mean within days time: sum over days
-nr_cdd,Number of cdd periods in given time period with more than 5 days. the time period should be defined by the bounds of the time coordinate.,,annual; monthly,time: mean
-rx5day,Maximum 5-day total precipitation,mm,annual; monthly,time: mean time: sum within days time: maximum over days
-tn_min,Minimum daily minimum temperature,K,annual; monthly,
-tnlt_m15,Number of days with tmin < -15c,days,annual; monthly,time: minimum time: minimum within days time: sum over days
-tnlt_m25,Number of days with tmin < -25c,days,annual; monthly,time: minimum time: minimum within days time: sum over days
-tr_18,Number of tropical nights (tmin > 18c),days,annual; monthly,time: minimum time: minimum within days time: sum over days
-tr_20,Number of days with Tmin > 20 degC,days,annual; monthly,
-tr_22,Number of tropical nights (tmin > 22c),days,annual; monthly,time: minimum time: minimum within days time: sum over days
-tx_max,Maximum daily maximum temperature,K,annual; monthly,
-txgt_25,Number of days with Tmax > 25 degC,days,annual; monthly,
-txgt_27,Number of days with tmax > 27c,days,annual; monthly,time: maximum time: maximum within days time: sum over days
-txgt_29,Number of days with tmax > 29c,days,annual; monthly,time: maximum time: maximum within days time: sum over days
-txgt_30,Number of days with Tmax > 30 degC,days,annual; monthly,
-txgt_32,Number of days with tmax > 32c,days,annual; monthly,time: maximum time: maximum within days time: sum over days
-pr10mm,Number of days with daily precipitation at or above 10 mm/day,days,annual; monthly; seasonal,time: mean time: sum over days
-pr1mm,Number of wet days (precip >= 1 mm),days,annual; monthly; seasonal,time: mean time: sum within days time: sum over days
-pr20mm,Very heavy precipitation days (precipitation≥20 mm) ,days,annual; monthly; seasonal,
-prcptot,Annual total precipitation on wet days,mm,annual; monthly; seasonal,
-prtot,Annual total precipitation on wet days,mm,annual; monthly; seasonal,
-prx1day,Maximum 1-day precipitation,mm day-1,annual; monthly; seasonal,
-r10mm,Number of days with daily precipitation at or above 10 mm/day,days,annual; monthly; seasonal,time: mean time: sum over days
-r1mm,Number of wet days (precip >= 1 mm),days,annual; monthly; seasonal,time: mean time: sum within days time: sum over days
-r20mm,Very heavy precipitation days (precipitation≥20 mm) ,days,annual; monthly; seasonal,
-rx1day,Maximum 1-day precipitation,mm day-1,annual; monthly; seasonal,
-tg_mean,Mean daily mean temperature,K,annual; monthly; seasonal,time: mean time: mean within days time: mean over days
-tn_mean,Mean daily minimum temperature,K,annual; monthly; seasonal,
-tx_mean,Mean daily maximum temperature,K,annual; monthly; seasonal,
+gddgrow_0,Growing degree days above 0,K days,monthly; annual,time: mean time: mean within days time: sum over days
+nr_cdd,Number of cdd periods in given time period with more than 5 days. the time period should be defined by the bounds of the time coordinate.,,monthly; annual,time: mean
+rx5day,Maximum 5-day precipitation,mm,monthly; annual,
+tn_min,Minimum daily minimum temperature,K,monthly; annual,
+tnlt_m15,Number of days with tmin < -15c,days,monthly; annual,time: minimum time: minimum within days time: sum over days
+tnlt_m25,Number of days with tmin < -25c,days,monthly; annual,time: minimum time: minimum within days time: sum over days
+tr_18,Number of tropical nights (tmin > 18c),days,monthly; annual,time: minimum time: minimum within days time: sum over days
+tr_20,Number of tropical nights (tmin > 20c),days,monthly; annual,time: minimum time: minimum within days time: sum over days
+tr_22,Number of tropical nights (tmin > 22c),days,monthly; annual,time: minimum time: minimum within days time: sum over days
+tx_max,Maximum value of daily maximum temperature,K,monthly; annual,
+txgt_25,Number of days with tmax > 25c,days,monthly; annual,time: maximum time: maximum within days time: sum over days
+txgt_27,Number of days with tmax > 27c,days,monthly; annual,time: maximum time: maximum within days time: sum over days
+txgt_29,Number of days with tmax > 29c,days,monthly; annual,time: maximum time: maximum within days time: sum over days
+txgt_30,Number of days with tmax > 30c,days,monthly; annual,time: maximum time: maximum within days time: sum over days
+txgt_32,Number of days with tmax > 32c,days,monthly; annual,time: maximum time: maximum within days time: sum over days
+pr10mm,Number of days with daily precipitation at or above 10 mm/day,days,seasonal; monthly; annual,time: mean time: sum over days
+pr1mm,Number of wet days (precip >= 1 mm),days,seasonal; monthly; annual,time: mean time: sum within days time: sum over days
+pr20mm,Number of wet days (precip >= 20 mm),days,seasonal; monthly; annual,time: mean time: sum within days time: sum over days
+prcptot,Total precipitation,mm day-1,seasonal; monthly; annual,
+prtot,Total precipitation,mm day-1,seasonal; monthly; annual,
+prx1day,Maximum 1-day total precipitation,mm/day,seasonal; monthly; annual,time: mean time: sum within days time: maximum over days
+r10mm,Number of days with daily precipitation at or above 10 mm/day,days,seasonal; monthly; annual,time: mean time: sum over days
+r1mm,Number of wet days (precip >= 1 mm),days,seasonal; monthly; annual,time: mean time: sum within days time: sum over days
+r20mm,Number of wet days (precip >= 20 mm),days,seasonal; monthly; annual,time: mean time: sum within days time: sum over days
+rx1day,Maximum 1-day total precipitation,mm/day,seasonal; monthly; annual,time: mean time: sum within days time: maximum over days
+tg_mean,Mean daily mean temperature,K,seasonal; monthly; annual,time: mean time: mean within days time: mean over days
+tn_mean,Mean daily minimum temperature,K,seasonal; monthly; annual,
+tx_mean,Mean daily maximum temperature,K,seasonal; monthly; annual,

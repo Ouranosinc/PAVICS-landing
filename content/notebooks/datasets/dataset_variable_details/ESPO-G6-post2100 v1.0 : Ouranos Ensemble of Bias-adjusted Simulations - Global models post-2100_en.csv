@@ -1,0 +1,10 @@
+Variable code,Description,Units,Temporal grouping,Aggregation
+dtr,Diurnal temperature range.,K,daily,time: range within days
+pr,Mean daily precipitation flux,kg m-2 s-1,daily,time: mean within days
+tasmax,Maximal daily temperature,K,daily,time: maximum within days
+tasmin,Minimal daily temperature,K,daily,time: minimum within days
+orog,Surface Altitude,m,invariant,
+sftgif,Land Ice Area Fraction,1,invariant,
+sftlf,Land Area Fraction including Lakes,1,invariant,
+sftlkf,Lake Area Fraction,1,invariant,
+sftof,Sea Area Fraction,1,invariant,
