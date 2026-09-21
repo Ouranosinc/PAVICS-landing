@@ -6,7 +6,6 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from os.path import commonpath
 from pathlib import Path
-
 import dask
 import matplotlib.pyplot as plt
 import numpy as np
@@ -356,7 +355,6 @@ def create_variable_tab(dfin, lang="en", overwrite=False):
         print("create var table", dfin["title"].unique())
         for index, row in tqdm(dfin.iterrows(), total=len(dfin)):
 
-            # print(f"Index: {index}, Path: {row['path']}")
             inpath = row["path"]
             chunks = ast.literal_eval(row["dask_chunks"])
 
@@ -373,7 +371,7 @@ def create_variable_tab(dfin, lang="en", overwrite=False):
             # Try to infer the time frequency and convert to an interpretable label
             xrfreq = xr.infer_freq(ds_tmp.time)
             if xrfreq is None:
-                if any([m in inpath for m in ["_mon_", "monthly"]]):
+                if any([m in inpath for m in ["_mon", "monthly"]]):
                     xrfreq = "MS"
                 elif "GEPS_latest" in inpath:
                     xrfreq = "GEPS"
@@ -575,15 +573,29 @@ def create_access_table(dfin, lang="en"):
     else:
         tmp_locs = commonpath(tmp_locs) if tmp_locs else tmp_locs
     if tmp_locs:
-        tmp_locs = tmp_locs.replace(
-            "/pavics-data/",
-            "https://pavics.ouranos.ca/twitcher/ows/proxy/thredds/catalog/birdhouse/",
-        )
+        if 'esgf.ouranos.ca' in thrds_access:
+            print('boo')
+            tmp_locs = tmp_locs.replace(
+                "/data/",
+                "https://esgf.ouranos.ca/thredds/catalog/",
+            )
+        else:
+            print('hello')
+            tmp_locs = tmp_locs.replace(
+                "/pavics-data/",
+                "https://pavics.ouranos.ca/twitcher/ows/proxy/thredds/catalog/birdhouse/",
+            )
     if fx_locs:
-        fx_locs = fx_locs.replace(
-            "/pavics-data/",
-            "https://pavics.ouranos.ca/twitcher/ows/proxy/thredds/catalog/birdhouse/",
-        )
+        if 'esgf.ouranos.ca'  in thrds_access:
+            fx_locs = fx_locs.replace(
+                "/data/",
+                "https://esgf.ouranos.ca/thredds/catalog/",
+            )
+        else:
+            fx_locs = fx_locs.replace(
+                "/pavics-data/",
+                "https://pavics.ouranos.ca/twitcher/ows/proxy/thredds/catalog/birdhouse/",
+            )
     if tmp_locs:
         if not fx_locs or fx_locs == tmp_locs:
             thrds_str = (
