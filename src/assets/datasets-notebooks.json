@@ -9,14 +9,18 @@
         "CRCM5-CMIP6 : Canadian Regional Climate Model v.5 - CMIP6 : hourly_fr.html",
         "CRCM5-CMIP6 : Canadian Regional Climate Model v.5 - CMIP6 : 3-hourly.html",
         "CRCM5-CMIP6 : Canadian Regional Climate Model v.5 - CMIP6 : 3-hourly_fr.html",
-        "CRCM5-CMIP6 : Canadian Regional Climate Model v.5 - CMIP6 :  monthly.html",
-        "CRCM5-CMIP6 : Canadian Regional Climate Model v.5 - CMIP6 :  monthly_fr.html",
-        "ESPO-G6-E5L v1.0.0 : Ouranos Ensemble of Bias-adjusted Simulations - Global Models CMIP6 - ERA5-Land.html",
-        "ESPO-G6-E5L v1.0.0 : Ouranos Ensemble of Bias-adjusted Simulations - Global Models CMIP6 - ERA5-Land_fr.html",
-        "ESPO-G6-R2 v1.0.0 : Derived Climate Indicators - Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1.html",
-        "ESPO-G6-R2 v1.0.0 : Derived Climate Indicators - Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1_fr.html",
+        "CRCM5-CMIP6 : Canadian Regional Climate Model v.5 - CMIP6 : 6-hourly.html",
+        "CRCM5-CMIP6 : Canadian Regional Climate Model v.5 - CMIP6 : 6-hourly_fr.html",
+        "CRCM5-CMIP6 : Canadian Regional Climate Model v.5 - CMIP6 : monthly.html",
+        "CRCM5-CMIP6 : Canadian Regional Climate Model v.5 - CMIP6 : monthly_fr.html",
         "ESPO-G6-R2 v1.0.0 : Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1.html",
         "ESPO-G6-R2 v1.0.0 : Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1_fr.html",
+        "ESPO-G6-R2 v1.0.0 : Derived Climate Indicators - Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1.html",
+        "ESPO-G6-R2 v1.0.0 : Derived Climate Indicators - Ouranos Ensemble of Bias-adjusted Simulations - Global models CMIP6 - RDRS v2.1_fr.html",
+        "ESPO-G6-post2100 v1.0 : Ouranos Ensemble of Bias-adjusted Simulations - Global models post-2100.html",
+        "ESPO-G6-post2100 v1.0 : Ouranos Ensemble of Bias-adjusted Simulations - Global models post-2100_fr.html",
+        "ESPO-G6-E5L v1.0.0 : Ouranos Ensemble of Bias-adjusted Simulations - Global Models CMIP6 - ERA5-Land.html",
+        "ESPO-G6-E5L v1.0.0 : Ouranos Ensemble of Bias-adjusted Simulations - Global Models CMIP6 - ERA5-Land_fr.html",
         "PINS v1 : Portraits d'indices de la neige au sol.html",
         "PINS v1 : Portraits d'indices de la neige au sol_fr.html",
         "The ClimEx CRCM5 Large Ensemble.html",
@@ -105,12 +109,12 @@
         "ERA5-Land : hourly_fr.html"
       ],
       "Ouranos": [
+        "Ouranos Reconstruction – RDPS-CaPA adjusted (ORRC-a v1.0) : daily.html",
+        "Ouranos Reconstruction – RDPS-CaPA adjusted (ORRC-a v1.0) : daily_fr.html",
         "Ouranos Reconstruction – RDPS-CaPA  (ORRC v1.0) : daily.html",
         "Ouranos Reconstruction – RDPS-CaPA  (ORRC v1.0) : daily_fr.html",
         "Ouranos Reconstruction – RDPS-CaPA  (ORRC v1.0) : hourly.html",
-        "Ouranos Reconstruction – RDPS-CaPA  (ORRC v1.0) : hourly_fr.html",
-        "Ouranos Reconstruction – RDPS-CaPA adjusted (ORRC-a v1.0) : daily.html",
-        "Ouranos Reconstruction – RDPS-CaPA adjusted (ORRC-a v1.0) : daily_fr.html"
+        "Ouranos Reconstruction – RDPS-CaPA  (ORRC v1.0) : hourly_fr.html"
       ]
     }
   },
