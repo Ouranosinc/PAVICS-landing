@@ -69,7 +69,7 @@ for category in sorted(
             "NRCanMet*",
             "NRCAN*",
             "CaSR v3.2",
-            "ORRC-a"
+            "ORRC-a",
         ]
 
         def sort_key(x):

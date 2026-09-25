@@ -6,6 +6,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from os.path import commonpath
 from pathlib import Path
+
 import dask
 import matplotlib.pyplot as plt
 import numpy as np
@@ -573,20 +574,20 @@ def create_access_table(dfin, lang="en"):
     else:
         tmp_locs = commonpath(tmp_locs) if tmp_locs else tmp_locs
     if tmp_locs:
-        if 'esgf.ouranos.ca' in thrds_access:
-            print('boo')
+        if "esgf.ouranos.ca" in thrds_access:
+            print("boo")
             tmp_locs = tmp_locs.replace(
                 "/data/",
                 "https://esgf.ouranos.ca/thredds/catalog/",
             )
         else:
-            print('hello')
+            print("hello")
             tmp_locs = tmp_locs.replace(
                 "/pavics-data/",
                 "https://pavics.ouranos.ca/twitcher/ows/proxy/thredds/catalog/birdhouse/",
             )
     if fx_locs:
-        if 'esgf.ouranos.ca'  in thrds_access:
+        if "esgf.ouranos.ca" in thrds_access:
             fx_locs = fx_locs.replace(
                 "/data/",
                 "https://esgf.ouranos.ca/thredds/catalog/",
