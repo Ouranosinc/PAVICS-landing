@@ -575,13 +575,11 @@ def create_access_table(dfin, lang="en"):
         tmp_locs = commonpath(tmp_locs) if tmp_locs else tmp_locs
     if tmp_locs:
         if "esgf.ouranos.ca" in thrds_access:
-            print("boo")
             tmp_locs = tmp_locs.replace(
                 "/data/",
                 "https://esgf.ouranos.ca/thredds/catalog/",
             )
         else:
-            print("hello")
             tmp_locs = tmp_locs.replace(
                 "/pavics-data/",
                 "https://pavics.ouranos.ca/twitcher/ows/proxy/thredds/catalog/birdhouse/",
