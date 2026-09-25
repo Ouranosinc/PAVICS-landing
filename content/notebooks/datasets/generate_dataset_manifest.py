@@ -52,10 +52,12 @@ for category in sorted(
             "CRCM5-CMIP6*daily",
             "CRCM5-CMIP6* hourly",
             "CRCM5-CMIP6*3-hourly",
+            "CRCM5-CMIP6*6-hourly",
             "CRCM5-CMIP6*monthly",
             "CRCM5-CMIP6*",
-            "ESPO-G6-R2 v1.0.0 _ Ouranos",
-            "ESPO-G6-R2 v1.0.0 _ Derived",
+            "ESPO-G6-R2 v1.0.0 : Ouranos",
+            "ESPO-G6-R2 v1.0.0 : Derived",
+            "ESPO-G6-post2100",
             "ESPO-G6-E5L",
             "ESPO",
             "PINS",
@@ -67,6 +69,7 @@ for category in sorted(
             "NRCanMet*",
             "NRCAN*",
             "CaSR v3.2",
+            "ORRC-a",
         ]
 
         def sort_key(x):
