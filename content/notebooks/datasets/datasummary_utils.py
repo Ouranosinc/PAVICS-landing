@@ -579,6 +579,10 @@ def create_access_table(dfin, lang="en"):
                 "/data/",
                 "https://esgf.ouranos.ca/thredds/catalog/",
             )
+            tmp_locs = tmp_locs.replace(
+                "/MRCC5-CMIP6/",
+                "/mrcc5-cmip6/",
+            )
         else:
             tmp_locs = tmp_locs.replace(
                 "/pavics-data/",
@@ -589,6 +593,10 @@ def create_access_table(dfin, lang="en"):
             fx_locs = fx_locs.replace(
                 "/data/",
                 "https://esgf.ouranos.ca/thredds/catalog/",
+            )
+            fx_locs = fx_locs.replace(
+                "/MRCC5-CMIP6/",
+                "/mrcc5-cmip6/",
             )
         else:
             fx_locs = fx_locs.replace(
