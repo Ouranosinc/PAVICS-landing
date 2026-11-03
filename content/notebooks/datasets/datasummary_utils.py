@@ -295,7 +295,7 @@ def create_summary_tab(dfin, lang="en"):
 
     if "GEPS" in dfin.title.values[0]:
         tmp_str = "Current forecast"
-    elif "ORRC" in dfin.title.values[0]:
+    elif any([o in dfin.title.values[0] for o in ["ORRC", "ERA5", "GHCN"]]):
         tmp_str = f"{min_time.strftime("%Y-%m-%d")} - near present"
     else:
         tmp_str = f"{min_time.strftime("%Y-%m-%d")} - {max_time.strftime("%Y-%m-%d")}"
