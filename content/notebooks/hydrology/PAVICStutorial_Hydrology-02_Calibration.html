@@ -7806,7 +7806,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7826,6 +7826,31 @@ a.anchor-link {
 
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>/opt/conda/envs/birdy/lib/python3.12/site-packages/polars/_cpu_check.py:271: RuntimeWarning: Missing required CPU features.
+
+The following required CPU features were not detected:
+    avx2, fma, bmi1, bmi2, lzcnt, movbe
+Continuing to use this version of Polars on this processor will likely result in a crash.
+Install `polars[rtcompat]` instead of `polars` to run Polars with better compatibility.
+
+Hint: If you are on an Apple ARM machine (e.g. M1) this is likely due to running Python under Rosetta.
+It is recommended to install a native version of Python that does not run under Rosetta x86-64 emulation.
+
+If you believe this warning to be a false positive, you can set the `POLARS_SKIP_CPU_CHECK` environment variable to bypass this check.
+
+  warnings.warn(
+</pre>
 </div>
 </div>
 </div>
@@ -7975,25 +8000,51 @@ a.anchor-link {
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Initializing the  Dynamically Dimensioned Search (DDS) algorithm  with  10  repetitions
 The objective function will be maximized
-Starting the DDS algotrithm with 10 repetitions...
+Starting the DDS algorithm with 10 repetitions...
 Finding best starting point for trial 1 using 5 random samples.
-Initialize database...
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Initialize database...
 ['csv', 'hdf5', 'ram', 'sql', 'custom', 'noData']
-Best solution found has obj function value of 0.321531 at 5
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>4 of 10, maximal objective function=0.168748, time remaining: 00:00:02
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>8 of 10, maximal objective function=0.199211, time remaining: 00:00:00
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Best solution found has obj function value of 0.218301 at 5
 
 
 
 *** Final SPOTPY summary ***
-Total Duration: 0.91 seconds
+Total Duration: 5.29 seconds
 Total Repetitions: 10
-Maximal objective value: 0.321531
+Maximal objective value: 0.218301
 Corresponding parameter setting:
-GR4J_X1: 1.52248
-GR4J_X2: 6.32396
-GR4J_X3: 368.259
-GR4J_X4: 2.33973
-CEMANEIGE_X1: 6.67394
-CEMANEIGE_X2: 0.891239
+GR4J_X1: 1.09537
+GR4J_X2: -2.25998
+GR4J_X3: 551.749
+GR4J_X4: 1.81645
+CEMANEIGE_X1: 21.9371
+CEMANEIGE_X2: 0.887083
 ******************************
 
 </pre>
@@ -8003,13 +8054,13 @@ CEMANEIGE_X2: 0.891239
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>[{'sbest': spotpy.parameter.ParameterSet(),
-  'trial_initial': [np.float64(1.5224839093609315),
-   np.float64(6.3239618391551495),
-   np.float64(368.25907347017665),
-   np.float64(2.339730785230937),
-   np.float64(6.673938261130326),
-   np.float64(0.8724737549842229)],
-  'objfunc_val': 0.321531}]</pre>
+  'trial_initial': [np.float64(1.0953713632793094),
+   np.float64(-6.313952085447223),
+   np.float64(572.7398453514816),
+   np.float64(2.869272700388391),
+   np.float64(25.354744196734117),
+   np.float64(0.9298893505404067)],
+  'objfunc_val': 0.218301}]</pre>
 </div>
 </div>
 </div>
@@ -8056,8 +8107,8 @@ CEMANEIGE_X2: 0.891239
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Best parameter set:
-GR4J_X1=1.5224839093609315, GR4J_X2=6.3239618391551495, GR4J_X3=368.25907347017665, GR4J_X4=2.339730785230937, CEMANEIGE_X1=6.673938261130326, CEMANEIGE_X2=0.8912386066273236
-Run number 9 has the highest objectivefunction with: 0.3215
+GR4J_X1=1.0953713632793094, GR4J_X2=-2.259976354923924, GR4J_X3=551.748757296639, GR4J_X4=1.8164531289573203, CEMANEIGE_X1=21.937117423675325, CEMANEIGE_X2=0.8870828993533204
+Run number 9 has the highest objectivefunction with: 0.2183
 </pre>
 </div>
 </div>
@@ -8593,13 +8644,13 @@ Data variables:
 Attributes:
     Conventions:  CF-1.6
     featureType:  timeSeries
-    history:      Created on 2026-04-01T21:06:56 by Raven 4.12
+    history:      Created on 2026-11-12T17:40:37 by Raven 4.12
     description:  Standard Output
     references:   Craig J.R. and the Raven Development Team Raven user's and ...
-    model_id:     GR4JCN</pre><div class="xr-wrap" style="display:none"><div class="xr-header"><div class="xr-obj-type">xarray.Dataset</div></div><ul class="xr-sections"><li class="xr-section-item"><input class="xr-section-summary-in" disabled="" id="section-cc45a357-1384-4f3e-911f-f102f5e07e38" type="checkbox"/><label class="xr-section-summary" for="section-cc45a357-1384-4f3e-911f-f102f5e07e38" title="Expand/collapse section">Dimensions:</label><div class="xr-section-inline-details"><ul class="xr-dim-list"><li><span class="xr-has-index">time</span>: 3652</li><li><span>nbasins</span>: 1</li></ul></div><div class="xr-section-details"></div></li><li class="xr-section-item"><input checked="" class="xr-section-summary-in" id="section-4e3cbb2f-761a-4519-87d2-1e45bbe5aa48" type="checkbox"/><label class="xr-section-summary" for="section-4e3cbb2f-761a-4519-87d2-1e45bbe5aa48">Coordinates: <span>(2)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">time</span></div><div class="xr-var-dims">(time)</div><div class="xr-var-dtype">datetime64[ns]</div><div class="xr-var-preview xr-preview">1990-01-01 ... 1999-12-31</div><input class="xr-var-attrs-in" id="attrs-a1e27ade-e870-424c-87f7-65d8a01a0826" type="checkbox"/><label for="attrs-a1e27ade-e870-424c-87f7-65d8a01a0826" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-fead7118-8c1f-4157-9c8b-813756ad7af6" type="checkbox"/><label for="data-fead7118-8c1f-4157-9c8b-813756ad7af6" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class="xr-var-data"><pre>array(['1990-01-01T00:00:00.000000000', '1990-01-02T00:00:00.000000000',
+    model_id:     GR4JCN</pre><div class="xr-wrap" style="display:none"><div class="xr-header"><div class="xr-obj-type">xarray.Dataset</div></div><ul class="xr-sections"><li class="xr-section-item"><input class="xr-section-summary-in" disabled="" id="section-048f3152-9918-4f83-8d4c-4297e1d04667" type="checkbox"/><label class="xr-section-summary" for="section-048f3152-9918-4f83-8d4c-4297e1d04667" title="Expand/collapse section">Dimensions:</label><div class="xr-section-inline-details"><ul class="xr-dim-list"><li><span class="xr-has-index">time</span>: 3652</li><li><span>nbasins</span>: 1</li></ul></div><div class="xr-section-details"></div></li><li class="xr-section-item"><input checked="" class="xr-section-summary-in" id="section-0e7438a0-4d4d-4e0f-b9e9-704e2dcb7d39" type="checkbox"/><label class="xr-section-summary" for="section-0e7438a0-4d4d-4e0f-b9e9-704e2dcb7d39">Coordinates: <span>(2)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">time</span></div><div class="xr-var-dims">(time)</div><div class="xr-var-dtype">datetime64[ns]</div><div class="xr-var-preview xr-preview">1990-01-01 ... 1999-12-31</div><input class="xr-var-attrs-in" id="attrs-81f7bf02-165d-412f-b4bb-18dade99024e" type="checkbox"/><label for="attrs-81f7bf02-165d-412f-b4bb-18dade99024e" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-f2e43cd5-d97b-405c-bd85-eb2fda07ed5a" type="checkbox"/><label for="data-f2e43cd5-d97b-405c-bd85-eb2fda07ed5a" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class="xr-var-data"><pre>array(['1990-01-01T00:00:00.000000000', '1990-01-02T00:00:00.000000000',
        '1990-01-03T00:00:00.000000000', ..., '1999-12-29T00:00:00.000000000',
        '1999-12-30T00:00:00.000000000', '1999-12-31T00:00:00.000000000'],
-      shape=(3652,), dtype='datetime64[ns]')</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>basin_name</span></div><div class="xr-var-dims">(nbasins)</div><div class="xr-var-dtype">&lt;U1</div><div class="xr-var-preview xr-preview">...</div><input class="xr-var-attrs-in" id="attrs-40f366ba-d67d-49e9-bb16-426ee0547ce9" type="checkbox"/><label for="attrs-40f366ba-d67d-49e9-bb16-426ee0547ce9" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-44a5097b-b770-4851-ac8b-ce0f5407b2d7" type="checkbox"/><label for="data-44a5097b-b770-4851-ac8b-ce0f5407b2d7" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>long_name :</span></dt><dd>ID of sub-basins with simulated outflows</dd><dt><span>cf_role :</span></dt><dd>timeseries_id</dd><dt><span>units :</span></dt><dd>1</dd></dl></div><div class="xr-var-data"><pre>[1 values with dtype=&lt;U1]</pre></div></li></ul></div></li><li class="xr-section-item"><input checked="" class="xr-section-summary-in" id="section-432b7e1a-1db8-4dc3-a1a7-a8f821347545" type="checkbox"/><label class="xr-section-summary" for="section-432b7e1a-1db8-4dc3-a1a7-a8f821347545">Data variables: <span>(5)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span>precip</span></div><div class="xr-var-dims">(time)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">...</div><input class="xr-var-attrs-in" id="attrs-1878985c-2273-486b-8f39-d680c65f9f60" type="checkbox"/><label for="attrs-1878985c-2273-486b-8f39-d680c65f9f60" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-aed83482-c71b-4dd1-a7fd-c93c3393ddaa" type="checkbox"/><label for="data-aed83482-c71b-4dd1-a7fd-c93c3393ddaa" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>units :</span></dt><dd>mm d**-1</dd><dt><span>long_name :</span></dt><dd>Precipitation</dd></dl></div><div class="xr-var-data"><pre>[3652 values with dtype=float64]</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>basin_fullname</span></div><div class="xr-var-dims">(nbasins)</div><div class="xr-var-dtype">&lt;U7</div><div class="xr-var-preview xr-preview">...</div><input class="xr-var-attrs-in" id="attrs-dfacbafd-4f0d-4183-ba4f-29d10d83d3b3" type="checkbox"/><label for="attrs-dfacbafd-4f0d-4183-ba4f-29d10d83d3b3" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-8b0bb96a-79fc-4cfc-9f56-423d0871de3f" type="checkbox"/><label for="data-8b0bb96a-79fc-4cfc-9f56-423d0871de3f" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>long_name :</span></dt><dd>Name of sub-basins with simulated outflows</dd><dt><span>units :</span></dt><dd>1</dd></dl></div><div class="xr-var-data"><pre>[1 values with dtype=&lt;U7]</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>q_sim</span></div><div class="xr-var-dims">(time, nbasins)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">...</div><input class="xr-var-attrs-in" id="attrs-021fdf5d-36fc-4122-97a0-c3deece70285" type="checkbox"/><label for="attrs-021fdf5d-36fc-4122-97a0-c3deece70285" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-5b9fae4c-45c6-47a2-8222-24789aacef3b" type="checkbox"/><label for="data-5b9fae4c-45c6-47a2-8222-24789aacef3b" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>units :</span></dt><dd>m**3 s**-1</dd><dt><span>long_name :</span></dt><dd>Simulated outflows</dd></dl></div><div class="xr-var-data"><pre>[3652 values with dtype=float64]</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>q_obs</span></div><div class="xr-var-dims">(time, nbasins)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">...</div><input class="xr-var-attrs-in" id="attrs-dd7f5cb3-f5d3-4f49-b850-50e83b7475ed" type="checkbox"/><label for="attrs-dd7f5cb3-f5d3-4f49-b850-50e83b7475ed" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-8f6a632e-766e-47dd-91e4-315bba15ea36" type="checkbox"/><label for="data-8f6a632e-766e-47dd-91e4-315bba15ea36" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>units :</span></dt><dd>m**3 s**-1</dd><dt><span>long_name :</span></dt><dd>Observed outflows</dd></dl></div><div class="xr-var-data"><pre>[3652 values with dtype=float64]</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>q_in</span></div><div class="xr-var-dims">(time, nbasins)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">...</div><input class="xr-var-attrs-in" id="attrs-5c21de85-d2b2-4fb5-b070-c0c4f493f957" type="checkbox"/><label for="attrs-5c21de85-d2b2-4fb5-b070-c0c4f493f957" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-60902949-b843-4e69-a05d-504b5ec580e4" type="checkbox"/><label for="data-60902949-b843-4e69-a05d-504b5ec580e4" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>units :</span></dt><dd>m**3 s**-1</dd><dt><span>long_name :</span></dt><dd>Simulated reservoir inflows</dd></dl></div><div class="xr-var-data"><pre>[3652 values with dtype=float64]</pre></div></li></ul></div></li><li class="xr-section-item"><input checked="" class="xr-section-summary-in" id="section-907b6086-5f7c-4652-8aa0-37e6ae3e9f41" type="checkbox"/><label class="xr-section-summary" for="section-907b6086-5f7c-4652-8aa0-37e6ae3e9f41">Attributes: <span>(6)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><dl class="xr-attrs"><dt><span>Conventions :</span></dt><dd>CF-1.6</dd><dt><span>featureType :</span></dt><dd>timeSeries</dd><dt><span>history :</span></dt><dd>Created on 2026-04-01T21:06:56 by Raven 4.12</dd><dt><span>description :</span></dt><dd>Standard Output</dd><dt><span>references :</span></dt><dd>Craig J.R. and the Raven Development Team Raven user's and developer's manual (Version 4.12) URL: https://raven.uwaterloo.ca/ (2026).</dd><dt><span>model_id :</span></dt><dd>GR4JCN</dd></dl></div></li></ul></div></div>
+      shape=(3652,), dtype='datetime64[ns]')</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>basin_name</span></div><div class="xr-var-dims">(nbasins)</div><div class="xr-var-dtype">&lt;U1</div><div class="xr-var-preview xr-preview">...</div><input class="xr-var-attrs-in" id="attrs-411dcca9-da54-4988-b914-6172fa4c74cb" type="checkbox"/><label for="attrs-411dcca9-da54-4988-b914-6172fa4c74cb" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-fc32975b-b793-4bb5-82e0-e6cee9b556f7" type="checkbox"/><label for="data-fc32975b-b793-4bb5-82e0-e6cee9b556f7" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>long_name :</span></dt><dd>ID of sub-basins with simulated outflows</dd><dt><span>cf_role :</span></dt><dd>timeseries_id</dd><dt><span>units :</span></dt><dd>1</dd></dl></div><div class="xr-var-data"><pre>[1 values with dtype=&lt;U1]</pre></div></li></ul></div></li><li class="xr-section-item"><input checked="" class="xr-section-summary-in" id="section-62e7f0ce-7619-4067-bff1-b207a3cdb570" type="checkbox"/><label class="xr-section-summary" for="section-62e7f0ce-7619-4067-bff1-b207a3cdb570">Data variables: <span>(5)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span>precip</span></div><div class="xr-var-dims">(time)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">...</div><input class="xr-var-attrs-in" id="attrs-a47cae0e-5118-48ed-8c5f-7232c0d6b289" type="checkbox"/><label for="attrs-a47cae0e-5118-48ed-8c5f-7232c0d6b289" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-e715d216-9f96-419d-aa3a-2572703c1bcb" type="checkbox"/><label for="data-e715d216-9f96-419d-aa3a-2572703c1bcb" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>units :</span></dt><dd>mm d**-1</dd><dt><span>long_name :</span></dt><dd>Precipitation</dd></dl></div><div class="xr-var-data"><pre>[3652 values with dtype=float64]</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>basin_fullname</span></div><div class="xr-var-dims">(nbasins)</div><div class="xr-var-dtype">&lt;U7</div><div class="xr-var-preview xr-preview">...</div><input class="xr-var-attrs-in" id="attrs-a815e368-262d-4d29-acde-bb68e22df092" type="checkbox"/><label for="attrs-a815e368-262d-4d29-acde-bb68e22df092" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-42e38feb-1468-428c-a896-8623de1fbbaf" type="checkbox"/><label for="data-42e38feb-1468-428c-a896-8623de1fbbaf" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>long_name :</span></dt><dd>Name of sub-basins with simulated outflows</dd><dt><span>units :</span></dt><dd>1</dd></dl></div><div class="xr-var-data"><pre>[1 values with dtype=&lt;U7]</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>q_sim</span></div><div class="xr-var-dims">(time, nbasins)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">...</div><input class="xr-var-attrs-in" id="attrs-a856f6e2-a186-4304-a82f-f8482c0527cc" type="checkbox"/><label for="attrs-a856f6e2-a186-4304-a82f-f8482c0527cc" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-b92ff8aa-034c-4141-b997-6de90ef2cf51" type="checkbox"/><label for="data-b92ff8aa-034c-4141-b997-6de90ef2cf51" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>units :</span></dt><dd>m**3 s**-1</dd><dt><span>long_name :</span></dt><dd>Simulated outflows</dd></dl></div><div class="xr-var-data"><pre>[3652 values with dtype=float64]</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>q_obs</span></div><div class="xr-var-dims">(time, nbasins)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">...</div><input class="xr-var-attrs-in" id="attrs-7f2b5700-e1f2-4bc8-9a36-ca3751bebb80" type="checkbox"/><label for="attrs-7f2b5700-e1f2-4bc8-9a36-ca3751bebb80" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-0f6a8c64-c32f-43e0-8fe0-cc8dcf8a4ae4" type="checkbox"/><label for="data-0f6a8c64-c32f-43e0-8fe0-cc8dcf8a4ae4" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>units :</span></dt><dd>m**3 s**-1</dd><dt><span>long_name :</span></dt><dd>Observed outflows</dd></dl></div><div class="xr-var-data"><pre>[3652 values with dtype=float64]</pre></div></li><li class="xr-var-item"><div class="xr-var-name"><span>q_in</span></div><div class="xr-var-dims">(time, nbasins)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">...</div><input class="xr-var-attrs-in" id="attrs-eec01d85-fe7a-429d-9856-89a6e962e168" type="checkbox"/><label for="attrs-eec01d85-fe7a-429d-9856-89a6e962e168" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-f3546ae6-1a68-43ea-a1f6-c07ab4ee05c0" type="checkbox"/><label for="data-f3546ae6-1a68-43ea-a1f6-c07ab4ee05c0" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"><dt><span>units :</span></dt><dd>m**3 s**-1</dd><dt><span>long_name :</span></dt><dd>Simulated reservoir inflows</dd></dl></div><div class="xr-var-data"><pre>[3652 values with dtype=float64]</pre></div></li></ul></div></li><li class="xr-section-item"><input checked="" class="xr-section-summary-in" id="section-356604e9-7119-4397-b4dd-d01614a78512" type="checkbox"/><label class="xr-section-summary" for="section-356604e9-7119-4397-b4dd-d01614a78512">Attributes: <span>(6)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><dl class="xr-attrs"><dt><span>Conventions :</span></dt><dd>CF-1.6</dd><dt><span>featureType :</span></dt><dd>timeSeries</dd><dt><span>history :</span></dt><dd>Created on 2026-11-12T17:40:37 by Raven 4.12</dd><dt><span>description :</span></dt><dd>Standard Output</dd><dt><span>references :</span></dt><dd>Craig J.R. and the Raven Development Team Raven user's and developer's manual (Version 4.12) URL: https://raven.uwaterloo.ca/ (2026).</dd><dt><span>model_id :</span></dt><dd>GR4JCN</dd></dl></div></li></ul></div></div>
 </div>
 </div>
 </div>
